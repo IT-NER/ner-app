@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "ห้องประชุมชั้น 1",
+    "quantity": null,
+    "RoomColorId": 1
+  },
+  {
+    "id": 2,
+    "name": "ห้อง 2/1 จำนวน 5 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 2
+  },
+  {
+    "id": 3,
+    "name": "ห้อง 2/2 จำนวน 13 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 2
+  },
+  {
+    "id": 4,
+    "name": "ห้อง 3/1 จำนวน 5 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 4
+  },
+  {
+    "id": 5,
+    "name": "ห้อง 3/2 จำนวน 13 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 4
+  },
+  {
+    "id": 6,
+    "name": "ห้อง 4/1 จำนวน 17 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 5
+  },
+  {
+    "id": 7,
+    "name": "ห้อง 4/2 จำนวน 13 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 5
+  },
+  {
+    "id": 8,
+    "name": "ห้องประชุมทรัพย์ปัญญา จำนวน 12 ที่นั่ง",
+    "quantity": null,
+    "RoomColorId": 6
+  }
+]

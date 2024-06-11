@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Status",
+    "seq": 3
+  },
+  {
+    "name": "Device",
+    "seq": 10
+  },
+  {
+    "name": "Drink",
+    "seq": 3
+  },
+  {
+    "name": "Food",
+    "seq": 10
+  },
+  {
+    "name": "Role",
+    "seq": 3
+  },
+  {
+    "name": "Program",
+    "seq": 5
+  },
+  {
+    "name": "Position",
+    "seq": 2
+  },
+  {
+    "name": "Room",
+    "seq": 8
+  },
+  {
+    "name": "User",
+    "seq": 3
+  },
+  {
+    "name": "Department",
+    "seq": 2
+  },
+  {
+    "name": "RoomColor",
+    "seq": 6
+  },
+  {
+    "name": "MeetingType",
+    "seq": 2
+  },
+  {
+    "name": "Booking",
+    "seq": 2
+  }
+]

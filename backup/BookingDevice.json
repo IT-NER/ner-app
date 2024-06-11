@@ -1,0 +1,22 @@
+[
+  {
+    "BookingId": 1,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 1,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 2,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 2,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 2,
+    "DeviceId": 2
+  }
+]

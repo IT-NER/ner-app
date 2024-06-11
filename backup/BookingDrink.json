@@ -1,0 +1,18 @@
+[
+  {
+    "BookingId": 1,
+    "DrinkId": 1
+  },
+  {
+    "BookingId": 2,
+    "DrinkId": 1
+  },
+  {
+    "BookingId": 2,
+    "DrinkId": 2
+  },
+  {
+    "BookingId": 2,
+    "DrinkId": 3
+  }
+]
