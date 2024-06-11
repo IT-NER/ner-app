@@ -54,16 +54,16 @@
                 <v-row>
                   <v-col
                     cols="12"
-                    lg="4"
-                    md="3"
-                    sm="4"
+                    lg="6"
+                    md="4"
+                    sm="6"
                     xs="6"
                     v-for="(item, i) in Room"
                     :key="i"
                   >
                     <v-checkbox
                       v-model="booking.RoomId"
-                      :label="item.name"
+                      :label="item.name + `  (${item.quantity}  ที่นั่ง)`"
                       :color="item.color"
                       :value="item.id"
                       hide-details
@@ -72,6 +72,7 @@
                       :required="!booking.RoomId"
                       @change="booking.color = item.color"
                     ></v-checkbox>
+                   
                   </v-col>
                 </v-row>
               </v-container>
