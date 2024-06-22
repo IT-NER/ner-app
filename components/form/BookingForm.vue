@@ -72,7 +72,6 @@
                       :required="!booking.RoomId"
                       @change="booking.color = item.color"
                     ></v-checkbox>
-                   
                   </v-col>
                 </v-row>
               </v-container>
@@ -265,6 +264,34 @@
           </v-card>
         </v-col>
       </v-row>
+      <v-row>
+         <v-col cols="12">
+          <v-card hover>
+            <v-toolbar dense :color="formColor" dark>
+              <v-icon class="mr-3">mdi-note-alert</v-icon>
+              หมายเหตุ
+            </v-toolbar>
+            <v-divider></v-divider>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" >
+                    <v-textarea
+                      label="หมายเหตุ"
+                      prepend-inner-icon="mdi-notebook-edit"
+                      hide-details
+                      outlined
+                      dense
+                      v-model="booking.description"
+                    ></v-textarea>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+
     </v-container>
   </div>
 </template>
@@ -427,5 +454,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
