@@ -97,9 +97,8 @@
   </div>
 </template>
 
-
 <script>
-import BookingForm from "~/components/form/BookingForm.vue";
+import BookingForm from "./BookingForm.vue";
 export default {
   components: { BookingForm },
   data: () => ({
@@ -117,6 +116,7 @@ export default {
       { text: "เริ่ม", value: "start" },
       { text: "สิ้นสุด", value: "end" },
       { text: "ประเภท", value: "MeetingType.name" },
+      { text: "สถานะ", value: "Status.name" },
       { text: "Actions", value: "actions", sortable: false },
     ],
 
@@ -403,5 +403,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

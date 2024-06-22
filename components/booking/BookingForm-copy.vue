@@ -135,6 +135,7 @@
                       dense
                       required
                       v-model="booking.MeetingTypeId"
+                      @change="setOnlineDefault"
                     ></v-select>
                   </v-col>
                   <v-col
@@ -147,14 +148,15 @@
                     <v-select
                       label="โปรแกรม"
                       prepend-inner-icon="mdi-devices"
-                      v-model="booking.ProgramId"
                       :items="Program"
                       item-text="name"
-                      value="id"
+                      item-value="id"
                       hide-details
                       outlined
                       dense
                       chips
+                      :required="booking.MeetingTypeId == 2"
+                      v-model="booking.ProgramId"
                     ></v-select>
                   </v-col>
                 </v-row>
@@ -191,6 +193,19 @@
                       dense
                       :required="booking.MeetingTypeId == 2"
                       v-model="booking.url"
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field
+                      label="ข้อมูลติดต่อ"
+                      prepend-inner-icon="mdi-phone"
+                      hide-details
+                      outlined
+                      dense
+                      required
+                      v-model="booking.authorContact"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -265,7 +280,7 @@
         </v-col>
       </v-row>
       <v-row>
-         <v-col cols="12">
+        <v-col cols="12">
           <v-card hover>
             <v-toolbar dense :color="formColor" dark>
               <v-icon class="mr-3">mdi-note-alert</v-icon>
@@ -275,7 +290,7 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                  <v-col cols="12" >
+                  <v-col cols="12">
                     <v-textarea
                       label="หมายเหตุ"
                       prepend-inner-icon="mdi-notebook-edit"
@@ -291,7 +306,6 @@
           </v-card>
         </v-col>
       </v-row>
-
     </v-container>
   </div>
 </template>
@@ -361,17 +375,17 @@ export default {
   },
 
   methods: {
-    async setOnlineDefault() {
-      if (this.booking.MeetingTypeId == 1) {
+    async setOnlineDefault(e) {
+      if (e == 1) {
+        this.booking.ProgramId = null;
         this.booking.meetingId = null;
         this.booking.meetingPassword = null;
         this.booking.url = null;
-      }
-
-      if (this.booking.MeetingTypeId == 2) {
-        this.$nextTick(() => {
-          this.$refs.meetingId.focus();
-        });
+      } else if (e == 2) {
+        this.booking.ProgramId = 1;
+        this.booking.meetingId = null;
+        this.booking.meetingPassword = null;
+        this.booking.url = null;
       }
     },
 

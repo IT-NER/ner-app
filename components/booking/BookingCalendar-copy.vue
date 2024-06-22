@@ -51,9 +51,9 @@
 
     <v-dialog
       v-model="dialogView"
-      fullscreen
-      hide-overlay
-      transition="dialog-bottom-transition"
+      width="auto"
+      scrollable
+      transition="dialog-transition"
     >
       <v-card flat>
         <v-toolbar elevation="0" :color="booking.color" dark>
@@ -64,51 +64,86 @@
             </h3>
           </span>
           <v-spacer></v-spacer>
-          <v-icon @click="dialogView = false">mdi-close</v-icon>
         </v-toolbar>
         <v-card-text>
-          <v-container fluid>
-            <v-row>
-              <v-col cols="12">
-                <card-view-booking :booking.sync="booking" />
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" md="4" sm="12">
-                <card-view-device :booking.sync="booking" />
-              </v-col>
-              <v-col cols="12" md="4" sm="12">
-                <card-view-food :booking.sync="booking" />
-              </v-col>
-              <v-col cols="12" md="4" sm="12">
-                <card-view-drink :booking.sync="booking" />
-              </v-col>
-            </v-row>
-          </v-container>
+          <booking-view class="mx-auto" :booking.sync="booking" />
+
+          <v-row>
+            <v-col cols="12" md="4" sm="12">
+              <v-card>
+                <v-toolbar dense dark :color="booking.color">
+                  อุปกรณ์
+                </v-toolbar>
+                <v-card-text>
+                  <booking-lists-device
+                    :BookingDevice.sync="booking.BookingDevice"
+                  />
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" md="4" sm="12">
+              <v-card>
+                <v-toolbar dense dark :color="booking.color"> อาหาร </v-toolbar>
+                <v-card-text>
+                  <booking-lists-food :BookingFood.sync="booking.BookingFood" />
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" md="4" sm="12">
+              <v-card>
+                <v-toolbar dense dark :color="booking.color">
+                  เครื่องดื่ม
+                </v-toolbar>
+                <v-card-text>
+                  <booking-lists-drink
+                    :BookingDrink.sync="booking.BookingDrink"
+                  />
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card-text>
       </v-card>
     </v-dialog>
 
-    <card-items-room :Room.sync="Room" />
-    <v-sheet>
+    <v-sheet height="64">
       <v-toolbar elevation="0" flat>
-        <v-btn
-          color="primary"
-          outlined
-          class="mr-2"
-          v-for="(item, i) in types"
-          :key="i"
-          @click="type = item.value"
-        >
-          {{ item.text }}
-        </v-btn>
-
         <v-spacer></v-spacer>
-        <v-btn class="mr-2" outlined color="primary" @click="setToday">
-          <v-spacer></v-spacer>
-          Today
+        <v-menu bottom right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn outlined color="primary" v-bind="attrs" v-on="on">
+              <small>{{ typeToLabel[type] }}</small>
+              <v-icon right> mdi-menu-down </v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item @click="type = 'day'">
+              <v-list-item-title>
+                <small> Day </small>
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="type = 'week'">
+              <v-list-item-title>
+                <small> Week </small>
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="type = 'month'">
+              <v-list-item-title>
+                <small> Month </small>
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="type = '4day'">
+              <v-list-item-title>
+                <small> 4 days </small>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+        <v-btn outlined color="primary" @click="setToday">
+          <small> Today </small>
         </v-btn>
-        <v-btn outlined color="success" @click="addItem">
+        <v-btn class="ml-3" outlined color="success" @click="addItem">
           <v-icon small> mdi-calendar-plus </v-icon>
           <small> NEW </small>
         </v-btn>
@@ -161,11 +196,6 @@ import BookingListsDevice from "./BookingListsDevice.vue";
 import BookingListsDrink from "./BookingListsDrink.vue";
 import BookingListsFood from "./BookingListsFood.vue";
 import BookingView from "./BookingView.vue";
-import CardItemsRoom from "./CardItemsRoom.vue";
-import CardViewBooking from "./CardViewBooking.vue";
-import CardViewDevice from "./CardViewDevice.vue";
-import CardViewDrink from "./CardViewDrink.vue";
-import CardViewFood from "./CardViewFood.vue";
 
 export default {
   components: {
@@ -175,34 +205,16 @@ export default {
     BookingListsDevice,
     BookingListsFood,
     BookingListsDrink,
-    CardViewBooking,
-    CardViewDevice,
-    CardViewFood,
-    CardViewDrink,
-    CardItemsRoom,
   },
   data() {
     return {
       focus: "",
       type: "month",
-      types: [
-        {
-          text: "Month",
-          value: "month",
-        },
-        {
-          text: "Week",
-          value: "week",
-        },
-        {
-          text: "Day",
-          value: "day",
-        },
-        {
-          text: "4 Days",
-          value: "4day",
-        },
-      ],
+      typeToLabel: {
+        month: "Month",
+        week: "Week",
+        day: "Day",
+      },
 
       events: [],
       eventsDay: [],
@@ -212,7 +224,6 @@ export default {
         start: null,
         end: null,
         name: null,
-        authorContact: null,
         color: null,
         timed: true,
         url: null,
@@ -262,7 +273,6 @@ export default {
   async created() {
     await this.getEvents();
     await this.getUser();
-    await this.getRoom();
   },
 
   computed: {
@@ -331,6 +341,7 @@ export default {
 
       this.events = await events;
       await this.getEventsDay();
+      await this.setItemDefault();
     },
 
     async getEventsDay() {
@@ -448,7 +459,6 @@ export default {
       this.booking.description = null;
       this.booking.timed = true;
       this.booking.name = null;
-      this.booking.authorContact = null;
       this.booking.quantity = null;
       this.booking.chairman = null;
       this.booking.StatusId = 1;
@@ -528,6 +538,7 @@ export default {
       this.booking.UserId = this.User.id;
       // console.log(this.User);
     },
+
     async getMeetingType() {
       this.MeetingType = await this.$axios
         .get("/api/meetingType")
