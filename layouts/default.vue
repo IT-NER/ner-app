@@ -88,12 +88,12 @@ export default {
           to: "/booking-lists",
         },
         {
-          icon: "mdi-home",
+          icon: "mdi-list-box",
           title: "รายการ (ทั้งหมด)",
           to: "/booking-lists-all",
         },
         {
-          icon: "mdi-home",
+          icon: "mdi-account-edit",
           title: "จัดการ ผู้ใช้งาน",
           to: "/user-management",
         },
