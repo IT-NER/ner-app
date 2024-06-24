@@ -5,13 +5,10 @@
 </template>
 
 <script>
-import BookingManagement from "~/components/management/BookingManagement.vue";
-
+import BookingManagement from "~/components/booking/BookingManagement.vue";
 export default {
   components: { BookingManagement },
 };
 </script>
 
-<style lang="scss
-SettingBooking" scoped>
-</style>
+<style lang="scss" scoped></style>

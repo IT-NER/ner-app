@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- {{ booking }} -->
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col>
           <v-data-table
@@ -65,5 +65,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

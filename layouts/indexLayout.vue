@@ -20,7 +20,7 @@
     </v-app-bar>
 
     <v-main class="grey lighten-3">
-      <v-container>
+      <v-container fluid>
         <v-row>
           <v-col cols="12" sm="2">
             <v-sheet rounded="lg" color="success" min-height="268">

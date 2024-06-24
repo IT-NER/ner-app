@@ -6,6 +6,96 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+// search
+app.post("/booking/search", async (req, res) => {
+  // console.log('req', req.body.data);
+  // return
+  let item = req.body.data
+  let RoomId = req.body.data.RoomId
+  let MeetingTypeId = req.body.data.MeetingTypeId
+  let StatusId = req.body.data.StatusId
+
+  let items = [
+    {
+      start: {
+        gte: new Date(item.start)
+      },
+      end: {
+        lte: new Date(item.end)
+      },
+    }
+  ]
+
+  if (RoomId) {
+    items.push({ RoomId: RoomId })
+  }
+  if (MeetingTypeId) {
+    items.push({ MeetingTypeId: MeetingTypeId })
+  }
+  if (StatusId) {
+    items.push({ StatusId: StatusId })
+  }
+
+
+  let booking = await prisma.booking.findMany({
+    where: {
+
+      AND: items
+    },
+    include: {
+      Room: true,
+      MeetingType: true,
+      Program: true,
+      Status: true,
+      BookingDevice: true,
+      BookingFood: true,
+      BookingDrink: true,
+      User: {
+        include: {
+          Department: true,
+          Position: true,
+        }
+      }
+    },
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
+
+  booking.forEach((e) => {
+    let BookingDevice = [];
+    let BookingFood = [];
+    let BookingDrink = [];
+
+    if (e.BookingDevice) {
+      e.BookingDevice.forEach((item) => {
+        BookingDevice.push(item["DeviceId"]);
+      });
+    }
+
+    if (e.BookingFood) {
+      e.BookingFood.forEach((item) => {
+        BookingFood.push(item["FoodId"]);
+      });
+    }
+
+    if (e.BookingDrink) {
+      e.BookingDrink.forEach((item) => {
+        BookingDrink.push(item["DrinkId"]);
+      });
+    }
+
+    e.BookingDevice = BookingDevice;
+    e.BookingFood = BookingFood;
+    e.BookingDrink = BookingDrink;
+  });
+
+  res.status(200).json(booking);
+});
+
+
 app.get("/booking", async (req, res) => {
   let booking = await prisma.booking.findMany({
     // where: {
@@ -27,6 +117,11 @@ app.get("/booking", async (req, res) => {
         }
       }
     },
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
   });
 
   booking.forEach((e) => {
@@ -77,6 +172,11 @@ app.get("/booking/all", async (req, res) => {
         }
       }
     },
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
   });
 
   booking.forEach((e) => {
@@ -131,6 +231,11 @@ app.get("/booking/:id", async (req, res) => {
         }
       }
     },
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
   });
 
   booking.forEach((e) => {
@@ -264,6 +369,7 @@ app.post("/booking", async (req, res) => {
         start: new Date(item.start),
         end: new Date(item.end),
         name: item.name,
+        authorContact: item.authorContact,
         color: item.color,
         timed: item.timed,
         url: item.url,
@@ -360,6 +466,7 @@ app.put("/booking/:id", async (req, res) => {
         start: new Date(item.start),
         end: new Date(item.end),
         name: item.name,
+        authorContact: item.authorContact,
         color: item.color,
         timed: item.timed,
         url: item.url,

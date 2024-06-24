@@ -1,21 +1,40 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" scrollable persistent over-flow="auto">
+    <v-dialog
+      v-model="dialog"
+      fullscreen
+      hide-overlay
+      scrollable
+      persistent
+      transition="dialog-bottom-transition"
+    >
       <form @submit.prevent="save">
         <v-card>
-          <v-toolbar elevation="0" :color="formColor" dark dense>
-            <span>
-              <v-icon x-large>{{ iconTitle }}</v-icon>
-            </span>
-            <span class="mr-3">{{ formTitle }}</span>
+          <v-toolbar dark :color="formColor">
+            <v-btn icon dark @click="dialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-toolbar-title :color="formColor">
+              {{ formTitle }}
+            </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-icon @click="closeDailog">mdi-close</v-icon>
+            <v-toolbar-items>
+              <v-btn dark text type="submit">
+                <v-icon class="mr-2"></v-icon>
+                บันทึก
+              </v-btn>
+            </v-toolbar-items>
           </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <booking-form
-              :booking.sync="editedItem"
-              :editedIndex="editedIndex"
+              :booking.sync="booking"
+              :Room.sync="Room"
+              :Device.sync="Device"
+              :Food.sync="Food"
+              :Drink.sync="Drink"
+              :Program.sync="Program"
+              :MeetingType.sync="MeetingType"
             />
           </v-card-text>
           <v-divider></v-divider>
@@ -97,9 +116,8 @@
   </div>
 </template>
 
-
 <script>
-import BookingForm from "~/components/form/BookingForm.vue";
+import BookingForm from "./BookingForm.vue";
 export default {
   components: { BookingForm },
   data: () => ({
@@ -117,12 +135,13 @@ export default {
       { text: "เริ่ม", value: "start" },
       { text: "สิ้นสุด", value: "end" },
       { text: "ประเภท", value: "MeetingType.name" },
+      { text: "สถานะ", value: "Status.name" },
       { text: "Actions", value: "actions", sortable: false },
     ],
 
     bookings: [],
     editedIndex: -1,
-    editedItem: {
+    booking: {
       id: null,
       start: null,
       end: null,
@@ -152,6 +171,14 @@ export default {
     },
 
     User: null,
+    Status: null,
+    Program: null,
+    MeetingType: null,
+    Room: null,
+    User: null,
+    Device: null,
+    Food: null,
+    Drink: null,
   }),
 
   computed: {
@@ -176,7 +203,14 @@ export default {
 
   async created() {
     await this.getUser();
+
     await this.getBooking();
+    await this.getRoom();
+    await this.getDevice();
+    await this.getFood();
+    await this.getDrink();
+    await this.getMeetingType();
+    await this.getProgram();
   },
 
   methods: {
@@ -187,8 +221,8 @@ export default {
           // console.log("res", res.data);
 
           res.data.forEach((item) => {
-            item["start"] = this.$moment(item.start).format("YYYY-MM-DDThh:mm");
-            item["end"] = this.$moment(item.end).format("YYYY-MM-DDThh:mm");
+            item["start"] = this.$moment(item.start).format("YYYY-MM-DDTHH:mm");
+            item["end"] = this.$moment(item.end).format("YYYY-MM-DDTHH:mm");
           });
           return res.data;
         })
@@ -201,6 +235,76 @@ export default {
 
       // this.bookings = result;
     },
+    async getMeetingType() {
+      this.MeetingType = await this.$axios
+        .get("/api/meetingType")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
+    async getStatus() {
+      this.Status = await this.$axios
+        .get("/api/status")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
+    async getDrink() {
+      this.Drink = await this.$axios
+        .get("/api/drink")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
+    async getFood() {
+      this.Food = await this.$axios
+        .get("/api/food")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
+    async getDevice() {
+      this.Device = await this.$axios
+        .get("/api/device")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
+    async getRoom() {
+      this.Room = await this.$axios
+        .get("/api/room")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
+    async getProgram() {
+      this.Program = await this.$axios
+        .get("/api/program")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          // console.log("err", err);
+        });
+    },
 
     async addItem() {
       // this.$nextTick(() => {
@@ -210,49 +314,49 @@ export default {
     },
     async getUser() {
       this.User = this.$auth.$storage.getCookie("user");
-      this.editedItem.UserId = await this.User.id;
+      this.booking.UserId = await this.User.id;
       // console.log(this.User);
     },
     async setItemDefault() {
       this.editedIndex = -1;
 
-      this.editedItem.id = null;
-      this.editedItem.start = null;
-      this.editedItem.end = null;
-      this.editedItem.color = null;
-      this.editedItem.MeetingTypeId = 1;
-      this.editedItem.ProgramId = null;
-      this.editedItem.RoomId = null;
-      this.editedItem.BookingDevice = null;
-      this.editedItem.BookingFood = null;
-      this.editedItem.BookingDrink = null;
-      this.editedItem.url = null;
-      this.editedItem.meetingId = null;
-      this.editedItem.meetingPassword = null;
-      this.editedItem.description = null;
-      this.editedItem.timed = false;
-      this.editedItem.allDay = false;
-      this.editedItem.name = null;
-      this.editedItem.quantity = null;
-      this.editedItem.chairman = null;
-      this.editedItem.StatusId = 1;
+      this.booking.id = null;
+      this.booking.start = null;
+      this.booking.end = null;
+      this.booking.color = null;
+      this.booking.MeetingTypeId = 1;
+      this.booking.ProgramId = null;
+      this.booking.RoomId = null;
+      this.booking.BookingDevice = null;
+      this.booking.BookingFood = null;
+      this.booking.BookingDrink = null;
+      this.booking.url = null;
+      this.booking.meetingId = null;
+      this.booking.meetingPassword = null;
+      this.booking.description = null;
+      this.booking.timed = false;
+      this.booking.allDay = false;
+      this.booking.name = null;
+      this.booking.quantity = null;
+      this.booking.chairman = null;
+      this.booking.StatusId = 1;
     },
 
     async editItem(item) {
-      this.editedIndex = this.bookings.indexOf(item);
-      this.editedItem = await Object.assign({}, item);
+      this.editedIndex = item.id;
+      this.booking = await Object.assign({}, item);
       this.openDialog();
     },
 
     async cancelBooking(item) {
-      this.editedIndex = this.bookings.indexOf(item);
-      this.editedItem = Object.assign({}, item);
+      this.editedIndex = item.id;
+      this.booking = Object.assign({}, item);
 
       let delateConfirm = await this.deleteConfirm();
 
       if (delateConfirm) {
         let booking = await this.$axios.put(
-          "/api/booking/cancel/" + this.editedItem.id
+          "/api/booking/cancel/" + this.booking.id
         );
 
         if (booking) {
@@ -350,7 +454,7 @@ export default {
     async createBooking() {
       let createBooking = await this.$axios
         .post("/api/booking", {
-          data: this.editedItem,
+          data: this.booking,
         })
         .then((res) => {
           // console.log("res", res.data);
@@ -366,8 +470,8 @@ export default {
 
     async updateBooking() {
       let updateBooking = await this.$axios
-        .put("/api/booking/" + this.editedItem.id, {
-          data: this.editedItem,
+        .put("/api/booking/" + this.booking.id, {
+          data: this.booking,
         })
         .then((res) => {
           // console.log("res", res.data);
@@ -403,5 +507,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

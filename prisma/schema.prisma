@@ -19,6 +19,7 @@ model User {
   password     String?
   lname        String?
   fname        String?
+  contract     String?
   status       Boolean     @default(true)
   departmentId Int?
   positionId   Int?
@@ -54,8 +55,9 @@ model Booking {
   start           DateTime?
   end             DateTime?
   name            String?
+  authorContact   String?
   color           String?
-  timed           Boolean?
+  timed           Boolean?        @default(true)
   url             String?
   description     String?
   chairman        String?
