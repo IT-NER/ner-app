@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <v-container>
+      <v-container fluid>
         <v-row>
           <v-col cols="12">
             <v-btn dark large color="warning" @click="goToActivity">

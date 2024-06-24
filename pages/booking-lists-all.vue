@@ -1,16 +1,15 @@
 <template>
   <div>
-    <booking-list-all />
+    <booking-management />
   </div>
 </template>
 
 <script>
-import BookingListAll from "~/components/booking/BookingListAll.vue";
+import BookingManagement from "~/components/booking/BookingManagement.vue";
 
 export default {
-  components: { BookingListAll },
+  components: { BookingManagement },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -98,11 +98,6 @@ export default {
           to: "/user-management",
         },
         {
-          icon: "mdi-home",
-          title: "จัดการ รายการจอง (ทั้งหมด)",
-          to: "/booking-management",
-        },
-        {
           icon: "mdi-cog",
           title: "ตั้งค่าระบบ",
           to: "/setting",
@@ -175,4 +170,3 @@ export default {
   },
 };
 </script>
-

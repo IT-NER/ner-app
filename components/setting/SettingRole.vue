@@ -14,7 +14,7 @@
           </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
-            <v-container>
+            <v-container fluid>
               <v-row>
                 <v-col cols="12">
                   <v-text-field
@@ -45,7 +45,7 @@
       </form>
     </v-dialog>
 
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col cols="12" md="6" sm="12">
           <v-text-field
@@ -100,7 +100,6 @@
     </v-container>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -346,5 +345,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

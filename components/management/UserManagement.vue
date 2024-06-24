@@ -83,7 +83,7 @@
           </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
-            <v-container>
+            <v-container fluid>
               <v-row v-if="editedIndex > -1">
                 <v-col cols="12">
                   <v-switch
@@ -283,7 +283,7 @@
           </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
-            <v-container>
+            <v-container fluid>
               <v-row>
                 <v-col cols="12">
                   <v-text-field
@@ -315,7 +315,6 @@
     </v-dialog>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -707,5 +706,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

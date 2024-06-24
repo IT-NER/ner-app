@@ -27,7 +27,7 @@
               {{ booking.User.Department.name }}
             </div>
           </v-col>
-          <v-col cols="12" md="3" sm="12">
+          <v-col cols="12" md="3" sm="12" v-if="User.Role.id >= 2">
             <div class="title">เบอร์โทรศัพท์</div>
             <div class="sub-title">
               {{ booking.authorContact }}
@@ -106,12 +106,24 @@ export default {
   props: ["booking"],
 
   data() {
-    return {};
+    return {
+      User: null,
+    };
+  },
+
+  created() {
+    this.getUser();
   },
 
   watch: {
     booking(val) {
       this.booking = val;
+    },
+  },
+
+  methods: {
+    async getUser() {
+      this.User = this.$auth.$storage.getCookie("user");
     },
   },
 };

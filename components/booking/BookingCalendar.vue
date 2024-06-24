@@ -1,33 +1,42 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" persistent scrollable>
+    <v-dialog
+      v-model="dialog"
+      fullscreen
+      hide-overlay
+      scrollable
+      persistent
+      transition="dialog-bottom-transition"
+    >
       <form @submit.prevent="saveConfirm">
         <v-card>
-          <v-toolbar dense :color="formColor" dark elevation="0">
-            <v-icon>
-              {{ formIcon }}
-            </v-icon>
-
-            <span class="ml-2">
-              <h3 class="title">
-                {{ formTitle }}
-              </h3>
-            </span>
+          <v-toolbar dark :color="formColor">
+            <v-btn icon dark @click="dialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-toolbar-title :color="formColor">
+              {{ formTitle }}
+            </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-icon @click="closeDialog">mdi-close</v-icon>
+            <v-toolbar-items>
+              <v-btn dark text type="submit">
+                <v-icon class="mr-2"></v-icon>
+                บันทึก
+              </v-btn>
+            </v-toolbar-items>
           </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
-            <booking-form :booking.sync="booking" :editedIndex="editedIndex" />
+            <booking-form
+              :booking.sync="booking"
+              :Room.sync="Room"
+              :Device.sync="Device"
+              :Food.sync="Food"
+              :Drink.sync="Drink"
+              :Program.sync="Program"
+              :MeetingType.sync="MeetingType"
+            />
           </v-card-text>
-          <v-divider></v-divider>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn :color="formColor" dark type="submit">
-              <v-icon>mdi-content-save</v-icon>
-              <span class="ml-2"> บันทึก </span>
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </form>
     </v-dialog>
@@ -53,6 +62,7 @@
       v-model="dialogView"
       fullscreen
       hide-overlay
+      persistent
       transition="dialog-bottom-transition"
     >
       <v-card flat>
@@ -95,14 +105,14 @@
         <v-btn
           color="primary"
           outlined
-          class="mr-2"
           v-for="(item, i) in types"
           :key="i"
           @click="type = item.value"
         >
           {{ item.text }}
         </v-btn>
-
+      </v-toolbar>
+      <v-toolbar elevation="0" flat>
         <v-spacer></v-spacer>
         <v-btn class="mr-2" outlined color="primary" @click="setToday">
           <v-spacer></v-spacer>
@@ -243,15 +253,14 @@ export default {
       dialogConfirm: false,
       dialogView: false,
 
-      Program: null,
       Status: null,
+      Program: null,
       MeetingType: null,
       Room: null,
       User: null,
       Device: null,
       Food: null,
       Drink: null,
-      User: null,
     };
   },
 
@@ -262,7 +271,13 @@ export default {
   async created() {
     await this.getEvents();
     await this.getUser();
+
     await this.getRoom();
+    await this.getDevice();
+    await this.getFood();
+    await this.getDrink();
+    await this.getMeetingType();
+    await this.getProgram();
   },
 
   computed: {
