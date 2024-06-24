@@ -88,6 +88,17 @@
             v-model="booking.chairman"
           ></v-text-field>
         </v-col>
+         <v-col cols="12" md="6">
+          <v-text-field
+            label="เบอร์โทร ติดต่อกลับผู้จอง (โปรดระบุ)"
+            prepend-inner-icon="mdi-phone"
+            hide-details
+            outlined
+            dense
+            required
+            v-model="booking.authorContact"
+          ></v-text-field>
+        </v-col>
         <v-col cols="12" md="3">
           <v-text-field
             label="จำนวนผู้เข้าร่วม"
@@ -119,8 +130,6 @@
         <v-col
           cols="12"
           md="6"
-          sm="6"
-          xs="12"
           v-if="booking.MeetingTypeId == 2"
         >
           <v-select
@@ -135,10 +144,7 @@
             v-model="booking.ProgramId"
           ></v-select>
         </v-col>
-      </v-row>
-
-      <v-row v-if="booking.MeetingTypeId == 2">
-        <v-col cols="12">
+        <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="ID"
             prepend-inner-icon="mdi-identifier"
@@ -149,7 +155,7 @@
             v-model="booking.meetingId"
           ></v-text-field>
         </v-col>
-        <v-col cols="12">
+        <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="PASSWORD"
             prepend-inner-icon="mdi-lock"
@@ -160,7 +166,7 @@
             v-model="booking.meetingPassword"
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="12" sm="12" xs="12">
+        <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="URL"
             prepend-inner-icon="mdi-link"
@@ -172,19 +178,9 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            label="เบอร์โทร ติดต่อกลับผู้จอง (โปรดระบุ)"
-            prepend-inner-icon="mdi-phone"
-            hide-details
-            outlined
-            dense
-            required
-            v-model="booking.authorContact"
-          ></v-text-field>
-        </v-col>
-      </v-row>
+
+
+
 
       <v-row>
         <v-col>
