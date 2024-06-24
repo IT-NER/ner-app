@@ -174,15 +174,15 @@
       </v-row>
       <v-row>
         <v-col cols="12">
-          <v-textarea
-            label="ข้อมูลติดต่อ"
+          <v-text-field
+            label="เบอร์โทร ติดต่อกลับผู้จอง (โปรดระบุ)"
             prepend-inner-icon="mdi-phone"
             hide-details
             outlined
             dense
             required
             v-model="booking.authorContact"
-          ></v-textarea>
+          ></v-text-field>
         </v-col>
       </v-row>
 
