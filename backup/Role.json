@@ -1,11 +1,14 @@
 [
-    {
-        "name": "user"
-    },
-    {
-        "name": "admin"
-    },
-    {
-        "name": "super-admin"
-    }
+  {
+    "id": 1,
+    "name": "user"
+  },
+  {
+    "id": 2,
+    "name": "admin"
+  },
+  {
+    "id": 3,
+    "name": "super-admin"
+  }
 ]

@@ -29,7 +29,7 @@
     "nuxt": "^2.15.8",
     "nuxt-sweetalert2": "^1.0.0",
     "pm2": "^5.4.0",
-    "prisma": "^5.14.0",
+    "prisma": "^5.15.1",
     "vue-datetime": "^1.0.0-beta.14",
     "vuetify": "^2.6.10",
     "vuetify-time-range-picker": "^1.0.5",

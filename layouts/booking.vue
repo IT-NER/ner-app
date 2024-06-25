@@ -11,7 +11,7 @@
       <Account />
       <v-divider />
       <!-- menu -->
-      <v-card class="mx-auto" max-width="300" tile flat>
+      <v-card class="mx-auto" tile flat>
         <v-list nav dense>
           <v-list-item-group v-model="selectedItem" color="success">
             <v-list-item
@@ -85,22 +85,22 @@ export default {
         {
           icon: "mdi-clipboard-text-clock",
           title: "ประวัติ",
-          to: "/booking-lists",
+          to: "/booking/booking-lists",
         },
         {
           icon: "mdi-list-box",
           title: "รายการ (ทั้งหมด)",
-          to: "/booking-lists-all",
+          to: "/booking/booking-lists-all",
         },
         {
           icon: "mdi-account-edit",
           title: "จัดการ ผู้ใช้งาน",
-          to: "/user-management",
+          to: "/user/user-management",
         },
         {
           icon: "mdi-cog",
           title: "ตั้งค่าระบบ",
-          to: "/setting",
+          to: "/setting/setting",
         },
       ],
 
@@ -108,17 +108,17 @@ export default {
         {
           icon: "mdi-home",
           title: "หน้าหลัก",
-          to: "/",
+          to: "/booking/",
         },
         {
           icon: "mdi-clipboard-text-clock",
           title: "ประวัติ",
-          to: "/booking-lists",
+          to: "/booking/booking-lists",
         },
         {
           icon: "mdi-list-box",
           title: "รายการ (ทั้งหมด)",
-          to: "/booking-lists-all",
+          to: "/booking/booking-lists-all",
         },
       ],
 
@@ -126,17 +126,17 @@ export default {
         {
           icon: "mdi-home",
           title: "หน้าหลัก",
-          to: "/",
+          to: "/booking/",
         },
         {
           icon: "mdi-clipboard-text-clock",
           title: "ประวัติ",
-          to: "/booking-lists",
+          to: "/booking/booking-lists",
         },
         {
           icon: "mdi-list-box",
           title: "รายการ (ทั้งหมด)",
-          to: "/booking-lists-all",
+          to: "/booking/booking-lists-all",
         },
       ],
 

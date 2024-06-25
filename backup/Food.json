@@ -1,32 +1,14 @@
 [
-    {
-        "name": "The Waffle"
-    },
-    {
-        "name": "Jelly Baby"
-    },
-    {
-        "name": "พอใจ มินิโดนัท"
-    },
-    {
-        "name": "Tokyo Land"
-    },
-    {
-        "name": "แป้งนุ่มขนมไทย"
-    },
-    {
-        "name": "เจ๊ตุ๊กขนมไทย"
-    },
-    {
-        "name": "Below Eleven Ice Cream"
-    },
-    {
-        "name": "Bakery Mind"
-    },
-    {
-        "name": "April's Homemade"
-    },
-    {
-        "name": "Fruit At Work"
-    }
+  {
+    "id": 1,
+    "name": "C"
+  },
+  {
+    "id": 2,
+    "name": "B"
+  },
+  {
+    "id": 3,
+    "name": "A"
+  }
 ]

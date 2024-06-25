@@ -1,15 +1,15 @@
 <template>
   <div>
-    <booking-calendar />
+    <card-slide-activity />
   </div>
 </template>
 
 <script>
-import BookingCalendar from "~/components/booking/BookingCalendar.vue";
+import CardSlideActivity from "~/components/activity/CardSlideActivity.vue";
 export default {
-  components: { BookingCalendar },
+  components: { CardSlideActivity },
+  layout: "intranet",
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

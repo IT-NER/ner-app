@@ -1,12 +1,172 @@
 [
   {
-    "id": "fe10941e-d5cb-4a16-91b6-2bc0f43836e4",
-    "checksum": "d30499173472d56cea5b483707d0a0606eee73d198bcf92527ac5cb102393e16",
-    "finished_at": 0,
-    "migration_name": "20240530025056_init",
+    "id": "0b3d2797-6fe0-4498-b5fc-6028b9dd4cb6",
+    "checksum": "ad1e80308b29f9a3a39773cabc2d8714672988819291e0a43092e74f438f33a7",
+    "finished_at": "19/6/2024 02:38:25.8221299 +00",
+    "migration_name": "20240614005026_init",
     "logs": null,
     "rolled_back_at": null,
-    "started_at": 0,
+    "started_at": "19/6/2024 02:38:25.8178376 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "0e965cd2-8309-4c4c-abd9-f80805343c56",
+    "checksum": "1254e7be201e6eac19d3741745cd522ec718d719ca0efcc0b168f682291ca25c",
+    "finished_at": "19/6/2024 02:38:25.8320825 +00",
+    "migration_name": "20240617031513_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.8282206 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "1842b700-b0ec-45f7-9c81-ee1d81eb09a5",
+    "checksum": "f0e93cf190881824f19ee1a785f16dbbf2a97a78593bb18f3322fec0cd0d3bee",
+    "finished_at": "20/6/2024 02:59:51.5807538 +00",
+    "migration_name": "20240620025951_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "20/6/2024 02:59:51.550027 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "230c3594-dde0-4ab1-9493-99f5f336bfb6",
+    "checksum": "25070ba583a7abef09eabee92e5c4f8bd42efdce80e86ca14977641ef084c017",
+    "finished_at": "19/6/2024 02:38:25.8043092 +00",
+    "migration_name": "20240611041544_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7968144 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "34cc83fb-11b2-425d-a9f9-ac68bb11a7a8",
+    "checksum": "adb1cf1ebf9b6deb2ae73957eb5e715b87e35ac399e0fe222de736cd31ff4890",
+    "finished_at": "19/6/2024 02:38:25.8167707 +00",
+    "migration_name": "20240613090744_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.8103428 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "38e73d22-51da-469a-af5f-b24f610b3c49",
+    "checksum": "582ad9c517e93e5155a272b392aad6028a1e201f34dadd96c9d3099cbb222e48",
+    "finished_at": "19/6/2024 02:38:25.7728515 +00",
+    "migration_name": "20240611025923_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7630987 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "3ea9b5d6-7026-4083-bce5-48d8d7d3692f",
+    "checksum": "da12f606748fe43679bc5d1b591a8768fcb5beb0541aad56f566b6d2fac30c3b",
+    "finished_at": "20/6/2024 06:42:44.8573889 +00",
+    "migration_name": "20240620064244_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "20/6/2024 06:42:44.8526437 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "5180a006-6840-4c01-b78e-ede945e5940b",
+    "checksum": "fb93a87b1d85144157a63b6895b59920b4e3030a9742a5f3ede31522dd0c677a",
+    "finished_at": "19/6/2024 04:05:14.3049288 +00",
+    "migration_name": "20240619040514_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 04:05:14.2780146 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "5e3a5071-4b68-49e3-a77f-2746614b2117",
+    "checksum": "7a1b4ab8cbcea89411810348a8e304beb618bf1334e4c9be6f990bbdd7a66f77",
+    "finished_at": "19/6/2024 02:38:25.7398148 +00",
+    "migration_name": "20240604064019_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7360758 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "70bb190c-d729-4df9-a232-ce29f609fe65",
+    "checksum": "a6eeed167dee0a0b2f6ed538df32fd763ef7b336e03d8d3d38ba18d327edbf12",
+    "finished_at": "19/6/2024 02:38:25.734189 +00",
+    "migration_name": "20240531043145_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7042001 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "91a72926-677d-4d6f-a841-a24036ef99ec",
+    "checksum": "df162a5fddc1a45e0ac4392e83bac76a5e24f3924c5334e30bdc0218643d21ab",
+    "finished_at": "19/6/2024 02:38:25.7512163 +00",
+    "migration_name": "20240604071436_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7462343 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "92d30892-e14f-42f5-8a07-7a355c898dbc",
+    "checksum": "5ea78cafc9758b8c4c0de70ef225eeffc4329273f636827537ba9f9b74eb514d",
+    "finished_at": "20/6/2024 03:00:07.6368049 +00",
+    "migration_name": "20240620030007_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "20/6/2024 03:00:07.6321066 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "b81fd464-ea74-49d5-98d8-3fe75cfa0546",
+    "checksum": "bd051dd6f1daa49f27dd5260ef1eb5ab0da4e20766a961d56ade6875476c3b57",
+    "finished_at": "19/6/2024 02:38:25.8382553 +00",
+    "migration_name": "20240618092608_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.8331488 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "b9b35ba5-f62e-4c2d-a24a-1bcb96ac6249",
+    "checksum": "ac270341c75130181ded975d58fecb6f404e7ad7c0b2807420c066966a4aa0d5",
+    "finished_at": "19/6/2024 02:38:25.7588284 +00",
+    "migration_name": "20240611025316_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7522454 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "c2ac490e-65c0-4836-96d5-f16a9c36738f",
+    "checksum": "84edd18cccb8df464d0b43f25f78abe90cb8f90c771ecd09d899bc6855bf159e",
+    "finished_at": "19/6/2024 02:38:25.7451815 +00",
+    "migration_name": "20240604064359_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.7409424 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "dade4f6f-d843-42cb-b4cd-08f71efcf46d",
+    "checksum": "059da8c8b55be3d9f6d38ee722df5a6991580d8029c34fbd5a40d3385c039a2b",
+    "finished_at": "19/6/2024 02:38:25.8092902 +00",
+    "migration_name": "20240612063739_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.805317 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "e98c85b7-e5d6-4ca8-b75c-3eb44385028b",
+    "checksum": "195ed9a3db19700b6229c50af975a75cb7c17628ddf07606bd77f792528e8e2b",
+    "finished_at": "19/6/2024 02:38:25.8271036 +00",
+    "migration_name": "20240614021820_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "19/6/2024 02:38:25.8231215 +00",
     "applied_steps_count": 1
   }
 ]

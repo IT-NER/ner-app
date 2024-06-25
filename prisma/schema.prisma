@@ -2,11 +2,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// datasource db {
-//   provider = "sqlite"
-//   url      = "file:./dev.db"
-// }
-
 datasource db {
   provider = "sqlserver"
   url      = env("DATABASE_URL")
@@ -19,17 +14,18 @@ model User {
   password     String?
   lname        String?
   fname        String?
-  contract     String?
   status       Boolean     @default(true)
   departmentId Int?
   positionId   Int?
   roleId       Int?        @default(1)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  point        Int?        @default(0)
+  img          String?
+  Booking      Booking[]
   Department   Department? @relation(fields: [departmentId], references: [id])
   Position     Position?   @relation(fields: [positionId], references: [id])
   Role         Role?       @relation(fields: [roleId], references: [id])
-  Booking      Booking[]
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
 }
 
 model Role {
@@ -55,9 +51,8 @@ model Booking {
   start           DateTime?
   end             DateTime?
   name            String?
-  authorContact   String?
   color           String?
-  timed           Boolean?        @default(true)
+  timed           Boolean?
   url             String?
   description     String?
   chairman        String?
@@ -65,21 +60,21 @@ model Booking {
   meetingId       String?
   meetingPassword String?
   UserId          Int?
-  ApproveBy       Int? //อนุญาติโดย?
+  ApproveBy       Int?
   MeetingTypeId   Int?
   RoomId          Int?
   ProgramId       Int?
   StatusId        Int?            @default(1)
-  Program         Program?        @relation(fields: [ProgramId], references: [id])
-  Status          Status?         @relation(fields: [StatusId], references: [id])
-  MeetingType     MeetingType?    @relation(fields: [MeetingTypeId], references: [id])
-  Room            Room?           @relation(fields: [RoomId], references: [id])
-  User            User?           @relation(fields: [UserId], references: [id])
-  BookingDevice   BookingDevice[]
-  BookingFood     BookingFood[]
-  BookingDrink    BookingDrink[]
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
+  MeetingType     MeetingType?    @relation(fields: [MeetingTypeId], references: [id])
+  Program         Program?        @relation(fields: [ProgramId], references: [id])
+  Room            Room?           @relation(fields: [RoomId], references: [id])
+  Status          Status?         @relation(fields: [StatusId], references: [id])
+  User            User?           @relation(fields: [UserId], references: [id])
+  BookingDevice   BookingDevice[]
+  BookingDrink    BookingDrink[]
+  BookingFood     BookingFood[]
 }
 
 model Program {
@@ -151,4 +146,27 @@ model Drink {
   id      Int            @id @default(autoincrement())
   name    String?
   Booking BookingDrink[]
+}
+
+model Activity {
+  id          Int           @id @default(autoincrement())
+  code        Int           @unique
+  start       DateTime?
+  end         DateTime?
+  title       String?
+  subTitle    String?
+  description String?
+  show        Boolean?
+  active      Boolean?      @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  ActivityImg ActivityImg[]
+}
+
+model ActivityImg {
+  id         Int       @id @default(autoincrement())
+  activityId Int?
+  path       String?
+  name       String?
+  Activity   Activity? @relation(fields: [activityId], references: [id])
 }
