@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import CardButtonLink from "~/components/drawer/CardButtonLink.vue";
-import CardMenu from "~/components/drawer/CardMenu.vue";
+import CardButtonLink from "~/components/intranet/CardButtonLink.vue";
+import CardMenu from "~/components/intranet/CardMenuIntranet.vue";
 import CardMenuManagement from "~/components/management/CardMenuManagement.vue";
 import CardProfile from "~/components/profile/CardProfile.vue";
 export default {

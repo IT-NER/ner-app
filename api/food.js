@@ -8,7 +8,13 @@ app.use(express.json());
 
 // getAll
 app.get('/food', async (req, res) => {
-  let food = await prisma.food.findMany();
+  let food = await prisma.food.findMany({
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
   res.status(200).json(food);
 });
 

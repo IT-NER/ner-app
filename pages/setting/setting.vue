@@ -119,7 +119,7 @@ export default {
           component: "setting-position",
         },
         {
-          tab: "สิทธิ์การใช้งานระบบ",
+          tab: "สิทธิ์การใช้งาน",
           component: "setting-role",
         },
       ],

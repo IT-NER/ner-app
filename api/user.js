@@ -17,7 +17,12 @@ app.get('/user', async (req, res) => {
       Position: true,
       Role: true,
       Booking: true,
-    }
+    },
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
   });
   res.status(200).json(user);
 });

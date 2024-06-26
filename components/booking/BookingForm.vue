@@ -69,7 +69,7 @@
         <v-col cols="12" md="6">
           <v-text-field
             label="หัวข้อ"
-            prepend-inner-icon="mdi-star"
+            prepend-icon="mdi-star"
             hide-details
             outlined
             dense
@@ -80,7 +80,7 @@
         <v-col cols="12" md="6">
           <v-text-field
             label="ประธาน"
-            prepend-inner-icon="mdi-account-star"
+            prepend-icon="mdi-account-star"
             hide-details
             outlined
             dense
@@ -88,10 +88,10 @@
             v-model="booking.chairman"
           ></v-text-field>
         </v-col>
-         <v-col cols="12" md="6">
+        <v-col cols="12" md="6">
           <v-text-field
             label="เบอร์โทร ติดต่อกลับผู้จอง (โปรดระบุ)"
-            prepend-inner-icon="mdi-phone"
+            prepend-icon="mdi-phone"
             hide-details
             outlined
             dense
@@ -102,7 +102,7 @@
         <v-col cols="12" md="3">
           <v-text-field
             label="จำนวนผู้เข้าร่วม"
-            prepend-inner-icon="mdi-account-group"
+            prepend-icon="mdi-account-group"
             type="number"
             hide-details
             outlined
@@ -115,7 +115,7 @@
         <v-col cols="12" md="3">
           <v-select
             label="ประเภท"
-            prepend-inner-icon="mdi-list-box"
+            prepend-icon="mdi-list-box"
             :items="MeetingType"
             item-text="name"
             item-value="id"
@@ -127,14 +127,10 @@
             @change="setOnlineDefault"
           ></v-select>
         </v-col>
-        <v-col
-          cols="12"
-          md="6"
-          v-if="booking.MeetingTypeId == 2"
-        >
+        <v-col cols="12" md="6" v-if="booking.MeetingTypeId == 2">
           <v-select
             label="โปรแกรม"
-            prepend-inner-icon="mdi-devices"
+            prepend-icon="mdi-devices"
             :items="Program"
             item-text="name"
             item-value="id"
@@ -147,7 +143,7 @@
         <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="ID"
-            prepend-inner-icon="mdi-identifier"
+            prepend-icon="mdi-identifier"
             hide-details
             outlined
             dense
@@ -158,7 +154,7 @@
         <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="PASSWORD"
-            prepend-inner-icon="mdi-lock"
+            prepend-icon="mdi-lock"
             hide-details
             outlined
             dense
@@ -169,7 +165,7 @@
         <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="URL"
-            prepend-inner-icon="mdi-link"
+            prepend-icon="mdi-link"
             hide-details
             outlined
             dense
@@ -178,9 +174,6 @@
           ></v-text-field>
         </v-col>
       </v-row>
-
-
-
 
       <v-row>
         <v-col>
@@ -197,7 +190,7 @@
         <v-col cols="12">
           <v-select
             label="อุปกรณ์"
-            prepend-inner-icon="mdi-devices"
+            prepend-icon="mdi-devices"
             v-model="booking.BookingDevice"
             :items="Device"
             item-text="name"
@@ -213,7 +206,7 @@
         <v-col cols="12">
           <v-select
             label="อาหาร"
-            prepend-inner-icon="mdi-silverware-clean"
+            prepend-icon="mdi-silverware-clean"
             v-model="booking.BookingFood"
             :items="Food"
             item-text="name"
@@ -229,7 +222,7 @@
         <v-col cols="12">
           <v-select
             label="เครื่องดื่ม"
-            prepend-inner-icon="mdi-coffee-outline"
+            prepend-icon="mdi-coffee-outline"
             v-model="booking.BookingDrink"
             :items="Drink"
             item-text="name"
@@ -259,7 +252,7 @@
         <v-col cols="12">
           <v-textarea
             label="หมายเหตุ"
-            prepend-inner-icon="mdi-notebook-edit"
+            prepend-icon="mdi-notebook-edit"
             hide-details
             outlined
             dense

@@ -8,7 +8,13 @@ app.use(express.json());
 
 // getAll
 app.get('/position', async (req, res) => {
-  let position = await prisma.position.findMany();
+  let position = await prisma.position.findMany({
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
   res.status(200).json(position);
 });
 

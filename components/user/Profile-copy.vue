@@ -3,11 +3,11 @@
     <v-dialog v-model="dialogConfirmEditPassword" max-width="290" persistent>
       <v-card>
         <v-card-title class="text-h5">
-          บันทึกข้อมูล ?
+          บันทึก ?
           <v-spacer></v-spacer>
           <v-icon @click="dialogConfirmEditPassword = false">mdi-close</v-icon>
         </v-card-title>
-        <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึกข้อมูล </v-card-text>
+        <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn ref="btnConfirm" color="success" @click="updatePassword">
@@ -59,7 +59,7 @@
             <v-spacer></v-spacer>
             <v-btn color="warning" type="submit">
               <v-icon>mdi-content-save</v-icon>
-              <span> บันทึกข้อมูล </span>
+              <span> บันทึก </span>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -213,7 +213,7 @@ export default {
       this.$swal.fire({
         position: "top-end",
         type: "success",
-        title: "บันทึกข้อมูล เรียบร้อย",
+        title: "บันทึก เรียบร้อย",
         showConfirmButton: false,
         timer: 1500,
       });

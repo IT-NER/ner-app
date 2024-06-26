@@ -8,7 +8,13 @@ app.use(express.json());
 
 // getAll
 app.get('/device', async (req, res) => {
-  let device = await prisma.device.findMany();
+  let device = await prisma.device.findMany({
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
   res.status(200).json(device);
 });
 

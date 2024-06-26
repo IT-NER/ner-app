@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Mitr-Regular';
+  src: local('Mitr-Regular'), url('./fonts//Mitr/Mitr-Regular.ttf') format('truetype');
+}
+
+.v-application {
+ font-family: 'Mitr-Regular' !important;
+}
+
+// or
+
+#app {
+  font-family: 'Mitr-Regular';
+}

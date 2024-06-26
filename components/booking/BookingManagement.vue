@@ -95,7 +95,7 @@
             v-if="User.Role.id > 1"
           >
             <v-icon class="mr-2"> mdi-plus </v-icon>
-            เพิ่มข้อมูล
+            เพิ่ม
           </v-btn>
         </v-card-title>
         <v-divider></v-divider>
@@ -280,7 +280,7 @@ export default {
       return this.editedIndex === -1 ? "success" : "warning";
     },
     formTitle() {
-      return this.editedIndex === -1 ? "เพิ่มข้อมูล" : "แก้ไขข้อมูล";
+      return this.editedIndex === -1 ? "เพิ่ม" : "แก้ไข";
     },
     formIcon() {
       return this.editedIndex === -1
@@ -355,7 +355,7 @@ export default {
       this.$swal.fire({
         position: "top-end",
         type: "success",
-        title: "บันทึกข้อมูล เรียบร้อย",
+        title: "บันทึก เรียบร้อย",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -397,8 +397,8 @@ export default {
     async saveConfirm() {
       let saveConfirm = this.$swal
         .fire({
-          title: "บันทึกข้อมูล?",
-          text: "กดปุ่ม 'ยืนยัน' เพื่อบันทึกข้อมูล",
+          title: "บันทึก?",
+          text: "กดปุ่ม 'ยืนยัน' เพื่อบันทึก",
           type: "success",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",

@@ -31,6 +31,7 @@ export default {
         { text: "หน้าแรก", icon: "mdi-home", link: "/" },
         { text: "ระบบจองห้องประชุม", icon: "mdi-calendar", link: "/booking" },
         { text: "จัดการข้อมูล", icon: "mdi-database-cog", link: "/management" },
+        { text: "ตั้งค่าระบบ", icon: "mdi-cog", link: "/setting" },
       ],
     };
   },

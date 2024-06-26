@@ -6,7 +6,7 @@
           <v-text-field
             autofocus
             ref="identifier"
-            prepend-inner-icon="mdi-account"
+            prepend-icon="mdi-account"
             label="Email/Username"
             v-model="user.identifier"
             type="text"
@@ -17,7 +17,7 @@
         </v-col>
         <v-col cols="12">
           <v-text-field
-            prepend-inner-icon="mdi-lock"
+            prepend-icon="mdi-lock"
             v-model="user.password"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPassword ? 'text' : 'password'"

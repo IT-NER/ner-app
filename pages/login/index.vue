@@ -89,7 +89,7 @@ export default {
       this.$swal.fire({
         position: "top-end",
         type: "success",
-        title: "บันทึกข้อมูล เรียบร้อย",
+        title: "บันทึก เรียบร้อย",
         showConfirmButton: false,
         timer: 1500,
       });

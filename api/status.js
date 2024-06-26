@@ -8,7 +8,13 @@ app.use(express.json());
 
 // getAll
 app.get('/status', async (req, res) => {
-  let status = await prisma.status.findMany();
+  let status = await prisma.status.findMany({
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
   res.status(200).json(status);
 });
 

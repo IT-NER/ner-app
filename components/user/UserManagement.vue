@@ -16,7 +16,7 @@
         <v-spacer></v-spacer>
         <v-btn color="success" dark @click="addItem" class="float-right">
           <v-icon class="mr-2">mdi-database-plus</v-icon>
-          <span>เพิ่มข้อมูล</span>
+          <span>เพิ่ม</span>
         </v-btn>
       </v-toolbar>
       <v-divider></v-divider>
@@ -224,7 +224,7 @@
             <v-spacer></v-spacer>
             <v-btn :color="formColor" type="submit">
               <v-icon>mdi-content-save</v-icon>
-              <span> บันทึกข้อมูล </span>
+              <span> บันทึก </span>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -234,11 +234,11 @@
     <v-dialog v-model="dialogConfirm" max-width="290" persistent>
       <v-card>
         <v-card-title class="text-h5">
-          บันทึกข้อมูล ?
+          บันทึก ?
           <v-spacer></v-spacer>
           <v-icon @click="dialogConfirm = false">mdi-close</v-icon>
         </v-card-title>
-        <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึกข้อมูล </v-card-text>
+        <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn ref="btnConfirm" color="success" @click="saveConfirm">
@@ -251,11 +251,11 @@
     <v-dialog v-model="dialogConfirmEditPassword" max-width="290" persistent>
       <v-card>
         <v-card-title class="text-h5">
-          บันทึกข้อมูล ?
+          บันทึก ?
           <v-spacer></v-spacer>
           <v-icon @click="dialogConfirmEditPassword = false">mdi-close</v-icon>
         </v-card-title>
-        <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึกข้อมูล </v-card-text>
+        <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn ref="btnConfirm" color="success" @click="updatePassword">
@@ -307,7 +307,7 @@
             <v-spacer></v-spacer>
             <v-btn color="warning" type="submit">
               <v-icon>mdi-content-save</v-icon>
-              <span> บันทึกข้อมูล </span>
+              <span> บันทึก </span>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -326,7 +326,7 @@ export default {
       dialogConfirm: false,
       search: "",
       Overlay: false,
-      title: "สิทธิ์การใช้งานระบบ",
+      title: "สิทธิ์การใช้งาน",
       dialog: false,
       headers: [
         { text: "ลำดับ", value: "index", align: "center" },
@@ -400,7 +400,7 @@ export default {
       return this.editedIndex === -1 ? "success" : "warning";
     },
     formTitle() {
-      return this.editedIndex === -1 ? "เพิ่มข้อมูล" : "แก้ไขข้อมูล";
+      return this.editedIndex === -1 ? "เพิ่ม" : "แก้ไข";
     },
     iconTitle() {
       return this.editedIndex === -1
@@ -618,7 +618,7 @@ export default {
       this.$swal.fire({
         position: "top-end",
         type: "success",
-        title: "บันทึกข้อมูล เรียบร้อย",
+        title: "บันทึก เรียบร้อย",
         showConfirmButton: false,
         timer: 1500,
       });

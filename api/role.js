@@ -8,7 +8,13 @@ app.use(express.json());
 
 // getAll
 app.get('/role', async (req, res) => {
-  let role = await prisma.role.findMany();
+  let role = await prisma.role.findMany({
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
   res.status(200).json(role);
 });
 

@@ -23,7 +23,7 @@
             <v-spacer></v-spacer>
             <v-btn :color="formColor" type="submit">
               <v-icon>mdi-content-save</v-icon>
-              <span> บันทึกข้อมูล </span>
+              <span> บันทึก </span>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -40,7 +40,7 @@
           <v-col cols="12" md="6" sm="12">
             <v-text-field
               v-model="search"
-              prepend-inner-icon="mdi-magnify"
+              prepend-icon="mdi-magnify"
               label="ค้นหา"
               outlined
               dense
@@ -73,7 +73,7 @@
           <v-col cols="12" md="3" sm="12">
             <v-select
               label="ห้องประชุม"
-              prepend-inner-icon="mdi-map-marker"
+              prepend-icon="mdi-map-marker"
               :items="Room"
               item-text="name"
               item-value="id"
@@ -88,7 +88,7 @@
           <v-col cols="12" md="3" sm="12">
             <v-select
               label="ประเภท"
-              prepend-inner-icon="mdi-list-box"
+              prepend-icon="mdi-list-box"
               :items="MeetingType"
               item-text="name"
               item-value="id"
@@ -103,7 +103,7 @@
           <v-col cols="12" md="3" sm="12">
             <v-select
               label="สถานะ"
-              prepend-inner-icon="mdi-list-status"
+              prepend-icon="mdi-list-status"
               :items="Status"
               item-text="name"
               item-value="id"
@@ -279,7 +279,7 @@ export default {
       return this.editedIndex === -1 ? "success" : "warning";
     },
     formTitle() {
-      return this.editedIndex === -1 ? "เพิ่มข้อมูล" : "แก้ไขข้อมูล";
+      return this.editedIndex === -1 ? "เพิ่ม" : "แก้ไข";
     },
     iconTitle() {
       return this.editedIndex === -1
@@ -567,7 +567,7 @@ export default {
       this.$swal.fire({
         position: "top-end",
         type: "success",
-        title: "บันทึกข้อมูล เรียบร้อย",
+        title: "บันทึก เรียบร้อย",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -639,8 +639,8 @@ export default {
     async saveConfirm() {
       let saveConfirm = this.$swal
         .fire({
-          title: "บันทึกข้อมูล?",
-          text: "กดปุ่ม 'ยืนยัน' เพื่อบันทึกข้อมูล",
+          title: "บันทึก?",
+          text: "กดปุ่ม 'ยืนยัน' เพื่อบันทึก",
           type: "success",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
