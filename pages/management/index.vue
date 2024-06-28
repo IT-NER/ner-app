@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  layout: "management",
+  layout: "managementLayout",
 };
 </script>
 

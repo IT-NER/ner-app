@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  layout: "setting",
+  layout: "settingLayout",
 
   created() {
     this.goToSettingUser();

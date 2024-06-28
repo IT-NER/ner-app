@@ -143,7 +143,7 @@ export default {
       { text: "จำนวนที่นั่ง", value: "quantity" },
       { text: "สี", value: "color" },
       {
-        text: "Actions",
+        text: "ACTIONS",
         value: "actions",
         align: "center",
         sortable: false,
@@ -226,7 +226,7 @@ export default {
           this.alertSuccess();
           this.getRoom();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       } else {
         this.setItemDefault();
@@ -269,7 +269,7 @@ export default {
       });
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

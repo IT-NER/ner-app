@@ -10,37 +10,35 @@ app.use(express.json());
 app.post("/booking/search", async (req, res) => {
   // console.log('req', req.body.data);
   // return
-  let item = req.body.data
-  let RoomId = req.body.data.RoomId
-  let MeetingTypeId = req.body.data.MeetingTypeId
-  let StatusId = req.body.data.StatusId
+  let item = req.body.data;
+  let RoomId = req.body.data.RoomId;
+  let MeetingTypeId = req.body.data.MeetingTypeId;
+  let StatusId = req.body.data.StatusId;
 
   let items = [
     {
       start: {
-        gte: new Date(item.start)
+        gte: new Date(item.start),
       },
       end: {
-        lte: new Date(item.end)
+        lte: new Date(item.end),
       },
-    }
-  ]
+    },
+  ];
 
   if (RoomId) {
-    items.push({ RoomId: RoomId })
+    items.push({ RoomId: RoomId });
   }
   if (MeetingTypeId) {
-    items.push({ MeetingTypeId: MeetingTypeId })
+    items.push({ MeetingTypeId: MeetingTypeId });
   }
   if (StatusId) {
-    items.push({ StatusId: StatusId })
+    items.push({ StatusId: StatusId });
   }
-
 
   let booking = await prisma.booking.findMany({
     where: {
-
-      AND: items
+      AND: items,
     },
     include: {
       Room: true,
@@ -54,12 +52,12 @@ app.post("/booking/search", async (req, res) => {
         include: {
           Department: true,
           Position: true,
-        }
-      }
+        },
+      },
     },
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -95,7 +93,6 @@ app.post("/booking/search", async (req, res) => {
   res.status(200).json(booking);
 });
 
-
 app.get("/booking", async (req, res) => {
   let booking = await prisma.booking.findMany({
     // where: {
@@ -114,12 +111,12 @@ app.get("/booking", async (req, res) => {
         include: {
           Department: true,
           Position: true,
-        }
-      }
+        },
+      },
     },
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -169,12 +166,12 @@ app.get("/booking/all", async (req, res) => {
         include: {
           Department: true,
           Position: true,
-        }
-      }
+        },
+      },
     },
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -211,10 +208,10 @@ app.get("/booking/all", async (req, res) => {
 });
 
 app.get("/booking/:id", async (req, res) => {
-  let id = req.params.id
+  let id = req.params.id;
   let booking = await prisma.booking.findMany({
     where: {
-      id: parseInt(id)
+      id: parseInt(id),
     },
     include: {
       Room: true,
@@ -228,12 +225,12 @@ app.get("/booking/:id", async (req, res) => {
         include: {
           Department: true,
           Position: true,
-        }
-      }
+        },
+      },
     },
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -270,10 +267,10 @@ app.get("/booking/:id", async (req, res) => {
 });
 
 app.get("/booking/user/:id", async (req, res) => {
-  let id = req.params.id
+  let id = req.params.id;
   let booking = await prisma.booking.findMany({
     where: {
-      UserId: parseInt(id)
+      UserId: parseInt(id),
     },
     include: {
       Room: true,
@@ -287,8 +284,8 @@ app.get("/booking/user/:id", async (req, res) => {
         include: {
           Department: true,
           Position: true,
-        }
-      }
+        },
+      },
     },
   });
 
@@ -322,7 +319,6 @@ app.get("/booking/user/:id", async (req, res) => {
 
   res.status(200).json(booking);
 });
-
 
 app.post("/booking", async (req, res) => {
   let item = req.body.data;
@@ -358,10 +354,8 @@ app.post("/booking", async (req, res) => {
   }
 
   if (item.MeetingTypeId == 1) {
-    item.ProgramId = null
+    item.ProgramId = null;
   }
-
-
 
   let booking = await prisma.booking
     .create({
@@ -369,7 +363,7 @@ app.post("/booking", async (req, res) => {
         start: new Date(item.start),
         end: new Date(item.end),
         name: item.name,
-        authorContact: item.authorContact,
+        authorPhoneNumber: item.authorPhoneNumber,
         color: item.color,
         timed: item.timed,
         url: item.url,
@@ -466,7 +460,7 @@ app.put("/booking/:id", async (req, res) => {
         start: new Date(item.start),
         end: new Date(item.end),
         name: item.name,
-        authorContact: item.authorContact,
+        authorPhoneNumber: item.authorPhoneNumber,
         color: item.color,
         timed: item.timed,
         url: item.url,
@@ -525,7 +519,6 @@ app.put("/booking/cancel/:id", async (req, res) => {
         StatusId: parseInt(3),
         updatedAt: new Date(),
       },
-
     })
     .then((res) => {
       // // console.log("res", res);
@@ -556,7 +549,6 @@ app.put("/booking/approve/:id", async (req, res) => {
         ApproveBy: parseInt(ApproveBy),
         updatedAt: new Date(),
       },
-
     })
     .then((res) => {
       // // console.log("res", res);
@@ -570,7 +562,6 @@ app.put("/booking/approve/:id", async (req, res) => {
 
   res.status(200).json(booking);
 });
-
 
 app.delete("/booking/:id", async (req, res) => {
   let id = req.params.id;
@@ -588,13 +579,11 @@ app.delete("/booking/:id", async (req, res) => {
     .catch((err) => {
       // // console.log("err", err);
       res.status(401).json({ error: err });
-      return
+      return;
     });
 
   res.status(200).json(booking);
 });
-
-
 
 export default {
   path: "/api",

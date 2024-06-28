@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <card-slide-activity />
-  </div>
+  <div></div>
 </template>
 
 <script>
-import CardSlideActivity from "~/components/activity/CardSlideActivity.vue";
 export default {
-  components: { CardSlideActivity },
-  layout: "intranet",
+  layout: "intranetLayout",
 };
 </script>
 

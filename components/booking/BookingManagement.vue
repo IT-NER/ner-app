@@ -223,7 +223,7 @@ export default {
         { text: "สิ้นสุด", value: "end" },
         { text: "ประเภท", value: "MeetingType.name" },
         { text: "สถานะ", value: "Status.name" },
-        { text: "Actions", value: "actions", align: "center", sortable: false },
+        { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
 
       headersUser: [
@@ -248,7 +248,7 @@ export default {
         start: moment().format("YYYY-MM-DDTHH:mm"),
         end: moment().format("YYYY-MM-DDTHH:mm"),
         name: null,
-        authorContact: null,
+        authorPhoneNumber: null,
         color: null,
         timed: null,
         url: null,
@@ -342,7 +342,7 @@ export default {
       }
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",
@@ -432,7 +432,7 @@ export default {
       this.booking.start = null;
       this.booking.end = null;
       this.booking.name = null;
-      this.booking.authorContact = null;
+      this.booking.authorPhoneNumber = null;
       this.booking.color = null;
       this.booking.timed = true;
       this.booking.url = null;
@@ -510,7 +510,7 @@ export default {
           this.alertSuccess();
           this.getBooking();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       }
     },
@@ -553,7 +553,7 @@ export default {
           this.alertSuccess();
           this.getBooking();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       }
     },

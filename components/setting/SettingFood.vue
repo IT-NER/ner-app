@@ -124,7 +124,7 @@ export default {
       { text: "ลำดับ", value: "index", align: "center" },
       { text: "ชื่อแผนก", value: "name" },
       {
-        text: "Actions",
+        text: "ACTIONS",
         value: "actions",
         align: "center",
         sortable: false,
@@ -205,7 +205,7 @@ export default {
           this.alertSuccess();
           this.getFood();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       } else {
         this.setItemDefault();
@@ -248,7 +248,7 @@ export default {
       });
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

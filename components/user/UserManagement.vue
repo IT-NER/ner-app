@@ -344,7 +344,7 @@ export default {
           sortable: false,
         },
         {
-          text: "Actions",
+          text: "ACTIONS",
           value: "actions",
           align: "center",
           sortable: false,
@@ -448,7 +448,7 @@ export default {
         this.closeDailogConfirmEditPassword();
         this.closeDailogEditPassword();
         this.getUser();
-        this.aleartError();
+        this.alertError();
       }
     },
 
@@ -561,7 +561,7 @@ export default {
           this.alertSuccess();
           this.getUser();
         } else {
-          this.aleartError();
+          this.alertError();
           return;
         }
       } else {
@@ -605,7 +605,7 @@ export default {
       });
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

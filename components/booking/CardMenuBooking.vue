@@ -2,8 +2,14 @@
   <div>
     <v-card flat>
       <v-list nav dense>
-        <v-list-item-group v-model="selectedItem" color="success">
-          <v-list-item v-for="(item, i) in items" :key="i" :to="item.link">
+        <v-list-item-group color="success">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            :to="item.link"
+            @click="test(item)"
+            v-model="selectedItem"
+          >
             <v-list-item-icon>
               <v-icon>
                 {{ item.icon }}
@@ -26,21 +32,37 @@
 export default {
   data() {
     return {
-      selectedItem: 0,
+      selectedItem: {
+        text: "กลับหน้าหลัก",
+        icon: "mdi-arrow-left-circle",
+        link: "/",
+      },
       items: [
-        { text: "กลับหน้าแรก", icon: "mdi-home-city-outline", link: "/" },
+        { text: "กลับหน้าหลัก", icon: "mdi-arrow-left-circle", link: "/" },
         {
-          text: "จัดการข้อมูลกิจกรรม",
-          icon: "mdi-database-cog",
-          link: "/management/activity",
+          text: "หน้าแรก",
+          icon: "mdi-home",
+          link: "/booking/booking-calendar",
         },
         {
-          text: "จัดการข้อมูลข่าวสาร",
-          icon: "mdi-database-cog",
-          link: "/management/new",
+          text: "ประวัติการจองห้องประชุม",
+          icon: "mdi-history",
+          link: "/booking/booking-lists",
+        },
+        {
+          text: "รายการจองห้องประชุม",
+          icon: "mdi-clipboard-text-clock",
+          link: "/booking/booking-lists-all",
         },
       ],
     };
+  },
+
+  methods: {
+    test(item) {
+      console.log("item", item);
+      console.log("selectedItem", this.selectedItem);
+    },
   },
 };
 </script>

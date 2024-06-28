@@ -172,7 +172,7 @@ export default {
         this.closeDailogConfirmEditPassword();
         this.closeDailogEditPassword();
         this.getUser();
-        this.aleartError();
+        this.alertError();
       }
     },
 
@@ -200,7 +200,7 @@ export default {
       console.log("user", this.user);
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

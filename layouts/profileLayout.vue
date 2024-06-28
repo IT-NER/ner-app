@@ -6,13 +6,13 @@
 
       <v-divider></v-divider>
       <!-- CardMenu -->
-      <card-menu-setting />
+      <card-menu-profile />
     </v-navigation-drawer>
 
     <v-app-bar app color="success" dark elevation="0">
       <v-app-bar-nav-icon @click="drawerLeft = !drawerLeft">
-        <v-icon v-if="drawerLeft"> mdi-subdirectory-arrow-left </v-icon>
-        <v-icon v-else> mdi-subdirectory-arrow-right </v-icon>
+        <v-icon v-if="drawerLeft"> mdi-chevron-left </v-icon>
+        <v-icon v-else> mdi-chevron-right </v-icon>
       </v-app-bar-nav-icon>
 
       <v-toolbar-title>
@@ -29,10 +29,10 @@
 </template>
 
 <script>
+import CardMenuProfile from "~/components/profile/CardMenuProfile.vue";
 import CardProfile from "~/components/profile/CardProfile.vue";
-import CardMenuSetting from "~/components/setting/CardMenuSetting.vue";
 export default {
-  components: { CardProfile, CardMenuSetting },
+  components: { CardProfile, CardMenuProfile },
   data() {
     return {
       drawerLeft: null,

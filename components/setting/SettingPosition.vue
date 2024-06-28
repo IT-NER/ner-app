@@ -124,7 +124,7 @@ export default {
       { text: "ลำดับ", value: "index", align: "center" },
       { text: "ชื่อตำแหน่ง", value: "name" },
       {
-        text: "Actions",
+        text: "ACTIONS",
         value: "actions",
         align: "center",
         sortable: false,
@@ -207,7 +207,7 @@ export default {
           this.alertSuccess();
           this.getPosition();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       } else {
         this.setItemDefault();
@@ -250,7 +250,7 @@ export default {
       });
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

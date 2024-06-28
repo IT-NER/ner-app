@@ -9,6 +9,41 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+
+//search
+app.post('/user/search', async (req, res) => {
+  let item = req.body.data
+  let items = []
+
+  items.push({ active: true })
+
+  if (item.departmentId) {
+    items.push({ departmentId: item.departmentId })
+  }
+  if (item.positionId) {
+    items.push({ positionId: item.positionId })
+  }
+
+  let user = await prisma.user.findMany({
+    where: {
+      AND: items,
+    },
+    include: {
+      Department: true,
+      Position: true,
+      Role: true,
+      Booking: true,
+    },
+    orderBy: [
+      {
+        id: 'desc',
+      },
+    ],
+  });
+  res.status(200).json(user);
+});
+
+
 // getAll
 app.get('/user', async (req, res) => {
   let user = await prisma.user.findMany({
@@ -37,7 +72,6 @@ app.get('/user/:id', async (req, res) => {
   })
   res.status(200).json(user)
 })
-
 
 //create
 app.post('/user', async (req, res) => {
@@ -89,7 +123,6 @@ app.put('/user/:id', async (req, res) => {
   })
   res.status(200).json(user)
 })
-
 
 //update password
 app.put('/user/update-password/:id', async (req, res) => {

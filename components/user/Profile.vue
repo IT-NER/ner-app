@@ -142,7 +142,7 @@
 
 <script>
 export default {
-  layout: "profile",
+  layout: "profileLayout",
   data() {
     return {
       editedItem: null,
@@ -193,7 +193,7 @@ export default {
         this.closeDailogConfirmEditPassword();
         this.closeDailogEditPassword();
         this.getUser();
-        this.aleartError();
+        this.alertError();
       }
     },
 
@@ -215,7 +215,7 @@ export default {
     async closeDailogConfirmEditPassword() {
       this.dialogConfirmEditPassword = false;
     },
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

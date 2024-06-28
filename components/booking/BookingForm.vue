@@ -96,7 +96,7 @@
             outlined
             dense
             required
-            v-model="booking.authorContact"
+            v-model="booking.authorPhoneNumber"
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="3">

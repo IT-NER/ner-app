@@ -22,7 +22,10 @@ export default {
     "~/api/status.js",
     "~/api/user.js",
     "~/api/meetingType.js",
-    "~/api/booking.js"
+    "~/api/booking.js",
+    "~/api/contentType.js",
+    "~/api/contentStatus.js",
+    "~/api/reward.js",
   ],
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -42,11 +45,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~assets/global.scss'],
+  css: ["~assets/global.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
-
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -56,7 +58,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
     "@nuxtjs/moment",
-    '@nuxtjs/pwa',
+    "@nuxtjs/pwa",
   ],
 
   moment: {
@@ -97,11 +99,11 @@ export default {
     },
 
     redirect: {
-      login: '/login',
-      logout: '/',
-      callback: '/login',
-      home: '/'
-    }
+      login: "/login",
+      logout: "/",
+      callback: "/login",
+      home: "/",
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -121,16 +123,16 @@ export default {
           success: colors.green.accent3,
         },
         light: {
-          primary: '#3470B8',
-          secondary: '#FFFFFF',
-          success: '#1DAE4B',
-          error: '#b71c1c',
+          primary: "#3470B8",
+          secondary: "#FFFFFF",
+          success: "#1DAE4B",
+          error: "#b71c1c",
         },
       },
     },
   },
 
-  mode: 'universal', // or 'spa'
+  mode: "universal", // or 'spa'
 
   build: {
     // Add any custom build configurations here
@@ -138,7 +140,7 @@ export default {
 
   server: {
     port: 9390, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: "0.0.0.0", // default: localhost
   },
 
   // pwa: {

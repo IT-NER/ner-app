@@ -30,7 +30,7 @@
           <v-col cols="12" md="3" sm="12" v-if="User.Role.id >= 2">
             <div class="title">เบอร์โทรศัพท์</div>
             <div class="sub-title">
-              {{ booking.authorContact }}
+              {{ booking.authorPhoneNumber }}
             </div>
           </v-col>
           <v-col cols="12" md="3" sm="12">

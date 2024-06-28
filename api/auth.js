@@ -19,7 +19,7 @@ app.post("/login", async (req, res, next) => {
     user = await prisma.user.findMany({
       where: {
         OR: [{ username: identifier }, { email: identifier }],
-        AND: [{ status: true }],
+        AND: [{ active: true }],
       },
       include: {
         Department: true,

@@ -7,7 +7,7 @@
 <script>
 import Profile from "~/components/user/Profile.vue";
 export default {
-  layout: "profile",
+  layout: "profileLayout",
   components: { Profile },
   data() {
     return {};

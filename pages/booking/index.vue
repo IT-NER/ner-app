@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <booking-calendar />
-  </div>
+  <div></div>
 </template>
 
 <script>
-import BookingCalendar from "~/components/booking/BookingCalendar.vue";
 export default {
-  layout: "booking",
-  components: { BookingCalendar },
+  created() {
+    this.$router.push("/booking/booking-calendar");
+  },
 };
 </script>
 

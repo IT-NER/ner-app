@@ -22,7 +22,7 @@
 import LoginForm from "~/components/login/LoginForm.vue";
 
 export default {
-  layout: "auth",
+  layout: "authLayout",
   components: { LoginForm },
 
   data() {
@@ -54,7 +54,7 @@ export default {
         }
       } catch (err) {
         // console.log("errs", err);
-        // this.aleartError();
+        // this.alertError();
         this.setItemDefault();
         // this.$router.push("/login");
         window.location.href = "/login";
@@ -76,7 +76,7 @@ export default {
       }
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

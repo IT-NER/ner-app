@@ -6,16 +6,13 @@
 
       <v-divider></v-divider>
       <!-- CardMenu -->
-      <card-menu />
-    </v-navigation-drawer>
-    <v-navigation-drawer v-model="drawerRigth" app right>
-      <card-button-link />
+      <card-menu-management />
     </v-navigation-drawer>
 
     <v-app-bar app color="success" dark elevation="0">
       <v-app-bar-nav-icon @click="drawerLeft = !drawerLeft">
-        <v-icon v-if="drawerLeft"> mdi-subdirectory-arrow-left </v-icon>
-        <v-icon v-else> mdi-subdirectory-arrow-right </v-icon>
+        <v-icon v-if="drawerLeft"> mdi-chevron-left </v-icon>
+        <v-icon v-else> mdi-chevron-right </v-icon>
       </v-app-bar-nav-icon>
 
       <v-toolbar-title>
@@ -23,11 +20,6 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-
-      <v-app-bar-nav-icon @click="drawerRigth = !drawerRigth">
-        <v-icon v-if="drawerRigth"> mdi-subdirectory-arrow-right </v-icon>
-        <v-icon v-else> mdi-subdirectory-arrow-left </v-icon>
-      </v-app-bar-nav-icon>
     </v-app-bar>
 
     <v-main>
@@ -39,13 +31,13 @@
 <script>
 import CardButtonLink from "~/components/intranet/CardButtonLink.vue";
 import CardMenu from "~/components/intranet/CardMenuIntranet.vue";
+import CardMenuManagement from "~/components/management/CardMenuManagement.vue";
 import CardProfile from "~/components/profile/CardProfile.vue";
 export default {
-  components: { CardProfile, CardMenu, CardButtonLink },
+  components: { CardProfile, CardMenu, CardButtonLink, CardMenuManagement },
   data() {
     return {
       drawerLeft: null,
-      drawerRigth: null,
       title: null,
     };
   },

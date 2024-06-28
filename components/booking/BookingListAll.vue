@@ -226,7 +226,7 @@ export default {
       { text: "สิ้นสุด", value: "end" },
       { text: "ประเภท", value: "MeetingType.name" },
       { text: "สถานะ", value: "Status.name" },
-      { text: "Actions", value: "actions", sortable: false },
+      { text: "ACTIONS", value: "actions", sortable: false },
     ],
     bookings: [],
     editedIndex: -1,
@@ -469,7 +469,7 @@ export default {
           this.alertSuccess();
           this.getBooking();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       } else {
         this.setItemDefault();
@@ -515,7 +515,7 @@ export default {
           this.alertSuccess();
           this.getBooking();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       } else {
         this.setItemDefault();
@@ -554,7 +554,7 @@ export default {
       this.dialogDelete = false;
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",

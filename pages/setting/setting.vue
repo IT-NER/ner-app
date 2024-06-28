@@ -70,7 +70,7 @@ import SettingProgram from "~/components/setting/SettingProgram.vue";
 import SettingRoom from "~/components/setting/SettingRoom.vue";
 import SettingStatus from "~/components/setting/SettingStatus.vue";
 export default {
-  layout: "booking",
+  layout: "bookingLayout",
   components: {
     SettingDevice,
     SettingDrink,

@@ -8,7 +8,7 @@
 import UserManagement from "~/components/user/UserManagement.vue";
 
 export default {
-  layout: "booking",
+  layout: "bookingLayout",
   components: { UserManagement },
 };
 </script>

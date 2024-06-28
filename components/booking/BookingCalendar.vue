@@ -222,7 +222,7 @@ export default {
         start: null,
         end: null,
         name: null,
-        authorContact: null,
+        authorPhoneNumber: null,
         color: null,
         timed: true,
         url: null,
@@ -306,7 +306,7 @@ export default {
   },
 
   methods: {
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",
@@ -400,7 +400,7 @@ export default {
         await this.getEvents();
       } else {
         await this.closeOverlay();
-        await this.aleartError();
+        await this.alertError();
         await this.getEvents();
       }
     },
@@ -416,7 +416,7 @@ export default {
         })
         .catch((err) => {
           // console.log("err", err);
-          this.aleartError();
+          this.alertError();
           return;
         });
 
@@ -463,7 +463,7 @@ export default {
       this.booking.description = null;
       this.booking.timed = true;
       this.booking.name = null;
-      this.booking.authorContact = null;
+      this.booking.authorPhoneNumber = null;
       this.booking.quantity = null;
       this.booking.chairman = null;
       this.booking.StatusId = 1;
