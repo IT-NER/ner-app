@@ -14,45 +14,42 @@ app.use(express.static("public"));
 
 // Route to handle file upload
 app.post("/reward/upload", (req, res) => {
-  console.log(req.files);
-  console.log(req.body);
+  // console.log(req.files);
+  // return;
+  // console.log(req.body);
 
   let files = req.files;
   let id = req.body.id;
   let ticket = req.body.ticket;
 
-  const storage = multer.diskStorage({
-    destination: "./uploads/reward/" + ticket,
+  let storage = multer.diskStorage({
+    destination: `uploads/reward/${ticket}`,
     filename: (req, file, cb) => {
       cb(null, `${Date.now()}.jpg`);
     },
   });
 
   // Init upload
-  const upload = multer({
+  let upload = multer({
     storage: storage,
-  }).array("files");
+  }).array({ files: files }, 10);
 
   upload(req, res, (err) => {
-    if (err) {
-      res.status(400).json({ message: err });
+    if (req.files == undefined) {
+      res.status(400).json({ message: "No file selected!" });
     } else {
-      if (req.files == undefined) {
-        res.status(400).json({ message: "No file selected!" });
-      } else {
-        res.json({
-          message: "Files uploaded successfully!",
-          files: req.files,
-        });
-      }
+      res.json({
+        message: "Files uploaded successfully!",
+        files: req.files,
+      });
     }
   });
 });
 
 // create ticket reward
 app.post("/reward/ticket", async (req, res) => {
-  const item = req.body.data;
-  const ticket = await generateTicket();
+  let item = req.body.data;
+  let ticket = await generateTicket();
 
   let reward = await prisma.reward.create({
     data: {
@@ -112,8 +109,8 @@ app.get("/reward", async (req, res) => {
 
 //getById
 app.get("/reward/:id", async (req, res) => {
-  const { id } = req.params;
-  const reward = await prisma.reward.findUnique({
+  let { id } = req.params;
+  let reward = await prisma.reward.findUnique({
     where: {
       id: parseInt(id),
     },

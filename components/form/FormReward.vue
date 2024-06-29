@@ -113,7 +113,7 @@
           </v-card>
           <v-card @click="viewImg(item)">
             <v-card-actions>
-              <v-img :src="item.url" />
+              <v-img :aspect-ratio="16 / 9" :src="item.url" />
             </v-card-actions>
           </v-card>
         </v-col>
@@ -166,6 +166,7 @@
               v-for="(item, i) in reward.url"
               :key="i"
               :src="item.url"
+              :aspect-ratio="16 / 9"
               reverse-transition="fade-transition"
               transition="fade-transition"
             ></v-carousel-item>
@@ -190,11 +191,16 @@ export default {
 
   methods: {
     async upload() {
+      if (this.reward.files.length == 0) {
+        this.alertImgRequest();
+        return;
+      }
       console.log("reward", this.reward);
 
       let formData = new FormData();
       formData.append("ticket", this.reward.ticket);
       formData.append("id", this.reward.id);
+
       this.reward.files.forEach((file) => {
         formData.append("files", file);
       });
@@ -241,10 +247,12 @@ export default {
       this.reward.files = [];
       this.reward.url = [];
 
-      if (!e) {
-        return;
-      }
-      if (e.length > 50) {
+      // if (!e) {
+      //   this.alertImgRequest();
+      //   return;
+      // }
+      if (e.length > 10) {
+        this.alertImgOverLimit();
         return;
       }
 
@@ -257,6 +265,26 @@ export default {
 
       // console.log("url", this.reward.url);
       // console.log("files", this.reward.files);
+    },
+
+    async alertImgRequest() {
+      this.$swal.fire({
+        position: "center",
+        type: "error",
+        title: " กรุณาแนบไฟล์รูปภาพ",
+        text: "สามารถอัพโหลดรูปภาพได้ครั้งละ 10 รูป",
+        showConfirmButton: true,
+      });
+    },
+
+    async alertImgOverLimit() {
+      this.$swal.fire({
+        position: "center",
+        type: "error",
+        title: "ล้มเหลว",
+        text: "สามารถอัพโหลดรูปภาพได้ครั้งละ 10 รูป",
+        showConfirmButton: true,
+      });
     },
   },
 };
