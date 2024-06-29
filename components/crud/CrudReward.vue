@@ -81,7 +81,7 @@
       transition="slide-y-reverse-transition"
       max-width="1250"
     >
-      <form @submit.prevent="test" enctype="multipart/form-data">
+      <form @submit.prevent="save" enctype="multipart/form-data">
         <v-card>
           <v-card-title dense elevation="0">
             {{ title }}
@@ -158,6 +158,7 @@ export default {
         description: null,
         point: null,
         userId: null,
+        RewardImg: [],
         files: [],
         url: [],
       },
@@ -171,11 +172,9 @@ export default {
   },
 
   methods: {
-    async test(e) {
-      console.log("e", e);
-      console.log("reward", this.reward.files.length);
+    async save() {
+      console.log("reward", this.reward);
       return;
-
       // this.dialog = false;
       // this.overlay = true;
 
@@ -267,6 +266,8 @@ export default {
 
     async editItem(item) {
       this.reward = item;
+      console.log("reward", this.reward);
+      return;
       this.dialog = true;
     },
 

@@ -281,14 +281,15 @@ model Reward {
 }
 
 model RewardImg {
-  id        Int      @id @default(autoincrement())
-  path      String?
-  name      String?
-  rewardId  Int?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  active    Boolean? @default(true)
-  Reward    Reward?  @relation(fields: [rewardId], references: [id])
+  id             Int      @id @default(autoincrement())
+  path           String?
+  name           String?
+  rewardId       Int?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  active         Boolean? @default(true)
+  Reward         Reward?  @relation(fields: [rewardId], references: [id])
+  RewardImgIndex Boolean? @default(false)
 }
 
 model ButtonLink {
