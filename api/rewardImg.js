@@ -7,57 +7,55 @@ app.use(express.json());
 
 //create
 app.post("/rewardImg", async (req, res) => {
+  // console.log("reward", req.body.reward);
+  // console.log("rewardImg", req.body.rewardImg);
+  // return;
+
   let reward = req.body.reward;
-  let itemsRewardIng = [];
-  itemsRewardIng.push(req.body.rewardImg);
+  let itemsRewardIng = req.body.rewardImg;
 
   let items = [];
   itemsRewardIng.forEach((e) => {
-    // console.log("e", e);
+    let url = e.destination + e.filename;
     let item = {
       rewardId: reward.id,
-      path: String(e.req.destination),
-      name: String(e.req.filename),
+      url: url,
+      path: String(e.destination),
+      name: String(e.filename),
     };
-
     items.push(item);
   });
 
-  console.log("items", items);
-  return;
-
-  let rewardImg = await prisma.rewardImg.create({
-    data: {
-      name: item.name,
-      color: item.color.hexa,
-      quantity: parseInt(item.quantity),
-    },
+  let rewardImg = await prisma.rewardImg.createMany({
+    data: items,
   });
   res.status(200).json(rewardImg);
 });
 
 // getAll
-app.get("/rewardImg", async (req, res) => {
-  let rewardImg = await prisma.rewardImg.findMany({
-    orderBy: [
-      {
-        id: "desc",
-      },
-    ],
-  });
-  res.status(200).json(rewardImg);
-});
-
-//getById
-// app.get("/rewardImg/:id", async (req, res) => {
-//   const { id } = req.params;
-//   const rewardImg = await prisma.rewardImg.findUnique({
-//     where: {
-//       id: parseInt(id),
-//     },
+// app.get("/rewardImg", async (req, res) => {
+//   let rewardImg = await prisma.rewardImg.findMany({
+//     orderBy: [
+//       {
+//         id: "desc",
+//       },
+//     ],
 //   });
 //   res.status(200).json(rewardImg);
 // });
+
+//getById
+app.get("/rewardImg/:id", async (req, res) => {
+  let id = req.params;
+  let rewardImg = await prisma.rewardImg.findMany({
+    where: {
+      rewardId: Number(id),
+    },
+  });
+
+  console.log("rewardImg", rewardImg);
+  res.status(200).json(rewardImg);
+});
 
 //update
 // app.put("/rewardImg/:id", async (req, res) => {

@@ -8,6 +8,7 @@ app.use(express.json());
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
+    // callback(null, "assets/img/reward/");
     callback(null, "uploads/reward/");
   },
   filename: function (req, file, callback) {
@@ -18,7 +19,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post("/uploads/reward", upload.array("files"), (req, res) => {
-  res.json({ req: req.files });
+  res.json(req.files);
 });
 
 export default {

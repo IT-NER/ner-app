@@ -82,6 +82,10 @@ app.get("/reward/:id", async (req, res) => {
     where: {
       id: parseInt(id),
     },
+    include: {
+      RewardImg: true,
+      author: true,
+    },
   });
   res.status(200).json(reward);
 });
@@ -115,15 +119,15 @@ app.put("/reward/:id", async (req, res) => {
 });
 
 //delete
-app.delete("/reward/:id", async (req, res) => {
-  let id = req.params.id;
-  let reward = await prisma.reward.delete({
-    where: {
-      id: parseInt(id),
-    },
-  });
-  res.status(200).json(reward);
-});
+// app.delete("/reward/:id", async (req, res) => {
+//   let id = req.params.id;
+//   let reward = await prisma.reward.delete({
+//     where: {
+//       id: parseInt(id),
+//     },
+//   });
+//   res.status(200).json(reward);
+// });
 
 export default {
   path: "/api",

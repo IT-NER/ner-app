@@ -173,22 +173,22 @@ export default {
 
   methods: {
     async save() {
-      console.log("reward", this.reward);
-      return;
-      // this.dialog = false;
-      // this.overlay = true;
+      // console.log("reward", this.reward);
+      // return;
+      this.dialog = false;
+      this.overlay = true;
 
-      // let success = await this.update();
+      let success = await this.update();
 
-      // if (success) {
-      //   this.overlay = false;
-      //   this.alertSuccess();
-      // } else {
-      //   this.alertError();
-      // }
+      if (success) {
+        this.overlay = false;
+        this.alertSuccess();
+      } else {
+        this.alertError();
+      }
 
-      // await this.getReward();
-      // await this.setItemDefault();
+      await this.getReward();
+      await this.setItemDefault();
     },
 
     async setItemDefault() {
@@ -276,6 +276,13 @@ export default {
         .get("/api/reward")
         .then((res) => {
           // console.log("res", res.data);
+
+          // res.data.forEach((item) => {
+          //   item.RewardImg.forEach((e) => {
+          //     e["link"] = require("../../" + e.url);
+          //   });
+          // });
+
           return res.data;
         })
         .catch((err) => {

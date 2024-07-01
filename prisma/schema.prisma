@@ -282,6 +282,7 @@ model Reward {
 
 model RewardImg {
   id             Int      @id @default(autoincrement())
+  url            String?
   path           String?
   name           String?
   rewardId       Int?

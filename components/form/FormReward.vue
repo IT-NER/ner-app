@@ -128,16 +128,46 @@
               <div class="title">IMAGES REWARD</div>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text v-if="showRewardImg">
+            <v-card-text v-if="reward.RewardImg">
               <v-row>
                 <v-col
                   cols="12"
                   md="2"
                   v-for="(item, i) in reward.RewardImg"
                   :key="i"
-                ></v-col>
+                  :v-if="item"
+                >
+                  <v-card flat>
+                    <v-row>
+                      <v-col cols="12" class="text-right">
+                        <v-tooltip top>
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-icon
+                              color="error"
+                              v-bind="attrs"
+                              v-on="on"
+                              @click="removeImage(item)"
+                            >
+                              mdi-close
+                            </v-icon>
+                          </template>
+                          REMOVE
+                        </v-tooltip>
+                      </v-col>
+                    </v-row>
+                  </v-card>
+                  <v-card @click="viewImg(item)">
+                    <v-card-actions>
+                      <v-img
+                        :aspect-ratio="16 / 9"
+                        :src="require(`../../${item.url}`)"
+                      />
+                    </v-card-actions>
+                  </v-card>
+                </v-col>
               </v-row>
             </v-card-text>
+
             <v-card-text v-else>
               <v-row>
                 <v-col cols="12">
@@ -180,10 +210,34 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <!-- dialogViewRewardImg -->
+    <v-dialog
+      v-model="dialogViewRewardImg"
+      max-width="800"
+      transition="slide-y-reverse-transition"
+    >
+      <v-card>
+        <v-card-actions>
+          <v-carousel v-model="rewardImgIndex">
+            <v-carousel-item
+              v-for="(item, i) in reward.RewardImg"
+              :key="i"
+              :src="require(`../../${item.url}`)"
+              :aspect-ratio="16 / 9"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            ></v-carousel-item>
+          </v-carousel>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
+// import { resolve } from "~/uploads/reward";
+
 export default {
   props: ["reward"],
   data() {
@@ -192,12 +246,17 @@ export default {
       indexUrl: null,
 
       showRewardImg: false,
+
+      dialogViewRewardImg: false,
+      rewardImgIndex: null,
     };
   },
 
   created() {},
 
   methods: {
+    async deleteImage() {},
+
     async handleImages() {
       let files = this.reward.files;
       this.reward.files = [];
@@ -228,13 +287,34 @@ export default {
       });
 
       let filesUpload = await this.uploadFile(formData);
-      // console.log("filesUpload", filesUpload);
+
       if (!filesUpload) {
         this.alertError();
         return;
       }
 
       let itemRewardImg = await this.createRewardImg(filesUpload);
+      if (!itemRewardImg) {
+        this.alertError();
+      }
+
+      this.getRewardById();
+      this.alertSuccess();
+      this.reward.files = [];
+      this.reward.url = [];
+    },
+
+    async getRewardById() {
+      let reward = await this.$axios
+        .get("/api/reward/" + this.reward.id)
+        .then((res) => {
+          console.log("res", res.data);
+          this.$emit("update:reward", res.data);
+          return res.data;
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
     },
 
     async createRewardImg(filesUpload) {
@@ -246,10 +326,14 @@ export default {
         })
         .then((res) => {
           console.log("res", res.data);
+          return res.data;
         })
         .catch((err) => {
           console.log("err", err);
+          return false;
         });
+
+      return itemRewardImg;
     },
 
     async uploadFile(formData) {
@@ -292,10 +376,20 @@ export default {
       this.dialogViewImg = true;
     },
 
+    async viewImgReward(item) {
+      let index = this.reward.RewardImg.url.indexOf(item);
+      this.indexRewardUrl = index;
+      this.dialogViewImgReward = true;
+    },
+
     async removeImage(item) {
       let index = this.reward.url.indexOf(item);
       this.reward.url.splice(index, 1);
       this.reward.files.splice(index, 1);
+    },
+    async removeImageReward(item) {
+      let index = this.reward.RewardImg.indexOf(item);
+      this.reward.RewardImg.splice(index, 1);
     },
 
     async alertImgRequest() {

@@ -88,7 +88,7 @@ export default {
   },
 
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
+    // customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: false,
       light: true,
@@ -115,7 +115,15 @@ export default {
   // mode: "universal",
 
   build: {
-    // Add any custom build configurations here
+    extend(config, { isDev, isClient }) {
+      config.node = {
+        fs: "empty",
+      };
+    },
+  },
+
+  env: {
+    baseUrl: "http://192.168.3.250/",
   },
 
   server: {
