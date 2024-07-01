@@ -14,6 +14,7 @@ CREATE TABLE [dbo].[User] (
     [departmentId] INT,
     [positionId] INT,
     [roleId] INT CONSTRAINT [User_roleId_df] DEFAULT 1,
+    [contract] NVARCHAR(1000),
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [User_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
     CONSTRAINT [User_pkey] PRIMARY KEY CLUSTERED ([id]),
@@ -49,7 +50,7 @@ CREATE TABLE [dbo].[Booking] (
     [end] DATETIME2,
     [name] NVARCHAR(1000),
     [color] NVARCHAR(1000),
-    [timed] BIT NOT NULL,
+    [timed] BIT CONSTRAINT [Booking_timed_df] DEFAULT 1,
     [url] NVARCHAR(1000),
     [description] NVARCHAR(1000),
     [chairman] NVARCHAR(1000),
@@ -64,6 +65,7 @@ CREATE TABLE [dbo].[Booking] (
     [StatusId] INT CONSTRAINT [Booking_StatusId_df] DEFAULT 1,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [Booking_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
+    [authorContact] NVARCHAR(1000),
     CONSTRAINT [Booking_pkey] PRIMARY KEY CLUSTERED ([id])
 );
 
@@ -114,15 +116,8 @@ CREATE TABLE [dbo].[Room] (
     [id] INT NOT NULL IDENTITY(1,1),
     [name] NVARCHAR(1000),
     [quantity] INT,
-    [RoomColorId] INT,
+    [color] NVARCHAR(1000),
     CONSTRAINT [Room_pkey] PRIMARY KEY CLUSTERED ([id])
-);
-
--- CreateTable
-CREATE TABLE [dbo].[RoomColor] (
-    [id] INT NOT NULL IDENTITY(1,1),
-    [name] NVARCHAR(1000),
-    CONSTRAINT [RoomColor_pkey] PRIMARY KEY CLUSTERED ([id])
 );
 
 -- CreateTable
@@ -156,16 +151,16 @@ ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_positionId_fkey] FOREIGN KEY ([pos
 ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_roleId_fkey] FOREIGN KEY ([roleId]) REFERENCES [dbo].[Role]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_ProgramId_fkey] FOREIGN KEY ([ProgramId]) REFERENCES [dbo].[Program]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_StatusId_fkey] FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_MeetingTypeId_fkey] FOREIGN KEY ([MeetingTypeId]) REFERENCES [dbo].[MeetingType]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_ProgramId_fkey] FOREIGN KEY ([ProgramId]) REFERENCES [dbo].[Program]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_RoomId_fkey] FOREIGN KEY ([RoomId]) REFERENCES [dbo].[Room]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_StatusId_fkey] FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[Booking] ADD CONSTRAINT [Booking_UserId_fkey] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
@@ -187,9 +182,6 @@ ALTER TABLE [dbo].[BookingDrink] ADD CONSTRAINT [BookingDrink_BookingId_fkey] FO
 
 -- AddForeignKey
 ALTER TABLE [dbo].[BookingDrink] ADD CONSTRAINT [BookingDrink_DrinkId_fkey] FOREIGN KEY ([DrinkId]) REFERENCES [dbo].[Drink]([id]) ON DELETE NO ACTION ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE [dbo].[Room] ADD CONSTRAINT [Room_RoomColorId_fkey] FOREIGN KEY ([RoomColorId]) REFERENCES [dbo].[RoomColor]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 COMMIT TRAN;
 

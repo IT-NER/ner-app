@@ -246,6 +246,7 @@ export default {
       BookingDevice: [],
       BookingFood: [],
       BookingDrink: [],
+      authorContact:null,
     },
 
     filter: {
@@ -430,6 +431,8 @@ export default {
       this.editedItem.quantity = null;
       this.editedItem.chairman = null;
       this.editedItem.StatusId = 1;
+      this.editedItem.authorContact = null;
+
     },
 
     async editItem(item) {

@@ -324,6 +324,7 @@ app.get("/booking/user/:id", async (req, res) => {
 });
 
 
+// create
 app.post("/booking", async (req, res) => {
   let item = req.body.data;
   let BookingDevice = [];
@@ -416,6 +417,8 @@ app.post("/booking", async (req, res) => {
   res.status(200).json(booking);
 });
 
+
+// update
 app.put("/booking/:id", async (req, res) => {
   let id = req.params.id;
   let item = req.body.data;

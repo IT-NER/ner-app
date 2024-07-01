@@ -1,14 +1,6 @@
 import colors from "vuetify/es5/util/colors";
 
 export default {
-  // for dev
-  // ssr: false,
-  // target: "static",
-
-  // Target: https://go.nuxtjs.dev/config-target
-  // ssr: true,
-  // target: "server",
-
   serverMiddleware: [
     "~/api/auth.js",
     "~/api/room.js",
@@ -25,7 +17,7 @@ export default {
     "~/api/booking.js"
   ],
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
     titleTemplate: "%s - NER",
     title: "NER",
@@ -41,17 +33,13 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/ner-logo.ico" }],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
+
   css: [],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
@@ -65,12 +53,9 @@ export default {
     defaultTimezone: "Asia/Bangkok",
   },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios", "@nuxtjs/auth", "nuxt-sweetalert2"],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseUrl: "/",
   },
 
@@ -104,9 +89,7 @@ export default {
     }
   },
 
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: false,
       light: true,
@@ -130,20 +113,16 @@ export default {
     },
   },
 
-  mode: 'universal', // or 'spa'
+  mode: 'universal',
 
   build: {
     // Add any custom build configurations here
   },
 
   server: {
-    port: 9390, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    port: 9390,
+    host:"0.0.0.0"
   },
 
-  // pwa: {
-  //   icon: {
-  //     src: 'NER_Logo_Final2',
-  //   }
-  // }
+
 };
