@@ -1,50 +1,18 @@
-import express from "express";
-import { PrismaClient } from "@prisma/client";
-import moment from "moment";
+let express = require("express");
+let moment = require("moment");
 
-let multer = require("multer");
-let formData = require("express-form-data");
-
+// prisma
+let { PrismaClient } = require("@prisma/client");
 let prisma = new PrismaClient();
 
+// multer
+let multer = require("multer");
+let path = require("path");
+
+// app
 let app = express();
 app.use(express.json());
-app.use(formData.parse());
-app.use(express.static("public"));
-
-// Route to handle file upload
-app.post("/reward/upload", (req, res) => {
-  // console.log(req.files);
-  // return;
-  // console.log(req.body);
-
-  let files = req.files;
-  let id = req.body.id;
-  let ticket = req.body.ticket;
-
-  let storage = multer.diskStorage({
-    destination: `uploads/reward/${ticket}`,
-    filename: (req, file, cb) => {
-      cb(null, `${Date.now()}.jpg`);
-    },
-  });
-
-  // Init upload
-  let upload = multer({
-    storage: storage,
-  }).array({ files: files }, 10);
-
-  upload(req, res, (err) => {
-    if (req.files == undefined) {
-      res.status(400).json({ message: "No file selected!" });
-    } else {
-      res.json({
-        message: "Files uploaded successfully!",
-        files: req.files,
-      });
-    }
-  });
-});
+app.use(express.urlencoded({ extended: true }));
 
 // create ticket reward
 app.post("/reward/ticket", async (req, res) => {

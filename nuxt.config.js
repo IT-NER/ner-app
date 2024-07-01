@@ -1,14 +1,6 @@
 import colors from "vuetify/es5/util/colors";
 
 export default {
-  // for dev
-  // ssr: false,
-  // target: "static",
-
-  // Target: https://go.nuxtjs.dev/config-target
-  // ssr: true,
-  // target: "server",
-
   serverMiddleware: [
     "~/api/auth.js",
     "~/api/room.js",
@@ -26,9 +18,10 @@ export default {
     "~/api/contentType.js",
     "~/api/contentStatus.js",
     "~/api/reward.js",
+    "~/api/rewardImg.js",
+    "~/api/uploads.js",
   ],
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: "%s - NER",
     title: "NER",
@@ -41,25 +34,16 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/ner-logo.ico" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "favicon.ico" }],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~assets/global.scss"],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify",
-    "@nuxtjs/moment",
-    "@nuxtjs/pwa",
-  ],
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/moment", "@nuxtjs/pwa"],
 
   moment: {
     defaultLocale: "th",
@@ -67,12 +51,9 @@ export default {
     defaultTimezone: "Asia/Bangkok",
   },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios", "@nuxtjs/auth", "nuxt-sweetalert2"],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseUrl: "/",
   },
 
@@ -106,7 +87,6 @@ export default {
     },
   },
 
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
@@ -132,7 +112,7 @@ export default {
     },
   },
 
-  mode: "universal", // or 'spa'
+  // mode: "universal",
 
   build: {
     // Add any custom build configurations here
@@ -142,10 +122,4 @@ export default {
     port: 9390, // default: 3000
     host: "0.0.0.0", // default: localhost
   },
-
-  // pwa: {
-  //   icon: {
-  //     src: 'NER_Logo_Final2',
-  //   }
-  // }
 };

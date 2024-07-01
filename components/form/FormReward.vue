@@ -52,7 +52,7 @@
       <!-- IMAGES UPLOAD -->
       <v-row>
         <v-col cols="12">
-          <form @submit.prevent="upload">
+          <form @submit.prevent="upload" enctype="multipart/form-data">
             <v-card flat>
               <v-toolbar flat dense>
                 <div class="title">IMAGES UPLOAD</div>
@@ -71,6 +71,7 @@
                       show-size
                       clearable
                       required
+                      type="file"
                     ></v-file-input>
                   </v-col>
                   <v-col cols="12" md="12" class="text-right">
@@ -92,13 +93,13 @@
           :key="i"
           :v-if="item"
         >
-          <v-card>
+          <v-card flat>
             <v-row>
               <v-col cols="12" class="text-right">
                 <v-tooltip top>
                   <template v-slot:activator="{ on, attrs }">
                     <v-icon
-                      color="dark"
+                      color="error"
                       v-bind="attrs"
                       v-on="on"
                       @click="removeImage(item)"
@@ -127,9 +128,14 @@
               <div class="title">IMAGES REWARD</div>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text v-if="reward.RewardImg.length > 0">
+            <v-card-text v-if="showRewardImg">
               <v-row>
-                <v-col cols="12" md="2"></v-col>
+                <v-col
+                  cols="12"
+                  md="2"
+                  v-for="(item, i) in reward.RewardImg"
+                  :key="i"
+                ></v-col>
               </v-row>
             </v-card-text>
             <v-card-text v-else>
@@ -184,37 +190,86 @@ export default {
     return {
       dialogViewImg: false,
       indexUrl: null,
+
+      showRewardImg: false,
     };
   },
 
   created() {},
 
   methods: {
-    async upload() {
-      if (this.reward.files.length == 0) {
-        this.alertImgRequest();
+    async handleImages() {
+      let files = this.reward.files;
+      this.reward.files = [];
+      this.reward.url = [];
+
+      if (files.length > 10) {
+        this.alertImgOverLimit();
         return;
       }
-      console.log("reward", this.reward);
+
+      files.forEach((item) => {
+        if (item.size <= 2500000) {
+          this.reward.files.push(item);
+          this.reward.url.push({ url: URL.createObjectURL(item) });
+        }
+      });
+    },
+
+    async upload() {
+      let files = this.reward.files;
 
       let formData = new FormData();
-      formData.append("ticket", this.reward.ticket);
       formData.append("id", this.reward.id);
+      formData.append("ticket", this.reward.ticket);
 
-      this.reward.files.forEach((file) => {
+      files.forEach((file) => {
         formData.append("files", file);
       });
 
-      const response = await this.$axios
-        .post("/api/reward/upload", formData, {
+      let filesUpload = await this.uploadFile(formData);
+      // console.log("filesUpload", filesUpload);
+      if (!filesUpload) {
+        this.alertError();
+        return;
+      }
+
+      let itemRewardImg = await this.createRewardImg(filesUpload);
+    },
+
+    async createRewardImg(filesUpload) {
+      console.log("filesUpload", filesUpload);
+      let itemRewardImg = await this.$axios
+        .post("/api/rewardImg", {
+          reward: this.reward,
+          rewardImg: filesUpload,
+        })
+        .then((res) => {
+          console.log("res", res.data);
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    },
+
+    async uploadFile(formData) {
+      let filesUpload = await this.$axios
+        .post("/api/uploads/reward", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         })
         .then((res) => {
           console.log("res", res.data);
+          return res.data;
+        })
+        .catch((err) => {
+          console.log("err", err);
+          this.alertError();
+          return false;
         });
-      // this.getReward();
+
+      return filesUpload;
     },
 
     async getReward() {
@@ -243,30 +298,6 @@ export default {
       this.reward.files.splice(index, 1);
     },
 
-    async handleImages(e) {
-      this.reward.files = [];
-      this.reward.url = [];
-
-      // if (!e) {
-      //   this.alertImgRequest();
-      //   return;
-      // }
-      if (e.length > 10) {
-        this.alertImgOverLimit();
-        return;
-      }
-
-      e.forEach((item) => {
-        if (item.size <= 2500000) {
-          this.reward.files.push(item);
-          this.reward.url.push({ url: URL.createObjectURL(item) });
-        }
-      });
-
-      // console.log("url", this.reward.url);
-      // console.log("files", this.reward.files);
-    },
-
     async alertImgRequest() {
       this.$swal.fire({
         position: "center",
@@ -284,6 +315,25 @@ export default {
         title: "ล้มเหลว",
         text: "สามารถอัพโหลดรูปภาพได้ครั้งละ 10 รูป",
         showConfirmButton: true,
+      });
+    },
+
+    async alertError() {
+      this.$swal.fire({
+        type: "error",
+        title: "เกิดข้อผิดพลาด",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+
+    async alertSuccess() {
+      this.$swal.fire({
+        position: "top-end",
+        type: "success",
+        title: "บันทึก เรียบร้อย",
+        showConfirmButton: false,
+        timer: 1500,
       });
     },
   },
