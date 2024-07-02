@@ -115,7 +115,7 @@
             <template v-slot:item.end="{ item }">
               {{ $moment(item.end).format("LL") }}
               <br />
-              เวลา {{ $moment(item.start).format("HH:mm") }} น.
+              เวลา {{ $moment(item.end).format("HH:mm") }} น.
             </template>
             <template v-slot:item.actions="{ item }">
               <v-icon color="warning" @click="editItem(item)">
