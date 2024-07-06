@@ -45,6 +45,7 @@
 
     <v-main>
       <Nuxt />
+      <btn-scroll-to-top />
     </v-main>
   </v-app>
 </template>
@@ -53,8 +54,9 @@
 import CardProfile from "~/components/profile/CardProfile.vue";
 import MenuDefault from "~/components/menu/MenuDefault.vue";
 import CardButtonLink from "~/components/intranet/CardButtonLink.vue";
+import BtnScrollToTop from "~/components/btn/BtnScrollToTop.vue";
 export default {
-  components: { CardProfile, MenuDefault, CardButtonLink },
+  components: { CardProfile, MenuDefault, CardButtonLink, BtnScrollToTop },
   data() {
     return {
       drawerLeft: null,

@@ -60,8 +60,6 @@
         />
       </v-card-text>
     </v-card>
-
-    <btn-scroll-to-top />
   </div>
 </template>
 

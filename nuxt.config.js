@@ -23,6 +23,7 @@ export default {
     "~/api/uploads-content.js",
     "~/api/content.js",
     "~/api/contentImg.js",
+    "~/api/public.js",
   ],
 
   components: true,

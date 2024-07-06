@@ -161,6 +161,7 @@ app.put("/content/:id", async (req, res) => {
       description: String(item.description),
       detail: String(item.detail),
       point: Number(item.point),
+      contentStatusId: Number(item.contentStatusId),
     },
     include: {
       author: true,
