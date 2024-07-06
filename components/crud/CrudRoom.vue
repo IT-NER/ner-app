@@ -14,14 +14,7 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              color="success"
-              v-bind="attrs"
-              v-on="on"
-              @click="addItem"
-            >
-              <v-icon class="mr-3"> mdi-database-plus </v-icon>
+            <v-btn color="success" v-bind="attrs" v-on="on" @click="addItem">
               เพิ่ม
             </v-btn>
           </template>
@@ -30,14 +23,7 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              v-bind="attrs"
-              v-on="on"
-              color="primary"
-              @click="getRoom"
-            >
-              <v-icon class="mr-2"> mdi-database-sync </v-icon>
+            <v-btn v-bind="attrs" v-on="on" color="primary" @click="getRoom">
               รีเฟรช
             </v-btn>
           </template>
@@ -63,13 +49,11 @@
           <v-tooltip top>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                text
                 v-bind="attrs"
                 v-on="on"
                 color="warning"
                 @click="editItem(item)"
               >
-                <v-icon class="mr-2"> mdi-database-edit </v-icon>
                 แก้ไข
               </v-btn>
             </template>
@@ -88,7 +72,7 @@
     >
       <form @submit.prevent="save">
         <v-card>
-          <v-toolbar dense color="success" dark elevation="0">
+          <v-card-title elevation="0">
             {{ title }}
             <v-spacer></v-spacer>
             <v-tooltip top>
@@ -99,24 +83,22 @@
               </template>
               <div class="title">ปิด</div>
             </v-tooltip>
-          </v-toolbar>
+          </v-card-title>
+          <v-divider></v-divider>
           <v-card-text>
             <form-room :room.sync="room" />
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="success" type="submit" text>
-              <v-tooltip top>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon class="mr-2" v-bind="attrs" v-on="on">
-                    mdi-content-save
-                  </v-icon>
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn color="primary" type="submit" v-bind="attrs" v-on="on">
                   บันทึก
-                </template>
-                <div class="title">บันทึก</div>
-              </v-tooltip>
-            </v-btn>
+                </v-btn>
+              </template>
+              <div class="title">บันทึก</div>
+            </v-tooltip>
           </v-card-actions>
         </v-card>
       </form>
@@ -186,6 +168,7 @@ export default {
 
     async setItemDefault() {
       this.room.id = null;
+      this.room.quantity = null;
       this.room.name = null;
     },
 
@@ -244,10 +227,11 @@ export default {
 
     async addItem() {
       this.dialog = true;
+      await this.setItemDefault();
     },
 
     async editItem(item) {
-      this.room = item;
+      this.room = await Object.assign({}, item);
       this.dialog = true;
     },
 

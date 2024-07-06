@@ -5,8 +5,8 @@
       <card-profile />
 
       <v-divider></v-divider>
-      <!-- CardMenu -->
-      <card-menu />
+      <!-- Menu -->
+      <menu-default />
     </v-navigation-drawer>
     <v-navigation-drawer v-model="drawerRigth" app right>
       <card-button-link />
@@ -38,10 +38,10 @@
 
 <script>
 import CardButtonLink from "~/components/intranet/CardButtonLink.vue";
-import CardMenu from "~/components/intranet/CardMenuIntranet.vue";
+import MenuDefault from "~/components/menu/MenuDefault.vue";
 import CardProfile from "~/components/profile/CardProfile.vue";
 export default {
-  components: { CardProfile, CardMenu, CardButtonLink },
+  components: { CardProfile, MenuDefault, CardButtonLink },
   data() {
     return {
       drawerLeft: null,

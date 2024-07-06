@@ -29,13 +29,13 @@
 </template>
 
 <script>
-import CrudRoom from "~/components/setting/Room/CrudRoom.vue";
-import CrudProgram from "~/components/setting/Program/CrudProgram.vue";
-import CrudMeetingType from "~/components/setting/MeetingType/CrudMeetingType.vue";
-import CrudStatus from "~/components/setting/Status/CrudStatus.vue";
-import CrudDevice from "~/components/setting/Device/CrudDevice.vue";
-import CrudFood from "~/components/setting/Food/CrudFood.vue";
-import CrudDrink from "~/components/setting/Drink/CrudDrink.vue";
+import CrudRoom from "~/components/crud/CrudRoom.vue";
+import CrudProgram from "~/components/crud/CrudProgram.vue";
+import CrudMeetingType from "~/components/crud/CrudMeetingType.vue";
+import CrudStatus from "~/components/crud/CrudStatus.vue";
+import CrudDevice from "~/components/crud/CrudDevice.vue";
+import CrudFood from "~/components/crud/CrudFood.vue";
+import CrudDrink from "~/components/crud/CrudDrink.vue";
 
 export default {
   components: {
@@ -47,7 +47,7 @@ export default {
     CrudFood,
     CrudDrink,
   },
-  layout: "settingLayout",
+  layout: "defaultLayout",
   data() {
     return {
       tab: {

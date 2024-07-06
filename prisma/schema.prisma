@@ -159,26 +159,27 @@ model Drink {
 model Content {
   id              Int             @id @default(autoincrement())
   ticket          String          @unique
-  code            String          @unique
+  code            String?
   title           String?
   description     String?
   detail          String?
   point           Int?            @default(0)
   userId          Int?
   contentTypeId   Int?
-  contentStatusId Int?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
   active          Boolean?        @default(true)
-  ContentStatus   ContentStatus?  @relation(fields: [contentStatusId], references: [id])
   ContentType     ContentType?    @relation(fields: [contentTypeId], references: [id])
   author          User?           @relation(fields: [userId], references: [id])
   ContentImg      ContentImg[]
   PointPay        PointPay[]
   PointReceived   PointReceived[]
+  Public          Public[]
+  ContentStatus   ContentStatus?  @relation(fields: [contentStatusId], references: [id])
+  contentStatusId Int?
 }
 
-model ContentView {
+model Public {
   id        Int       @id @default(autoincrement())
   start     DateTime?
   end       DateTime?
@@ -188,6 +189,8 @@ model ContentView {
   updatedAt DateTime  @updatedAt
   active    Boolean?  @default(true)
   publish   Boolean?  @default(false)
+  Content   Content?  @relation(fields: [contentId], references: [id])
+  contentId Int?
 }
 
 model ContentType {
@@ -200,14 +203,16 @@ model ContentType {
 }
 
 model ContentImg {
-  id        Int      @id @default(autoincrement())
-  path      String?
-  name      String?
-  contentId Int?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  active    Boolean? @default(true)
-  Content   Content? @relation(fields: [contentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id              Int      @id @default(autoincrement())
+  url             String?
+  path            String?
+  name            String?
+  contentId       Int?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  active          Boolean? @default(true)
+  Content         Content? @relation(fields: [contentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  contentImgIndex Boolean? @default(false)
 }
 
 model ContentStatus {
@@ -269,6 +274,7 @@ model PointReceivedPay {
 model Reward {
   id          Int         @id @default(autoincrement())
   ticket      String      @unique
+  code        String?
   name        String?
   description String?
   point       Int?        @default(0)
@@ -296,6 +302,7 @@ model RewardImg {
 model ButtonLink {
   id        Int      @id @default(autoincrement())
   ticket    String   @unique
+  url       String   @unique
   remark    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

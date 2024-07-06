@@ -7,10 +7,6 @@ app.use(express.json());
 
 //create
 app.post("/rewardImg", async (req, res) => {
-  // console.log("reward", req.body.reward);
-  // console.log("rewardImg", req.body.rewardImg);
-  // return;
-
   let reward = req.body.reward;
   let itemsRewardIng = req.body.rewardImg;
 
@@ -32,28 +28,14 @@ app.post("/rewardImg", async (req, res) => {
   res.status(200).json(rewardImg);
 });
 
-// getAll
-// app.get("/rewardImg", async (req, res) => {
-//   let rewardImg = await prisma.rewardImg.findMany({
-//     orderBy: [
-//       {
-//         id: "desc",
-//       },
-//     ],
-//   });
-//   res.status(200).json(rewardImg);
-// });
-
-//getById
-app.get("/rewardImg/:id", async (req, res) => {
-  let id = req.params;
-  let rewardImg = await prisma.rewardImg.findMany({
+//delete
+app.delete("/rewardImg/:id", async (req, res) => {
+  let id = req.params.id;
+  let rewardImg = await prisma.rewardImg.delete({
     where: {
-      rewardId: Number(id),
+      id: parseInt(id),
     },
   });
-
-  console.log("rewardImg", rewardImg);
   res.status(200).json(rewardImg);
 });
 

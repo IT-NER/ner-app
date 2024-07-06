@@ -20,7 +20,12 @@ export default {
     "~/api/reward.js",
     "~/api/rewardImg.js",
     "~/api/uploads.js",
+    "~/api/uploads-content.js",
+    "~/api/content.js",
+    "~/api/contentImg.js",
   ],
+
+  components: true,
 
   head: {
     titleTemplate: "%s - NER",
@@ -41,8 +46,6 @@ export default {
 
   plugins: [],
 
-  components: true,
-
   buildModules: ["@nuxtjs/vuetify", "@nuxtjs/moment", "@nuxtjs/pwa"],
 
   moment: {
@@ -51,7 +54,7 @@ export default {
     defaultTimezone: "Asia/Bangkok",
   },
 
-  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "nuxt-sweetalert2"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "nuxt-sweetalert2", "@nuxt/image"],
 
   axios: {
     baseUrl: "/",
@@ -88,7 +91,7 @@ export default {
   },
 
   vuetify: {
-    // customVariables: ["~/assets/variables.scss"],
+    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: false,
       light: true,
@@ -112,19 +115,9 @@ export default {
     },
   },
 
-  // mode: "universal",
+  mode: "universal",
 
-  build: {
-    extend(config, { isDev, isClient }) {
-      config.node = {
-        fs: "empty",
-      };
-    },
-  },
-
-  env: {
-    baseUrl: "http://192.168.3.250/",
-  },
+  build: {},
 
   server: {
     port: 9390, // default: 3000

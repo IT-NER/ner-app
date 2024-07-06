@@ -1,5 +1,9 @@
 <template>
   <div>
+    <v-overlay :value="overlay">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
+
     <v-card>
       <v-card-title elevation="0">
         <div class="display-1">
@@ -14,14 +18,7 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              color="success"
-              v-bind="attrs"
-              v-on="on"
-              @click="addItem"
-            >
-              <v-icon class="mr-3"> mdi-database-plus </v-icon>
+            <v-btn color="success" v-bind="attrs" v-on="on" @click="addItem">
               เพิ่ม
             </v-btn>
           </template>
@@ -30,14 +27,7 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              v-bind="attrs"
-              v-on="on"
-              color="primary"
-              @click="getReward"
-            >
-              <v-icon class="mr-2"> mdi-database-sync </v-icon>
+            <v-btn v-bind="attrs" v-on="on" color="primary" @click="getReward">
               รีเฟรช
             </v-btn>
           </template>
@@ -47,7 +37,7 @@
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
-        :items="items"
+        :items="rewards"
         class="elevation-0"
         :search="search"
       >
@@ -58,13 +48,11 @@
           <v-tooltip top>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                text
                 v-bind="attrs"
                 v-on="on"
                 color="warning"
                 @click="editItem(item)"
               >
-                <v-icon class="mr-2"> mdi-database-edit </v-icon>
                 แก้ไข
               </v-btn>
             </template>
@@ -102,39 +90,34 @@
           </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
+            <!-- FormReward -->
             <form-reward :reward.sync="reward" />
+            <!-- CardViewImg -->
+            <card-view-img :reward.sync="reward" />
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="success" type="submit" text>
-              <v-tooltip top>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon class="mr-2" v-bind="attrs" v-on="on">
-                    mdi-content-save
-                  </v-icon>
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn color="primary" type="submit" v-bind="attrs" v-on="on">
                   บันทึก
-                </template>
-                <div class="title">บันทึก</div>
-              </v-tooltip>
-            </v-btn>
+                </v-btn>
+              </template>
+              <div class="title">บันทึก</div>
+            </v-tooltip>
           </v-card-actions>
         </v-card>
       </form>
     </v-dialog>
-
-    <v-overlay :value="overlay">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
-    </v-overlay>
   </div>
 </template>
 
 <script>
 import FormReward from "~/components/form/FormReward.vue";
-
+import CardViewImg from "~/components/card/CardViewImg.vue";
 export default {
-  components: { FormReward },
-
+  components: { FormReward, CardViewImg },
   data() {
     return {
       title: "ของรางวัล",
@@ -150,7 +133,7 @@ export default {
         { text: "POINT", value: "point" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
-      items: [],
+      rewards: [],
       reward: {
         id: null,
         ticket: null,
@@ -171,29 +154,100 @@ export default {
     this.getReward();
   },
 
-  methods: {
-    async save() {
-      // console.log("reward", this.reward);
-      // return;
-      this.dialog = false;
-      this.overlay = true;
-
-      let success = await this.update();
-
-      if (success) {
-        this.overlay = false;
-        this.alertSuccess();
-      } else {
-        this.alertError();
+  watch: {
+    dialog(val) {
+      if (!val) {
+        this.getReward();
       }
+    },
+  },
 
-      await this.getReward();
-      await this.setItemDefault();
+  methods: {
+    async uploadFile(formData) {
+      let filesUpload = await this.$axios.post(
+        "/api/uploads/reward",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      return filesUpload;
     },
 
-    async setItemDefault() {
-      this.reward.id = null;
-      this.reward.name = null;
+    async createRewardImg(filesUpload) {
+      // console.log("filesUpload", filesUpload);
+      let itemRewardImg = await this.$axios.post("/api/rewardImg", {
+        reward: this.reward,
+        rewardImg: filesUpload,
+      });
+
+      return itemRewardImg;
+    },
+
+    async getRewardById() {
+      let reward = await this.$axios.get("/api/reward/" + this.reward.id);
+
+      return reward;
+    },
+
+    async save() {
+      this.overlay = true;
+
+      let reward = await this.update();
+      if (!reward) {
+        this.alertError();
+        return;
+      }
+
+      let formData = await this.setFormData();
+      // console.log("formData", formData);
+      if (!formData) {
+        this.alertSuccess();
+        return;
+      }
+
+      let filesUpload = await this.uploadFile(formData);
+      // console.log("filesUpload", filesUpload);
+      if (!filesUpload) {
+        this.alertError();
+        return;
+      }
+
+      let rewardImg = await this.createRewardImg(filesUpload.data);
+      // console.log("rewardImg", rewardImg);
+      if (!filesUpload) {
+        this.alertError();
+        return;
+      }
+
+      let item = await this.getRewardById();
+      this.reward = await item.data;
+      await this.alertSuccess();
+    },
+
+    async setFormData() {
+      // console.log("this.reward.files", this.reward.files);
+      // return;
+
+      if (!this.reward.files) {
+        return false;
+      }
+
+      let formData = null;
+      formData = new FormData();
+
+      formData.append("id", this.reward.id);
+      formData.append("ticket", this.reward.ticket);
+      this.reward.files.forEach((file) => {
+        formData.append("files", file);
+      });
+
+      if (formData) {
+        return formData;
+      }
     },
 
     async alertError() {
@@ -203,10 +257,17 @@ export default {
         showConfirmButton: false,
         timer: 1500,
       });
+
+      this.overlay = false;
     },
 
     async alertSuccess() {
-      this.$swal.fire({
+      this.reward.files = [];
+      this.reward.url = [];
+      this.overlay = false;
+      await this.getReward();
+
+      await this.$swal.fire({
         position: "top-end",
         type: "success",
         title: "บันทึก เรียบร้อย",
@@ -216,78 +277,83 @@ export default {
     },
 
     async update() {
-      let updateReward = await this.$axios
-        .put("/api/reward/" + this.reward.id, {
-          data: this.reward,
-        })
-        .then((res) => {
-          // console.log("res", res.data);
-          return true;
-        })
-        .catch((err) => {
-          // console.log("err", err);
-          return false;
-        });
-
-      return updateReward;
+      let reward = await this.$axios.put("/api/reward/" + this.reward.id, {
+        data: this.reward,
+      });
+      return reward;
     },
 
     async addItem() {
+      this.reward.files = [];
+      this.reward.url = [];
+
       this.user = await this.$auth.$storage.getCookie("user");
+      let reward = await this.create();
 
-      let success = await this.create();
-
-      if (success) {
-        this.getReward();
-        // this.alertSuccess();
-        this.dialog = true;
-      } else {
+      if (!reward) {
         this.alertError();
+        return;
       }
+
+      this.reward = await reward.data;
+      this.dialog = true;
     },
 
     async create() {
-      let createReword = await this.$axios
-        .post("/api/reward/ticket", {
-          data: this.user,
-        })
-        .then((res) => {
-          // console.log("res", res.data);
-          this.reward = res.data;
-          return true;
-        })
-        .catch((err) => {
-          // console.log("err", err);
-          return false;
-        });
+      let reward = await this.$axios.post("/api/reward/ticket", {
+        data: this.user,
+      });
 
-      return createReword;
+      return reward;
     },
 
     async editItem(item) {
-      this.reward = item;
-      console.log("reward", this.reward);
-      return;
+      this.reward.files = [];
+      this.reward.url = [];
+
+      this.reward = await Object.assign({}, item);
       this.dialog = true;
     },
 
     async getReward() {
-      this.items = await this.$axios
-        .get("/api/reward")
-        .then((res) => {
-          // console.log("res", res.data);
+      let rewards = await this.$axios.get("/api/reward");
 
-          // res.data.forEach((item) => {
-          //   item.RewardImg.forEach((e) => {
-          //     e["link"] = require("../../" + e.url);
-          //   });
-          // });
+      if (!rewards) {
+        this.alertError();
+        return;
+      }
 
-          return res.data;
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
+      this.rewards = await rewards.data;
+    },
+
+    async delRewardImgById(item) {
+      let itemRewardImg = await this.$axios.delete("/api/rewardImg/" + item.id);
+      if (!itemRewardImg) {
+        this.alertError();
+      }
+
+      await this.getRewardById();
+      await this.alertSuccess();
+    },
+
+    async alertImgRequest() {
+      this.$swal.fire({
+        position: "center",
+        type: "error",
+        title: " กรุณาแนบไฟล์รูปภาพ",
+        text: "สามารถอัพโหลดรูปภาพได้ครั้งละ 10 รูป",
+        showConfirmButton: true,
+      });
+    },
+
+    async alertImgOverLimit() {
+      this.$swal.fire({
+        position: "center",
+        type: "error",
+        title: "ล้มเหลว",
+        text: "สามารถอัพโหลดรูปภาพได้ครั้งละ 10 รูป",
+        showConfirmButton: true,
+      });
     },
   },
 };

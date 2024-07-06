@@ -7,7 +7,7 @@
 <script>
 import BookingCalendar from "~/components/booking/BookingCalendar.vue";
 export default {
-  layout: "bookingLayout",
+  layout: "defaultLayout",
   components: { BookingCalendar },
 
   data() {

@@ -5,7 +5,7 @@
       tile
       block
       dark
-      v-for="(item, i) in items"
+      v-for="(item, i) in buttonLinks"
       :key="i"
       :href="item.url"
       target="_blank"
@@ -20,16 +20,15 @@
 export default {
   data() {
     return {
-      items: [
-        {
-          text: "ERP",
-          url: "https://nererp-uat.sandbox.operations.dynamics.com/",
-        },
-        {
-          text: "E-Leave",
-          url: "http://49.231.250.122:50433/LoginERS/MainERS/Default.aspx",
-        },
-      ],
+      buttonLinks: [],
+
+      buttonLink: {
+        id: null,
+        ticket: null,
+        remark: null,
+        active: null,
+        User: null,
+      },
     };
   },
 };

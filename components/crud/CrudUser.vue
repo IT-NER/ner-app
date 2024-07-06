@@ -28,7 +28,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text color="success" type="submit"> บันทึก </v-btn>
+            <v-btn color="primary" type="submit"> บันทึก </v-btn>
           </v-card-actions>
         </v-card>
       </form>
@@ -44,7 +44,6 @@
           {{ title }}
         </div>
         <v-spacer></v-spacer>
-        <v-text-field v-model="search" label="ค้นหา"></v-text-field>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
@@ -73,18 +72,11 @@
       </v-card-text>
 
       <v-divider></v-divider>
-      <v-toolbar dense>
+      <v-toolbar dense elevation="0">
         <v-spacer></v-spacer>
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              v-bind="attrs"
-              v-on="on"
-              text
-              color="primary"
-              @click="getUser"
-            >
-              <v-icon class="mr-2"> mdi-magnify </v-icon>
+            <v-btn v-bind="attrs" v-on="on" color="primary" @click="getUser">
               ค้นหา
             </v-btn>
           </template>
@@ -93,19 +85,13 @@
         <v-spacer></v-spacer>
       </v-toolbar>
       <v-divider></v-divider>
-      <v-toolbar elevation="0">
+      <v-card-title elevation-0>
+        <v-text-field v-model="search" label="ค้นหา"></v-text-field>
         <v-spacer></v-spacer>
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              color="success"
-              v-bind="attrs"
-              v-on="on"
-              @click="addItem"
-            >
-              <v-icon class="mr-3"> mdi-database-plus </v-icon>
+            <v-btn color="success" v-bind="attrs" v-on="on" @click="addItem">
               เพิ่ม
             </v-btn>
           </template>
@@ -114,20 +100,13 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              v-bind="attrs"
-              v-on="on"
-              color="primary"
-              @click="refresh"
-            >
-              <v-icon class="mr-2"> mdi-database-sync </v-icon>
+            <v-btn v-bind="attrs" v-on="on" color="primary" @click="refresh">
               รีเฟรช
             </v-btn>
           </template>
           <div class="title">รีเฟรช</div>
         </v-tooltip>
-      </v-toolbar>
+      </v-card-title>
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
@@ -142,8 +121,7 @@
           {{ item.fname }} {{ item.lname }}
         </template>
         <template v-slot:item.editPassword="{ item }">
-          <v-btn text class="warning--text" @click="editPassword(item)">
-            <!-- <v-icon class="mr-auto"> mdi-pencil-lock-outline </v-icon> -->
+          <v-btn color="warning" @click="editPassword(item)">
             แก้ไขรหัสผ่าน
           </v-btn>
         </template>
@@ -151,13 +129,11 @@
           <v-tooltip top>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                text
-                class="warning--text"
+                color="warning"
                 v-bind="attrs"
                 v-on="on"
                 @click="editItem(item)"
               >
-                <!-- <v-icon class="mr-2"> mdi-database-edit </v-icon> -->
                 แก้ไข
               </v-btn>
             </template>
@@ -191,7 +167,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text color="success" type="submit">
+            <v-btn color="primary" type="submit">
               <v-icon class="mr-2">mdi-content-save</v-icon>
               บันทึก
             </v-btn>
@@ -412,11 +388,12 @@ export default {
     },
 
     async addItem() {
+      await this.setItemDefault();
       this.dialog = true;
     },
 
     async editItem(item) {
-      this.user = item;
+      this.user = await Object.assign({}, item);
       this.dialog = true;
     },
 

@@ -1,0 +1,22 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- DropIndex
+ALTER TABLE [dbo].[Reward] DROP CONSTRAINT [Reward_code_key];
+
+-- AlterTable
+ALTER TABLE [dbo].[Reward] ALTER COLUMN [code] NVARCHAR(1000) NULL;
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH

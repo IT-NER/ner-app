@@ -110,6 +110,7 @@ app.put("/reward/:id", async (req, res) => {
       id: parseInt(id),
     },
     data: {
+      code: item.code,
       name: item.name,
       description: item.description,
       point: Number(item.point),
