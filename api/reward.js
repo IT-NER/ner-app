@@ -14,21 +14,7 @@ let app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// create ticket reward
-app.post("/reward/ticket", async (req, res) => {
-  let item = req.body.data;
-  let ticket = await generateTicket();
-
-  let reward = await prisma.reward.create({
-    data: {
-      ticket: ticket,
-      userId: item.id,
-    },
-  });
-  res.status(200).json(reward);
-});
-
-// generate ticket reward REYYMMDD001
+// generateTicket
 async function generateTicket() {
   let str = "RE";
   let ticket = "";
@@ -58,6 +44,37 @@ async function generateTicket() {
   return ticket;
 }
 
+// generateCode
+async function generateOTP() {
+  let digits = "0123456789abcdefghijklmnopqrstuvwxyz";
+  let OTP = "";
+  let len = digits.length;
+  for (let i = 0; i < 6; i++) {
+    OTP += digits[Math.floor(Math.random() * len)];
+  }
+  return OTP;
+}
+
+// create
+app.post("/reward", async (req, res) => {
+  let item = req.body.data;
+  let ticket = await generateTicket();
+  let code = await generateOTP();
+
+  let reward = await prisma.reward.create({
+    data: {
+      ticket: String(ticket),
+      code: String(code),
+      userId: Number(item.userId),
+    },
+    include: {
+      RewardImg: true,
+      User: true,
+    },
+  });
+  res.status(200).json(reward);
+});
+
 // getAll
 app.get("/reward", async (req, res) => {
   let reward = await prisma.reward.findMany({
@@ -69,33 +86,22 @@ app.get("/reward", async (req, res) => {
 
     include: {
       RewardImg: true,
-      author: true,
+      User: true,
     },
   });
   res.status(200).json(reward);
 });
 
-//getById
-app.get("/reward/:id", async (req, res) => {
+//getRewardByTicket
+app.get("/reward/ticket/:id", async (req, res) => {
   let { id } = req.params;
   let reward = await prisma.reward.findUnique({
     where: {
-      id: parseInt(id),
+      ticket: String(id),
     },
     include: {
       RewardImg: true,
-      author: true,
-    },
-  });
-  res.status(200).json(reward);
-});
-
-//create
-app.post("/reward", async (req, res) => {
-  let item = req.body.data;
-  let reward = await prisma.reward.create({
-    data: {
-      name: item.name,
+      User: true,
     },
   });
   res.status(200).json(reward);
@@ -115,20 +121,13 @@ app.put("/reward/:id", async (req, res) => {
       description: item.description,
       point: Number(item.point),
     },
+    include: {
+      RewardImg: true,
+      User: true,
+    },
   });
   res.status(200).json(reward);
 });
-
-//delete
-// app.delete("/reward/:id", async (req, res) => {
-//   let id = req.params.id;
-//   let reward = await prisma.reward.delete({
-//     where: {
-//       id: parseInt(id),
-//     },
-//   });
-//   res.status(200).json(reward);
-// });
 
 export default {
   path: "/api",

@@ -30,7 +30,7 @@ import CrudPosition from "~/components/crud/CrudPosition.vue";
 import CrudRole from "~/components/crud/CrudRole.vue";
 export default {
   components: { CrudDepartment, CrudPosition, CrudRole },
-  layout: "defaultLayout",
+
   data() {
     return {
       tab: {

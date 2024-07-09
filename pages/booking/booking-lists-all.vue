@@ -8,7 +8,6 @@
 import BookingManagement from "~/components/booking/BookingManagement.vue";
 
 export default {
-  layout: "defaultLayout",
   components: { BookingManagement },
 };
 </script>

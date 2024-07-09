@@ -18,14 +18,15 @@
           </v-col>
           <v-col cols="12" md="2">
             <v-text-field
-              autofocus
               label="CODE"
               v-model="reward.code"
               required
+              disabled
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="7">
             <v-text-field
+              autofocus
               label="NAME"
               required
               v-model="reward.name"
@@ -46,18 +47,6 @@
               required
               v-model="reward.description"
             ></v-textarea>
-          </v-col>
-          <v-col cols="12" md="12">
-            <v-file-input
-              prepend-icon="mdi-cloud-upload-outline"
-              v-model="reward.files"
-              accept="image/jpeg"
-              label="UPLOADS FILE IMAGE"
-              multiple
-              counter
-              show-size
-              clearable
-            ></v-file-input>
           </v-col>
         </v-row>
       </v-card-text>

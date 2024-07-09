@@ -77,7 +77,7 @@ app.get("/content/content-type/:id", async (req, res) => {
       },
     ],
     include: {
-      author: true,
+      User: true,
       ContentType: true,
       ContentImg: true,
       ContentStatus: true,
@@ -105,7 +105,7 @@ app.post("/content/ticket", async (req, res) => {
         },
       ],
       include: {
-        author: true,
+        User: true,
         ContentType: true,
         ContentImg: true,
         ContentStatus: true,
@@ -139,7 +139,7 @@ app.post("/content", async (req, res) => {
       active: Boolean(item.active),
     },
     include: {
-      author: true,
+      User: true,
       ContentType: true,
       ContentImg: true,
       ContentStatus: true,
@@ -164,7 +164,7 @@ app.put("/content/:id", async (req, res) => {
       contentStatusId: Number(item.contentStatusId),
     },
     include: {
-      author: true,
+      User: true,
       ContentType: true,
       ContentImg: true,
       ContentStatus: true,

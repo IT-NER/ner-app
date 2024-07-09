@@ -101,7 +101,7 @@
             <template v-slot:item.no="{ index }">
               {{ index + 1 }}
             </template>
-            <template v-slot:item.author="{ item }">
+            <template v-slot:item.User="{ item }">
               {{ item.User.fname }} {{ item.User.lname }}
             </template>
             <template v-slot:item.start="{ item }">
@@ -214,7 +214,7 @@ export default {
         { text: "ลำดับ", value: "no" },
         { text: "หัวข้อ", value: "name" },
         { text: "ประธาน", value: "chairman" },
-        { text: "ผู้จอง", value: "author" },
+        { text: "ผู้จอง", value: "User" },
         { text: "ห้องประชุม", value: "Room.name" },
         { text: "เริ่ม", value: "start" },
         { text: "สิ้นสุด", value: "end" },
@@ -227,7 +227,7 @@ export default {
         { text: "ลำดับ", value: "no" },
         { text: "หัวข้อ", value: "name" },
         { text: "ประธาน", value: "chairman" },
-        { text: "ผู้จอง", value: "author" },
+        { text: "ผู้จอง", value: "User" },
         { text: "ห้องประชุม", value: "Room.name" },
         { text: "เริ่ม", value: "start" },
         { text: "สิ้นสุด", value: "end" },
@@ -245,7 +245,7 @@ export default {
         start: moment().format("YYYY-MM-DDTHH:mm"),
         end: moment().format("YYYY-MM-DDTHH:mm"),
         name: null,
-        authorPhoneNumber: null,
+        UserPhoneNumber: null,
         color: null,
         timed: null,
         url: null,
@@ -429,7 +429,7 @@ export default {
       this.booking.start = null;
       this.booking.end = null;
       this.booking.name = null;
-      this.booking.authorPhoneNumber = null;
+      this.booking.UserPhoneNumber = null;
       this.booking.color = null;
       this.booking.timed = true;
       this.booking.url = null;

@@ -57,7 +57,7 @@ export default {
         active: null,
         ContentStatus: null,
         ContentType: null,
-        author: null,
+        User: null,
         ContentImg: null,
         PointPay: null,
         PointReceived: null,

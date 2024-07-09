@@ -8,7 +8,6 @@
 import CrudUser from "~/components/crud/CrudUser.vue";
 export default {
   components: { CrudUser },
-  layout: "defaultLayout",
 };
 </script>
 

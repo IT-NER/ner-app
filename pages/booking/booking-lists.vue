@@ -7,7 +7,6 @@
 <script>
 import BookingList from "~/components/booking/BookingList.vue";
 export default {
-  layout: "defaultLayout",
   components: { BookingList },
 };
 </script>

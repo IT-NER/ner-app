@@ -222,7 +222,7 @@ export default {
         start: null,
         end: null,
         name: null,
-        authorPhoneNumber: null,
+        UserPhoneNumber: null,
         color: null,
         timed: true,
         url: null,
@@ -463,7 +463,7 @@ export default {
       this.booking.description = null;
       this.booking.timed = true;
       this.booking.name = null;
-      this.booking.authorPhoneNumber = null;
+      this.booking.UserPhoneNumber = null;
       this.booking.quantity = null;
       this.booking.chairman = null;
       this.booking.StatusId = 1;

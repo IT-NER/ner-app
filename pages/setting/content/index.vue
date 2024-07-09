@@ -15,7 +15,6 @@
 
       <v-tabs-items v-model="tab">
         <v-tab-item v-for="(item, i) in items" :key="i">
-          <crud-reward v-if="item.index == 0" />
           <crud-content-type v-if="item.index == 1" />
           <crud-content-status v-if="item.index == 2" />
         </v-tab-item>
@@ -27,25 +26,18 @@
 <script>
 import CrudContentType from "~/components/crud/CrudContentType.vue";
 import CrudContentStatus from "~/components/crud/CrudContentStatus.vue";
-import CrudReward from "~/components/crud/CrudReward.vue";
 
 export default {
-  layout: "defaultLayout",
-  components: { CrudContentType, CrudContentStatus, CrudReward },
+  components: { CrudContentType, CrudContentStatus },
   data() {
     return {
       tab: {
-        index: 0,
-        text: "ของรางวัล",
+        index: 1,
+        text: "ประเภทคอนเทนต์",
         icon: "mdi-content-save-all",
       },
 
       items: [
-        {
-          index: 0,
-          text: "ของรางวัล",
-          icon: "mdi-content-save-all",
-        },
         {
           index: 1,
           text: "ประเภทคอนเทนต์",

@@ -47,7 +47,7 @@ export default {
     CrudFood,
     CrudDrink,
   },
-  layout: "defaultLayout",
+
   data() {
     return {
       tab: {

@@ -3,9 +3,7 @@
 </template>
 
 <script>
-export default {
-  layout: "defaultLayout",
-};
+export default {};
 </script>
 
 <style lang="scss" scoped></style>

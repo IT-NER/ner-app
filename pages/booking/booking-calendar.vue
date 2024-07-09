@@ -7,7 +7,6 @@
 <script>
 import BookingCalendar from "~/components/booking/BookingCalendar.vue";
 export default {
-  layout: "defaultLayout",
   components: { BookingCalendar },
 
   data() {
@@ -32,7 +31,7 @@ export default {
         RoomId: null,
         ProgramId: null,
         StatusId: null,
-        authorPhoneNumber: null,
+        UserPhoneNumber: null,
         MeetingType: null,
         Program: null,
         Room: null,

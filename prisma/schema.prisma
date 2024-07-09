@@ -8,152 +8,33 @@ datasource db {
 }
 
 model User {
-  id               Int                @id @default(autoincrement())
-  email            String             @unique
-  username         String             @unique
-  password         String?
-  lname            String?
-  fname            String?
-  active           Boolean?           @default(true)
-  departmentId     Int?
-  positionId       Int?
-  roleId           Int?               @default(1)
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
-  point            Int?               @default(0)
-  imgUrl           String?
-  buttonLinkId     Int?
-  Booking          Booking[]
-  Content          Content[]
-  PointPay         PointPay[]
-  PointReceived    PointReceived[]
-  PointReceivedPay PointReceivedPay[]
-  Reward           Reward[]
-  ButtonLink       ButtonLink?        @relation(fields: [buttonLinkId], references: [id])
-  Department       Department?        @relation(fields: [departmentId], references: [id])
-  Position         Position?          @relation(fields: [positionId], references: [id])
-  Role             Role?              @relation(fields: [roleId], references: [id])
-}
-
-model Role {
-  id   Int     @id @default(autoincrement())
-  name String?
-  User User[]
-}
-
-model Department {
-  id   Int     @id @default(autoincrement())
-  name String?
-  User User[]
-}
-
-model Position {
-  id   Int     @id @default(autoincrement())
-  name String?
-  User User[]
-}
-
-model Booking {
-  id                Int             @id @default(autoincrement())
-  start             DateTime?
-  end               DateTime?
-  name              String?
-  color             String?
-  timed             Boolean?        @default(true)
-  url               String?
-  description       String?
-  chairman          String?
-  quantity          Int?
-  meetingId         String?
-  meetingPassword   String?
-  UserId            Int?
-  ApproveBy         Int?
-  MeetingTypeId     Int?
-  RoomId            Int?
-  ProgramId         Int?
-  StatusId          Int?            @default(1)
-  createdAt         DateTime        @default(now())
-  updatedAt         DateTime        @updatedAt
-  authorPhoneNumber String?         @db.NVarChar(250)
-  MeetingType       MeetingType?    @relation(fields: [MeetingTypeId], references: [id])
-  Program           Program?        @relation(fields: [ProgramId], references: [id])
-  Room              Room?           @relation(fields: [RoomId], references: [id])
-  Status            Status?         @relation(fields: [StatusId], references: [id])
-  User              User?           @relation(fields: [UserId], references: [id])
-  BookingDevice     BookingDevice[]
-  BookingDrink      BookingDrink[]
-  BookingFood       BookingFood[]
-}
-
-model Program {
-  id      Int       @id @default(autoincrement())
-  name    String?
-  Booking Booking[]
-}
-
-model Status {
-  id      Int       @id @default(autoincrement())
-  name    String?
-  Booking Booking[]
-}
-
-model MeetingType {
-  id      Int       @id @default(autoincrement())
-  name    String?
-  Booking Booking[]
-}
-
-model BookingDevice {
-  BookingId Int
-  DeviceId  Int
-  Booking   Booking @relation(fields: [BookingId], references: [id])
-  Device    Device  @relation(fields: [DeviceId], references: [id])
-
-  @@id([BookingId, DeviceId])
-}
-
-model BookingFood {
-  BookingId Int
-  FoodId    Int
-  Booking   Booking @relation(fields: [BookingId], references: [id])
-  Food      Food    @relation(fields: [FoodId], references: [id])
-
-  @@id([BookingId, FoodId])
-}
-
-model BookingDrink {
-  BookingId Int
-  DrinkId   Int
-  Booking   Booking @relation(fields: [BookingId], references: [id])
-  Drink     Drink   @relation(fields: [DrinkId], references: [id])
-
-  @@id([BookingId, DrinkId])
-}
-
-model Room {
-  id       Int       @id @default(autoincrement())
-  name     String?
-  quantity Int?
-  color    String?
-  Booking  Booking[]
-}
-
-model Device {
-  id      Int             @id @default(autoincrement())
-  name    String?
-  Booking BookingDevice[]
-}
-
-model Food {
-  id      Int           @id @default(autoincrement())
-  name    String?
-  Booking BookingFood[]
-}
-
-model Drink {
-  id      Int            @id @default(autoincrement())
-  name    String?
-  Booking BookingDrink[]
+  id                Int                 @id @default(autoincrement())
+  email             String              @unique
+  username          String              @unique
+  password          String?
+  lname             String?
+  fname             String?
+  active            Boolean?            @default(true)
+  departmentId      Int?
+  positionId        Int?
+  roleId            Int?                @default(1)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  point             Int?                @default(0)
+  imgUrl            String?
+  buttonLinkId      Int?
+  Booking           Booking[]
+  Content           Content[]
+  PointPay          PointPay[]
+  PointReceived     PointReceived[]
+  PointReceivedPay  PointReceivedPay[]
+  Reward            Reward[]
+  ButtonLink        ButtonLink?         @relation(fields: [buttonLinkId], references: [id])
+  Department        Department?         @relation(fields: [departmentId], references: [id])
+  Position          Position?           @relation(fields: [positionId], references: [id])
+  Role              Role?               @relation(fields: [roleId], references: [id])
+  ContentPublicUser ContentPublicUser[]
+  ContentPublic     ContentPublic[]
 }
 
 model Content {
@@ -170,27 +51,41 @@ model Content {
   updatedAt       DateTime        @updatedAt
   active          Boolean?        @default(true)
   ContentType     ContentType?    @relation(fields: [contentTypeId], references: [id])
-  author          User?           @relation(fields: [userId], references: [id])
+  User            User?           @relation(fields: [userId], references: [id])
   ContentImg      ContentImg[]
   PointPay        PointPay[]
   PointReceived   PointReceived[]
-  Public          Public[]
+  ContentPublic   ContentPublic[]
   ContentStatus   ContentStatus?  @relation(fields: [contentStatusId], references: [id])
   contentStatusId Int?
 }
 
-model Public {
-  id        Int       @id @default(autoincrement())
-  start     DateTime?
-  end       DateTime?
-  timed     Boolean?  @default(true)
-  name      String?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  active    Boolean?  @default(true)
-  publish   Boolean?  @default(false)
-  Content   Content?  @relation(fields: [contentId], references: [id])
-  contentId Int?
+model ContentPublic {
+  id                Int                 @id @default(autoincrement())
+  ticket            String              @unique
+  start             DateTime?
+  end               DateTime?
+  timed             Boolean?            @default(true)
+  remark            String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  active            Boolean?            @default(true)
+  publish           Boolean?            @default(false)
+  Content           Content?            @relation(fields: [contentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  contentId         Int?
+  ContentPublicUser ContentPublicUser[]
+  User              User?               @relation(fields: [userId], references: [id])
+  userId            Int?
+}
+
+model ContentPublicUser {
+  ContentPublicId Int
+  UserId          Int
+  ContentPublic   ContentPublic @relation(fields: [ContentPublicId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  User            User          @relation(fields: [UserId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  active          Boolean       @default(false)
+
+  @@id([ContentPublicId, UserId])
 }
 
 model ContentType {
@@ -282,7 +177,7 @@ model Reward {
   updatedAt   DateTime    @updatedAt
   active      Boolean?    @default(true)
   userId      Int?
-  author      User?       @relation(fields: [userId], references: [id])
+  User        User?       @relation(fields: [userId], references: [id])
   RewardImg   RewardImg[]
 }
 
@@ -308,4 +203,125 @@ model ButtonLink {
   updatedAt DateTime @updatedAt
   active    Boolean? @default(true)
   User      User[]
+}
+
+model Role {
+  id   Int     @id @default(autoincrement())
+  name String?
+  User User[]
+}
+
+model Department {
+  id   Int     @id @default(autoincrement())
+  name String?
+  User User[]
+}
+
+model Position {
+  id   Int     @id @default(autoincrement())
+  name String?
+  User User[]
+}
+
+model Booking {
+  id              Int             @id @default(autoincrement())
+  start           DateTime?
+  end             DateTime?
+  name            String?
+  color           String?
+  timed           Boolean?        @default(true)
+  url             String?
+  description     String?
+  chairman        String?
+  quantity        Int?
+  meetingId       String?
+  meetingPassword String?
+  UserId          Int?
+  ApproveBy       Int?
+  MeetingTypeId   Int?
+  RoomId          Int?
+  ProgramId       Int?
+  StatusId        Int?            @default(1)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  UserPhoneNumber String?         @db.NVarChar(250)
+  MeetingType     MeetingType?    @relation(fields: [MeetingTypeId], references: [id])
+  Program         Program?        @relation(fields: [ProgramId], references: [id])
+  Room            Room?           @relation(fields: [RoomId], references: [id])
+  Status          Status?         @relation(fields: [StatusId], references: [id])
+  User            User?           @relation(fields: [UserId], references: [id])
+  BookingDevice   BookingDevice[]
+  BookingDrink    BookingDrink[]
+  BookingFood     BookingFood[]
+}
+
+model Program {
+  id      Int       @id @default(autoincrement())
+  name    String?
+  Booking Booking[]
+}
+
+model Status {
+  id      Int       @id @default(autoincrement())
+  name    String?
+  Booking Booking[]
+}
+
+model MeetingType {
+  id      Int       @id @default(autoincrement())
+  name    String?
+  Booking Booking[]
+}
+
+model BookingDevice {
+  BookingId Int
+  DeviceId  Int
+  Booking   Booking @relation(fields: [BookingId], references: [id])
+  Device    Device  @relation(fields: [DeviceId], references: [id])
+
+  @@id([BookingId, DeviceId])
+}
+
+model BookingFood {
+  BookingId Int
+  FoodId    Int
+  Booking   Booking @relation(fields: [BookingId], references: [id])
+  Food      Food    @relation(fields: [FoodId], references: [id])
+
+  @@id([BookingId, FoodId])
+}
+
+model BookingDrink {
+  BookingId Int
+  DrinkId   Int
+  Booking   Booking @relation(fields: [BookingId], references: [id])
+  Drink     Drink   @relation(fields: [DrinkId], references: [id])
+
+  @@id([BookingId, DrinkId])
+}
+
+model Room {
+  id       Int       @id @default(autoincrement())
+  name     String?
+  quantity Int?
+  color    String?
+  Booking  Booking[]
+}
+
+model Device {
+  id      Int             @id @default(autoincrement())
+  name    String?
+  Booking BookingDevice[]
+}
+
+model Food {
+  id      Int           @id @default(autoincrement())
+  name    String?
+  Booking BookingFood[]
+}
+
+model Drink {
+  id      Int            @id @default(autoincrement())
+  name    String?
+  Booking BookingDrink[]
 }

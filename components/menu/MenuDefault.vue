@@ -69,47 +69,35 @@ export default {
           icon: "mdi-account",
           link: "/user",
         },
-        {
-          name: "จองห้องประชุม",
-          icon: "mdi-calendar",
-          link: "",
-          lists: [
-            {
-              name: "ปฏิทิน",
-              icon: "mdi-calendar",
-              link: "/booking/booking-calendar",
-            },
-            {
-              name: "ประวัติการจอง",
-              icon: "mdi-calendar",
-              link: "/booking/booking-lists",
-            },
-            {
-              name: "รายการจอง (ทั้งหมด)",
-              icon: "mdi-calendar",
-              link: "/booking/booking-lists-all",
-            },
-          ],
-        },
+
         {
           name: "ประชาสัมพันธ์",
           icon: "mdi-earth",
-          link: "",
           lists: [
+            {
+              name: "ข้อมูลประชาสัมพันธ์",
+              icon: "mdi-earth",
+              link: "/content/public",
+            },
+            {
+              name: "ของรางวัล",
+              icon: "mdi-earth",
+              link: "/content/reward",
+            },
             {
               name: "แบนเนอร์",
               icon: "mdi-earth",
-              link: "/public/banner",
+              link: "/content/banner",
             },
             {
               name: "กิจกรรม",
               icon: "mdi-earth",
-              link: "/public/activity",
+              link: "/content/activity",
             },
             {
               name: "ข่าวสาร",
               icon: "mdi-earth",
-              link: "/public/news",
+              link: "/content/news",
             },
           ],
         },
@@ -131,10 +119,32 @@ export default {
             {
               name: "ประชาสัมพันธ์",
               icon: "mdi-cog",
-              link: "/setting/public",
+              link: "/setting/content",
             },
           ],
         },
+        // {
+        //   name: "จองห้องประชุม",
+        //   icon: "mdi-calendar",
+        //   link: "",
+        //   lists: [
+        //     {
+        //       name: "ปฏิทิน",
+        //       icon: "mdi-calendar",
+        //       link: "/booking/booking-calendar",
+        //     },
+        //     {
+        //       name: "ประวัติการจอง",
+        //       icon: "mdi-calendar",
+        //       link: "/booking/booking-lists",
+        //     },
+        //     {
+        //       name: "รายการจอง (ทั้งหมด)",
+        //       icon: "mdi-calendar",
+        //       link: "/booking/booking-lists-all",
+        //     },
+        //   ],
+        // },
       ],
     };
   },
