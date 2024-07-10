@@ -10,7 +10,7 @@
         <v-row>
           <v-col cols="12" md="2">
             <v-text-field
-              label="TICKET"
+              label="ทิคเก็ท"
               required
               v-model="reward.ticket"
               disabled

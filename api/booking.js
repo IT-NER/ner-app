@@ -11,9 +11,9 @@ app.post("/booking/search", async (req, res) => {
   // console.log('req', req.body.data);
   // return
   let item = req.body.data;
-  let RoomId = req.body.data.RoomId;
-  let MeetingTypeId = req.body.data.MeetingTypeId;
-  let StatusId = req.body.data.StatusId;
+  let roomId = req.body.data.roomId;
+  let meetingTypeId = req.body.data.meetingTypeId;
+  let statusId = req.body.data.statusId;
 
   let items = [
     {
@@ -26,14 +26,14 @@ app.post("/booking/search", async (req, res) => {
     },
   ];
 
-  if (RoomId) {
-    items.push({ RoomId: RoomId });
+  if (roomId) {
+    items.push({ roomId: roomId });
   }
-  if (MeetingTypeId) {
-    items.push({ MeetingTypeId: MeetingTypeId });
+  if (meetingTypeId) {
+    items.push({ meetingTypeId: meetingTypeId });
   }
-  if (StatusId) {
-    items.push({ StatusId: StatusId });
+  if (statusId) {
+    items.push({ statusId: statusId });
   }
 
   let booking = await prisma.booking.findMany({
@@ -69,19 +69,19 @@ app.post("/booking/search", async (req, res) => {
 
     if (e.BookingDevice) {
       e.BookingDevice.forEach((item) => {
-        BookingDevice.push(item["DeviceId"]);
+        BookingDevice.push(item["deviceId"]);
       });
     }
 
     if (e.BookingFood) {
       e.BookingFood.forEach((item) => {
-        BookingFood.push(item["FoodId"]);
+        BookingFood.push(item["foodId"]);
       });
     }
 
     if (e.BookingDrink) {
       e.BookingDrink.forEach((item) => {
-        BookingDrink.push(item["DrinkId"]);
+        BookingDrink.push(item["drinkId"]);
       });
     }
 
@@ -96,8 +96,8 @@ app.post("/booking/search", async (req, res) => {
 app.get("/booking", async (req, res) => {
   let booking = await prisma.booking.findMany({
     // where: {
-    // OR: [{ StatusId: 1 }, { StatusId: 2 }]
-    // StatusId: 2
+    // OR: [{ statusId: 1 }, { statusId: 2 }]
+    // statusId: 2
     // },
     include: {
       Room: true,
@@ -128,19 +128,19 @@ app.get("/booking", async (req, res) => {
 
     if (e.BookingDevice) {
       e.BookingDevice.forEach((item) => {
-        BookingDevice.push(item["DeviceId"]);
+        BookingDevice.push(item["deviceId"]);
       });
     }
 
     if (e.BookingFood) {
       e.BookingFood.forEach((item) => {
-        BookingFood.push(item["FoodId"]);
+        BookingFood.push(item["foodId"]);
       });
     }
 
     if (e.BookingDrink) {
       e.BookingDrink.forEach((item) => {
-        BookingDrink.push(item["DrinkId"]);
+        BookingDrink.push(item["drinkId"]);
       });
     }
 
@@ -183,19 +183,19 @@ app.get("/booking/all", async (req, res) => {
 
     if (e.BookingDevice) {
       e.BookingDevice.forEach((item) => {
-        BookingDevice.push(item["DeviceId"]);
+        BookingDevice.push(item["deviceId"]);
       });
     }
 
     if (e.BookingFood) {
       e.BookingFood.forEach((item) => {
-        BookingFood.push(item["FoodId"]);
+        BookingFood.push(item["foodId"]);
       });
     }
 
     if (e.BookingDrink) {
       e.BookingDrink.forEach((item) => {
-        BookingDrink.push(item["DrinkId"]);
+        BookingDrink.push(item["drinkId"]);
       });
     }
 
@@ -242,19 +242,19 @@ app.get("/booking/:id", async (req, res) => {
 
     if (e.BookingDevice) {
       e.BookingDevice.forEach((item) => {
-        BookingDevice.push(item["DeviceId"]);
+        BookingDevice.push(item["deviceId"]);
       });
     }
 
     if (e.BookingFood) {
       e.BookingFood.forEach((item) => {
-        BookingFood.push(item["FoodId"]);
+        BookingFood.push(item["foodId"]);
       });
     }
 
     if (e.BookingDrink) {
       e.BookingDrink.forEach((item) => {
-        BookingDrink.push(item["DrinkId"]);
+        BookingDrink.push(item["drinkId"]);
       });
     }
 
@@ -270,7 +270,7 @@ app.get("/booking/user/:id", async (req, res) => {
   let id = req.params.id;
   let booking = await prisma.booking.findMany({
     where: {
-      UserId: parseInt(id),
+      userId: parseInt(id),
     },
     include: {
       Room: true,
@@ -296,19 +296,19 @@ app.get("/booking/user/:id", async (req, res) => {
 
     if (e.BookingDevice) {
       e.BookingDevice.forEach((item) => {
-        BookingDevice.push(item["DeviceId"]);
+        BookingDevice.push(item["deviceId"]);
       });
     }
 
     if (e.BookingFood) {
       e.BookingFood.forEach((item) => {
-        BookingFood.push(item["FoodId"]);
+        BookingFood.push(item["foodId"]);
       });
     }
 
     if (e.BookingDrink) {
       e.BookingDrink.forEach((item) => {
-        BookingDrink.push(item["DrinkId"]);
+        BookingDrink.push(item["drinkId"]);
       });
     }
 
@@ -329,7 +329,7 @@ app.post("/booking", async (req, res) => {
   if (item.BookingDevice) {
     await item.BookingDevice.forEach((e) => {
       let item = {
-        DeviceId: e,
+        deviceId: e,
       };
       BookingDevice.push(item);
     });
@@ -338,7 +338,7 @@ app.post("/booking", async (req, res) => {
   if (item.BookingFood) {
     await item.BookingFood.forEach((e) => {
       let item = {
-        FoodId: e,
+        foodId: e,
       };
       BookingFood.push(item);
     });
@@ -347,14 +347,14 @@ app.post("/booking", async (req, res) => {
   if (item.BookingDrink) {
     await item.BookingDrink.forEach((e) => {
       let item = {
-        DrinkId: e,
+        drinkId: e,
       };
       BookingDrink.push(item);
     });
   }
 
-  if (item.MeetingTypeId == 1) {
-    item.ProgramId = null;
+  if (item.meetingTypeId == 1) {
+    item.programId = null;
   }
 
   let booking = await prisma.booking
@@ -372,11 +372,11 @@ app.post("/booking", async (req, res) => {
         quantity: parseInt(item.quantity),
         meetingId: item.meetingId,
         meetingPassword: item.meetingPassword,
-        UserId: parseInt(item.UserId),
-        MeetingTypeId: parseInt(item.MeetingTypeId),
-        RoomId: parseInt(item.RoomId),
-        ProgramId: parseInt(item.ProgramId),
-        StatusId: parseInt(item.StatusId),
+        userId: parseInt(item.userId),
+        meetingTypeId: parseInt(item.meetingTypeId),
+        roomId: parseInt(item.roomId),
+        programId: parseInt(item.programId),
+        statusId: parseInt(item.statusId),
 
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -419,34 +419,34 @@ app.put("/booking/:id", async (req, res) => {
 
   if (item.BookingDevice) {
     await item.BookingDevice.forEach((e) => {
-      Devices.push({ DeviceId: e });
+      Devices.push({ deviceId: e });
     });
 
     await prisma.bookingDevice.deleteMany({
       where: {
-        BookingId: parseInt(id),
+        bookingId: parseInt(id),
       },
     });
   }
   if (item.BookingFood) {
     await item.BookingFood.forEach((e) => {
-      Foods.push({ FoodId: e });
+      Foods.push({ foodId: e });
     });
 
     await prisma.bookingFood.deleteMany({
       where: {
-        BookingId: parseInt(id),
+        bookingId: parseInt(id),
       },
     });
   }
   if (item.BookingDrink) {
     await item.BookingDrink.forEach((e) => {
-      Drinks.push({ DrinkId: e });
+      Drinks.push({ drinkId: e });
     });
 
     await prisma.bookingDrink.deleteMany({
       where: {
-        BookingId: parseInt(id),
+        bookingId: parseInt(id),
       },
     });
   }
@@ -469,11 +469,11 @@ app.put("/booking/:id", async (req, res) => {
         quantity: parseInt(item.quantity),
         meetingId: item.meetingId,
         meetingPassword: item.meetingPassword,
-        UserId: parseInt(item.UserId),
-        MeetingTypeId: parseInt(item.MeetingTypeId),
-        RoomId: parseInt(item.RoomId),
-        ProgramId: parseInt(item.ProgramId),
-        StatusId: parseInt(item.StatusId),
+        userId: parseInt(item.userId),
+        meetingTypeId: parseInt(item.meetingTypeId),
+        roomId: parseInt(item.roomId),
+        programId: parseInt(item.programId),
+        statusId: parseInt(item.statusId),
         createdAt: new Date(),
         updatedAt: new Date(),
 
@@ -516,7 +516,7 @@ app.put("/booking/cancel/:id", async (req, res) => {
         id: parseInt(id),
       },
       data: {
-        StatusId: parseInt(3),
+        statusId: parseInt(3),
         updatedAt: new Date(),
       },
     })
@@ -545,7 +545,7 @@ app.put("/booking/approve/:id", async (req, res) => {
         id: parseInt(id),
       },
       data: {
-        StatusId: parseInt(2),
+        statusId: parseInt(2),
         ApproveBy: parseInt(ApproveBy),
         updatedAt: new Date(),
       },

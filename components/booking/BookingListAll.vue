@@ -82,7 +82,7 @@
               dense
               clearable
               required
-              v-model="filter.RoomId"
+              v-model="filter.roomId"
             ></v-select>
           </v-col>
           <v-col cols="12" md="3" sm="12">
@@ -97,7 +97,7 @@
               dense
               clearable
               required
-              v-model="filter.MeetingTypeId"
+              v-model="filter.meetingTypeId"
             ></v-select>
           </v-col>
           <v-col cols="12" md="3" sm="12">
@@ -112,7 +112,7 @@
               dense
               clearable
               required
-              v-model="filter.StatusId"
+              v-model="filter.statusId"
             ></v-select>
           </v-col>
           <v-col cols="12" md="3" sm="12">
@@ -164,7 +164,7 @@
                 </v-col>
                 <v-col cols="12" lg="4" md="6" sm="12">
                   <v-btn
-                    :disabled="item.StatusId == 2"
+                    :disabled="item.statusId == 2"
                     color="success"
                     small
                     @click="approveBooking(item)"
@@ -175,7 +175,7 @@
                 </v-col>
                 <v-col cols="12" lg="4" md="6" sm="12">
                   <v-btn
-                    v-if="item.StatusId < 3"
+                    v-if="item.statusId < 3"
                     color="error"
                     small
                     @click="cancelBooking(item)"
@@ -244,12 +244,12 @@ export default {
       quantity: null,
       meetingId: null,
       meetingPassword: null,
-      UserId: null,
+      userId: null,
       ApproveBy: null,
-      MeetingTypeId: null,
-      RoomId: null,
-      ProgramId: null,
-      StatusId: null,
+      meetingTypeId: null,
+      roomId: null,
+      programId: null,
+      statusId: null,
       Program: [],
       Status: [],
       MeetingType: [],
@@ -263,9 +263,9 @@ export default {
     filter: {
       start: null,
       end: null,
-      RoomId: null,
-      MeetingTypeId: null,
-      StatusId: null,
+      roomId: null,
+      meetingTypeId: null,
+      statusId: null,
     },
 
     User: null,
@@ -321,21 +321,21 @@ export default {
         });
       }
 
-      if (this.filter.RoomId) {
+      if (this.filter.roomId) {
         bookings = bookings.filter((item) => {
-          return item.RoomId == this.filter.RoomId;
+          return item.roomId == this.filter.roomId;
         });
       }
 
-      if (this.filter.MeetingTypeId) {
+      if (this.filter.meetingTypeId) {
         bookings = bookings.filter((item) => {
-          return item.MeetingTypeId == this.filter.MeetingTypeId;
+          return item.meetingTypeId == this.filter.meetingTypeId;
         });
       }
 
-      if (this.filter.StatusId) {
+      if (this.filter.statusId) {
         bookings = bookings.filter((item) => {
-          return item.StatusId == this.filter.StatusId;
+          return item.statusId == this.filter.statusId;
         });
       }
 
@@ -348,9 +348,9 @@ export default {
       let filterDefualt = {
         start: null,
         end: null,
-        RoomId: null,
-        MeetingTypeId: null,
-        StatusId: null,
+        roomId: null,
+        meetingTypeId: null,
+        statusId: null,
       };
 
       this.filter = filterDefualt;
@@ -415,7 +415,7 @@ export default {
 
     async getUser() {
       this.User = this.$auth.$storage.getCookie("user");
-      this.editedItem.UserId = await this.User.id;
+      this.editedItem.userId = await this.User.id;
       if (this.User.Role.id >= 2) {
         this.headers = this.headersAdmin;
       } else {
@@ -429,9 +429,9 @@ export default {
       this.editedItem.start = null;
       this.editedItem.end = null;
       this.editedItem.color = null;
-      this.editedItem.MeetingTypeId = 1;
-      this.editedItem.ProgramId = null;
-      this.editedItem.RoomId = null;
+      this.editedItem.meetingTypeId = 1;
+      this.editedItem.programId = null;
+      this.editedItem.roomId = null;
       this.editedItem.BookingDevice = null;
       this.editedItem.BookingFood = null;
       this.editedItem.BookingDrink = null;
@@ -444,7 +444,7 @@ export default {
       this.editedItem.name = null;
       this.editedItem.quantity = null;
       this.editedItem.chairman = null;
-      this.editedItem.StatusId = 1;
+      this.editedItem.statusId = 1;
     },
 
     async editItem(item) {

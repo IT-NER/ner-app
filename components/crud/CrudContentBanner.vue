@@ -53,7 +53,7 @@ export default {
         point: null,
         userId: null,
         contentTypeId: null,
-        contentStatusId: null,
+        contentstatusId: null,
         active: null,
         ContentStatus: null,
         ContentType: null,
@@ -97,7 +97,7 @@ export default {
       this.content.point = 0;
       this.content.userId = this.user.id;
       this.content.contentTypeId = 1;
-      this.content.contentStatusId = 1;
+      this.content.contentstatusId = 1;
       this.content.active = true;
     },
 

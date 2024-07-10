@@ -42,7 +42,7 @@ app.post("/contentPublic", async (req, res) => {
   let item = req.body.data;
   let ticket = await generateTicket();
 
-  console.log("item", item);
+  // console.log("item", item);
 
   let contentPublic = await prisma.contentPublic.create({
     data: {
@@ -50,12 +50,12 @@ app.post("/contentPublic", async (req, res) => {
       userId: Number(item.userId),
     },
     include: {
-      ContentPublicUser: true,
       User: true,
       Content: {
         include: {
-          ContentStatus: true,
+          ContentImg: true,
           ContentType: true,
+          ContentStatus: true,
         },
       },
     },
@@ -63,16 +63,74 @@ app.post("/contentPublic", async (req, res) => {
   res.status(200).json(contentPublic);
 });
 
-// findAll
-app.get("/contentPublic", async (req, res) => {
-  let contentPublic = await prisma.contentPublic.findMany({
+// update
+app.put("/contentPublic/:id", async (req, res) => {
+  let { id } = req.params;
+  let item = req.body.data;
+
+  if (!item.public) {
+    let contentPublic = await prisma.content.update({
+      where: {
+        id: Number(item.contentId),
+      },
+      data: {
+        contentstatusId: 1,
+      },
+    });
+  }
+  if (item.public) {
+    let contentPublic = await prisma.content.update({
+      where: {
+        id: Number(item.contentId),
+      },
+      data: {
+        contentstatusId: 2,
+      },
+    });
+  }
+
+  let contentPublic = await prisma.contentPublic.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      start: new Date(item.start),
+      end: new Date(item.end),
+      timed: Boolean(item.timed),
+      remark: String(item.remark),
+      public: Boolean(item.public),
+      contentId: Number(item.contentId),
+    },
     include: {
-      ContentPublicUser: true,
       User: true,
       Content: {
         include: {
-          ContentStatus: true,
+          ContentImg: true,
           ContentType: true,
+          ContentStatus: true,
+        },
+      },
+    },
+  });
+  res.status(200).json(contentPublic);
+});
+
+// getAll
+app.get("/contentPublic", async (req, res) => {
+  let contentPublic = await prisma.contentPublic.findMany({
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      Content: {
+        include: {
+          User: true,
+          ContentImg: true,
+          ContentType: true,
+          ContentStatus: true,
         },
       },
     },
@@ -88,12 +146,12 @@ app.get("/contentPublic/ticket/:id", async (req, res) => {
       ticket: String(id),
     },
     include: {
-      ContentPublicUser: true,
       User: true,
       Content: {
         include: {
-          ContentStatus: true,
+          ContentImg: true,
           ContentType: true,
+          ContentStatus: true,
         },
       },
     },

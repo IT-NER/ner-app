@@ -24,7 +24,7 @@ export default {
     "~/api/uploads-reward.js",
     "~/api/content.js",
     "~/api/contentImg.js",
-    "~/api/content-public.js",
+    "~/api/contentPublic.js",
   ],
 
   components: true,

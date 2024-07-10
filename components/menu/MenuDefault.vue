@@ -75,9 +75,24 @@ export default {
           icon: "mdi-earth",
           lists: [
             {
-              name: "ข้อมูลประชาสัมพันธ์",
+              name: "รายการประชาสัมพันธ์",
               icon: "mdi-earth",
-              link: "/content/public",
+              link: "/content/public/management",
+            },
+            {
+              name: "แลกของรางวัล",
+              icon: "mdi-earth",
+              link: "/content/public/redeem",
+            },
+            {
+              name: "รับพอยท์",
+              icon: "mdi-earth",
+              link: "/content/public/received",
+            },
+            {
+              name: "จ่ายพอยท์",
+              icon: "mdi-earth",
+              link: "/content/public/pay",
             },
             {
               name: "ของรางวัล",

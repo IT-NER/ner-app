@@ -40,14 +40,14 @@
       <v-row>
         <v-col cols="12" md="3" sm="12" v-for="(item, i) in Room" :key="i">
           <v-checkbox
-            v-model="booking.RoomId"
+            v-model="booking.roomId"
             :label="item.name + `  (${item.quantity}  ที่นั่ง)`"
             :color="item.color"
             :value="item.id"
             hide-details
             dense
             :disabled="!booking.start"
-            :required="!booking.RoomId"
+            :required="!booking.roomId"
             @change="booking.color = item.color"
           ></v-checkbox>
         </v-col>
@@ -123,11 +123,11 @@
             outlined
             dense
             required
-            v-model="booking.MeetingTypeId"
+            v-model="booking.meetingTypeId"
             @change="setOnlineDefault"
           ></v-select>
         </v-col>
-        <v-col cols="12" md="6" v-if="booking.MeetingTypeId == 2">
+        <v-col cols="12" md="6" v-if="booking.meetingTypeId == 2">
           <v-select
             label="โปรแกรม"
             prepend-icon="mdi-devices"
@@ -137,39 +137,39 @@
             hide-details
             outlined
             dense
-            v-model="booking.ProgramId"
+            v-model="booking.programId"
           ></v-select>
         </v-col>
-        <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
+        <v-col v-if="booking.meetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="ID"
             prepend-icon="mdi-identifier"
             hide-details
             outlined
             dense
-            :required="booking.MeetingTypeId == 2"
+            :required="booking.meetingTypeId == 2"
             v-model="booking.meetingId"
           ></v-text-field>
         </v-col>
-        <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
+        <v-col v-if="booking.meetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="PASSWORD"
             prepend-icon="mdi-lock"
             hide-details
             outlined
             dense
-            :required="booking.MeetingTypeId == 2"
+            :required="booking.meetingTypeId == 2"
             v-model="booking.meetingPassword"
           ></v-text-field>
         </v-col>
-        <v-col v-if="booking.MeetingTypeId == 2" cols="12" md="6">
+        <v-col v-if="booking.meetingTypeId == 2" cols="12" md="6">
           <v-text-field
             label="URL"
             prepend-icon="mdi-link"
             hide-details
             outlined
             dense
-            :required="booking.MeetingTypeId == 2"
+            :required="booking.meetingTypeId == 2"
             v-model="booking.url"
           ></v-text-field>
         </v-col>
@@ -283,12 +283,12 @@ export default {
   methods: {
     async setOnlineDefault(e) {
       if (e == 1) {
-        this.booking.ProgramId = null;
+        this.booking.programId = null;
         this.booking.meetingId = null;
         this.booking.meetingPassword = null;
         this.booking.url = null;
       } else if (e == 2) {
-        this.booking.ProgramId = 1;
+        this.booking.programId = 1;
         this.booking.meetingId = null;
         this.booking.meetingPassword = null;
         this.booking.url = null;

@@ -231,12 +231,12 @@ export default {
         quantity: null,
         meetingId: null,
         meetingPassword: null,
-        UserId: null,
+        userId: null,
         ApproveBy: null,
-        MeetingTypeId: null,
-        RoomId: null,
-        ProgramId: null,
-        StatusId: null,
+        meetingTypeId: null,
+        roomId: null,
+        programId: null,
+        statusId: null,
         Program: [],
         Status: [],
         MeetingType: [],
@@ -331,7 +331,7 @@ export default {
         .then(async (res) => {
           // console.log("res", res.data);
 
-          const result = await res.data.filter((e) => e.StatusId == 2);
+          const result = await res.data.filter((e) => e.statusId == 2);
 
           await result.forEach((item) => {
             item["start"] = this.$moment(item.start).format("YYYY-MM-DDThh:mm");
@@ -451,9 +451,9 @@ export default {
       this.booking.start = null;
       this.booking.end = null;
       this.booking.color = null;
-      this.booking.MeetingTypeId = 1;
-      this.booking.ProgramId = null;
-      this.booking.RoomId = null;
+      this.booking.meetingTypeId = 1;
+      this.booking.programId = null;
+      this.booking.roomId = null;
       this.booking.BookingDevice = null;
       this.booking.BookingFood = null;
       this.booking.BookingDrink = null;
@@ -466,7 +466,7 @@ export default {
       this.booking.UserPhoneNumber = null;
       this.booking.quantity = null;
       this.booking.chairman = null;
-      this.booking.StatusId = 1;
+      this.booking.statusId = 1;
     },
 
     async openOverlay() {
@@ -540,7 +540,7 @@ export default {
 
     async getUser() {
       this.User = this.$auth.$storage.getCookie("user");
-      this.booking.UserId = this.User.id;
+      this.booking.userId = this.User.id;
       // console.log(this.User);
     },
     async getMeetingType() {

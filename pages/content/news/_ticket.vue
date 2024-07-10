@@ -16,7 +16,7 @@
           <v-btn color="primary" type="submit"> บันทึก </v-btn>
         </v-card-title>
         <v-divider></v-divider>
-        <v-card-title> CONTENT NEWS </v-card-title>
+        <v-card-title> เนื้อหาประชาสัมพันธ์ NEWS </v-card-title>
         <v-divider></v-divider>
         <v-card-text>
           <form-content :content.sync="content" :files.sync="files" />

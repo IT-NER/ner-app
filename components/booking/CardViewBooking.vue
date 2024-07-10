@@ -67,7 +67,7 @@
               {{ booking.MeetingType.name }}
             </div>
           </v-col>
-          <v-col cols="12" md="3" sm="12" v-if="booking.MeetingTypeId == 2">
+          <v-col cols="12" md="3" sm="12" v-if="booking.meetingTypeId == 2">
             <div class="title">โปรแกรม</div>
             <div class="sub-title">
               {{ booking.Program.name }}

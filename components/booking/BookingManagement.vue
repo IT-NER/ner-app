@@ -41,7 +41,7 @@
                     item-text="name"
                     item-value="id"
                     label="ห้องประชุม"
-                    v-model="itemSearch.RoomId"
+                    v-model="itemSearch.roomId"
                     clearable
                   ></v-select>
                 </v-col>
@@ -51,7 +51,7 @@
                     item-text="name"
                     item-value="id"
                     label="ประเภท"
-                    v-model="itemSearch.MeetingTypeId"
+                    v-model="itemSearch.meetingTypeId"
                     clearable
                   ></v-select>
                 </v-col>
@@ -61,7 +61,7 @@
                     item-text="name"
                     item-value="id"
                     label="สถานะ"
-                    v-model="itemSearch.StatusId"
+                    v-model="itemSearch.statusId"
                     clearable
                   ></v-select>
                 </v-col>
@@ -119,7 +119,7 @@
                 mdi-database-edit
               </v-icon>
               <v-icon
-                :disabled="item.StatusId == 2"
+                :disabled="item.statusId == 2"
                 color="success"
                 @click="approveBooking(item)"
               >
@@ -193,9 +193,9 @@ export default {
       itemSearch: {
         start: moment().format("YYYY-MM-DDT08:00"),
         end: moment().format("YYYY-MM-DDT17:00"),
-        RoomId: null,
-        MeetingTypeId: null,
-        StatusId: 1,
+        roomId: null,
+        meetingTypeId: null,
+        statusId: 1,
       },
 
       txtSearch: null,
@@ -254,12 +254,12 @@ export default {
         quantity: null,
         meetingId: null,
         meetingPassword: null,
-        UserId: null,
+        userId: null,
         ApproveBy: null,
-        MeetingTypeId: 1,
-        RoomId: null,
-        ProgramId: null,
-        StatusId: null,
+        meetingTypeId: 1,
+        roomId: null,
+        programId: null,
+        statusId: null,
         Program: null,
         Status: null,
         MeetingType: null,
@@ -439,10 +439,10 @@ export default {
       this.booking.meetingId = null;
       this.booking.meetingPassword = null;
       this.booking.ApproveBy = null;
-      this.booking.MeetingTypeId = 1;
-      this.booking.RoomId = null;
-      this.booking.ProgramId = null;
-      this.booking.StatusId = 1;
+      this.booking.meetingTypeId = 1;
+      this.booking.roomId = null;
+      this.booking.programId = null;
+      this.booking.statusId = 1;
       this.booking.BookingDevice = [];
       this.booking.BookingFood = [];
       this.booking.BookingDrink = [];
@@ -456,9 +456,9 @@ export default {
     async setItemSearchDefault() {
       this.itemSearch.start = moment().format("YYYY-MM-DDT08:00");
       this.itemSearch.end = moment().format("YYYY-MM-DDT17:00");
-      this.itemSearch.RoomId = null;
-      this.itemSearch.MeetingTypeId = null;
-      this.itemSearch.StatusId = 1;
+      this.itemSearch.roomId = null;
+      this.itemSearch.meetingTypeId = null;
+      this.itemSearch.statusId = 1;
     },
 
     async getUser() {
@@ -470,7 +470,7 @@ export default {
         this.headers = this.headersUser;
       }
 
-      this.booking.UserId = this.User.id;
+      this.booking.userId = this.User.id;
       // console.log(this.User);
     },
 

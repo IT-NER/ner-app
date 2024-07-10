@@ -39,7 +39,7 @@ export default {
 
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "TICKET", value: "ticket" },
+        { text: "ทิคเก็ท", value: "ticket" },
         { text: "CODE", value: "code" },
         { text: "NAME", value: "name" },
         { text: "DESCRIPTION", value: "description" },

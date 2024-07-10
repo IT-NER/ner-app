@@ -22,6 +22,22 @@
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
         </template>
+        <template v-slot:item.start="{ item }">
+          <span v-if="item.start">
+            {{ $moment(item.start).format("LLL") }}
+          </span>
+        </template>
+        <template v-slot:item.end="{ item }">
+          <span v-if="item.end">
+            {{ $moment(item.end).format("LLL") }}
+          </span>
+        </template>
+        <template v-slot:item.public="{ item }">
+          <v-chip label color="success" v-if="item.public">
+            กำลังเผยแพร่
+          </v-chip>
+          <v-chip label color="error" v-else> ปิด </v-chip>
+        </template>
         <template v-slot:item.actions="{ item }">
           <v-btn color="warning" @click="editItem(item)"> แก้ไข </v-btn>
         </template>
@@ -34,17 +50,18 @@
 export default {
   data() {
     return {
-      title: "CONTENT PUBLIC",
+      title: "รายการประชาสัมพันธ์",
 
       search: null,
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "TICKET", value: "ticket" },
-        { text: "START", value: "start" },
-        { text: "END", value: "end" },
-        { text: "MANUAL/AUTO", value: "timed" },
-        { text: "PUBLIC", value: "publish" },
-        { text: "REMARK", value: "remark" },
+        { text: "ทิคเก็ท", value: "ticket" },
+        { text: "เนื้อหา", value: "Content.title" },
+        { text: "ประเภท", value: "Content.ContentType.name" },
+        { text: "เริ่ม", value: "start" },
+        { text: "สิ้นสุด", value: "end" },
+        { text: "สาธารณะ", value: "public" },
+        { text: "หมายเหตุ", value: "remark" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
 
@@ -57,10 +74,10 @@ export default {
         timed: true,
         remark: null,
         active: true,
-        publish: true,
+        public: true,
         Content: [],
         contentId: null,
-        ContentPublicUser: [],
+
         User: [],
         userId: null,
       },
@@ -79,7 +96,9 @@ export default {
 
     async editItem(item) {
       this.contentPublic = Object.assign({}, item);
-      this.$router.push("/content/public/" + this.contentPublic.ticket);
+      this.$router.push(
+        "/content/public/management/" + this.contentPublic.ticket
+      );
     },
 
     async getContentPublic() {
@@ -113,7 +132,7 @@ export default {
         return;
       }
 
-      this.$router.push("/content/public/" + ticket);
+      this.$router.push("/content/public/management/" + ticket);
     },
 
     async alertError() {

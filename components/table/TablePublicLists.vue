@@ -23,8 +23,8 @@
         <span v-if="item.timed"> อัตโนมัติ </span>
         <span v-else> กำหนดเอง </span>
       </template>
-      <template v-slot:item.publish="{ item }">
-        <span v-if="item.publish"> อยู่ระหว่างประชาสัมพันธ์ </span>
+      <template v-slot:item.public="{ item }">
+        <span v-if="item.public"> อยู่ระหว่างประชาสัมพันธ์ </span>
         <span v-else> ปิด </span>
       </template>
       <template v-slot:item.actions="{ item }">
@@ -50,7 +50,7 @@ export default {
         { text: "พอยท์", value: "Content.point" },
         {
           text: "เปิด (สาธารณะ)",
-          value: "publish",
+          value: "public",
           align: "center",
           sortable: false,
         },

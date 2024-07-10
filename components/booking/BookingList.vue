@@ -88,7 +88,7 @@
             <v-row>
               <v-col cols="12" lg="4" md="6" sm="12">
                 <v-btn
-                  v-if="item.StatusId == 1"
+                  v-if="item.statusId == 1"
                   color="warning"
                   small
                   @click="editItem(item)"
@@ -99,7 +99,7 @@
               >
               <v-col cols="12" lg="4" md="6" sm="12">
                 <v-btn
-                  v-if="item.StatusId == 1"
+                  v-if="item.statusId == 1"
                   color="error"
                   small
                   @click="cancelBooking(item)"
@@ -154,12 +154,12 @@ export default {
       quantity: null,
       meetingId: null,
       meetingPassword: null,
-      UserId: null,
+      userId: null,
       ApproveBy: null,
-      MeetingTypeId: null,
-      RoomId: null,
-      ProgramId: null,
-      StatusId: null,
+      meetingTypeId: null,
+      roomId: null,
+      programId: null,
+      statusId: null,
       Program: [],
       Status: [],
       MeetingType: [],
@@ -230,7 +230,7 @@ export default {
           // console.log("err", err);
         });
 
-      // const result = bookings.filter((item) => item.UserId == this.User.id);
+      // const result = bookings.filter((item) => item.userId == this.User.id);
       // // console.log("result", result);
 
       // this.bookings = result;
@@ -314,7 +314,7 @@ export default {
     },
     async getUser() {
       this.User = this.$auth.$storage.getCookie("user");
-      this.booking.UserId = await this.User.id;
+      this.booking.userId = await this.User.id;
       // console.log(this.User);
     },
     async setItemDefault() {
@@ -324,9 +324,9 @@ export default {
       this.booking.start = null;
       this.booking.end = null;
       this.booking.color = null;
-      this.booking.MeetingTypeId = 1;
-      this.booking.ProgramId = null;
-      this.booking.RoomId = null;
+      this.booking.meetingTypeId = 1;
+      this.booking.programId = null;
+      this.booking.roomId = null;
       this.booking.BookingDevice = null;
       this.booking.BookingFood = null;
       this.booking.BookingDrink = null;
@@ -339,7 +339,7 @@ export default {
       this.booking.name = null;
       this.booking.quantity = null;
       this.booking.chairman = null;
-      this.booking.StatusId = 1;
+      this.booking.statusId = 1;
     },
 
     async editItem(item) {

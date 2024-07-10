@@ -16,7 +16,7 @@ async function generateTicket(type) {
   if (type == 2) {
     str = "AC";
   }
-  if (type == 2) {
+  if (type == 3) {
     str = "NE";
   }
 
@@ -63,6 +63,27 @@ async function generateOTP() {
   return OTP;
 }
 
+// getContent
+app.get("/contents", async (req, res) => {
+  let content = await prisma.content.findMany({
+    where: {
+      active: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      ContentType: true,
+      ContentImg: true,
+      ContentStatus: true,
+    },
+  });
+  res.status(200).json(content);
+});
+
 // getContentByContentByTypeId
 app.get("/content/content-type/:id", async (req, res) => {
   let { id } = req.params;
@@ -83,6 +104,68 @@ app.get("/content/content-type/:id", async (req, res) => {
       ContentStatus: true,
     },
   });
+  res.status(200).json(content);
+});
+
+// getContentBystatusId
+app.get("/contents/status/:id", async (req, res) => {
+  let { id } = req.params;
+
+  let content = await prisma.content
+    .findMany({
+      where: {
+        AND: [{ contentstatusId: Number(id) }, { active: true }],
+      },
+      orderBy: [
+        {
+          id: "desc",
+        },
+      ],
+      include: {
+        User: true,
+        ContentType: true,
+        ContentImg: true,
+        ContentStatus: true,
+      },
+    })
+    .then((res) => {
+      // console.log("res", res);
+      return res;
+    })
+    .catch((err) => {
+      res.status(400).json({ error: err });
+    });
+  res.status(200).json(content);
+});
+
+// getContentById
+app.get("/content/:id", async (req, res) => {
+  let { id } = req.params;
+
+  let content = await prisma.content
+    .findMany({
+      where: {
+        AND: [{ id: Number(id) }, { active: true }],
+      },
+      orderBy: [
+        {
+          id: "desc",
+        },
+      ],
+      include: {
+        User: true,
+        ContentType: true,
+        ContentImg: true,
+        ContentStatus: true,
+      },
+    })
+    .then((res) => {
+      // console.log("res", res);
+      return res[0];
+    })
+    .catch((err) => {
+      res.status(400).json({ error: err });
+    });
   res.status(200).json(content);
 });
 
@@ -123,7 +206,7 @@ app.post("/content/ticket", async (req, res) => {
 
 // createContent
 app.post("/content", async (req, res) => {
-  console.log("req", req.body.data);
+  // console.log("req", req.body.data);
 
   let item = req.body.data;
   let ticket = await generateTicket(item.contentTypeId);
@@ -135,7 +218,7 @@ app.post("/content", async (req, res) => {
       code: String(code),
       userId: Number(item.userId),
       contentTypeId: Number(item.contentTypeId),
-      contentStatusId: Number(item.contentStatusId),
+      contentstatusId: Number(item.contentstatusId),
       active: Boolean(item.active),
     },
     include: {
@@ -161,7 +244,7 @@ app.put("/content/:id", async (req, res) => {
       description: String(item.description),
       detail: String(item.detail),
       point: Number(item.point),
-      contentStatusId: Number(item.contentStatusId),
+      contentstatusId: Number(item.contentstatusId),
     },
     include: {
       User: true,
