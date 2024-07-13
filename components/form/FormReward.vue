@@ -46,6 +46,7 @@
               label="DESCRIPTION"
               required
               v-model="reward.description"
+              auto-grow
             ></v-textarea>
           </v-col>
         </v-row>

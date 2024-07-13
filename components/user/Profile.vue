@@ -11,6 +11,7 @@
                   <v-img
                     lazy-src="https://investor.nerubber.com/themes/default/assets/static/images/logo-stroke.png"
                     src="https://investor.nerubber.com/themes/default/assets/static/images/logo-stroke.png"
+                    class="v-responsive"
                   >
                   </v-img>
                 </v-avatar>

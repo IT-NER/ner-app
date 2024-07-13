@@ -1,144 +1,122 @@
 <template>
   <div>
-    <!-- overlay -->
-    <v-overlay :value="overlay">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
-    </v-overlay>
-
-    <!-- form -->
     <form @submit.prevent="save">
-      <v-card flat>
-        <v-card-title>
-          <v-spacer></v-spacer>
-          <v-btn class="mr-2" color="warning" to="/content/banner">
-            กลับหน้าหลัก
-          </v-btn>
-          <v-btn color="primary" type="submit"> บันทึก </v-btn>
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-title> เนื้อหาประชาสัมพันธ์ BANNER </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <form-content :content.sync="content" :files.sync="files" />
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-title> UPLOADS FILES </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-file-input
-                  prepend-icon="mdi-cloud-upload-outline"
-                  accept="image/jpeg"
-                  label="UPLOADS FILE IMAGE"
-                  multiple
-                  counter
-                  show-size
-                  clearable
-                  @change="handleFiles"
-                  v-model="files"
-                ></v-file-input>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card-text>
-      </v-card>
+      <card-content
+        :title.sync="title"
+        :path.sync="path"
+        :content.sync="content"
+        :files.sync="files"
+      />
     </form>
 
     <v-divider></v-divider>
-
-    <v-card flat>
-      <v-card-title> IMAGES </v-card-title>
-      <v-divider></v-divider>
-      <v-card-text>
-        <card-content-img
-          :content.sync="content"
-          @getContentByTicket="getContentByTicket"
-          @alertSuccess="alertSuccess"
-          @alertError="alertError"
-        />
-      </v-card-text>
-    </v-card>
+    <card-item-content-img :contentImgIds.sync="contentImgIds" @main="main" />
   </div>
 </template>
 
 <script>
-import CardContentImg from "~/components/card/CardContentImg.vue";
-import FormContent from "~/components/form/FormContent.vue";
+import CardContent from "~/components/card/CardContent.vue";
+import CardItemContentImg from "~/components/card/CardItemContentImg.vue";
 export default {
-  components: { FormContent, CardContentImg },
-
+  components: { CardContent, CardItemContentImg },
   data() {
     return {
-      overlay: false,
+      title: "BANNER",
+      path: "/content/banner",
+
       content: {
-        ticket: this.$route.params.ticket,
-        contentTypeId: 1,
+        id: null,
+        ticket: null,
+        code: null,
+        title: null,
+        description: null,
+        detail: null,
+        point: 0,
+        active: true,
         ContentImg: [],
+        ContentPublic: [],
+        contentStatusId: null,
+        contentTypeId: null,
+        userId: null,
+        ContentStatus: [],
+        ContentType: [],
+        User: [],
       },
 
       files: [],
+      contentImgIds: [],
     };
   },
 
   created() {
-    this.getUser();
-    this.getContentByTicket();
+    this.main();
   },
 
   methods: {
-    async handleFiles() {
-      let files = await this.files.filter((item) => item.size < 2000000);
-      this.$emit("update:files", files);
+    async main() {
+      this.content = await this.getContentByTicket();
+      // let contentImg = this.content.ContentImg
+      let contentImgIds = [];
+
+      this.content.ContentImg.forEach((item) => {
+        contentImgIds.push(item.id);
+      });
+      this.contentImgIds = contentImgIds;
+      console.log("contentImgIds", this.contentImgIds);
     },
 
     async save() {
-      this.overlay = true;
-
       let content = await this.update();
       if (!content) {
         this.alertError();
-        this.overlay = false;
         return;
       }
+
       if (this.files.length == 0) {
-        this.content = await content;
         this.alertSuccess();
-      }
-
-      let filesUpload = await this.uploadFile();
-      if (!filesUpload) {
-        this.alertError();
-        this.overlay = false;
         return;
       }
 
-      let contentImg = await this.createContentImg(filesUpload);
-      if (!contentImg) {
-        this.alertError();
-        this.overlay = false;
-        return;
-      }
-
-      this.content = await this.getContentByTicket();
-      this.files = [];
-      this.overlay = false;
-      this.alertSuccess();
-    },
-
-    async uploadFile() {
       let formData = new FormData();
-      formData.append("id", this.content.id);
-      formData.append("ticket", this.content.ticket);
       this.files.forEach((file) => {
+        console.log(file);
         formData.append("files", file);
       });
+      if (!formData) {
+        return;
+      }
 
+      let uploadsFiles = await this.uploadsFiles(formData);
+      if (!uploadsFiles) {
+        this.alertError();
+        return;
+      }
+
+      await this.main();
+      await this.alertSuccess();
+      this.files = [];
+    },
+
+    async update() {
+      let content = await this.$axios
+        .put("/api/content/" + this.content.id, {
+          data: this.content,
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+
+      return content;
+    },
+
+    async uploadsFiles(formData) {
       let filesUpload = await this.$axios
         .post("/api/uploads-content", formData, {
           headers: {
-            "Content-Type": "multipart/form-data",
+            "Reward-Type": "multipart/form-data",
           },
         })
         .then((res) => {
@@ -148,62 +126,43 @@ export default {
           return false;
         });
 
-      return filesUpload;
-    },
+      if (!filesUpload) {
+        this.alertError();
+        return;
+      }
 
-    async createContentImg(filesUpload) {
-      // console.log("filesUpload", filesUpload);
-      let contentImg = await this.$axios.post("/api/contentImg", {
-        content: this.content,
-        contentImg: filesUpload,
-      });
-
-      return contentImg;
-    },
-
-    async update() {
-      let content = await this.$axios
-        .put("/api/content/" + this.content.id, {
-          data: this.content,
+      let contentImg = await this.$axios
+        .post("/api/contentImg", {
+          data: {
+            content: this.content,
+            contentImg: filesUpload,
+          },
         })
         .then((res) => {
-          console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          console.log("err", err);
           return false;
         });
 
-      return content;
-    },
+      if (!contentImg) {
+        this.alertError();
+        return;
+      }
 
-    async getUser() {
-      let user = this.$auth.$storage.getCookie("user");
-      this.content.userId = user.id;
+      return true;
     },
 
     async getContentByTicket() {
-      // this.content.ticket = await this.$route.params.ticket;
-
       let content = await this.$axios
-        .post("/api/content/ticket", {
-          data: this.content,
-        })
+        .get("/api/content/ticket/" + this.$route.params.ticket)
         .then((res) => {
-          // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
           return false;
         });
 
-      if (!content) {
-        this.$router.push("/content/banner");
-      }
-
-      this.content = await content;
       return content;
     },
 

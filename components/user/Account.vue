@@ -5,6 +5,7 @@
         <v-list-item-avatar>
           <v-img
             src="https://wen057.settrade.com/brokerpage/004/web/images/ner_logo.jpg"
+            class="v-responsive"
           ></v-img>
         </v-list-item-avatar>
         <v-spacer></v-spacer>

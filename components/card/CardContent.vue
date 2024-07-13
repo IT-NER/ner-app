@@ -1,103 +1,79 @@
 <template>
   <div>
-    <v-card v-if="content">
-      <v-card-title> เนื้อหา </v-card-title>
+    <v-card flat>
+      <v-toolbar elevation="0">
+        <v-spacer></v-spacer>
+        <!-- ButtonBackToIndexPage -->
+        <button-back-to-index-page :path.sync="path" />
+        <!-- ButtonSave -->
+        <button-save />
+      </v-toolbar>
+      <v-divider></v-divider>
+      <v-card-title> {{ title }} </v-card-title>
+      <v-divider></v-divider>
+
+      <v-card-text>
+        <form-content :content.sync="content" />
+      </v-card-text>
+
+      <v-divider></v-divider>
+
+      <v-card-title> อัพโหลดรูปภาพ </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
-        <v-row>
-          <v-col cols="12" md="2">
-            <v-text-field
-              label="ทิคเก็ท"
-              v-model="content.ticket"
-              readonly
-              hide-details
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="2">
-            <v-text-field
-              label="CODE"
-              v-model="content.code"
-              readonly
-              hide-details
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="2">
-            <v-text-field
-              label="POINT"
-              v-model="content.point"
-              readonly
-              hide-details
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="2" v-if="content.ContentStatus">
-            <v-text-field
-              label="STATUS"
-              v-model="content.ContentStatus.name"
-              readonly
-              hide-details
-            ></v-text-field>
-          </v-col>
-
-          <v-col cols="12" md="12">
-            <v-text-field
-              label="TITLE"
-              v-model="content.title"
-              readonly
-              hide-details
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="12">
-            <v-text-field
-              label="DESCRIPTION"
-              v-model="content.description"
-              readonly
-              hide-details
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="12">
-            <v-textarea
-              label="DETAILS"
-              v-model="content.detail"
-              readonly
-              hide-details
-            ></v-textarea>
-          </v-col>
-        </v-row>
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-title> รูปภาพ </v-card-title>
-      <v-divider></v-divider>
-      <v-card-actions v-if="content.ContentImg.length > 0">
-        <v-row>
-          <v-col
-            cols="12"
-            md="2"
-            v-for="(item, i) in content.ContentImg"
-            :key="i"
-          >
-            <v-card flat>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <img :src="`/uploads/content/${item.name}`" height="100" />
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-card-actions>
-      <v-card-text v-else>
-        <v-alert text prominent type="error" icon="mdi-cloud-alert">
-          ไม่มีรูปภาพ
-        </v-alert>
+        <v-container>
+          <v-row>
+            <v-col>
+              <v-file-input
+                type="file"
+                accept="image/gif, image/jpeg, image/png"
+                counter
+                multiple
+                show-size
+                v-model="files"
+                @change="handleFiles"
+                clearable
+              ></v-file-input>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-card-text>
     </v-card>
   </div>
 </template>
 
 <script>
+import ButtonBackToIndexPage from "../btn/ButtonBackToIndexPage.vue";
+import ButtonSave from "../btn/ButtonSave.vue";
+import FormContent from "../form/FormContent.vue";
 export default {
-  props: ["content"],
+  components: { ButtonSave, ButtonBackToIndexPage, FormContent },
+  props: ["title", "path", "content", "files"],
+
+  methods: {
+    async handleFiles(e) {
+      if (!e) {
+        this.$emit("update:files", []);
+        return;
+      }
+
+      let result = await this.validateFiles(e);
+      console.log("result", result);
+      if (result.length == 0) {
+        this.$emit("update:files", []);
+      }
+
+      this.$emit("update:files", result);
+    },
+
+    async validateFiles(e) {
+      let result = await e.filter(
+        (item) =>
+          (item.size <= 2500000 && item.type == "image/jpeg") ||
+          (item.size <= 2500000 && item.type == "image/png")
+      );
+      return result;
+    },
+  },
 };
 </script>
-
-<style lang="scss" scoped></style>

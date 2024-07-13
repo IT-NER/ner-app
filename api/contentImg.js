@@ -7,15 +7,16 @@ app.use(express.json());
 
 //create
 app.post("/contentImg", async (req, res) => {
-  let content = req.body.content;
-  let itemsContentIng = req.body.contentImg;
+  // console.log("body", req.body);
+  // return;
+
+  let content = req.body.data.content;
+  let itemsContentIng = req.body.data.contentImg;
 
   let items = [];
   itemsContentIng.forEach((e) => {
-    let url = e.destination + e.filename;
     let item = {
-      contentId: content.id,
-      url: url,
+      contentId: Number(content.id),
       path: String(e.destination),
       name: String(e.filename),
     };
@@ -39,22 +40,59 @@ app.delete("/contentImg/:id", async (req, res) => {
   res.status(200).json(contentImg);
 });
 
-//update
-// app.put("/contentImg/:id", async (req, res) => {
-//   let id = req.params.id;
-//   let item = req.body.data;
-//   let contentImg = await prisma.contentImg.update({
-//     where: {
-//       id: parseInt(id),
-//     },
-//     data: {
-//       name: item.name,
-//       color: item.color,
-//       quantity: parseInt(item.quantity),
-//     },
-//   });
-//   res.status(200).json(contentImg);
-// });
+// getContentByIds
+app.post("/contentImg/ids", async (req, res) => {
+  let ids = req.body.data;
+
+  let content = await prisma.ContentImg.findMany({
+    where: {
+      id: { in: ids },
+    },
+
+    // include: {
+    //   Content: {
+    //     include: {
+    //       User: true,
+    //       ContentType: true,
+    //       ContentImg: true,
+    //       ContentStatus: true,
+    //     },
+    //   },
+    // },
+  });
+  res.status(200).json(content);
+});
+
+// setImgIndex
+app.post("/contentImg/setImgIndex", async (req, res) => {
+  let item = req.body.data;
+
+  let contentImgClear = await prisma.contentImg.updateMany({
+    where: {
+      contentId: Number(item.contentId),
+    },
+    data: {
+      index: false,
+    },
+  });
+
+  let contentImgSetImgIndex = await prisma.contentImg.update({
+    where: {
+      id: Number(item.id),
+    },
+    data: {
+      index: true,
+    },
+  });
+
+  let contentImg = await prisma.contentImg.findMany({
+    where: {
+      contentId: Number(item.contentId),
+    },
+  });
+
+  res.status(200).json(contentImg);
+});
 
 export default {
   path: "/api",

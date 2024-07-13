@@ -57,6 +57,7 @@
           v-model="contentPublic.contentId"
           required
           return-object
+          clearable
           @change="getContent"
         ></v-autocomplete>
       </v-col>
@@ -68,6 +69,7 @@
           hide-details
           v-model="contentPublic.remark"
           required
+          auto-grow
         ></v-textarea>
       </v-col>
     </v-row>
@@ -78,19 +80,19 @@
 export default {
   props: ["contentPublic", "contents"],
 
-  data() {
-    return {
-      check: false,
-    };
-  },
-
   methods: {
     async getContent(item) {
       console.log("item", item);
 
-      let content = await Object.assign({}, item);
-      this.contentPublic.contentId = content.id;
-      this.contentPublic.Content = content;
+      if (!item) {
+        this.contentPublic.contentId = null;
+        this.contentPublic.Content = null;
+        return;
+      }
+
+      let Content = await Object.assign({}, item);
+      this.contentPublic.contentId = Content.id;
+      this.contentPublic.Content = Content;
 
       console.log("contentPublic", this.contentPublic);
       this.$emit("update:contentPublic", this.contentPublic);

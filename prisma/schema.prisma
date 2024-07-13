@@ -43,15 +43,15 @@ model Content {
   code            String?
   title           String?
   description     String?
-  detail          String?
+  detail          String?         @db.VarChar(8000)
   point           Int?            @default(0)
   active          Boolean?        @default(true)
   ContentImg      ContentImg[]
   ContentPublic   ContentPublic[]
-  contentstatusId Int?
+  contentStatusId Int?
   contentTypeId   Int?
   userId          Int?
-  ContentStatus   ContentStatus?  @relation(fields: [contentstatusId], references: [id])
+  ContentStatus   ContentStatus?  @relation(fields: [contentStatusId], references: [id])
   ContentType     ContentType?    @relation(fields: [contentTypeId], references: [id])
   User            User?           @relation(fields: [userId], references: [id])
   createdAt       DateTime        @default(now())
@@ -69,8 +69,8 @@ model ContentPublic {
   public        Boolean?        @default(false)
   contentId     Int?
   userId        Int?
-  Content       Content?        @relation(fields: [contentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  User          User?           @relation(fields: [userId], references: [id])
+  Content       Content?        @relation(fields: [contentId], references: [id])
+  User          User?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
   PointReceived PointReceived[]
@@ -93,7 +93,7 @@ model ContentImg {
   active    Boolean? @default(true)
   index     Boolean? @default(false)
   contentId Int?
-  Content   Content? @relation(fields: [contentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Content   Content? @relation(fields: [contentId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -130,8 +130,8 @@ model PointPay {
   rewardId          Int?
   pointPayRequestId Int?
   User              User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  Reward            Reward?            @relation(fields: [rewardId], references: [id])
-  PointPayRequest   PointPayRequest?   @relation(fields: [pointPayRequestId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Reward            Reward?            @relation(fields: [rewardId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  PointPayRequest   PointPayRequest?   @relation(fields: [pointPayRequestId], references: [id])
   PointReceivedPay  PointReceivedPay[]
   createdAt         DateTime           @default(now())
   updatedAt         DateTime           @updatedAt
@@ -157,9 +157,9 @@ model PointReceivedPay {
   pointPayId      Int?
   pointReceivedId Int?
   userId          Int?
+  User            User?          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointPay        PointPay?      @relation(fields: [pointPayId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointReceived   PointReceived? @relation(fields: [pointReceivedId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  User            User?          @relation(fields: [userId], references: [id])
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
 }

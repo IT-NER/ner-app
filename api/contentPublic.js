@@ -1,5 +1,5 @@
 import express from "express";
-import moment from "moment";
+import moment, { utc } from "moment";
 import { PrismaClient } from "@prisma/client";
 
 let prisma = new PrismaClient();
@@ -67,28 +67,35 @@ app.post("/contentPublic", async (req, res) => {
 app.put("/contentPublic/:id", async (req, res) => {
   let { id } = req.params;
   let item = req.body.data;
+  let contentStatusId = 2;
 
-  if (!item.public) {
-    let contentPublic = await prisma.content.update({
-      where: {
-        id: Number(item.contentId),
-      },
-      data: {
-        contentstatusId: 1,
-      },
-    });
-  }
   if (item.public) {
-    let contentPublic = await prisma.content.update({
+    contentStatusId = 3;
+  }
+
+  // updateContentStatus Old
+  if (item.contentIdBefore) {
+    let contentOld = await prisma.content.update({
       where: {
-        id: Number(item.contentId),
+        id: Number(item.contentIdBefore),
       },
       data: {
-        contentstatusId: 2,
+        contentStatusId: 1,
       },
     });
   }
 
+  // updateContentStatus
+  let content = await prisma.content.update({
+    where: {
+      id: Number(item.contentId),
+    },
+    data: {
+      contentStatusId: Number(contentStatusId),
+    },
+  });
+
+  // updateContentPublic
   let contentPublic = await prisma.contentPublic.update({
     where: {
       id: Number(id),
@@ -156,6 +163,118 @@ app.get("/contentPublic/ticket/:id", async (req, res) => {
       },
     },
   });
+  res.status(200).json(contentPublic);
+});
+
+// getContentPublicContentBanner
+app.get("/contentPublic/content/banner", async (req, res) => {
+  let contentPublic = await prisma.contentPublic.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: true,
+              public: true,
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: false,
+              public: true,
+            },
+          ],
+        },
+      ],
+
+      Content: {
+        ContentType: {
+          id: 1,
+        },
+      },
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      Content: {
+        include: {
+          User: true,
+          ContentImg: true,
+          ContentType: true,
+          ContentStatus: true,
+        },
+      },
+    },
+  });
+
+  res.status(200).json(contentPublic);
+});
+
+// getContentPublicContentActivity
+app.get("/contentPublic/content/activity", async (req, res) => {
+  let contentPublic = await prisma.contentPublic.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: true,
+              public: true,
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: false,
+              public: true,
+            },
+          ],
+        },
+      ],
+
+      Content: {
+        ContentType: {
+          id: 2,
+        },
+      },
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      Content: {
+        include: {
+          User: true,
+          ContentImg: true,
+          ContentType: true,
+          ContentStatus: true,
+        },
+      },
+    },
+  });
+
   res.status(200).json(contentPublic);
 });
 

@@ -7,11 +7,27 @@
 
     <!-- form -->
     <form @submit.prevent="save">
-      <card-content-public
-        :contentPublic.sync="contentPublic"
-        :contents.sync="contents"
-      />
+      <v-card flat>
+        <v-card-title>
+          <v-spacer></v-spacer>
+          <v-btn class="mr-2" color="warning" to="/content/public/management">
+            กลับหน้าหลัก
+          </v-btn>
+          <v-btn color="primary" type="submit"> บันทึก </v-btn>
+        </v-card-title>
+        <v-divider></v-divider>
+        <v-card-title> ประชาสัมพันธ์ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <form-content-public
+            :contentPublic.sync="contentPublic"
+            :contents.sync="contents"
+          />
+        </v-card-text>
+      </v-card>
     </form>
+
+    <v-divider></v-divider>
 
     <!-- {{ contentPublic.Content }} -->
     <card-content :content.sync="contentPublic.Content" />
@@ -20,9 +36,9 @@
 
 <script>
 import CardContent from "~/components/card/CardContent.vue";
-import CardContentPublic from "~/components/card/CardContentPublic.vue";
+import FormContentPublic from "~/components/form/FormContentPublic.vue";
 export default {
-  components: { CardContentPublic, CardContent },
+  components: { CardContent, FormContentPublic },
   data() {
     return {
       overlay: false,
@@ -56,14 +72,14 @@ export default {
   },
 
   created() {
+    this.getContentByContentStatusId();
     this.getContentPublicByTicket();
-    this.getContent();
   },
 
   methods: {
     async save() {
-      console.log("contentPublic", this.contentPublic);
-
+      // console.log("contentPublic", this.contentPublic);
+      // return;
       let contentPublic = await this.updateContentPublic();
       if (!contentPublic) {
         this.alertError();
@@ -71,7 +87,7 @@ export default {
       }
 
       await this.getContentPublicByTicket();
-      await this.getContent();
+      await this.getContentByContentStatusId();
       await this.alertSuccess();
     },
 
@@ -90,9 +106,9 @@ export default {
       return contentPublic;
     },
 
-    async getContent() {
+    async getContentByContentStatusId() {
       this.contents = await this.$axios
-        .get("/api/contents")
+        .get("/api/content")
         .then((res) => {
           res.data.forEach((e) => {
             e["name"] =
@@ -122,6 +138,7 @@ export default {
             res.data.end = this.$moment(res.data.end).format(
               "YYYY-MM-DDTHH:mm"
             );
+            res.data.contentIdBefore = res.data.contentId;
           }
 
           console.log("res", res.data);

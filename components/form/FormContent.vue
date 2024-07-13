@@ -59,6 +59,7 @@
           label="DETAILS"
           hide-details
           v-model="content.detail"
+          auto-grow
           required
         ></v-textarea>
       </v-col>

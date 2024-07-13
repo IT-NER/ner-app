@@ -5,7 +5,10 @@
         <v-list-item>
           <v-spacer></v-spacer>
           <v-list-item-avatar size="100">
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            <v-img
+              src="https://cdn.vuetifyjs.com/images/john.png"
+              class="v-responsive"
+            ></v-img>
           </v-list-item-avatar>
           <v-spacer></v-spacer>
         </v-list-item>

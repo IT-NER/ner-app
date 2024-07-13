@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[Content] (
     [detail] NVARCHAR(1000),
     [point] INT CONSTRAINT [Content_point_df] DEFAULT 0,
     [active] BIT CONSTRAINT [Content_active_df] DEFAULT 1,
-    [contentstatusId] INT,
+    [contentStatusId] INT,
     [contentTypeId] INT,
     [userId] INT,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [Content_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
@@ -326,7 +326,7 @@ ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_positionId_fkey] FOREIGN KEY ([pos
 ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_roleId_fkey] FOREIGN KEY ([roleId]) REFERENCES [dbo].[Role]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentstatusId_fkey] FOREIGN KEY ([contentstatusId]) REFERENCES [dbo].[ContentStatus]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentStatusId_fkey] FOREIGN KEY ([contentStatusId]) REFERENCES [dbo].[ContentStatus]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentTypeId_fkey] FOREIGN KEY ([contentTypeId]) REFERENCES [dbo].[ContentType]([id]) ON DELETE SET NULL ON UPDATE CASCADE;

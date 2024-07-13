@@ -53,44 +53,44 @@ export default {
       tab: {
         index: 0,
         text: "ห้องประชุม",
-        icon: "mdi-map-marker",
+        icon: "mdi-cog",
       },
 
       items: [
         {
           index: 0,
           text: "ห้องประชุม",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
         {
           index: 1,
           text: "ประเภทการประชุม",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
         {
           index: 2,
           text: "สถานะการจอง",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
         {
           index: 3,
           text: "โปรแกรม",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
         {
           index: 4,
           text: "อุปกรณ์",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
         {
           index: 5,
           text: "อาหาร",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
         {
           index: 6,
           text: "เครื่องดื่ม",
-          icon: "mdi-map-marker",
+          icon: "mdi-cog",
         },
       ],
     };

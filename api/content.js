@@ -64,7 +64,7 @@ async function generateOTP() {
 }
 
 // getContent
-app.get("/contents", async (req, res) => {
+app.get("/content", async (req, res) => {
   let content = await prisma.content.findMany({
     where: {
       active: true,
@@ -108,33 +108,26 @@ app.get("/content/content-type/:id", async (req, res) => {
 });
 
 // getContentBystatusId
-app.get("/contents/status/:id", async (req, res) => {
+app.get("/content/status/:id", async (req, res) => {
   let { id } = req.params;
 
-  let content = await prisma.content
-    .findMany({
-      where: {
-        AND: [{ contentstatusId: Number(id) }, { active: true }],
+  let content = await prisma.content.findMany({
+    where: {
+      AND: [{ contentstatusId: Number(id) }, { active: true }],
+    },
+    orderBy: [
+      {
+        id: "desc",
       },
-      orderBy: [
-        {
-          id: "desc",
-        },
-      ],
-      include: {
-        User: true,
-        ContentType: true,
-        ContentImg: true,
-        ContentStatus: true,
-      },
-    })
-    .then((res) => {
-      // console.log("res", res);
-      return res;
-    })
-    .catch((err) => {
-      res.status(400).json({ error: err });
-    });
+    ],
+    include: {
+      User: true,
+      ContentType: true,
+      ContentImg: true,
+      ContentStatus: true,
+    },
+  });
+
   res.status(200).json(content);
 });
 
@@ -168,19 +161,14 @@ app.get("/content/:id", async (req, res) => {
     });
   res.status(200).json(content);
 });
-
-// getContentByContentByTicket
-app.post("/content/ticket", async (req, res) => {
-  let item = req.body.data;
+//getContentByTicket
+app.get("/content/ticket/:id", async (req, res) => {
+  let { id } = req.params;
 
   let content = await prisma.content
-    .findMany({
+    .findFirst({
       where: {
-        AND: [
-          { ticket: String(item.ticket) },
-          { contentTypeId: Number(item.contentTypeId) },
-          { active: true },
-        ],
+        ticket: String(id),
       },
       orderBy: [
         {
@@ -192,16 +180,44 @@ app.post("/content/ticket", async (req, res) => {
         ContentType: true,
         ContentImg: true,
         ContentStatus: true,
+        ContentPublic: true,
       },
     })
     .then((res) => {
       // console.log("res", res);
-      return res[0];
+      return res;
     })
     .catch((err) => {
       res.status(400).json({ error: err });
     });
   res.status(200).json(content);
+});
+
+// getContentByContentByTicket
+app.post("/content/ticket", async (req, res) => {
+  let item = req.body.data;
+
+  let content = await prisma.content.findMany({
+    where: {
+      AND: [
+        { ticket: String(item.ticket) },
+        { contentTypeId: Number(item.contentTypeId) },
+        { active: true },
+      ],
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      ContentType: true,
+      ContentImg: true,
+      ContentStatus: true,
+    },
+  });
+  res.status(200).json(content[0]);
 });
 
 // createContent
@@ -218,7 +234,7 @@ app.post("/content", async (req, res) => {
       code: String(code),
       userId: Number(item.userId),
       contentTypeId: Number(item.contentTypeId),
-      contentstatusId: Number(item.contentstatusId),
+      contentStatusId: Number(item.contentStatusId),
       active: Boolean(item.active),
     },
     include: {
@@ -244,8 +260,27 @@ app.put("/content/:id", async (req, res) => {
       description: String(item.description),
       detail: String(item.detail),
       point: Number(item.point),
-      contentstatusId: Number(item.contentstatusId),
+      contentStatusId: Number(item.contentStatusId),
     },
+    include: {
+      User: true,
+      ContentType: true,
+      ContentImg: true,
+      ContentStatus: true,
+    },
+  });
+  res.status(200).json(content);
+});
+
+// getContentByIds
+app.post("/content/ids", async (req, res) => {
+  let ids = req.body.data;
+
+  let content = await prisma.content.findMany({
+    where: {
+      id: { in: ids },
+    },
+
     include: {
       User: true,
       ContentType: true,

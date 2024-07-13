@@ -257,6 +257,7 @@
             outlined
             dense
             v-model="booking.description"
+            auto-grow
           ></v-textarea>
         </v-col>
       </v-row>

@@ -48,7 +48,7 @@
                 <v-img
                   :src="`/uploads/reward/${item.name}`"
                   :aspect-ratio="16 / 9"
-                  class="grey lighten-2"
+                  class="grey lighten-2 v-responsive"
                 >
                   <template v-slot:placeholder>
                     <v-row

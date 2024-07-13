@@ -34,19 +34,19 @@ export default {
       tab: {
         index: 1,
         text: "ประเภทคอนเทนต์",
-        icon: "mdi-content-save-all",
+        icon: "mdi-cog",
       },
 
       items: [
         {
           index: 1,
           text: "ประเภทคอนเทนต์",
-          icon: "mdi-content-save-all",
+          icon: "mdi-cog",
         },
         {
           index: 2,
           text: "สถานะคอนเทนต์",
-          icon: "mdi-content-save-all",
+          icon: "mdi-cog",
         },
       ],
     };

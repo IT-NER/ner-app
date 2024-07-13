@@ -36,24 +36,24 @@ export default {
       tab: {
         index: 1,
         text: "ฝ่าย",
-        icon: "mdi-account-cog",
+        icon: "mdi-cog",
       },
 
       items: [
         {
           index: 1,
           text: "ฝ่าย",
-          icon: "mdi-account-cog",
+          icon: "mdi-cog",
         },
         {
           index: 2,
           text: "ตำแหน่ง",
-          icon: "mdi-account-cog",
+          icon: "mdi-cog",
         },
         {
           index: 3,
           text: "สิทธิ์การใช้งาน",
-          icon: "mdi-account-cog",
+          icon: "mdi-cog",
         },
       ],
     };

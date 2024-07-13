@@ -15,7 +15,7 @@
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
-        :contents="contents"
+        :content="content"
         :search="search"
         class="elevation-0"
       >
@@ -53,7 +53,7 @@ export default {
         point: null,
         userId: null,
         contentTypeId: null,
-        contentstatusId: null,
+        contentStatusId: null,
         active: null,
         ContentStatus: null,
         ContentType: null,
@@ -83,7 +83,7 @@ export default {
     },
 
     async getContent() {
-      this.contents = await this.$axios.get("/api/content/banner");
+      this.content = await this.$axios.get("/api/content/banner");
     },
 
     async setItemDefault() {
@@ -97,7 +97,7 @@ export default {
       this.content.point = 0;
       this.content.userId = this.user.id;
       this.content.contentTypeId = 1;
-      this.content.contentstatusId = 1;
+      this.content.contentStatusId = 1;
       this.content.active = true;
     },
 

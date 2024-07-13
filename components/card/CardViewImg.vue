@@ -22,7 +22,7 @@
               <v-card flat>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <nuxt-img :src="`../${item.url}`" height="100" />
+                  <nuxt-img :src="`../${item.url}`" width="200" height="auto" />
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
