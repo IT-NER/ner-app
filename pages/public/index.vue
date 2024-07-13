@@ -32,12 +32,7 @@
             {{ $moment(item.end).format("LLL") }}
           </span>
         </template>
-        <template v-slot:item.public="{ item }">
-          <v-chip label color="success" v-if="item.public">
-            กำลังเผยแพร่
-          </v-chip>
-          <v-chip label color="error" v-else> ปิด </v-chip>
-        </template>
+
         <template v-slot:item.actions="{ item }">
           <v-btn color="warning" @click="editItem(item)"> แก้ไข </v-btn>
         </template>
@@ -60,7 +55,7 @@ export default {
         { text: "ประเภท", value: "Content.ContentType.name" },
         { text: "เริ่ม", value: "start" },
         { text: "สิ้นสุด", value: "end" },
-        { text: "สาธารณะ", value: "public" },
+        { text: "สถานะ", value: "status" },
         { text: "หมายเหตุ", value: "remark" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
@@ -96,9 +91,7 @@ export default {
 
     async editItem(item) {
       this.contentPublic = Object.assign({}, item);
-      this.$router.push(
-        "/content/public/management/" + this.contentPublic.ticket
-      );
+      this.$router.push("/public/" + this.contentPublic.ticket);
     },
 
     async getContentPublic() {

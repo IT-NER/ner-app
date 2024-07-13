@@ -24,7 +24,20 @@
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
         </template>
-
+        <template v-slot:item.status="{ item }">
+          <v-chip label dark color="grey" v-if="item.ContentStatus.id == 1">
+            {{ item.ContentStatus.name }}
+          </v-chip>
+          <v-chip label dark color="warning" v-if="item.ContentStatus.id == 2">
+            {{ item.ContentStatus.name }}
+          </v-chip>
+          <v-chip label dark color="success" v-if="item.ContentStatus.id == 3">
+            {{ item.ContentStatus.name }}
+          </v-chip>
+          <v-chip label dark color="error" v-if="item.ContentStatus.id == 4">
+            {{ item.ContentStatus.name }}
+          </v-chip>
+        </template>
         <template v-slot:item.actions="{ item }">
           <v-btn color="warning" @click="editItem(item)"> แก้ไข </v-btn>
         </template>
@@ -43,11 +56,9 @@ export default {
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
         { text: "ทิคเก็ท", value: "ticket" },
-        { text: "CODE", value: "code" },
         { text: "TITLE", value: "title" },
-        { text: "DESCRIPTION", value: "description" },
         { text: "POINT", value: "point" },
-        { text: "STATUS", value: "ContentStatus.name" },
+        { text: "STATUS", value: "status" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
       contents: [],
