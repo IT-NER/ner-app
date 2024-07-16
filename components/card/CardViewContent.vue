@@ -75,19 +75,31 @@
 
     <v-dialog
       v-model="dialog"
-      width="1000"
+      width="auto"
       height="auto"
       transition="dialog-transition"
     >
       <v-card>
         <v-card-actions>
-          <v-carousel v-model="imgIndex" hide-delimiters>
-            <v-carousel-item
-              v-for="(item, i) in content.ContentImg"
-              :key="i"
-              :aspect-ratio="16 / 9"
-              :src="`/uploads/content/${item.name}`"
-            >
+          <v-carousel v-model="imgIndex">
+            <v-carousel-item v-for="(item, i) in content.ContentImg" :key="i">
+              <v-img
+                :src="`/uploads/content/${item.name}`"
+                class="grey lighten-2"
+              >
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="grey lighten-5"
+                    ></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
             </v-carousel-item>
           </v-carousel>
         </v-card-actions>

@@ -286,6 +286,7 @@ app.post("/content/ids", async (req, res) => {
       ContentType: true,
       ContentImg: true,
       ContentStatus: true,
+      ContentPublic: true,
     },
   });
   res.status(200).json(content);

@@ -109,9 +109,7 @@ model ContentStatus {
 
 model PointReceived {
   id               Int                @id @default(autoincrement())
-  ticket           String             @unique
   point            Int?
-  active           Boolean?           @default(true)
   userId           Int?
   contentPublicId  Int?
   User             User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -123,9 +121,7 @@ model PointReceived {
 
 model PointPay {
   id                Int                @id @default(autoincrement())
-  ticket            String             @unique
   point             Int?
-  active            Boolean?           @default(true)
   userId            Int?
   rewardId          Int?
   pointPayRequestId Int?

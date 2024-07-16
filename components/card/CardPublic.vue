@@ -13,8 +13,8 @@
       <v-divider></v-divider>
 
       <v-card-text>
-        <!-- FormContentPublic -->
-        <form-content-public :contentPublic.sync="contentPublic" />
+        <!-- FormPublic -->
+        <form-public :contentPublic.sync="contentPublic" />
       </v-card-text>
       <v-divider></v-divider>
 
@@ -73,14 +73,14 @@
 <script>
 import ButtonBackToIndexPage from "../btn/ButtonBackToIndexPage.vue";
 import ButtonSave from "../btn/ButtonSave.vue";
-import FormContentPublic from "../form/FormContentPublic.vue";
+import FormPublic from "../form/FormPublic.vue";
 import CardSelectContent from "./CardSelectContent.vue";
 import CardViewContent from "./CardViewContent.vue";
 export default {
   components: {
     ButtonSave,
     ButtonBackToIndexPage,
-    FormContentPublic,
+    FormPublic,
     CardViewContent,
     CardSelectContent,
   },

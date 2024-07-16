@@ -24,12 +24,12 @@
         </template>
         <template v-slot:item.start="{ item }">
           <span v-if="item.start">
-            {{ $moment(item.start).format("LLL") }}
+            {{ $moment(item.start).format("lll") }}
           </span>
         </template>
         <template v-slot:item.end="{ item }">
           <span v-if="item.end">
-            {{ $moment(item.end).format("LLL") }}
+            {{ $moment(item.end).format("lll") }}
           </span>
         </template>
 
@@ -55,7 +55,7 @@ export default {
         { text: "ประเภท", value: "Content.ContentType.name" },
         { text: "เริ่ม", value: "start" },
         { text: "สิ้นสุด", value: "end" },
-        { text: "สถานะ", value: "status" },
+
         { text: "หมายเหตุ", value: "remark" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
@@ -124,7 +124,7 @@ export default {
         return;
       }
 
-      this.$router.push("/content/public/management/" + ticket);
+      this.$router.push("/public/" + ticket);
     },
 
     async alertError() {

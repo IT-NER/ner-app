@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <card-content-public
+      <card-public
         :title.sync="title"
         :path.sync="path"
         :contentPublic.sync="contentPublic"
@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import CardContentPublic from "~/components/card/CardContentPublic.vue";
+import CardPublic from "~/components/card/CardPublic.vue";
 export default {
-  components: { CardContentPublic },
+  components: { CardPublic },
 
   data() {
     return {
@@ -49,12 +49,14 @@ export default {
         .get("/api/contentPublic/ticket/" + this.$route.params.ticket)
         .then((res) => {
           res.data["contentIdBefore"] = res.data.contentId;
-          res.data["start"] = this.$moment(new Date(res.data.start)).format(
-            "YYYY-MM-DDTHH:mm"
-          );
-          res.data["end"] = this.$moment(new Date(res.data.end)).format(
-            "YYYY-MM-DDTHH:mm"
-          );
+          if (res.data.start || res.data.end) {
+            res.data["start"] = this.$moment(new Date(res.data.start)).format(
+              "YYYY-MM-DDTHH:mm"
+            );
+            res.data["end"] = this.$moment(new Date(res.data.end)).format(
+              "YYYY-MM-DDTHH:mm"
+            );
+          }
           return res.data;
         })
         .catch((err) => {

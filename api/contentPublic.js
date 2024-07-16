@@ -278,6 +278,62 @@ app.get("/contentPublic/content/activity", async (req, res) => {
   res.status(200).json(contentPublic);
 });
 
+// getContentPublicContentNews
+app.get("/contentPublic/content/news", async (req, res) => {
+  let contentPublic = await prisma.contentPublic.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: true,
+              public: true,
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: false,
+              public: true,
+            },
+          ],
+        },
+      ],
+
+      Content: {
+        ContentType: {
+          id: 3,
+        },
+      },
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      Content: {
+        include: {
+          User: true,
+          ContentImg: true,
+          ContentType: true,
+          ContentStatus: true,
+        },
+      },
+    },
+  });
+
+  res.status(200).json(contentPublic);
+});
+
 export default {
   path: "/api",
   handler: app,

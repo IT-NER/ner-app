@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[Content] (
     [code] NVARCHAR(1000),
     [title] NVARCHAR(1000),
     [description] NVARCHAR(1000),
-    [detail] NVARCHAR(1000),
+    [detail] VARCHAR(8000),
     [point] INT CONSTRAINT [Content_point_df] DEFAULT 0,
     [active] BIT CONSTRAINT [Content_active_df] DEFAULT 1,
     [contentStatusId] INT,
@@ -99,30 +99,24 @@ CREATE TABLE [dbo].[ContentStatus] (
 -- CreateTable
 CREATE TABLE [dbo].[PointReceived] (
     [id] INT NOT NULL IDENTITY(1,1),
-    [ticket] NVARCHAR(1000) NOT NULL,
     [point] INT,
-    [active] BIT CONSTRAINT [PointReceived_active_df] DEFAULT 1,
     [userId] INT,
     [contentPublicId] INT,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [PointReceived_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
-    CONSTRAINT [PointReceived_pkey] PRIMARY KEY CLUSTERED ([id]),
-    CONSTRAINT [PointReceived_ticket_key] UNIQUE NONCLUSTERED ([ticket])
+    CONSTRAINT [PointReceived_pkey] PRIMARY KEY CLUSTERED ([id])
 );
 
 -- CreateTable
 CREATE TABLE [dbo].[PointPay] (
     [id] INT NOT NULL IDENTITY(1,1),
-    [ticket] NVARCHAR(1000) NOT NULL,
     [point] INT,
-    [active] BIT CONSTRAINT [PointPay_active_df] DEFAULT 1,
     [userId] INT,
     [rewardId] INT,
     [pointPayRequestId] INT,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [PointPay_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
-    CONSTRAINT [PointPay_pkey] PRIMARY KEY CLUSTERED ([id]),
-    CONSTRAINT [PointPay_ticket_key] UNIQUE NONCLUSTERED ([ticket])
+    CONSTRAINT [PointPay_pkey] PRIMARY KEY CLUSTERED ([id])
 );
 
 -- CreateTable
@@ -173,6 +167,7 @@ CREATE TABLE [dbo].[RewardImg] (
     [url] NVARCHAR(1000),
     [path] NVARCHAR(1000),
     [name] NVARCHAR(1000),
+    [index] BIT CONSTRAINT [RewardImg_index_df] DEFAULT 0,
     [active] BIT CONSTRAINT [RewardImg_active_df] DEFAULT 1,
     [rewardId] INT,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [RewardImg_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
@@ -335,13 +330,13 @@ ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentTypeId_fkey] FOREIGN 
 ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[ContentPublic] ADD CONSTRAINT [ContentPublic_contentId_fkey] FOREIGN KEY ([contentId]) REFERENCES [dbo].[Content]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE [dbo].[ContentPublic] ADD CONSTRAINT [ContentPublic_contentId_fkey] FOREIGN KEY ([contentId]) REFERENCES [dbo].[Content]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[ContentPublic] ADD CONSTRAINT [ContentPublic_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE [dbo].[ContentPublic] ADD CONSTRAINT [ContentPublic_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[ContentImg] ADD CONSTRAINT [ContentImg_contentId_fkey] FOREIGN KEY ([contentId]) REFERENCES [dbo].[Content]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE [dbo].[ContentImg] ADD CONSTRAINT [ContentImg_contentId_fkey] FOREIGN KEY ([contentId]) REFERENCES [dbo].[Content]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[PointReceived] ADD CONSTRAINT [PointReceived_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -353,10 +348,10 @@ ALTER TABLE [dbo].[PointReceived] ADD CONSTRAINT [PointReceived_contentPublicId_
 ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_rewardId_fkey] FOREIGN KEY ([rewardId]) REFERENCES [dbo].[Reward]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_rewardId_fkey] FOREIGN KEY ([rewardId]) REFERENCES [dbo].[Reward]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_pointPayRequestId_fkey] FOREIGN KEY ([pointPayRequestId]) REFERENCES [dbo].[PointPayRequest]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_pointPayRequestId_fkey] FOREIGN KEY ([pointPayRequestId]) REFERENCES [dbo].[PointPayRequest]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[PointPayRequest] ADD CONSTRAINT [PointPayRequest_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -365,13 +360,13 @@ ALTER TABLE [dbo].[PointPayRequest] ADD CONSTRAINT [PointPayRequest_userId_fkey]
 ALTER TABLE [dbo].[PointPayRequest] ADD CONSTRAINT [PointPayRequest_rewardId_fkey] FOREIGN KEY ([rewardId]) REFERENCES [dbo].[Reward]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE [dbo].[PointReceivedPay] ADD CONSTRAINT [PointReceivedPay_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
 ALTER TABLE [dbo].[PointReceivedPay] ADD CONSTRAINT [PointReceivedPay_pointPayId_fkey] FOREIGN KEY ([pointPayId]) REFERENCES [dbo].[PointPay]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[PointReceivedPay] ADD CONSTRAINT [PointReceivedPay_pointReceivedId_fkey] FOREIGN KEY ([pointReceivedId]) REFERENCES [dbo].[PointReceived]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- AddForeignKey
-ALTER TABLE [dbo].[PointReceivedPay] ADD CONSTRAINT [PointReceivedPay_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[Reward] ADD CONSTRAINT [Reward_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
