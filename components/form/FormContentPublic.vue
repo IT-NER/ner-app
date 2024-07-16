@@ -47,23 +47,6 @@
     </v-row>
     <v-row>
       <v-col cols="12" md="12">
-        <v-autocomplete
-          label="เนื้อหา"
-          hide-details
-          auto-select-first
-          :items="contents"
-          item-text="name"
-          item-value="id"
-          v-model="contentPublic.contentId"
-          required
-          return-object
-          clearable
-          @change="getContent"
-        ></v-autocomplete>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12" md="12">
         <v-textarea
           label="หมายเหตุ"
           hide-details

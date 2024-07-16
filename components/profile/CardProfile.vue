@@ -15,7 +15,7 @@
         <v-divider></v-divider>
 
         <v-banner class="success" dense dark>
-          POINT : {{ user.point }}</v-banner
+          พอยท์ : {{ user.point }}</v-banner
         >
 
         <v-divider></v-divider>

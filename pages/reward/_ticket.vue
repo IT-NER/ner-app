@@ -1,139 +1,124 @@
 <template>
   <div>
-    <!-- overlay -->
-    <v-overlay :value="overlay">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
-    </v-overlay>
-
-    <!-- form -->
     <form @submit.prevent="save">
-      <v-card flat>
-        <v-card-title>
-          <v-spacer></v-spacer>
-          <v-btn class="mr-2" color="warning" to="/content/reward">
-            กลับหน้าหลัก
-          </v-btn>
-          <v-btn color="primary" type="submit"> บันทึก </v-btn>
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-title> REWARD </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <form-reward :reward.sync="reward" :files.sync="files" />
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-title> UPLOADS FILES </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-file-input
-                  prepend-icon="mdi-cloud-upload-outline"
-                  accept="image/jpeg"
-                  label="UPLOADS FILE IMAGE"
-                  multiple
-                  counter
-                  show-size
-                  clearable
-                  @change="handleFiles"
-                  v-model="files"
-                ></v-file-input>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card-text>
-      </v-card>
+      <card-reward
+        :title.sync="title"
+        :path.sync="path"
+        :reward.sync="reward"
+        :files.sync="files"
+      />
     </form>
 
     <v-divider></v-divider>
-
-    <v-card flat>
-      <v-card-title> IMAGES </v-card-title>
-      <v-divider></v-divider>
-      <v-card-text>
-        <card-reward-img
-          :reward.sync="reward"
-          @getRewardByTicket="getRewardByTicket"
-          @alertSuccess="alertSuccess"
-          @alertError="alertError"
-        />
-      </v-card-text>
-    </v-card>
+    <card-item-reward-img :rewardImgIds.sync="rewardImgIds" @main="main" />
   </div>
 </template>
 
 <script>
-import CardRewardImg from "~/components/card/CardRewardImg.vue";
-import FormReward from "~/components/form/FormReward.vue";
+import CardReward from "~/components/card/CardReward.vue";
+import CardItemRewardImg from "~/components/card/CardItemRewardImg.vue";
 export default {
-  components: { FormReward, CardRewardImg },
-
+  components: { CardReward, CardItemRewardImg },
   data() {
     return {
-      overlay: false,
+      title: "Reward",
+      path: "/reward",
+
       reward: {
-        ticket: this.$route.params.ticket,
+        id: null,
+        ticket: null,
+        code: null,
+        title: null,
+        description: null,
+        detail: null,
+        point: 0,
+        active: true,
         RewardImg: [],
+        RewardPublic: [],
+        rewardStatusId: null,
+        rewardTypeId: null,
+        userId: null,
+        RewardStatus: [],
+        RewardType: [],
+        User: [],
       },
 
       files: [],
+      rewardImgIds: [],
     };
   },
 
   created() {
-    this.getUser();
-    this.getRewardByTicket();
+    this.main();
   },
 
   methods: {
-    async handleFiles() {
-      let files = await this.files.filter((item) => item.size < 2000000);
-      this.$emit("update:files", files);
+    async main() {
+      this.reward = await this.getRewardByTicket();
+      // let rewardImg = this.reward.RewardImg
+      let rewardImgIds = [];
+
+      this.reward.RewardImg.forEach((item) => {
+        rewardImgIds.push(item.id);
+      });
+      this.rewardImgIds = rewardImgIds;
+      console.log("rewardImgIds", this.rewardImgIds);
     },
 
     async save() {
-      this.overlay = true;
-
       let reward = await this.update();
       if (!reward) {
         this.alertError();
-        this.overlay = false;
         return;
       }
+
       if (this.files.length == 0) {
-        this.reward = await reward;
         this.alertSuccess();
+        return;
       }
 
-      let filesUpload = await this.uploadFile();
+      let formData = new FormData();
+      this.files.forEach((file) => {
+        console.log(file);
+        formData.append("files", file);
+      });
+      if (!formData) {
+        return;
+      }
+
+      let filesUpload = await this.uploadsFiles(formData);
       if (!filesUpload) {
         this.alertError();
-        this.overlay = false;
         return;
       }
 
       let rewardImg = await this.createRewardImg(filesUpload);
       if (!rewardImg) {
         this.alertError();
-        this.overlay = false;
         return;
       }
 
-      this.reward = await this.getRewardByTicket();
+      await this.main();
+      await this.alertSuccess();
       this.files = [];
-      this.overlay = false;
-      this.alertSuccess();
     },
 
-    async uploadFile() {
-      let formData = new FormData();
-      formData.append("id", this.reward.id);
-      formData.append("ticket", this.reward.ticket);
-      this.files.forEach((file) => {
-        formData.append("files", file);
-      });
+    async update() {
+      let reward = await this.$axios
+        .put("/api/reward/" + this.reward.id, {
+          data: this.reward,
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
 
+      return reward;
+    },
+
+    async uploadsFiles(formData) {
       let filesUpload = await this.$axios
         .post("/api/uploads-reward", formData, {
           headers: {
@@ -151,56 +136,32 @@ export default {
     },
 
     async createRewardImg(filesUpload) {
-      // console.log("filesUpload", filesUpload);
-      let rewardImg = await this.$axios.post("/api/rewardImg", {
-        reward: this.reward,
-        rewardImg: filesUpload,
-      });
-
+      let rewardImg = await this.$axios
+        .post("/api/rewardImg", {
+          data: {
+            reward: this.reward,
+            rewardImg: filesUpload,
+          },
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
       return rewardImg;
     },
 
-    async update() {
-      let reward = await this.$axios
-        .put("/api/reward/" + this.reward.id, {
-          data: this.reward,
-        })
-        .then((res) => {
-          console.log("res", res.data);
-          return res.data;
-        })
-        .catch((err) => {
-          console.log("err", err);
-          return false;
-        });
-
-      return reward;
-    },
-
-    async getUser() {
-      let user = this.$auth.$storage.getCookie("user");
-      this.reward.userId = user.id;
-    },
-
     async getRewardByTicket() {
-      // this.reward.ticket = await this.$route.params.ticket;
-
       let reward = await this.$axios
         .get("/api/reward/ticket/" + this.$route.params.ticket)
         .then((res) => {
-          // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
           return false;
         });
 
-      if (!reward) {
-        this.$router.push("/content/reward");
-      }
-
-      this.reward = await reward;
       return reward;
     },
 

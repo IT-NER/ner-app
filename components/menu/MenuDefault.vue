@@ -82,7 +82,7 @@ export default {
             {
               name: "แลกของรางวัล",
               icon: "mdi-earth",
-              link: "/reward/redeem",
+              link: "/redeem",
             },
             {
               name: "รับพอยท์",

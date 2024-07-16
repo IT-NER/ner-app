@@ -28,7 +28,7 @@
       <v-col cols="12" md="3">
         <v-text-field
           autofocus
-          label="POINT"
+          label="พอยท์"
           hide-details
           v-model="content.point"
           type="number"

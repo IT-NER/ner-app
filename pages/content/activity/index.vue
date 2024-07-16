@@ -58,7 +58,7 @@ export default {
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
         { text: "ทิคเก็ท", value: "ticket" },
         { text: "TITLE", value: "title" },
-        { text: "POINT", value: "point" },
+        { text: "พอยท์", value: "point" },
         { text: "STATUS", value: "status" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],

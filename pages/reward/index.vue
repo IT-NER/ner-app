@@ -43,7 +43,7 @@ export default {
         { text: "CODE", value: "code" },
         { text: "NAME", value: "name" },
         { text: "DESCRIPTION", value: "description" },
-        { text: "POINT", value: "point" },
+        { text: "พอยท์", value: "point" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
       rewards: [],
@@ -86,7 +86,7 @@ export default {
         this.alertError();
         return;
       }
-      this.$router.push("/content/reward/" + reward.ticket);
+      this.$router.push("/reward/" + reward.ticket);
     },
 
     async create() {
@@ -109,7 +109,7 @@ export default {
     },
 
     async editItem(item) {
-      this.$router.push("/content/reward/" + item.ticket);
+      this.$router.push("/reward/" + item.ticket);
     },
 
     async alertError() {

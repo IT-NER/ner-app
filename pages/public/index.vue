@@ -72,7 +72,6 @@ export default {
         public: true,
         Content: [],
         contentId: null,
-
         User: [],
         userId: null,
       },

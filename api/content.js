@@ -113,7 +113,7 @@ app.get("/content/status/:id", async (req, res) => {
 
   let content = await prisma.content.findMany({
     where: {
-      AND: [{ contentstatusId: Number(id) }, { active: true }],
+      AND: [{ contentStatusId: Number(id) }, { active: true }],
     },
     orderBy: [
       {

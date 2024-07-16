@@ -186,6 +186,7 @@ model RewardImg {
   url       String?
   path      String?
   name      String?
+  index     Boolean? @default(false)
   active    Boolean? @default(true)
   rewardId  Int?
   Reward    Reward?  @relation(fields: [rewardId], references: [id])

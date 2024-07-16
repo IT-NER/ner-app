@@ -9,8 +9,18 @@
           v-for="(item, i) in imgIndex"
           :key="i"
           :src="`/uploads/content/${item.name}`"
-          :cover="true"
-        ></v-img>
+          width="50px"
+          class="grey lighten-2"
+        >
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <v-spacer></v-spacer>
       </v-card-actions>
       <v-divider></v-divider>
@@ -20,23 +30,34 @@
         <v-row>
           <v-col cols="12" md="2" v-for="(item, i) in items" :key="i">
             <v-toolbar dense tile>
-              <v-spacer></v-spacer>
               <v-switch
-                label="หน้าปก"
-                inset
                 v-model="item.index"
                 @change="setImgIndex(item)"
               ></v-switch>
+              <v-spacer></v-spacer>
+              <v-icon @click="delImg(item)"> mdi-close </v-icon>
             </v-toolbar>
-            <v-card @click="viewImg(item)" hover color="black">
+            <v-card @click="viewImg(item)" hover tile>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-img
                   :src="`/uploads/content/${item.name}`"
-                  width="100"
-                  height="200"
-                  :cover="true"
-                />
+                  :aspect-ratio="1"
+                  class="grey lighten-2"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        indeterminate
+                        color="grey lighten-5"
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
@@ -52,14 +73,14 @@
       height="auto"
       :scrollable="false"
     >
-      <v-card width="600" height="auto" flat>
+      <v-card flat>
         <v-card-actions>
           <v-carousel
             v-model="index"
-            hide-delimiter-background
-            hide-delimiters
             width="600"
             height="auto"
+            hide-delimiter-background
+            hide-delimiters
           >
             <v-carousel-item v-for="(item, i) in items" :key="i">
               <v-img
@@ -98,6 +119,20 @@ export default {
   },
 
   methods: {
+    async delImg(item) {
+      // let contentImg = Object.assign({}, item);
+      let contentImg = await this.$axios
+        .delete("/api/contentImg/" + item.id)
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+
+      this.$emit("main");
+    },
+
     async getImgIndex() {
       this.imgIndex = this.items.filter((item) => item.index == true);
     },

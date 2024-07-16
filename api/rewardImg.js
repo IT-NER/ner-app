@@ -5,10 +5,33 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+// getRewardByIds
+app.post("/rewardImg/ids", async (req, res) => {
+  let ids = req.body.data;
+
+  let reward = await prisma.rewardImg.findMany({
+    where: {
+      id: { in: ids },
+    },
+
+    // include: {
+    //   Reward: {
+    //     include: {
+    //       User: true,
+    //       RewardType: true,
+    //       rewardImg: true,
+    //       RewardStatus: true,
+    //     },
+    //   },
+    // },
+  });
+  res.status(200).json(reward);
+});
+
 //create
 app.post("/rewardImg", async (req, res) => {
-  let reward = req.body.reward;
-  let itemsRewardIng = req.body.rewardImg;
+  let reward = req.body.data.reward;
+  let itemsRewardIng = req.body.data.rewardImg;
 
   let items = [];
   itemsRewardIng.forEach((e) => {
@@ -39,22 +62,36 @@ app.delete("/rewardImg/:id", async (req, res) => {
   res.status(200).json(rewardImg);
 });
 
-//update
-// app.put("/rewardImg/:id", async (req, res) => {
-//   let id = req.params.id;
-//   let item = req.body.data;
-//   let rewardImg = await prisma.rewardImg.update({
-//     where: {
-//       id: parseInt(id),
-//     },
-//     data: {
-//       name: item.name,
-//       color: item.color,
-//       quantity: parseInt(item.quantity),
-//     },
-//   });
-//   res.status(200).json(rewardImg);
-// });
+// setImgIndex
+app.post("/rewardImg/setImgIndex", async (req, res) => {
+  let item = req.body.data;
+
+  let rewardImgClear = await prisma.rewardImg.updateMany({
+    where: {
+      rewardId: Number(item.rewardId),
+    },
+    data: {
+      index: false,
+    },
+  });
+
+  let rewardImgSetImgIndex = await prisma.rewardImg.update({
+    where: {
+      id: Number(item.id),
+    },
+    data: {
+      index: true,
+    },
+  });
+
+  let rewardImg = await prisma.rewardImg.findMany({
+    where: {
+      rewardId: Number(item.rewardId),
+    },
+  });
+
+  res.status(200).json(rewardImg);
+});
 
 export default {
   path: "/api",

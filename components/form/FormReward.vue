@@ -34,7 +34,7 @@
           </v-col>
           <v-col cols="12" md="1">
             <v-text-field
-              label="POINT"
+              label="พอยท์"
               required
               v-model="reward.point"
               type="number"

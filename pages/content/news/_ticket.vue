@@ -89,8 +89,14 @@ export default {
         return;
       }
 
-      let uploadsFiles = await this.uploadsFiles(formData);
-      if (!uploadsFiles) {
+      let filesUpload = await this.uploadsFiles(formData);
+      if (!filesUpload) {
+        this.alertError();
+        return;
+      }
+
+      let contentImg = await this.createContentImg(filesUpload);
+      if (!contentImg) {
         this.alertError();
         return;
       }
@@ -129,11 +135,10 @@ export default {
           return false;
         });
 
-      if (!filesUpload) {
-        this.alertError();
-        return;
-      }
+      return filesUpload;
+    },
 
+    async createContentImg(filesUpload) {
       let contentImg = await this.$axios
         .post("/api/contentImg", {
           data: {
@@ -147,13 +152,7 @@ export default {
         .catch((err) => {
           return false;
         });
-
-      if (!contentImg) {
-        this.alertError();
-        return;
-      }
-
-      return true;
+      return contentImg;
     },
 
     async getContentByTicket() {
