@@ -1,5 +1,5 @@
 import express from "express";
-import moment, { utc } from "moment";
+import moment from "moment";
 import { PrismaClient } from "@prisma/client";
 
 let prisma = new PrismaClient();
@@ -137,7 +137,6 @@ app.get("/publish", async (req, res) => {
           User: true,
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },
@@ -213,7 +212,6 @@ app.get("/publish/content/banner", async (req, res) => {
           User: true,
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },
@@ -269,7 +267,6 @@ app.get("/publish/content/activity", async (req, res) => {
           User: true,
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },
@@ -325,7 +322,6 @@ app.get("/publish/content/news", async (req, res) => {
           User: true,
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },
