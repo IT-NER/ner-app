@@ -25,7 +25,7 @@
               <v-card-actions>
                 <v-carousel
                   cycle
-                  width="600"
+                  width="400"
                   height="auto"
                   hide-delimiter-background
                   show-arrows-on-hover
@@ -33,26 +33,9 @@
                   <v-carousel-item
                     v-for="(list, y) in item.ContentImg"
                     :key="y"
+                    :src="`/uploads/content/${list.name}`"
+                    :aspect-ratio="16 / 9"
                   >
-                    <v-img
-                      :src="`/uploads/content/${list.name}`"
-                      class="grey lighten-2"
-                      width="600"
-                      height="auto"
-                    >
-                      <template v-slot:placeholder>
-                        <v-row
-                          class="fill-height ma-0"
-                          align="center"
-                          justify="center"
-                        >
-                          <v-progress-circular
-                            indeterminate
-                            color="grey lighten-5"
-                          ></v-progress-circular>
-                        </v-row>
-                      </template>
-                    </v-img>
                   </v-carousel-item>
                 </v-carousel>
               </v-card-actions>

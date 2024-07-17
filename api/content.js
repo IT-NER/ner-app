@@ -78,7 +78,7 @@ app.get("/content", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
+      PublishStatus: true,
     },
   });
   res.status(200).json(content);
@@ -101,7 +101,7 @@ app.get("/content/content-type/:id", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
+      PublishStatus: true,
     },
   });
   res.status(200).json(content);
@@ -113,7 +113,7 @@ app.get("/content/status/:id", async (req, res) => {
 
   let content = await prisma.content.findMany({
     where: {
-      AND: [{ contentStatusId: Number(id) }, { active: true }],
+      AND: [{ publishStatusId: Number(id) }, { active: true }],
     },
     orderBy: [
       {
@@ -124,7 +124,7 @@ app.get("/content/status/:id", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
+      PublishStatus: true,
     },
   });
 
@@ -149,7 +149,7 @@ app.get("/content/:id", async (req, res) => {
         User: true,
         ContentType: true,
         ContentImg: true,
-        ContentStatus: true,
+        PublishStatus: true,
       },
     })
     .then((res) => {
@@ -179,8 +179,8 @@ app.get("/content/ticket/:id", async (req, res) => {
         User: true,
         ContentType: true,
         ContentImg: true,
-        ContentStatus: true,
-        ContentPublic: true,
+        PublishStatus: true,
+        Publish: true,
       },
     })
     .then((res) => {
@@ -214,7 +214,7 @@ app.post("/content/ticket", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
+      PublishStatus: true,
     },
   });
   res.status(200).json(content[0]);
@@ -234,14 +234,14 @@ app.post("/content", async (req, res) => {
       code: String(code),
       userId: Number(item.userId),
       contentTypeId: Number(item.contentTypeId),
-      contentStatusId: Number(item.contentStatusId),
+      publishStatusId: Number(item.publishStatusId),
       active: Boolean(item.active),
     },
     include: {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
+      PublishStatus: true,
     },
   });
   res.status(200).json(content);
@@ -260,13 +260,13 @@ app.put("/content/:id", async (req, res) => {
       description: String(item.description),
       detail: String(item.detail),
       point: Number(item.point),
-      contentStatusId: Number(item.contentStatusId),
+      publishStatusId: Number(item.publishStatusId),
     },
     include: {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
+      PublishStatus: true,
     },
   });
   res.status(200).json(content);
@@ -285,8 +285,8 @@ app.post("/content/ids", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
-      ContentStatus: true,
-      ContentPublic: true,
+      PublishStatus: true,
+      Publish: true,
     },
   });
   res.status(200).json(content);

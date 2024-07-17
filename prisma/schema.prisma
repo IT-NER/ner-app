@@ -23,7 +23,7 @@ model User {
   PointReceived    PointReceived[]
   PointReceivedPay PointReceivedPay[]
   Reward           Reward[]
-  ContentPublic    ContentPublic[]
+  Publish          Publish[]
   PointPayRequest  PointPayRequest[]
   buttonLinkId     Int?
   departmentId     Int?
@@ -37,43 +37,53 @@ model User {
   updatedAt        DateTime           @updatedAt
 }
 
-model Content {
+model Publish {
   id              Int             @id @default(autoincrement())
   ticket          String          @unique
-  code            String?
-  title           String?
-  description     String?
-  detail          String?         @db.VarChar(8000)
-  point           Int?            @default(0)
+  start           DateTime?
+  end             DateTime?
+  timed           Boolean?        @default(true)
+  remark          String?
   active          Boolean?        @default(true)
-  ContentImg      ContentImg[]
-  ContentPublic   ContentPublic[]
-  contentStatusId Int?
-  contentTypeId   Int?
+  contentId       Int?
   userId          Int?
-  ContentStatus   ContentStatus?  @relation(fields: [contentStatusId], references: [id])
-  ContentType     ContentType?    @relation(fields: [contentTypeId], references: [id])
-  User            User?           @relation(fields: [userId], references: [id])
+  publishStatusId Int?
+  Content         Content?        @relation(fields: [contentId], references: [id])
+  User            User?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  PublishStatus   PublishStatus?  @relation(fields: [publishStatusId], references: [id])
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
+  PointReceived   PointReceived[]
 }
 
-model ContentPublic {
-  id            Int             @id @default(autoincrement())
-  ticket        String          @unique
-  start         DateTime?
-  end           DateTime?
-  timed         Boolean?        @default(true)
-  remark        String?
-  active        Boolean?        @default(true)
-  public        Boolean?        @default(false)
-  contentId     Int?
+model PublishStatus {
+  id        Int       @id @default(autoincrement())
+  name      String?
+  active    Boolean?  @default(true)
+  Publish   Publish[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Content {
+  id          Int      @id @default(autoincrement())
+  ticket      String   @unique
+  code        String?
+  title       String?
+  description String?
+  detail      String?  @db.VarChar(8000)
+  point       Int?     @default(0)
+  active      Boolean? @default(true)
+  publish     Boolean? @default(false) //สถานะเผยแพร่
+
+  contentTypeId Int?
   userId        Int?
-  Content       Content?        @relation(fields: [contentId], references: [id])
-  User          User?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
-  PointReceived PointReceived[]
+  ContentType   ContentType? @relation(fields: [contentTypeId], references: [id])
+  User          User?        @relation(fields: [userId], references: [id])
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  ContentImg    ContentImg[]
+  Publish       Publish[]
 }
 
 model ContentType {
@@ -98,22 +108,13 @@ model ContentImg {
   updatedAt DateTime @updatedAt
 }
 
-model ContentStatus {
-  id        Int       @id @default(autoincrement())
-  name      String?
-  active    Boolean?  @default(true)
-  Content   Content[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-}
-
 model PointReceived {
   id               Int                @id @default(autoincrement())
   point            Int?
   userId           Int?
-  contentPublicId  Int?
+  publishId        Int?
   User             User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  ContentPublic    ContentPublic?     @relation(fields: [contentPublicId], references: [id])
+  Publish          Publish?           @relation(fields: [publishId], references: [id])
   PointReceivedPay PointReceivedPay[]
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
@@ -153,6 +154,9 @@ model PointReceivedPay {
   pointPayId      Int?
   pointReceivedId Int?
   userId          Int?
+  received        Int?
+  pay             Int?
+  total           Int?
   User            User?          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointPay        PointPay?      @relation(fields: [pointPayId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointReceived   PointReceived? @relation(fields: [pointReceivedId], references: [id], onDelete: NoAction, onUpdate: NoAction)

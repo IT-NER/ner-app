@@ -10,12 +10,12 @@
         <v-text-field v-model="search" label="ค้นหา"></v-text-field>
         <v-spacer></v-spacer>
         <v-btn color="success" @click="addItem"> เพิ่ม </v-btn>
-        <v-btn color="primary" @click="getContentPublic"> รีเฟรช </v-btn>
+        <v-btn color="primary" @click="getPublish"> รีเฟรช </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
-        :items="contentPublics"
+        :items="publishs"
         :search="search"
         class="elevation-0"
       >
@@ -60,8 +60,8 @@ export default {
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
 
-      contentPublics: [],
-      contentPublic: {
+      publishs: [],
+      publish: {
         id: null,
         ticket: null,
         start: null,
@@ -69,7 +69,7 @@ export default {
         timed: true,
         remark: null,
         active: true,
-        public: true,
+        publish: true,
         Content: [],
         contentId: null,
         User: [],
@@ -79,7 +79,7 @@ export default {
   },
 
   created() {
-    this.getContentPublic();
+    this.getPublish();
   },
 
   methods: {
@@ -89,13 +89,13 @@ export default {
     },
 
     async editItem(item) {
-      this.contentPublic = Object.assign({}, item);
-      this.$router.push("/public/" + this.contentPublic.ticket);
+      this.publish = Object.assign({}, item);
+      this.$router.push("/publish/" + this.publish.ticket);
     },
 
-    async getContentPublic() {
-      this.contentPublics = await this.$axios
-        .get("/api/contentPublic")
+    async getPublish() {
+      this.publishs = await this.$axios
+        .get("/api/publish")
         .then((res) => {
           return res.data;
         })
@@ -105,12 +105,12 @@ export default {
     },
 
     async addItem() {
-      this.contentPublic.userId = await this.getUser();
-      console.log("contentPublic", this.contentPublic);
+      this.publish.userId = await this.getUser();
+      console.log("publish", this.publish);
 
       let ticket = await this.$axios
-        .post("/api/contentPublic", {
-          data: this.contentPublic,
+        .post("/api/publish", {
+          data: this.publish,
         })
         .then((res) => {
           return res.data.ticket;
@@ -124,7 +124,7 @@ export default {
         return;
       }
 
-      this.$router.push("/public/" + ticket);
+      this.$router.push("/publish/" + ticket);
     },
 
     async alertError() {

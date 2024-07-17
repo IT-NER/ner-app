@@ -27,7 +27,7 @@
               v-bind="attrs"
               v-on="on"
               color="primary"
-              @click="getContentStatus"
+              @click="getPublishStatus"
             >
               รีเฟรช
             </v-btn>
@@ -86,7 +86,7 @@
           </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
-            <form-content-status :contentStatus.sync="contentStatus" />
+            <form-publish-status :publishStatus.sync="publishStatus" />
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
@@ -111,10 +111,10 @@
 </template>
 
 <script>
-import FormContentStatus from "~/components/form/FormContentStatus.vue";
+import FormPublishStatus from "~/components/form/FormPublishStatus.vue";
 
 export default {
-  components: { FormContentStatus },
+  components: { FormPublishStatus },
 
   data() {
     return {
@@ -129,7 +129,7 @@ export default {
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
       items: [],
-      contentStatus: {
+      publishStatus: {
         id: null,
         name: null,
       },
@@ -137,7 +137,7 @@ export default {
   },
 
   created() {
-    this.getContentStatus();
+    this.getPublishStatus();
   },
 
   methods: {
@@ -147,7 +147,7 @@ export default {
 
       let success = false;
 
-      if (this.contentStatus.id > 0) {
+      if (this.publishStatus.id > 0) {
         success = await this.update();
       } else {
         success = await this.create();
@@ -160,13 +160,13 @@ export default {
         this.alertError();
       }
 
-      await this.getContentStatus();
+      await this.getPublishStatus();
       await this.setItemDefault();
     },
 
     async setItemDefault() {
-      this.contentStatus.id = null;
-      this.contentStatus.name = null;
+      this.publishStatus.id = null;
+      this.publishStatus.name = null;
     },
 
     async alertError() {
@@ -189,9 +189,9 @@ export default {
     },
 
     async create() {
-      let createContentStatus = await this.$axios
-        .post("/api/contentStatus", {
-          data: this.contentStatus,
+      let createPublishStatus = await this.$axios
+        .post("/api/publishStatus", {
+          data: this.publishStatus,
         })
         .then((res) => {
           // console.log("res", res.data);
@@ -202,13 +202,13 @@ export default {
           return false;
         });
 
-      return createContentStatus;
+      return createPublishStatus;
     },
 
     async update() {
-      let updateContentStatus = await this.$axios
-        .put("/api/contentStatus/" + this.contentStatus.id, {
-          data: this.contentStatus,
+      let updatePublishStatus = await this.$axios
+        .put("/api/publishStatus/" + this.publishStatus.id, {
+          data: this.publishStatus,
         })
         .then((res) => {
           // console.log("res", res.data);
@@ -219,7 +219,7 @@ export default {
           return false;
         });
 
-      return updateContentStatus;
+      return updatePublishStatus;
     },
 
     async addItem() {
@@ -228,13 +228,13 @@ export default {
     },
 
     async editItem(item) {
-      this.contentStatus = await Object.assign({}, item);
+      this.publishStatus = await Object.assign({}, item);
       this.dialog = true;
     },
 
-    async getContentStatus() {
+    async getPublishStatus() {
       this.items = await this.$axios
-        .get("/api/contentStatus")
+        .get("/api/publishStatus")
         .then((res) => {
           // console.log("res", res.data);
           return res.data;

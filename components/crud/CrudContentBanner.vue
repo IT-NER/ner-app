@@ -53,9 +53,9 @@ export default {
         point: null,
         userId: null,
         contentTypeId: null,
-        contentStatusId: null,
+        publishStatusId: null,
         active: null,
-        ContentStatus: null,
+        PublishStatus: null,
         ContentType: null,
         User: null,
         ContentImg: null,
@@ -97,7 +97,7 @@ export default {
       this.content.point = 0;
       this.content.userId = this.user.id;
       this.content.contentTypeId = 1;
-      this.content.contentStatusId = 1;
+      this.content.publishStatusId = 1;
       this.content.active = true;
     },
 

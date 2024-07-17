@@ -34,11 +34,11 @@ export default {
   },
   methods: {
     async main() {
-      let banner = await this.getContentPublicContentBanner();
+      let banner = await this.getPublishContentBanner();
       console.log("banner", banner);
-      let activity = await this.getContentPublicContentActivity();
+      let activity = await this.getPublishContentActivity();
       console.log("activity", activity);
-      let news = await this.getContentPublicContentNews();
+      let news = await this.getPublishContentNews();
       console.log("news", news);
 
       if (banner) {
@@ -60,9 +60,9 @@ export default {
       }
     },
 
-    async getContentPublicContentBanner() {
+    async getPublishContentBanner() {
       let banner = await this.$axios
-        .get("/api/contentPublic/content/banner")
+        .get("/api/publish/content/banner")
         .then((res) => {
           res.data.forEach((e) => {});
           return res.data;
@@ -73,9 +73,9 @@ export default {
 
       return banner;
     },
-    async getContentPublicContentActivity() {
+    async getPublishContentActivity() {
       let activity = await this.$axios
-        .get("/api/contentPublic/content/activity")
+        .get("/api/publish/content/activity")
         .then((res) => {
           res.data.forEach((e) => {});
           return res.data;
@@ -86,9 +86,9 @@ export default {
 
       return activity;
     },
-    async getContentPublicContentNews() {
+    async getPublishContentNews() {
       let news = await this.$axios
-        .get("/api/contentPublic/content/news")
+        .get("/api/publish/content/news")
         .then((res) => {
           res.data.forEach((e) => {});
           return res.data;

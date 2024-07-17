@@ -25,17 +25,17 @@
           {{ index + 1 }}
         </template>
         <template v-slot:item.status="{ item }">
-          <v-chip label dark color="grey" v-if="item.ContentStatus.id == 1">
-            {{ item.ContentStatus.name }}
+          <v-chip label dark color="grey" v-if="item.PublishStatus.id == 1">
+            {{ item.PublishStatus.name }}
           </v-chip>
-          <v-chip label dark color="warning" v-if="item.ContentStatus.id == 2">
-            {{ item.ContentStatus.name }}
+          <v-chip label dark color="warning" v-if="item.PublishStatus.id == 2">
+            {{ item.PublishStatus.name }}
           </v-chip>
-          <v-chip label dark color="success" v-if="item.ContentStatus.id == 3">
-            {{ item.ContentStatus.name }}
+          <v-chip label dark color="success" v-if="item.PublishStatus.id == 3">
+            {{ item.PublishStatus.name }}
           </v-chip>
-          <v-chip label dark color="error" v-if="item.ContentStatus.id == 4">
-            {{ item.ContentStatus.name }}
+          <v-chip label dark color="error" v-if="item.PublishStatus.id == 4">
+            {{ item.PublishStatus.name }}
           </v-chip>
         </template>
 
@@ -73,7 +73,7 @@ export default {
         point: null,
         userId: null,
         contentTypeId: 2,
-        contentStatusId: 1,
+        publishStatusId: 1,
         active: true,
       },
     };

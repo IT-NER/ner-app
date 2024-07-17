@@ -82,78 +82,90 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <overlay :overlay.sync="overlay" />
   </div>
 </template>
 
 <script>
+import Overlay from "~/components/overlay/Overlay.vue";
 export default {
+  components: { Overlay },
   layout: "blankLayout",
   data() {
     return {
       item: [],
-      pointReceived: {
-        point: null,
-        userId: null,
-        contentPublicId: null,
-      },
+      pointReceived: [
+        {
+          point: null,
+          userId: null,
+          publishId: null,
+        },
+      ],
 
       btnAllow: true,
+      overlay: false,
     };
   },
+
   created() {
     this.main();
   },
+
   methods: {
     async main() {
+      this.overlay = true;
       this.item = await this.getContentByContentByTicket();
       this.pointReceived = await this.setData();
+
+      let check = await this.checkReceived();
+      if (check.length == 0) {
+        this.btnAllow = false;
+      } else {
+        this.btnAllow = true;
+      }
+      this.overlay = false;
     },
 
-    async setData(item) {
-      let data = {
-        userId: null,
-        point: null,
-        contentPublicId: null,
-      };
+    async setData() {
+      let data = [
+        {
+          point: null,
+          userId: null,
+          publishId: null,
+        },
+      ];
 
       let user = await this.$auth.$storage.getCookie("user");
-      let point = await item.point;
-      let ContentPublic = await Object.assign({}, item.ContentPublic);
+      let publish = await Object.assign({}, this.item.Publish);
 
-      data.userId = user.id;
-      data.point = point;
-      data.contentPublicId = ContentPublic[0].id;
-
-      this.pointReceived = data;
-
+      data[0].userId = await user.id;
+      data[0].point = await this.item.point;
+      data[0].publishId = await publish[0].id;
+      console.log("data", data);
       return data;
     },
 
-    async check() {
-      // let data = {
-      //   userId:
-      // }
-      let contentPublic = Object.assign({}, this.item.ContentPublic);
-
-      console.log("contentPublic", contentPublic[0].id);
-      // let item = await this.$axios
-      //   .post("/api/pointReceived/check", {
-      //     data: pointReceived,
-      //   })
-      //   .then((res) => {
-      //     console.log("res", res.data);
-      //     return res.data;
-      //   })
-      //   .catch((err) => {
-      //     console.log("err", err);
-      //     return false;
-      //   });
-      // return item;
+    async checkReceived() {
+      let item = await this.$axios
+        .post("/api/pointReceived/checkReceived", {
+          data: this.pointReceived,
+        })
+        .then((res) => {
+          console.log("res", res.data);
+          return res.data;
+        })
+        .catch((err) => {
+          console.log("err", err);
+          return false;
+        });
+      return item;
     },
 
     async getContentByContentByTicket() {
+      let ticket = await this.$route.params.ticket;
       let item = await this.$axios
-        .get("/api/content/ticket/" + this.$route.params.ticket)
+        .get("/api/content/ticket/" + ticket)
         .then((res) => {
           return res.data;
         })
@@ -164,12 +176,20 @@ export default {
       return item;
     },
 
-    async getPoint(item) {
-      let pointReceived = await this.setData(item);
-      console.log("pointReceived", pointReceived);
+    async getPoint() {
+      this.overlay = true;
+      let pointReceived = await this.setData();
 
       let itemPointReceived = await this.createPointReceived(pointReceived);
       console.log("itemPointReceived", itemPointReceived);
+
+      if (!itemPointReceived) {
+        this.alertError();
+      }
+
+      await this.main();
+      await this.alertSuccess();
+      this.overlay = false;
     },
 
     async createPointReceived(pointReceived) {
@@ -186,6 +206,25 @@ export default {
           return false;
         });
       return item;
+    },
+
+    async alertError() {
+      this.$swal.fire({
+        type: "error",
+        title: "เกิดข้อผิดพลาด",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+
+    async alertSuccess() {
+      this.$swal.fire({
+        position: "top-end",
+        type: "success",
+        title: "บันทึก เรียบร้อย",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     },
   },
 };

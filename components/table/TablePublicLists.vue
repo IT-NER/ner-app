@@ -2,7 +2,7 @@
   <div>
     <v-data-table
       :headers="headers"
-      :items="publics"
+      :items="publish"
       :search="search"
       class="elevation-0"
     >
@@ -23,8 +23,8 @@
         <span v-if="item.timed"> อัตโนมัติ </span>
         <span v-else> กำหนดเอง </span>
       </template>
-      <template v-slot:item.public="{ item }">
-        <span v-if="item.public"> อยู่ระหว่างประชาสัมพันธ์ </span>
+      <template v-slot:item.publish="{ item }">
+        <span v-if="item.publish"> อยู่ระหว่างประชาสัมพันธ์ </span>
         <span v-else> ปิด </span>
       </template>
       <template v-slot:item.actions="{ item }">
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  props: ["publics", "dialog", "itemPublic"],
+  props: ["publish", "dialog", "itemPublish"],
 
   data() {
     return {
@@ -50,7 +50,7 @@ export default {
         { text: "พอยท์", value: "Content.point" },
         {
           text: "เปิด (สาธารณะ)",
-          value: "public",
+          value: "publish",
           align: "center",
           sortable: false,
         },
@@ -61,11 +61,11 @@ export default {
 
   methods: {
     async editItem(item) {
-      let itemPublic = await Object.assign({}, item);
-      itemPublic.start = this.$moment(item.start).format("YYYY-MM-DD");
-      itemPublic.end = this.$moment(item.end).format("YYYY-MM-DD");
+      let itemPublish = await Object.assign({}, item);
+      itemPublish.start = this.$moment(item.start).format("YYYY-MM-DD");
+      itemPublish.end = this.$moment(item.end).format("YYYY-MM-DD");
 
-      this.$emit("update:itemPublic", itemPublic);
+      this.$emit("update:itemPublish", itemPublish);
       this.$emit("update:dialog", true);
     },
   },

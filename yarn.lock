@@ -3585,7 +3585,7 @@ crypto-browserify@^3.11.0:
     diffie-hellman "^5.0.0"
     inherits "^2.0.1"
     pbkdf2 "^3.0.3"
-    public-encrypt "^4.0.0"
+    publish-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
@@ -8229,9 +8229,9 @@ pseudomap@^1.0.2:
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
   integrity sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==
 
-public-encrypt@^4.0.0:
+publish-encrypt@^4.0.0:
   version "4.0.3"
-  resolved "https://registry.yarnpkg.com/public-encrypt/-/public-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"
+  resolved "https://registry.yarnpkg.com/publish-encrypt/-/publish-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"
   integrity sha512-zVpa8oKZSz5bTMTFClc1fQOnyyEzpl5ozpi1B5YcvBrdohMjH2rfsBtyXcuNuwjsDIXmBYlF2N5FlJYhR29t8Q==
   dependencies:
     bn.js "^4.1.0"

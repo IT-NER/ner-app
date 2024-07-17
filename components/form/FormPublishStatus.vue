@@ -7,7 +7,7 @@
             label="ชื่อสถานะคอนเทนต์"
             prepend-icon="mdi-list-status"
             required
-            v-model="contentStatus.name"
+            v-model="publishStatus.name"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  props: ["contentStatus"],
+  props: ["publishStatus"],
 };
 </script>
 

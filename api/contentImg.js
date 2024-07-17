@@ -55,7 +55,7 @@ app.post("/contentImg/ids", async (req, res) => {
     //       User: true,
     //       ContentType: true,
     //       ContentImg: true,
-    //       ContentStatus: true,
+    //       PublishStatus: true,
     //     },
     //   },
     // },

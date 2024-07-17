@@ -64,63 +64,166 @@ async function generateOTP() {
 }
 
 // createPointReceived
-app.post("/pointReceived/check", async (req, res) => {
+app.post("/pointReceived/checkReceived", async (req, res) => {
   // console.log("req", req.body.data);
+  // return;
 
-  let item = req.body.data;
+  let items = req.body.data;
+  // let data = items.forEach(async (item) => {
+  let data = await checkUserReceived(items[0]);
+  // });
 
-  let pointReceived = await prisma.pointReceived.findMany({
+  res.status(200).json(data);
+});
+
+// checkUserReceived
+async function checkUserReceived(item) {
+  let data = await prisma.pointReceived.findMany({
     where: {
-      userId: Number(item.userId),
-      contentPublicId: Number(item.contentPublicId),
+      AND: [
+        { userId: Number(item.userId) },
+        { publishId: Number(item.publishId) },
+      ],
     },
     include: {
       User: true,
-      ContentPublic: {
+      Publish: {
         include: {
           Content: {
             include: {
               ContentType: true,
               ContentImg: true,
-              ContentStatus: true,
+              PublishStatus: true,
             },
           },
         },
       },
     },
   });
-  res.status(200).json(pointReceived);
-});
+
+  return data;
+}
 
 // createPointReceived
 app.post("/pointReceived", async (req, res) => {
   // console.log("req", req.body.data);
+  // return;
 
-  let item = req.body.data;
+  let items = req.body.data;
+  let data = await items.forEach(async (item) => {
+    // console.log("item", item);
+    let pointReceived = await createPointReceived(item);
+    // console.log("pointReceived", pointReceived);
+    let pointReceivedPay = await createPointReceivedPay(pointReceived);
+    // console.log("pointReceivedPay", pointReceivedPay);
+    let sumReceived = await sumPointReceived(item.userId);
+    // console.log("sumReceived", sumReceived);
+    let sumPay = await sumPointPay(item.userId);
+    // console.log("sumPay", sumPay);
+    let total = Number(sumReceived) - Number(sumPay);
+    // console.log("total", total);
+    let updatePointToatal = await updatePointTotal(pointReceivedPay, total);
+    // console.log("updatePointToatal", updatePointToatal);
+    let pointUser = await updatePointUser(item.userId, total);
+    // console.log("pointUser", pointUser);
+  });
 
-  let pointReceived = await prisma.pointReceived.create({
+  res.status(200).json(data);
+});
+
+async function createPointReceived(item) {
+  let data = await prisma.pointReceived.create({
     data: {
       point: Number(item.point),
       userId: Number(item.userId),
-      contentPublicId: Number(item.contentPublicId),
+      publishId: Number(item.publishId),
     },
     include: {
       User: true,
-      ContentPublic: {
+      Publish: {
         include: {
           Content: {
             include: {
               ContentType: true,
               ContentImg: true,
-              ContentStatus: true,
+              PublishStatus: true,
             },
           },
         },
       },
     },
   });
-  res.status(200).json(pointReceived);
-});
+
+  return data;
+}
+
+async function createPointReceivedPay(item) {
+  let data = await prisma.pointReceivedPay.create({
+    data: {
+      pointReceivedId: Number(item.id),
+      received: Number(item.point),
+      userId: Number(item.userId),
+    },
+  });
+  return data;
+}
+
+async function sumPointReceived(userId) {
+  let sum = 0;
+
+  let sumReceived = await prisma.pointReceivedPay.findMany({
+    where: {
+      userId: Number(userId),
+    },
+  });
+
+  sumReceived.forEach((e) => {
+    sum += Number(e.received);
+  });
+
+  return sum;
+}
+
+async function sumPointPay(userId) {
+  let sum = 0;
+
+  let sumReceived = await prisma.pointReceivedPay.findMany({
+    where: {
+      userId: Number(userId),
+    },
+  });
+
+  sumReceived.forEach((e) => {
+    sum += Number(e.pay);
+  });
+
+  return sum;
+}
+
+async function updatePointTotal(pointReceivedPay, total) {
+  let item = await prisma.pointReceivedPay.update({
+    where: {
+      id: Number(pointReceivedPay.id),
+    },
+    data: {
+      total: Number(total),
+    },
+  });
+  return item;
+}
+
+async function updatePointUser(userId, total) {
+  let data = await prisma.user.update({
+    where: {
+      id: Number(userId),
+    },
+    data: {
+      point: Number(total),
+    },
+  });
+
+  return data;
+}
 
 export default {
   path: "/api",
