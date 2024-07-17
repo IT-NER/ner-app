@@ -55,7 +55,6 @@ app.post("/publish", async (req, res) => {
         include: {
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },
@@ -114,7 +113,6 @@ app.put("/publish/:id", async (req, res) => {
         include: {
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },
@@ -157,7 +155,6 @@ app.get("/publish/ticket/:id", async (req, res) => {
         include: {
           ContentImg: true,
           ContentType: true,
-          PublishStatus: true,
         },
       },
     },

@@ -44,13 +44,13 @@ export default {
   watch: {
     dialog(val) {
       if (val) {
-        this.getContentByStatusId();
+        this.getContent();
       }
     },
   },
 
   created() {
-    this.getContentByStatusId();
+    this.getContent();
   },
 
   methods: {
@@ -64,9 +64,9 @@ export default {
       this.$emit("closeDialog");
     },
 
-    async getContentByStatusId() {
+    async getContent() {
       let items = await this.$axios
-        .get("/api/content/status/" + 1)
+        .get("/api/content/publish/" + Boolean(false))
         .then((res) => {
           return res.data;
         })
@@ -77,8 +77,8 @@ export default {
       if (!items) {
         return;
       }
-
-      this.contents = await items;
+      // console.log("items", items);
+      this.contents = items;
     },
   },
 };

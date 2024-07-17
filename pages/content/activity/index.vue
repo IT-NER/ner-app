@@ -24,20 +24,6 @@
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
         </template>
-        <template v-slot:item.status="{ item }">
-          <v-chip label dark color="grey" v-if="item.PublishStatus.id == 1">
-            {{ item.PublishStatus.name }}
-          </v-chip>
-          <v-chip label dark color="warning" v-if="item.PublishStatus.id == 2">
-            {{ item.PublishStatus.name }}
-          </v-chip>
-          <v-chip label dark color="success" v-if="item.PublishStatus.id == 3">
-            {{ item.PublishStatus.name }}
-          </v-chip>
-          <v-chip label dark color="error" v-if="item.PublishStatus.id == 4">
-            {{ item.PublishStatus.name }}
-          </v-chip>
-        </template>
 
         <template v-slot:item.actions="{ item }">
           <v-btn color="warning" @click="editItem(item)"> แก้ไข </v-btn>
@@ -59,7 +45,6 @@ export default {
         { text: "ทิคเก็ท", value: "ticket" },
         { text: "TITLE", value: "title" },
         { text: "พอยท์", value: "point" },
-        { text: "STATUS", value: "status" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
       contents: [],
@@ -95,7 +80,7 @@ export default {
   methods: {
     async getContentByContentTypeId() {
       this.contents = await this.$axios
-        .get("/api/content/content-type/" + this.content.contentTypeId)
+        .get("/api/content/contentType/" + this.content.contentTypeId)
         .then((res) => {
           console.log("res", res.data);
           return res.data;

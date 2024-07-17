@@ -3,13 +3,15 @@
     <v-card flat>
       <v-card-title> รูปภาพหน้าปก </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions>
+      <v-card-actions v-if="imgIndex.length > 0">
         <v-spacer></v-spacer>
         <v-img
           v-for="(item, i) in imgIndex"
           :key="i"
           :src="`/uploads/content/${item.name}`"
-          width="50px"
+          :aspect-ratio="16 / 9"
+          height="auto"
+          width="100"
           class="grey lighten-2"
         >
           <template v-slot:placeholder>
@@ -23,10 +25,15 @@
         </v-img>
         <v-spacer></v-spacer>
       </v-card-actions>
+      <v-card-text v-else>
+        <v-alert text prominent type="error" icon="mdi-cloud-alert">
+          ยังไม่มีรูปภาพหน้าปก
+        </v-alert>
+      </v-card-text>
       <v-divider></v-divider>
       <v-card-title> รูปภาพ </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions>
+      <v-card-actions v-if="items.length > 0">
         <v-row>
           <v-col cols="12" md="2" v-for="(item, i) in items" :key="i">
             <v-toolbar dense tile>
@@ -37,12 +44,14 @@
               <v-spacer></v-spacer>
               <v-icon @click="delImg(item)"> mdi-close </v-icon>
             </v-toolbar>
+            <v-divider></v-divider>
             <v-card @click="viewImg(item)" hover tile>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-img
                   :src="`/uploads/content/${item.name}`"
-                  :aspect-ratio="1"
+                  :aspect-ratio="16 / 9"
+                  width="200"
                   class="grey lighten-2"
                 >
                   <template v-slot:placeholder>
@@ -64,6 +73,11 @@
           </v-col>
         </v-row>
       </v-card-actions>
+      <v-card-text v-else>
+        <v-alert text prominent type="error" icon="mdi-cloud-alert">
+          ยังไม่มีรูปภาพ
+        </v-alert>
+      </v-card-text>
     </v-card>
 
     <v-dialog
