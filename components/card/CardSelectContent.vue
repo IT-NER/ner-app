@@ -66,7 +66,7 @@ export default {
 
     async getContent() {
       let items = await this.$axios
-        .get("/api/content/publish/" + Boolean(false))
+        .get("/api/content/content/" + Boolean(false))
         .then((res) => {
           return res.data;
         })

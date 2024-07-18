@@ -7,11 +7,11 @@ let app = express();
 app.use(express.json());
 
 // getAll
-app.get('/food', async (req, res) => {
+app.get("/food", async (req, res) => {
   let food = await prisma.food.findMany({
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -19,53 +19,52 @@ app.get('/food', async (req, res) => {
 });
 
 //getById
-app.get('/food/:id', async (req, res) => {
-  const { id } = req.params
+app.get("/food/:id", async (req, res) => {
+  const { id } = req.params;
   const food = await prisma.food.findUnique({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(food)
-})
-
+  });
+  res.status(200).json(food);
+});
 
 //create
-app.post('/food', async (req, res) => {
-  let item = req.body.data
+app.post("/food", async (req, res) => {
+  let item = req.body.data;
   let food = await prisma.food.create({
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(food)
-})
+  });
+  res.status(200).json(food);
+});
 
 //update
-app.put('/food/:id', async (req, res) => {
-  let id = req.params.id
-  let item = req.body.data
+app.put("/food/:id", async (req, res) => {
+  let id = req.params.id;
+  let item = req.body.data;
   let food = await prisma.food.update({
     where: {
-      id: parseInt(id)
+      id: Number(id),
     },
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(food)
-})
+  });
+  res.status(200).json(food);
+});
 
 //delete
-app.delete('/food/:id', async (req, res) => {
-  let id = req.params.id
+app.delete("/food/:id", async (req, res) => {
+  let id = req.params.id;
   let food = await prisma.food.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(food)
-})
+  });
+  res.status(200).json(food);
+});
 
 export default {
   path: "/api",

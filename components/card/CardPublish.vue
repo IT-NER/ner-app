@@ -13,8 +13,8 @@
       <v-divider></v-divider>
 
       <v-card-text>
-        <!-- FormPublish -->
-        <form-publish :publish.sync="publish" />
+        <!-- FormContent -->
+        <form-content :content.sync="content" />
       </v-card-text>
       <v-divider></v-divider>
 
@@ -27,11 +27,11 @@
       </v-card-title>
 
       <v-divider></v-divider>
-      <v-card-text v-if="publish.contentId">
+      <v-card-text v-if="content.contentId">
         <!-- CardViewContent -->
         <card-view-content
-          :contentId.sync="publish.contentId"
-          :content.sync="publish.Content"
+          :contentId.sync="content.contentId"
+          :content.sync="content.Content"
         />
       </v-card-text>
       <v-card-text v-else>
@@ -59,8 +59,8 @@
         <v-card-text>
           <!-- CardSelectContent -->
           <card-select-content
-            :content.sync="publish.Content"
-            :contentId.sync="publish.contentId"
+            :content.sync="content.Content"
+            :contentId.sync="content.contentId"
             :dialog="dialog"
             @closeDialog="closeDialog"
           />
@@ -73,18 +73,18 @@
 <script>
 import ButtonBackToIndexPage from "../btn/ButtonBackToIndexPage.vue";
 import ButtonSave from "../btn/ButtonSave.vue";
-import FormPublish from "../form/FormPublish.vue";
+import FormContent from "../form/FormContent.vue";
 import CardSelectContent from "./CardSelectContent.vue";
 import CardViewContent from "./CardViewContent.vue";
 export default {
   components: {
     ButtonSave,
     ButtonBackToIndexPage,
-    FormPublish,
+    FormContent,
     CardViewContent,
     CardSelectContent,
   },
-  props: ["title", "path", "publish"],
+  props: ["title", "path", "content"],
 
   data() {
     return {

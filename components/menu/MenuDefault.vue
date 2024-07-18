@@ -77,7 +77,7 @@ export default {
             {
               name: "รายการประชาสัมพันธ์",
               icon: "mdi-earth",
-              link: "/publish",
+              link: "/content",
             },
             {
               name: "แลกของรางวัล",

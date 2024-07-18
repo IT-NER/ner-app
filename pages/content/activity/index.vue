@@ -58,7 +58,7 @@ export default {
         point: null,
         userId: null,
         contentTypeId: 2,
-        publishStatusId: 1,
+        contentStatusId: 1,
         active: true,
       },
     };

@@ -99,7 +99,7 @@ export default {
         {
           point: null,
           userId: null,
-          publishId: null,
+          contentId: null,
         },
       ],
 
@@ -132,16 +132,16 @@ export default {
         {
           point: null,
           userId: null,
-          publishId: null,
+          contentId: null,
         },
       ];
 
       let user = await this.$auth.$storage.getCookie("user");
-      let publish = await Object.assign({}, this.item.Publish);
+      let content = await Object.assign({}, this.item.Content);
 
       data[0].userId = await user.id;
       data[0].point = await this.item.point;
-      data[0].publishId = await publish[0].id;
+      data[0].contentId = await content[0].id;
       console.log("data", data);
       return data;
     },

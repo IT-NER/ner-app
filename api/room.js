@@ -7,11 +7,11 @@ let app = express();
 app.use(express.json());
 
 // getAll
-app.get('/room', async (req, res) => {
+app.get("/room", async (req, res) => {
   let room = await prisma.room.findMany({
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -19,60 +19,59 @@ app.get('/room', async (req, res) => {
 });
 
 //getById
-app.get('/room/:id', async (req, res) => {
-  const { id } = req.params
+app.get("/room/:id", async (req, res) => {
+  const { id } = req.params;
   const room = await prisma.room.findUnique({
     where: {
-      id: parseInt(id),
-    }
-  })
-  res.status(200).json(room)
-})
-
+      id: Number(id),
+    },
+  });
+  res.status(200).json(room);
+});
 
 //create
-app.post('/room', async (req, res) => {
+app.post("/room", async (req, res) => {
   // console.log('req', req.body);
   // return
 
-  let item = req.body.data
+  let item = req.body.data;
   let room = await prisma.room.create({
     data: {
       name: item.name,
       color: item.color.hexa,
-      quantity: parseInt(item.quantity),
+      quantity: Number(item.quantity),
     },
-  })
-  res.status(200).json(room)
-})
+  });
+  res.status(200).json(room);
+});
 
 //update
-app.put('/room/:id', async (req, res) => {
-  let id = req.params.id
-  let item = req.body.data
+app.put("/room/:id", async (req, res) => {
+  let id = req.params.id;
+  let item = req.body.data;
   let room = await prisma.room.update({
     where: {
-      id: parseInt(id)
+      id: Number(id),
     },
     data: {
       name: item.name,
       color: item.color,
-      quantity: parseInt(item.quantity)
+      quantity: Number(item.quantity),
     },
-  })
-  res.status(200).json(room)
-})
+  });
+  res.status(200).json(room);
+});
 
 //delete
-app.delete('/room/:id', async (req, res) => {
-  let id = req.params.id
+app.delete("/room/:id", async (req, res) => {
+  let id = req.params.id;
   let room = await prisma.room.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(room)
-})
+  });
+  res.status(200).json(room);
+});
 
 export default {
   path: "/api",

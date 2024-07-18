@@ -34,7 +34,7 @@ app.delete("/contentImg/:id", async (req, res) => {
   let id = req.params.id;
   let contentImg = await prisma.contentImg.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
   });
   res.status(200).json(contentImg);
@@ -55,7 +55,7 @@ app.post("/contentImg/ids", async (req, res) => {
     //       User: true,
     //       ContentType: true,
     //       ContentImg: true,
-    //       PublishStatus: true,
+    //       ContentStatus: true,
     //     },
     //   },
     // },

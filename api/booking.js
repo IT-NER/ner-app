@@ -211,7 +211,7 @@ app.get("/booking/:id", async (req, res) => {
   let id = req.params.id;
   let booking = await prisma.booking.findMany({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
     include: {
       Room: true,
@@ -270,7 +270,7 @@ app.get("/booking/user/:id", async (req, res) => {
   let id = req.params.id;
   let booking = await prisma.booking.findMany({
     where: {
-      userId: parseInt(id),
+      userId: Number(id),
     },
     include: {
       Room: true,
@@ -369,14 +369,14 @@ app.post("/booking", async (req, res) => {
         url: item.url,
         description: item.description,
         chairman: item.chairman,
-        quantity: parseInt(item.quantity),
+        quantity: Number(item.quantity),
         meetingId: item.meetingId,
         meetingPassword: item.meetingPassword,
-        userId: parseInt(item.userId),
-        meetingTypeId: parseInt(item.meetingTypeId),
-        roomId: parseInt(item.roomId),
-        programId: parseInt(item.programId),
-        statusId: parseInt(item.statusId),
+        userId: Number(item.userId),
+        meetingTypeId: Number(item.meetingTypeId),
+        roomId: Number(item.roomId),
+        programId: Number(item.programId),
+        statusId: Number(item.statusId),
 
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -424,7 +424,7 @@ app.put("/booking/:id", async (req, res) => {
 
     await prisma.bookingDevice.deleteMany({
       where: {
-        bookingId: parseInt(id),
+        bookingId: Number(id),
       },
     });
   }
@@ -435,7 +435,7 @@ app.put("/booking/:id", async (req, res) => {
 
     await prisma.bookingFood.deleteMany({
       where: {
-        bookingId: parseInt(id),
+        bookingId: Number(id),
       },
     });
   }
@@ -446,7 +446,7 @@ app.put("/booking/:id", async (req, res) => {
 
     await prisma.bookingDrink.deleteMany({
       where: {
-        bookingId: parseInt(id),
+        bookingId: Number(id),
       },
     });
   }
@@ -454,7 +454,7 @@ app.put("/booking/:id", async (req, res) => {
   let booking = await prisma.booking
     .update({
       where: {
-        id: parseInt(id),
+        id: Number(id),
       },
       data: {
         start: new Date(item.start),
@@ -466,14 +466,14 @@ app.put("/booking/:id", async (req, res) => {
         url: item.url,
         description: item.description,
         chairman: item.chairman,
-        quantity: parseInt(item.quantity),
+        quantity: Number(item.quantity),
         meetingId: item.meetingId,
         meetingPassword: item.meetingPassword,
-        userId: parseInt(item.userId),
-        meetingTypeId: parseInt(item.meetingTypeId),
-        roomId: parseInt(item.roomId),
-        programId: parseInt(item.programId),
-        statusId: parseInt(item.statusId),
+        userId: Number(item.userId),
+        meetingTypeId: Number(item.meetingTypeId),
+        roomId: Number(item.roomId),
+        programId: Number(item.programId),
+        statusId: Number(item.statusId),
         createdAt: new Date(),
         updatedAt: new Date(),
 
@@ -513,10 +513,10 @@ app.put("/booking/cancel/:id", async (req, res) => {
   let booking = await prisma.booking
     .update({
       where: {
-        id: parseInt(id),
+        id: Number(id),
       },
       data: {
-        statusId: parseInt(3),
+        statusId: Number(3),
         updatedAt: new Date(),
       },
     })
@@ -542,11 +542,11 @@ app.put("/booking/approve/:id", async (req, res) => {
   let booking = await prisma.booking
     .update({
       where: {
-        id: parseInt(id),
+        id: Number(id),
       },
       data: {
-        statusId: parseInt(2),
-        ApproveBy: parseInt(ApproveBy),
+        statusId: Number(2),
+        ApproveBy: Number(ApproveBy),
         updatedAt: new Date(),
       },
     })
@@ -569,7 +569,7 @@ app.delete("/booking/:id", async (req, res) => {
   let booking = await prisma.booking
     .delete({
       where: {
-        id: parseInt(id),
+        id: Number(id),
       },
     })
     .then((res) => {

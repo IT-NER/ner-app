@@ -17,11 +17,11 @@
           disabled
         ></v-text-field>
       </v-col>
-      <v-col cols="12" md="3" v-if="content.PublishStatus">
+      <v-col cols="12" md="3" v-if="content.ContentStatus">
         <v-text-field
           label="STATUS"
           hide-details
-          v-model="content.PublishStatus.name"
+          v-model="content.ContentStatus.name"
           disabled
         ></v-text-field>
       </v-col>

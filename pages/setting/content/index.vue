@@ -16,7 +16,7 @@
       <v-tabs-items v-model="tab">
         <v-tab-item v-for="(item, i) in items" :key="i">
           <crud-content-type v-if="item.index == 1" />
-          <crud-publish-status v-if="item.index == 2" />
+          <crud-content-status v-if="item.index == 2" />
         </v-tab-item>
       </v-tabs-items>
     </template>
@@ -25,10 +25,10 @@
 
 <script>
 import CrudContentType from "~/components/crud/CrudContentType.vue";
-import CrudPublishStatus from "~/components/crud/CrudPublishStatus.vue";
+import CrudContentStatus from "~/components/crud/CrudContentStatus.vue";
 
 export default {
-  components: { CrudContentType, CrudPublishStatus },
+  components: { CrudContentType, CrudContentStatus },
   data() {
     return {
       tab: {

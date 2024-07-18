@@ -38,7 +38,7 @@ async function generateTicket(type) {
     let lastCode = String(item[0].ticket).substring(2, 8);
 
     if (lastCode == dateNow) {
-      let num = parseInt(item[0].ticket.substring(2)) + parseInt(1);
+      let num = Number(item[0].ticket.substring(2)) + Number(1);
       ticket = String(str + num);
     } else {
       ticket = String(str + dateNow + "001");
@@ -105,13 +105,13 @@ app.get("/content/contentType/:id", async (req, res) => {
   res.status(200).json(content);
 });
 
-// getContentByPublish
-app.get("/content/publish/:id", async (req, res) => {
+// getContentByContent
+app.get("/content/content/:id", async (req, res) => {
   let { id } = req.params;
 
   let content = await prisma.content.findMany({
     where: {
-      publish: Boolean(false),
+      content: Boolean(false),
       active: Boolean(true),
     },
     orderBy: [
@@ -177,7 +177,7 @@ app.get("/content/ticket/:id", async (req, res) => {
         ContentType: true,
         ContentImg: true,
 
-        Publish: true,
+        Content: true,
       },
     })
     .then((res) => {
@@ -231,7 +231,7 @@ app.post("/content", async (req, res) => {
       userId: Number(item.userId),
       contentTypeId: Number(item.contentTypeId),
       active: Boolean(item.active),
-      publish: Boolean(false),
+      content: Boolean(false),
     },
     include: {
       User: true,
@@ -248,7 +248,7 @@ app.put("/content/:id", async (req, res) => {
   let item = req.body.data;
   let content = await prisma.content.update({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
     data: {
       title: String(item.title),
@@ -279,7 +279,7 @@ app.post("/content/ids", async (req, res) => {
       ContentType: true,
       ContentImg: true,
 
-      Publish: true,
+      Content: true,
     },
   });
   res.status(200).json(content);

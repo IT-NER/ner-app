@@ -34,11 +34,11 @@ export default {
   },
   methods: {
     async main() {
-      let banner = await this.getPublishContentBanner();
+      let banner = await this.getContentContentBanner();
       console.log("banner", banner);
-      let activity = await this.getPublishContentActivity();
+      let activity = await this.getContentContentActivity();
       console.log("activity", activity);
-      let news = await this.getPublishContentNews();
+      let news = await this.getContentContentNews();
       console.log("news", news);
 
       if (banner) {
@@ -60,9 +60,9 @@ export default {
       }
     },
 
-    async getPublishContentBanner() {
+    async getContentContentBanner() {
       let banner = await this.$axios
-        .get("/api/publish/content/banner")
+        .get("/api/content/content/banner")
         .then((res) => {
           res.data.forEach((e) => {});
           return res.data;
@@ -73,9 +73,9 @@ export default {
 
       return banner;
     },
-    async getPublishContentActivity() {
+    async getContentContentActivity() {
       let activity = await this.$axios
-        .get("/api/publish/content/activity")
+        .get("/api/content/content/activity")
         .then((res) => {
           res.data.forEach((e) => {});
           return res.data;
@@ -86,9 +86,9 @@ export default {
 
       return activity;
     },
-    async getPublishContentNews() {
+    async getContentContentNews() {
       let news = await this.$axios
-        .get("/api/publish/content/news")
+        .get("/api/content/content/news")
         .then((res) => {
           res.data.forEach((e) => {});
           return res.data;

@@ -8,91 +8,75 @@ datasource db {
 }
 
 model User {
-  id               Int                @id @default(autoincrement())
-  email            String             @unique
-  username         String             @unique
-  password         String?
-  lname            String?
-  fname            String?
-  active           Boolean?           @default(true)
-  point            Int?               @default(0)
-  imgUrl           String?
-  Booking          Booking[]
-  Content          Content[]
-  PointPay         PointPay[]
-  PointReceived    PointReceived[]
-  PointReceivedPay PointReceivedPay[]
-  Reward           Reward[]
-  Publish          Publish[]
-  PointPayRequest  PointPayRequest[]
-  buttonLinkId     Int?
-  departmentId     Int?
-  positionId       Int?
-  roleId           Int?               @default(1)
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  username     String   @unique
+  password     String?
+  lname        String?
+  fname        String?
+  active       Boolean? @default(true)
+  point        Int?     @default(0)
+  img          String?
+  buttonLinkId Int?
+  departmentId Int?
+  positionId   Int?
+  roleId       Int?     @default(1)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
   ButtonLink       ButtonLink?        @relation(fields: [buttonLinkId], references: [id])
   Department       Department?        @relation(fields: [departmentId], references: [id])
   Position         Position?          @relation(fields: [positionId], references: [id])
   Role             Role?              @relation(fields: [roleId], references: [id])
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
-}
-
-model Publish {
-  id              Int             @id @default(autoincrement())
-  ticket          String          @unique
-  start           DateTime?
-  end             DateTime?
-  timed           Boolean?        @default(true)
-  remark          String?
-  active          Boolean?        @default(true)
-  contentId       Int?
-  userId          Int?
-  publishStatusId Int?
-  Content         Content?        @relation(fields: [contentId], references: [id])
-  User            User?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  PublishStatus   PublishStatus?  @relation(fields: [publishStatusId], references: [id])
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-  PointReceived   PointReceived[]
-}
-
-model PublishStatus {
-  id        Int       @id @default(autoincrement())
-  name      String?
-  active    Boolean?  @default(true)
-  Publish   Publish[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  Booking          Booking[]
+  Content          Content[]
+  Reward           Reward[]
+  PointReceived    PointReceived[]
+  PointPay         PointPay[]
+  PointPayRequest  PointPayRequest[]
+  PointReceivedPay PointReceivedPay[]
 }
 
 model Content {
-  id          Int      @id @default(autoincrement())
-  ticket      String   @unique
-  code        String?
-  title       String?
-  description String?
-  detail      String?  @db.VarChar(8000)
-  point       Int?     @default(0)
-  active      Boolean? @default(true)
-  publish     Boolean? @default(false) //สถานะเผยแพร่
+  id              Int      @id @default(autoincrement())
+  ticket          String   @unique
+  code            String?
+  title           String?
+  description     String?
+  detail          String?  @db.VarChar(8000)
+  point           Int?     @default(0)
+  contentStatusId Int?
+  contentTypeId   Int?
+  userId          Int?
+  active          Boolean? @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
-  contentTypeId Int?
-  userId        Int?
-  ContentType   ContentType? @relation(fields: [contentTypeId], references: [id])
-  User          User?        @relation(fields: [userId], references: [id])
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+  ContentStatus ContentStatus?  @relation(fields: [contentStatusId], references: [id])
+  ContentType   ContentType?    @relation(fields: [contentTypeId], references: [id])
+  User          User?           @relation(fields: [userId], references: [id])
   ContentImg    ContentImg[]
-  Publish       Publish[]
+  PointReceived PointReceived[]
+}
+
+model ContentStatus {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Content Content[]
 }
 
 model ContentType {
-  id        Int       @id @default(autoincrement())
-  name      String?   @unique
-  active    Boolean?  @default(true)
-  Content   Content[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  name      String?  @unique
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Content Content[]
 }
 
 model ContentImg {
@@ -100,85 +84,90 @@ model ContentImg {
   url       String?
   path      String?
   name      String?
-  active    Boolean? @default(true)
   index     Boolean? @default(false)
   contentId Int?
-  Content   Content? @relation(fields: [contentId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Content Content? @relation(fields: [contentId], references: [id])
 }
 
 model PointReceived {
-  id               Int                @id @default(autoincrement())
-  point            Int?
-  userId           Int?
-  publishId        Int?
+  id        Int      @id @default(autoincrement())
+  point     Int?
+  userId    Int?
+  contentId Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   User             User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  Publish          Publish?           @relation(fields: [publishId], references: [id])
+  Content          Content?           @relation(fields: [contentId], references: [id])
   PointReceivedPay PointReceivedPay[]
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
 }
 
 model PointPay {
-  id                Int                @id @default(autoincrement())
+  id                Int      @id @default(autoincrement())
   point             Int?
   userId            Int?
   rewardId          Int?
   pointPayRequestId Int?
-  User              User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  Reward            Reward?            @relation(fields: [rewardId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  PointPayRequest   PointPayRequest?   @relation(fields: [pointPayRequestId], references: [id])
-  PointReceivedPay  PointReceivedPay[]
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  User             User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Reward           Reward?            @relation(fields: [rewardId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  PointPayRequest  PointPayRequest?   @relation(fields: [pointPayRequestId], references: [id])
+  PointReceivedPay PointReceivedPay[]
 }
 
 model PointPayRequest {
-  id        Int        @id @default(autoincrement())
-  ticket    String     @unique
-  approve   Boolean?   @default(false)
-  active    Boolean?   @default(true)
+  id        Int      @id @default(autoincrement())
+  ticket    String   @unique
+  approve   Boolean? @default(false)
   userId    Int?
   rewardId  Int?
   approveId Int?
-  User      User?      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  Reward    Reward?    @relation(fields: [rewardId], references: [id])
-  PointPay  PointPay[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User     User?      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Reward   Reward?    @relation(fields: [rewardId], references: [id])
+  PointPay PointPay[]
 }
 
 model PointReceivedPay {
-  id              Int            @id @default(autoincrement())
+  id              Int      @id @default(autoincrement())
   pointPayId      Int?
   pointReceivedId Int?
   userId          Int?
   received        Int?
   pay             Int?
   total           Int?
-  User            User?          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  PointPay        PointPay?      @relation(fields: [pointPayId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  PointReceived   PointReceived? @relation(fields: [pointReceivedId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  User          User?          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  PointPay      PointPay?      @relation(fields: [pointPayId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  PointReceived PointReceived? @relation(fields: [pointReceivedId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model Reward {
-  id              Int               @id @default(autoincrement())
-  ticket          String            @unique
-  code            String?
-  name            String?
-  description     String?
-  point           Int?              @default(0)
-  active          Boolean?          @default(true)
-  userId          Int?
+  id          Int      @id @default(autoincrement())
+  ticket      String   @unique
+  code        String?
+  name        String?
+  description String?
+  point       Int?     @default(0)
+  userId      Int?
+  active      Boolean? @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   User            User?             @relation(fields: [userId], references: [id])
   RewardImg       RewardImg[]
   PointPay        PointPay[]
   PointPayRequest PointPayRequest[]
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
 }
 
 model RewardImg {
@@ -187,11 +176,12 @@ model RewardImg {
   path      String?
   name      String?
   index     Boolean? @default(false)
-  active    Boolean? @default(true)
   rewardId  Int?
-  Reward    Reward?  @relation(fields: [rewardId], references: [id])
+  active    Boolean? @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Reward Reward? @relation(fields: [rewardId], references: [id])
 }
 
 model ButtonLink {
@@ -200,36 +190,40 @@ model ButtonLink {
   url       String   @unique
   remark    String?
   active    Boolean? @default(true)
-  User      User[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  User User[]
 }
 
 model Role {
   id   Int     @id @default(autoincrement())
   name String?
+
   User User[]
 }
 
 model Department {
   id   Int     @id @default(autoincrement())
   name String?
+
   User User[]
 }
 
 model Position {
   id   Int     @id @default(autoincrement())
   name String?
+
   User User[]
 }
 
 model Booking {
-  id              Int             @id @default(autoincrement())
+  id              Int       @id @default(autoincrement())
   start           DateTime?
   end             DateTime?
   name            String?
   color           String?
-  timed           Boolean?        @default(true)
+  timed           Boolean?  @default(true)
   url             String?
   description     String?
   chairman        String?
@@ -241,43 +235,56 @@ model Booking {
   meetingTypeId   Int?
   programId       Int?
   roomId          Int?
-  statusId        Int?            @default(1)
+  statusId        Int?      @default(1)
   userId          Int?
-  MeetingType     MeetingType?    @relation(fields: [meetingTypeId], references: [id])
-  Program         Program?        @relation(fields: [programId], references: [id])
-  Room            Room?           @relation(fields: [roomId], references: [id])
-  Status          Status?         @relation(fields: [statusId], references: [id])
-  User            User?           @relation(fields: [userId], references: [id])
-  BookingDevice   BookingDevice[]
-  BookingDrink    BookingDrink[]
-  BookingFood     BookingFood[]
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  MeetingType   MeetingType?    @relation(fields: [meetingTypeId], references: [id])
+  Program       Program?        @relation(fields: [programId], references: [id])
+  Room          Room?           @relation(fields: [roomId], references: [id])
+  Status        Status?         @relation(fields: [statusId], references: [id])
+  User          User?           @relation(fields: [userId], references: [id])
+  BookingDevice BookingDevice[]
+  BookingDrink  BookingDrink[]
+  BookingFood   BookingFood[]
 }
 
 model Program {
-  id      Int       @id @default(autoincrement())
-  name    String?
+  id        Int      @id @default(autoincrement())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   Booking Booking[]
 }
 
 model Status {
-  id      Int       @id @default(autoincrement())
-  name    String?
+  id        Int      @id @default(autoincrement())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   Booking Booking[]
 }
 
 model MeetingType {
-  id      Int       @id @default(autoincrement())
-  name    String?
+  id        Int      @id @default(autoincrement())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   Booking Booking[]
 }
 
 model BookingDevice {
   bookingId Int
   deviceId  Int
-  Booking   Booking @relation(fields: [bookingId], references: [id])
-  Device    Device  @relation(fields: [deviceId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Booking Booking @relation(fields: [bookingId], references: [id])
+  Device  Device  @relation(fields: [deviceId], references: [id])
 
   @@id([bookingId, deviceId])
 }
@@ -285,8 +292,11 @@ model BookingDevice {
 model BookingFood {
   bookingId Int
   foodId    Int
-  Booking   Booking @relation(fields: [bookingId], references: [id])
-  Food      Food    @relation(fields: [foodId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Booking Booking @relation(fields: [bookingId], references: [id])
+  Food    Food    @relation(fields: [foodId], references: [id])
 
   @@id([bookingId, foodId])
 }
@@ -294,34 +304,49 @@ model BookingFood {
 model BookingDrink {
   bookingId Int
   drinkId   Int
-  Booking   Booking @relation(fields: [bookingId], references: [id])
-  Drink     Drink   @relation(fields: [drinkId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Booking Booking @relation(fields: [bookingId], references: [id])
+  Drink   Drink   @relation(fields: [drinkId], references: [id])
 
   @@id([bookingId, drinkId])
 }
 
 model Room {
-  id       Int       @id @default(autoincrement())
-  name     String?
-  quantity Int?
-  color    String?
-  Booking  Booking[]
+  id        Int      @id @default(autoincrement())
+  name      String?
+  quantity  Int?
+  color     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Booking Booking[]
 }
 
 model Device {
-  id      Int             @id @default(autoincrement())
-  name    String?
+  id        Int      @id @default(autoincrement())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   Booking BookingDevice[]
 }
 
 model Food {
-  id      Int           @id @default(autoincrement())
-  name    String?
+  id        Int      @id @default(autoincrement())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   Booking BookingFood[]
 }
 
 model Drink {
-  id      Int            @id @default(autoincrement())
-  name    String?
+  id        Int      @id @default(autoincrement())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   Booking BookingDrink[]
 }

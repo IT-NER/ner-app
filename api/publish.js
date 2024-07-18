@@ -13,7 +13,7 @@ async function generateTicket() {
   let ticket = "";
   let dateNow = moment().format("YYMMDD");
 
-  let item = await prisma.publish.findMany({
+  let item = await prisma.content.findMany({
     orderBy: [
       {
         ticket: "desc",
@@ -25,7 +25,7 @@ async function generateTicket() {
     let lastCode = String(item[0].ticket).substring(2, 8);
 
     if (lastCode == dateNow) {
-      let num = parseInt(item[0].ticket.substring(2)) + parseInt(1);
+      let num = Number(item[0].ticket.substring(2)) + Number(1);
       ticket = String(str + num);
     } else {
       ticket = String(str + dateNow + "001");
@@ -38,13 +38,13 @@ async function generateTicket() {
 }
 
 // create
-app.post("/publish", async (req, res) => {
+app.post("/content", async (req, res) => {
   let item = req.body.data;
   let ticket = await generateTicket();
 
   // console.log("item", item);
 
-  let publish = await prisma.publish.create({
+  let content = await prisma.content.create({
     data: {
       ticket: String(ticket),
       userId: Number(item.userId),
@@ -59,43 +59,43 @@ app.post("/publish", async (req, res) => {
       },
     },
   });
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
 // update
-app.put("/publish/:id", async (req, res) => {
+app.put("/content/:id", async (req, res) => {
   let { id } = req.params;
   let item = req.body.data;
-  let publishStatusId = 2;
+  let contentStatusId = 2;
 
-  if (item.publish) {
-    publishStatusId = 3;
+  if (item.content) {
+    contentStatusId = 3;
   }
 
-  // updatePublishStatus Old
+  // updateContentStatus Old
   if (item.contentIdBefore) {
     let contentOld = await prisma.content.update({
       where: {
         id: Number(item.contentIdBefore),
       },
       data: {
-        publishStatusId: 1,
+        contentStatusId: 1,
       },
     });
   }
 
-  // updatePublishStatus
+  // updateContentStatus
   let content = await prisma.content.update({
     where: {
       id: Number(item.contentId),
     },
     data: {
-      publishStatusId: Number(publishStatusId),
+      contentStatusId: Number(contentStatusId),
     },
   });
 
-  // updatePublish
-  let publish = await prisma.publish.update({
+  // updateContent
+  let content = await prisma.content.update({
     where: {
       id: Number(id),
     },
@@ -104,7 +104,7 @@ app.put("/publish/:id", async (req, res) => {
       end: new Date(item.end),
       timed: Boolean(item.timed),
       remark: String(item.remark),
-      publish: Boolean(item.publish),
+      content: Boolean(item.content),
       contentId: Number(item.contentId),
     },
     include: {
@@ -117,12 +117,12 @@ app.put("/publish/:id", async (req, res) => {
       },
     },
   });
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
 // getAll
-app.get("/publish", async (req, res) => {
-  let publish = await prisma.publish.findMany({
+app.get("/content", async (req, res) => {
+  let content = await prisma.content.findMany({
     orderBy: [
       {
         id: "desc",
@@ -139,13 +139,13 @@ app.get("/publish", async (req, res) => {
       },
     },
   });
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
-//getPublishByTicket
-app.get("/publish/ticket/:id", async (req, res) => {
+//getContentByTicket
+app.get("/content/ticket/:id", async (req, res) => {
   let { id } = req.params;
-  let publish = await prisma.publish.findUnique({
+  let content = await prisma.content.findUnique({
     where: {
       ticket: String(id),
     },
@@ -159,12 +159,12 @@ app.get("/publish/ticket/:id", async (req, res) => {
       },
     },
   });
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
-// getPublishContentBanner
-app.get("/publish/content/banner", async (req, res) => {
-  let publish = await prisma.publish.findMany({
+// getContentContentBanner
+app.get("/content/content/banner", async (req, res) => {
+  let content = await prisma.content.findMany({
     where: {
       OR: [
         {
@@ -177,7 +177,7 @@ app.get("/publish/content/banner", async (req, res) => {
                 gte: new Date(),
               },
               timed: true,
-              publish: true,
+              content: true,
             },
           ],
         },
@@ -185,7 +185,7 @@ app.get("/publish/content/banner", async (req, res) => {
           AND: [
             {
               timed: false,
-              publish: true,
+              content: true,
             },
           ],
         },
@@ -214,12 +214,12 @@ app.get("/publish/content/banner", async (req, res) => {
     },
   });
 
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
-// getPublishContentActivity
-app.get("/publish/content/activity", async (req, res) => {
-  let publish = await prisma.publish.findMany({
+// getContentContentActivity
+app.get("/content/content/activity", async (req, res) => {
+  let content = await prisma.content.findMany({
     where: {
       OR: [
         {
@@ -232,7 +232,7 @@ app.get("/publish/content/activity", async (req, res) => {
                 gte: new Date(),
               },
               timed: true,
-              publish: true,
+              content: true,
             },
           ],
         },
@@ -240,7 +240,7 @@ app.get("/publish/content/activity", async (req, res) => {
           AND: [
             {
               timed: false,
-              publish: true,
+              content: true,
             },
           ],
         },
@@ -269,12 +269,12 @@ app.get("/publish/content/activity", async (req, res) => {
     },
   });
 
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
-// getPublishContentNews
-app.get("/publish/content/news", async (req, res) => {
-  let publish = await prisma.publish.findMany({
+// getContentContentNews
+app.get("/content/content/news", async (req, res) => {
+  let content = await prisma.content.findMany({
     where: {
       OR: [
         {
@@ -287,7 +287,7 @@ app.get("/publish/content/news", async (req, res) => {
                 gte: new Date(),
               },
               timed: true,
-              publish: true,
+              content: true,
             },
           ],
         },
@@ -295,7 +295,7 @@ app.get("/publish/content/news", async (req, res) => {
           AND: [
             {
               timed: false,
-              publish: true,
+              content: true,
             },
           ],
         },
@@ -324,7 +324,7 @@ app.get("/publish/content/news", async (req, res) => {
     },
   });
 
-  res.status(200).json(publish);
+  res.status(200).json(content);
 });
 
 export default {

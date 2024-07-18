@@ -56,7 +56,7 @@ app.delete("/rewardImg/:id", async (req, res) => {
   let id = req.params.id;
   let rewardImg = await prisma.rewardImg.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
   });
   res.status(200).json(rewardImg);

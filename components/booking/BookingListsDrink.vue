@@ -45,7 +45,7 @@ export default {
       let drinks = [];
       this.BookingDrink.forEach(async (e) => {
         let drink = await this.$axios
-          .get("/api/drink/" + parseInt(e))
+          .get("/api/drink/" + Number(e))
           .then((res) => {
             return res.data;
           })
@@ -62,5 +62,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

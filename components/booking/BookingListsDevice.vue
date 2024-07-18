@@ -46,7 +46,7 @@ export default {
       let devices = [];
       this.BookingDevice.forEach(async (e) => {
         let device = await this.$axios
-          .get("/api/device/" + parseInt(e))
+          .get("/api/device/" + Number(e))
           .then((res) => {
             return res.data;
           })
@@ -65,5 +65,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

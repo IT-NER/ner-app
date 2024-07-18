@@ -7,11 +7,11 @@ let app = express();
 app.use(express.json());
 
 // getAll
-app.get('/contentType', async (req, res) => {
+app.get("/contentType", async (req, res) => {
   let contentType = await prisma.contentType.findMany({
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -19,53 +19,52 @@ app.get('/contentType', async (req, res) => {
 });
 
 //getById
-app.get('/contentType/:id', async (req, res) => {
-  const { id } = req.params
+app.get("/contentType/:id", async (req, res) => {
+  const { id } = req.params;
   const contentType = await prisma.contentType.findUnique({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(contentType)
-})
-
+  });
+  res.status(200).json(contentType);
+});
 
 //create
-app.post('/contentType', async (req, res) => {
-  let item = req.body.data
+app.post("/contentType", async (req, res) => {
+  let item = req.body.data;
   let contentType = await prisma.contentType.create({
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(contentType)
-})
+  });
+  res.status(200).json(contentType);
+});
 
 //update
-app.put('/contentType/:id', async (req, res) => {
-  let id = req.params.id
-  let item = req.body.data
+app.put("/contentType/:id", async (req, res) => {
+  let id = req.params.id;
+  let item = req.body.data;
   let contentType = await prisma.contentType.update({
     where: {
-      id: parseInt(id)
+      id: Number(id),
     },
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(contentType)
-})
+  });
+  res.status(200).json(contentType);
+});
 
 //delete
-app.delete('/contentType/:id', async (req, res) => {
-  let id = req.params.id
+app.delete("/contentType/:id", async (req, res) => {
+  let id = req.params.id;
   let contentType = await prisma.contentType.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(contentType)
-})
+  });
+  res.status(200).json(contentType);
+});
 
 export default {
   path: "/api",

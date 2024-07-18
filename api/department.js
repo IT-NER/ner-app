@@ -7,11 +7,11 @@ let app = express();
 app.use(express.json());
 
 // getAll
-app.get('/department', async (req, res) => {
+app.get("/department", async (req, res) => {
   let department = await prisma.department.findMany({
     orderBy: [
       {
-        id: 'desc',
+        id: "desc",
       },
     ],
   });
@@ -19,53 +19,52 @@ app.get('/department', async (req, res) => {
 });
 
 //getById
-app.get('/department/:id', async (req, res) => {
-  const { id } = req.params
+app.get("/department/:id", async (req, res) => {
+  const { id } = req.params;
   const department = await prisma.department.findUnique({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(department)
-})
-
+  });
+  res.status(200).json(department);
+});
 
 //create
-app.post('/department', async (req, res) => {
-  let item = req.body.data
+app.post("/department", async (req, res) => {
+  let item = req.body.data;
   let department = await prisma.department.create({
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(department)
-})
+  });
+  res.status(200).json(department);
+});
 
 //update
-app.put('/department/:id', async (req, res) => {
-  let id = req.params.id
-  let item = req.body.data
+app.put("/department/:id", async (req, res) => {
+  let id = req.params.id;
+  let item = req.body.data;
   let department = await prisma.department.update({
     where: {
-      id: parseInt(id)
+      id: Number(id),
     },
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(department)
-})
+  });
+  res.status(200).json(department);
+});
 
 //delete
-app.delete('/department/:id', async (req, res) => {
-  let id = req.params.id
+app.delete("/department/:id", async (req, res) => {
+  let id = req.params.id;
   let department = await prisma.department.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(department)
-})
+  });
+  res.status(200).json(department);
+});
 
 export default {
   path: "/api",

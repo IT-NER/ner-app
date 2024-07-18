@@ -32,7 +32,7 @@ async function generateTicket() {
     let lastCode = String(item[0].ticket).substring(2, 8);
 
     if (lastCode == dateNow) {
-      let num = parseInt(item[0].ticket.substring(2)) + parseInt(1);
+      let num = Number(item[0].ticket.substring(2)) + Number(1);
       ticket = String(str + num);
     } else {
       ticket = String(str + dateNow + "001");
@@ -113,7 +113,7 @@ app.put("/reward/:id", async (req, res) => {
   let item = req.body.data;
   let reward = await prisma.reward.update({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
     data: {
       code: item.code,

@@ -52,8 +52,8 @@ app.get("/user", async (req, res) => {
       PointReceived: true,
       PointReceivedPay: true,
       Reward: true,
-      PublishUser: true,
-      Publish: true,
+      ContentUser: true,
+      Content: true,
       ButtonLink: true,
       Department: true,
       Position: true,
@@ -73,7 +73,7 @@ app.get("/user/:id", async (req, res) => {
   let { id } = req.params;
   let user = await prisma.user.findUnique({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
   });
   res.status(200).json(user);
@@ -115,7 +115,7 @@ app.put("/user/:id", async (req, res) => {
   let item = req.body.data;
   let user = await prisma.user.update({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
     data: {
       email: item.email,
@@ -140,7 +140,7 @@ app.put("/user/update-password/:id", async (req, res) => {
 
   let check = await prisma.user.findUnique({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
   });
   // console.log("check", check);
@@ -149,7 +149,7 @@ app.put("/user/update-password/:id", async (req, res) => {
   if (check.password == item.password) {
     user = await prisma.user.update({
       where: {
-        id: parseInt(id),
+        id: Number(id),
       },
       data: {
         password: hashedPassword,
@@ -167,7 +167,7 @@ app.delete("/user/:id", async (req, res) => {
   let id = req.params.id;
   let user = await prisma.user.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
   });
   res.status(200).json(user);

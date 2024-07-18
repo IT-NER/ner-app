@@ -38,7 +38,7 @@ async function generateTicket(type) {
     let lastCode = String(item[0].ticket).substring(2, 8);
 
     if (lastCode == dateNow) {
-      let num = parseInt(item[0].ticket.substring(2)) + parseInt(1);
+      let num = Number(item[0].ticket.substring(2)) + Number(1);
       ticket = String(str + num);
     } else {
       ticket = String(str + dateNow + "001");
@@ -82,18 +82,18 @@ async function checkUserReceived(item) {
     where: {
       AND: [
         { userId: Number(item.userId) },
-        { publishId: Number(item.publishId) },
+        { contentId: Number(item.contentId) },
       ],
     },
     include: {
       User: true,
-      Publish: {
+      Content: {
         include: {
           Content: {
             include: {
               ContentType: true,
               ContentImg: true,
-              PublishStatus: true,
+              ContentStatus: true,
             },
           },
         },
@@ -136,17 +136,17 @@ async function createPointReceived(item) {
     data: {
       point: Number(item.point),
       userId: Number(item.userId),
-      publishId: Number(item.publishId),
+      contentId: Number(item.contentId),
     },
     include: {
       User: true,
-      Publish: {
+      Content: {
         include: {
           Content: {
             include: {
               ContentType: true,
               ContentImg: true,
-              PublishStatus: true,
+              ContentStatus: true,
             },
           },
         },

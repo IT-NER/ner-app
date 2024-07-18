@@ -34,7 +34,7 @@ export default {
         point: 0,
         active: true,
         RewardImg: [],
-        RewardPublish: [],
+        RewardContent: [],
         rewardStatusId: null,
         rewardTypeId: null,
         userId: null,

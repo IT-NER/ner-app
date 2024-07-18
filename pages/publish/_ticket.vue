@@ -1,25 +1,25 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <card-publish
+      <card-content
         :title.sync="title"
         :path.sync="path"
-        :publish.sync="publish"
+        :content.sync="content"
       />
     </form>
   </div>
 </template>
 
 <script>
-import CardPublish from "~/components/card/CardPublish.vue";
+import CardContent from "~/components/card/CardContent.vue";
 export default {
-  components: { CardPublish },
+  components: { CardContent },
 
   data() {
     return {
       title: "ประชาสัมพันธ์",
-      path: "/publish",
-      publish: {
+      path: "/content",
+      content: {
         id: null,
         ticket: null,
         start: null,
@@ -27,7 +27,7 @@ export default {
         timed: true,
         remark: null,
         active: true,
-        publish: true,
+        content: true,
         Content: [],
         contentId: null,
         User: [],
@@ -51,12 +51,12 @@ export default {
 
   methods: {
     async main() {
-      this.publish = await this.getPublishByTicket();
+      this.content = await this.getContentByTicket();
     },
 
-    async getPublishByTicket() {
-      let publish = await this.$axios
-        .get("/api/publish/ticket/" + this.$route.params.ticket)
+    async getContentByTicket() {
+      let content = await this.$axios
+        .get("/api/content/ticket/" + this.$route.params.ticket)
         .then((res) => {
           res.data["contentIdBefore"] = res.data.contentId;
           if (res.data.start || res.data.end) {
@@ -87,29 +87,29 @@ export default {
           return false;
         });
 
-      return publish;
+      return content;
     },
 
     async save() {
-      if (!this.publish.contentId) {
+      if (!this.content.contentId) {
         this.alertPleaseSelectedContent();
         return;
       }
 
-      this.publish.start = new Date(
-        this.publish.dateStart + "T" + this.publish.timeStart
+      this.content.start = new Date(
+        this.content.dateStart + "T" + this.content.timeStart
       );
-      this.publish.end = new Date(
-        this.publish.dateEnd + "T" + this.publish.timeEnd
+      this.content.end = new Date(
+        this.content.dateEnd + "T" + this.content.timeEnd
       );
 
-      // console.log("start", this.publish.start);
-      // console.log("end", this.publish.end);
+      // console.log("start", this.content.start);
+      // console.log("end", this.content.end);
       // return;
 
-      let publish = await this.$axios
-        .put("/api/publish/" + this.publish.id, {
-          data: this.publish,
+      let content = await this.$axios
+        .put("/api/content/" + this.content.id, {
+          data: this.content,
         })
         .then((res) => {
           return res.data;
@@ -118,7 +118,7 @@ export default {
           return false;
         });
 
-      if (!publish) {
+      if (!content) {
         this.alertError();
         return;
       }

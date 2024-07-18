@@ -16,7 +16,7 @@ export default {
     "~/api/meetingType.js",
     "~/api/booking.js",
     "~/api/contentType.js",
-    "~/api/publishStatus.js",
+    "~/api/contentStatus.js",
     "~/api/reward.js",
     "~/api/rewardImg.js",
     "~/api/uploads.js",
@@ -24,7 +24,7 @@ export default {
     "~/api/uploads-reward.js",
     "~/api/content.js",
     "~/api/contentImg.js",
-    "~/api/publish.js",
+    "~/api/content.js",
     "~/api/pointReceived.js",
   ],
 
