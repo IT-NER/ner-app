@@ -63,6 +63,107 @@ async function generateOTP() {
   return OTP;
 }
 
+async function updateContent(id, item) {
+  item.contentStatusId = 2;
+  if (item.publish) {
+    item.contentStatusId = 3;
+  }
+
+  let dateStart = new Date(item.start);
+  let dateEnd = new Date(item.end);
+  if (!item.timed) {
+    dateStart = null;
+    dateEnd = null;
+  }
+
+  let data = await prisma.content.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      start: dateStart,
+      end: dateEnd,
+      timed: Boolean(item.timed),
+      publish: Boolean(item.publish),
+      title: String(item.title),
+      description: String(item.description),
+      detail: String(item.detail),
+      point: Number(item.point),
+      contentStatusId: Number(item.contentStatusId),
+    },
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+    },
+  });
+
+  return data;
+}
+
+async function getContentPublish() {
+  let data = await prisma.content.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: true,
+              publish: true,
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: false,
+              publish: true,
+            },
+          ],
+        },
+      ],
+    },
+
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+    },
+  });
+
+  return data;
+}
+
+async function getContentByIds(ids) {
+  let data = await prisma.content.findMany({
+    where: {
+      id: { in: ids },
+    },
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+    },
+  });
+
+  return data;
+}
+
 // getContent
 app.get("/content", async (req, res) => {
   let content = await prisma.content.findMany({
@@ -83,6 +184,12 @@ app.get("/content", async (req, res) => {
   res.status(200).json(content);
 });
 
+// getContentPublish
+app.get("/content/publish", async (req, res) => {
+  let content = await getContentPublish();
+  res.status(200).json(content);
+});
+
 // getContentByContentByTypeId
 app.get("/content/contentType/:id", async (req, res) => {
   let { id } = req.params;
@@ -99,33 +206,10 @@ app.get("/content/contentType/:id", async (req, res) => {
     include: {
       User: true,
       ContentType: true,
+      ContentStatus: true,
       ContentImg: true,
     },
   });
-  res.status(200).json(content);
-});
-
-// getContentByContent
-app.get("/content/content/:id", async (req, res) => {
-  let { id } = req.params;
-
-  let content = await prisma.content.findMany({
-    where: {
-      content: Boolean(false),
-      active: Boolean(true),
-    },
-    orderBy: [
-      {
-        id: "desc",
-      },
-    ],
-    include: {
-      User: true,
-      ContentType: true,
-      ContentImg: true,
-    },
-  });
-
   res.status(200).json(content);
 });
 
@@ -158,62 +242,36 @@ app.get("/content/:id", async (req, res) => {
     });
   res.status(200).json(content);
 });
+
 //getContentByTicket
 app.get("/content/ticket/:id", async (req, res) => {
   let { id } = req.params;
+  // console.log("id", id);
+  // return;
 
-  let content = await prisma.content
-    .findFirst({
-      where: {
-        ticket: String(id),
-      },
-      orderBy: [
-        {
-          id: "desc",
-        },
-      ],
-      include: {
-        User: true,
-        ContentType: true,
-        ContentImg: true,
-
-        Content: true,
-      },
-    })
-    .then((res) => {
-      // console.log("res", res);
-      return res;
-    })
-    .catch((err) => {
-      res.status(400).json({ error: err });
-    });
-  res.status(200).json(content);
-});
-
-// getContentByContentByTicket
-app.post("/content/ticket", async (req, res) => {
-  let item = req.body.data;
-
-  let content = await prisma.content.findMany({
+  let data = await prisma.content.findFirst({
     where: {
-      AND: [
-        { ticket: String(item.ticket) },
-        { contentTypeId: Number(item.contentTypeId) },
-        { active: true },
-      ],
-    },
-    orderBy: [
-      {
-        id: "desc",
+      ticket: {
+        equals: String(id),
       },
-    ],
+    },
     include: {
       User: true,
       ContentType: true,
+      ContentStatus: true,
       ContentImg: true,
     },
   });
-  res.status(200).json(content[0]);
+
+  res.status(200).json(data);
+});
+
+// getContentByIds
+app.post("/content/ids", async (req, res) => {
+  let ids = req.body.data;
+
+  let content = await getContentByIds(ids);
+  res.status(200).json(content);
 });
 
 // createContent
@@ -230,8 +288,8 @@ app.post("/content", async (req, res) => {
       code: String(code),
       userId: Number(item.userId),
       contentTypeId: Number(item.contentTypeId),
+      contentStatusId: Number(item.contentStatusId),
       active: Boolean(item.active),
-      content: Boolean(false),
     },
     include: {
       User: true,
@@ -246,42 +304,8 @@ app.post("/content", async (req, res) => {
 app.put("/content/:id", async (req, res) => {
   let id = req.params.id;
   let item = req.body.data;
-  let content = await prisma.content.update({
-    where: {
-      id: Number(id),
-    },
-    data: {
-      title: String(item.title),
-      description: String(item.description),
-      detail: String(item.detail),
-      point: Number(item.point),
-    },
-    include: {
-      User: true,
-      ContentType: true,
-      ContentImg: true,
-    },
-  });
-  res.status(200).json(content);
-});
 
-// getContentByIds
-app.post("/content/ids", async (req, res) => {
-  let ids = req.body.data;
-
-  let content = await prisma.content.findMany({
-    where: {
-      id: { in: ids },
-    },
-
-    include: {
-      User: true,
-      ContentType: true,
-      ContentImg: true,
-
-      Content: true,
-    },
-  });
+  let content = await updateContent(id, item);
   res.status(200).json(content);
 });
 

@@ -38,19 +38,23 @@ model User {
 }
 
 model Content {
-  id              Int      @id @default(autoincrement())
-  ticket          String   @unique
+  id              Int       @id @default(autoincrement())
+  start           DateTime?
+  end             DateTime?
+  timed           Boolean   @default(true)
+  publish         Boolean   @default(false)
+  ticket          String    @unique
   code            String?
   title           String?
   description     String?
-  detail          String?  @db.VarChar(8000)
-  point           Int?     @default(0)
+  detail          String?   @db.VarChar(8000)
+  point           Int?      @default(0)
   contentStatusId Int?
   contentTypeId   Int?
   userId          Int?
-  active          Boolean? @default(true)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  active          Boolean?  @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   ContentStatus ContentStatus?  @relation(fields: [contentStatusId], references: [id])
   ContentType   ContentType?    @relation(fields: [contentTypeId], references: [id])

@@ -24,7 +24,6 @@ export default {
     "~/api/uploads-reward.js",
     "~/api/content.js",
     "~/api/contentImg.js",
-    "~/api/content.js",
     "~/api/pointReceived.js",
   ],
 
@@ -57,7 +56,7 @@ export default {
     defaultTimezone: "Asia/Bangkok",
   },
 
-  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "nuxt-sweetalert2", "@nuxt/image"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "nuxt-sweetalert2"],
 
   axios: {
     baseUrl: "/",

@@ -27,6 +27,10 @@ CREATE TABLE [dbo].[User] (
 -- CreateTable
 CREATE TABLE [dbo].[Content] (
     [id] INT NOT NULL IDENTITY(1,1),
+    [start] DATETIME2,
+    [end] DATETIME2,
+    [timed] BIT NOT NULL CONSTRAINT [Content_timed_df] DEFAULT 1,
+    [publish] BIT NOT NULL CONSTRAINT [Content_publish_df] DEFAULT 0,
     [ticket] NVARCHAR(1000) NOT NULL,
     [code] NVARCHAR(1000),
     [title] NVARCHAR(1000),

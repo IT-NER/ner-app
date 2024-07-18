@@ -26,21 +26,35 @@ export default {
 
       content: {
         id: null,
+        start: null,
+        end: null,
+        timed: true,
+        publish: false,
         ticket: null,
         code: null,
         title: null,
         description: null,
         detail: null,
         point: null,
-        active: true,
-        ContentImg: [],
-        Content: [],
         contentStatusId: null,
         contentTypeId: null,
         userId: null,
-        ContentStatus: [],
-        ContentType: [],
-        User: [],
+        active: null,
+        ContentStatus: null,
+        ContentType: null,
+        User: null,
+        ContentImg: [],
+        PointReceived: [],
+
+        dateStart: this.$moment(new Date()).format("YYYY-MM-DD"),
+        dateEnd: this.$moment(new Date()).format("YYYY-MM-DD"),
+        dateStartModal: false,
+        dateEndModal: false,
+
+        timeStart: this.$moment(new Date()).format("HH:mm"),
+        timeEnd: this.$moment(new Date()).format("HH:mm"),
+        timeStartModal: false,
+        timeEndModal: false,
       },
 
       files: [],
@@ -55,20 +69,29 @@ export default {
   methods: {
     async main() {
       this.content = await this.getContentByTicket();
-      // console.log("content", this.content);
-      // return;
+
+      // let contentImg = this.content.ContentImg
       let contentImgIds = [];
 
-      if (this.content.ContentImg.length > 0) {
-        this.content.ContentImg.forEach((item) => {
-          contentImgIds.push(item.id);
-        });
-        this.contentImgIds = contentImgIds;
-        console.log("contentImgIds", this.contentImgIds);
-      }
+      this.content.ContentImg.forEach((item) => {
+        contentImgIds.push(item.id);
+      });
+      this.contentImgIds = contentImgIds;
+      console.log("contentImgIds", this.contentImgIds);
+    },
+
+    async setDateTime() {
+      this.content.start = new Date(
+        this.content.dateStart + "T" + this.content.timeStart
+      );
+      this.content.end = new Date(
+        this.content.dateEnd + "T" + this.content.timeEnd
+      );
     },
 
     async save() {
+      await this.setDateTime();
+
       let content = await this.update();
       if (!content) {
         this.alertError();
@@ -76,7 +99,8 @@ export default {
       }
 
       if (this.files.length == 0) {
-        this.alertSuccess();
+        await this.main();
+        await this.alertSuccess();
         return;
       }
 
@@ -101,8 +125,8 @@ export default {
         return;
       }
 
-      await this.main();
       await this.alertSuccess();
+      await this.main();
       this.files = [];
     },
 
@@ -159,12 +183,37 @@ export default {
       let content = await this.$axios
         .get("/api/content/ticket/" + this.$route.params.ticket)
         .then((res) => {
+          if (res.data.start || res.data.end) {
+            res.data["dateStart"] = this.$moment(
+              new Date(res.data.start)
+            ).format("YYYY-MM-DD");
+            res.data["timeStart"] = this.$moment(
+              new Date(res.data.start)
+            ).format("HH:mm");
+
+            res.data["dateEnd"] = this.$moment(new Date(res.data.end)).format(
+              "YYYY-MM-DD"
+            );
+            res.data["timeEnd"] = this.$moment(new Date(res.data.end)).format(
+              "HH:mm"
+            );
+          } else {
+            res.data["dateStart"] = this.$moment(new Date()).format(
+              "YYYY-MM-DD"
+            );
+            res.data["dateEnd"] = this.$moment(new Date()).format("YYYY-MM-DD");
+            res.data["timeStart"] = this.$moment(new Date()).format("HH:mm");
+            res.data["timeEnd"] = this.$moment(new Date()).format("HH:mm");
+          }
           return res.data;
         })
         .catch((err) => {
           return false;
         });
 
+      if (content) {
+        this.content = await content;
+      }
       return content;
     },
 

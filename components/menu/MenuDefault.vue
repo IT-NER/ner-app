@@ -75,9 +75,24 @@ export default {
           icon: "mdi-earth",
           lists: [
             {
-              name: "รายการประชาสัมพันธ์",
+              name: "แบนเนอร์",
               icon: "mdi-earth",
-              link: "/content",
+              link: "/content/banner",
+            },
+            {
+              name: "กิจกรรม",
+              icon: "mdi-earth",
+              link: "/content/activity",
+            },
+            {
+              name: "ข่าวสาร",
+              icon: "mdi-earth",
+              link: "/content/news",
+            },
+            {
+              name: "ของรางวัล",
+              icon: "mdi-earth",
+              link: "/reward",
             },
             {
               name: "แลกของรางวัล",
@@ -93,26 +108,6 @@ export default {
               name: "จ่ายพอยท์",
               icon: "mdi-earth",
               link: "/point/pay",
-            },
-            {
-              name: "ของรางวัล",
-              icon: "mdi-earth",
-              link: "/reward",
-            },
-            {
-              name: "แบนเนอร์",
-              icon: "mdi-earth",
-              link: "/content/banner",
-            },
-            {
-              name: "กิจกรรม",
-              icon: "mdi-earth",
-              link: "/content/activity",
-            },
-            {
-              name: "ข่าวสาร",
-              icon: "mdi-earth",
-              link: "/content/news",
             },
           ],
         },
