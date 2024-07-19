@@ -99,16 +99,6 @@ export default {
               icon: "mdi-earth",
               link: "/redeem",
             },
-            {
-              name: "รับพอยท์",
-              icon: "mdi-earth",
-              link: "/point/received",
-            },
-            {
-              name: "จ่ายพอยท์",
-              icon: "mdi-earth",
-              link: "/point/pay",
-            },
           ],
         },
         {
