@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <v-row>
+      <v-row v-if="imgs.length > 0">
         <v-col>
           <v-carousel cycle height="628" width="1200" show-arrows-on-hover>
             <v-carousel-item
