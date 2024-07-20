@@ -3,11 +3,7 @@
 </template>
 
 <script>
-export default {
-  created() {
-    this.$router.push("/booking/booking-calendar");
-  },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped></style>

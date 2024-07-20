@@ -69,7 +69,28 @@ export default {
           icon: "mdi-account",
           link: "/user",
         },
-
+        {
+          name: "จองห้องประชุม",
+          icon: "mdi-calendar",
+          link: "",
+          lists: [
+            {
+              name: "ปฏิทิน",
+              icon: "mdi-calendar",
+              link: "/booking/calendar",
+            },
+            {
+              name: "ประวัติการจอง",
+              icon: "mdi-calendar",
+              link: "/booking/lists",
+            },
+            {
+              name: "รายการจอง (ทั้งหมด)",
+              icon: "mdi-calendar",
+              link: "/booking/lists-all",
+            },
+          ],
+        },
         {
           name: "ประชาสัมพันธ์",
           icon: "mdi-earth",
@@ -123,28 +144,6 @@ export default {
             },
           ],
         },
-        // {
-        //   name: "จองห้องประชุม",
-        //   icon: "mdi-calendar",
-        //   link: "",
-        //   lists: [
-        //     {
-        //       name: "ปฏิทิน",
-        //       icon: "mdi-calendar",
-        //       link: "/booking/booking-calendar",
-        //     },
-        //     {
-        //       name: "ประวัติการจอง",
-        //       icon: "mdi-calendar",
-        //       link: "/booking/booking-lists",
-        //     },
-        //     {
-        //       name: "รายการจอง (ทั้งหมด)",
-        //       icon: "mdi-calendar",
-        //       link: "/booking/booking-lists-all",
-        //     },
-        //   ],
-        // },
       ],
     };
   },

@@ -228,6 +228,7 @@ model Booking {
   name            String?
   color           String?
   timed           Boolean?  @default(true)
+  allDay          Boolean?  @default(false)
   url             String?
   description     String?
   chairman        String?

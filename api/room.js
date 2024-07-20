@@ -6,6 +6,31 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+//getRoomByDateBetween
+app.post("/room/date-between", async (req, res) => {
+  // console.log("req", req.body);
+  // return;
+
+  let item = req.body.data;
+  let room = await getRoomByDateBetween(item);
+
+  res.status(200).json(room);
+});
+
+async function getRoomByDateBetween(item) {
+  let booking = await prisma.booking.findMany({
+    where: {
+      start: {
+        lte: new Date(item.start),
+      },
+      end: {
+        gte: new Date(item.end),
+      },
+    },
+  });
+
+  return booking;
+}
 // getAll
 app.get("/room", async (req, res) => {
   let room = await prisma.room.findMany({
@@ -38,7 +63,7 @@ app.post("/room", async (req, res) => {
   let room = await prisma.room.create({
     data: {
       name: item.name,
-      color: item.color.hexa,
+      color: item.color,
       quantity: Number(item.quantity),
     },
   });

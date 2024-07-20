@@ -86,6 +86,7 @@
           </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
+            <!-- FormRoom -->
             <form-room :room.sync="room" />
           </v-card-text>
           <v-divider></v-divider>
@@ -134,6 +135,8 @@ export default {
       room: {
         id: null,
         name: null,
+        color: null,
+        quantity: null,
       },
     };
   },
@@ -144,6 +147,11 @@ export default {
 
   methods: {
     async save() {
+      // console.log("room", this.room);
+      // return;
+      // let color = await this.room.color.hexa;
+      // this.room.color = await color;
+
       this.dialog = false;
       this.overlay = true;
 

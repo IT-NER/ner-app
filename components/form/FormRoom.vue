@@ -4,6 +4,7 @@
       <v-row>
         <v-col cols="12">
           <v-text-field
+            autofocus
             label="ชื่อห้องประชุม"
             prepend-icon="mdi-map-marker"
             required
@@ -23,7 +24,11 @@
           <v-row justify="space-around">
             <v-color-picker
               dot-size="25"
+              hide-canvas
+              hide-mode-switch
               mode="hexa"
+              show-swatches
+              swatches-max-height="200"
               v-model="room.color"
             ></v-color-picker>
           </v-row>

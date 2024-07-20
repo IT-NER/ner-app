@@ -8,7 +8,7 @@
           <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
             <v-card
               class="mx-auto"
-              max-width="500"
+              max-width="350"
               hover
               target="_blank"
               :href="`/${item.ticket}`"

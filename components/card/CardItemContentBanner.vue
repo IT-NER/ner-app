@@ -4,14 +4,8 @@
       <v-card-title> แบนเนอร์ </v-card-title>
       <v-divider></v-divider>
       <v-card-actions :v-if="show" v-for="(item, i) in items" :key="i">
-        <v-card height="600" width="auto">
-          <v-carousel
-            cycle
-            hide-delimiter-background
-            show-arrows-on-hover
-            height="600"
-            width="auto"
-          >
+        <v-card height="auto">
+          <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
             <v-carousel-item
               v-for="(list, y) in item.ContentImg"
               :key="y"
