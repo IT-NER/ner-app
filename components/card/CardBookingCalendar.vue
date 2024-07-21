@@ -54,7 +54,7 @@
                 ref="calendar"
                 v-model="focus"
                 color="primary"
-                :items="items"
+                :events="items"
                 :type="type"
                 @click:event="showEvent"
                 @click:more="viewDay"
@@ -66,6 +66,7 @@
           </v-col>
         </v-row>
       </v-card-actions>
+
     </v-card>
   </div>
 </template>

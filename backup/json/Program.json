@@ -1,22 +1,27 @@
 [
   {
-    "id": 1,
-    "name": "Zoom"
+    "name": "Zoom",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 2,
-    "name": "Microsoft Team"
+    "name": "Microsoft Team",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 3,
-    "name": "Webex"
+    "name": "Webex",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 4,
-    "name": "Stream Yard"
+    "name": "Stream Yard",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 5,
-    "name": "อื่นๆ"
+    "name": "อื่นๆ",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   }
 ]

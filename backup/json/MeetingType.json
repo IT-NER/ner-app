@@ -1,10 +1,12 @@
 [
   {
-    "id": 1,
-    "name": "Offline"
+    "name": "Offline",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 2,
-    "name": "Online"
+    "name": "Online",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   }
 ]

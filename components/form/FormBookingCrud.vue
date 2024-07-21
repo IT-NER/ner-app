@@ -184,37 +184,41 @@
         <v-spacer></v-spacer>
       </v-card-actions>
       <v-divider></v-divider>
+      <v-card-title v-if="itemsRoomNotReserved.length > 0">
+        ห้องประชุม <span class="ml-2 red--text">(ติดจอง)</span>
+        <v-spacer></v-spacer>
+      </v-card-title>
+
+      <v-divider v-if="itemsRoomNotReserved.length > 0"></v-divider>
+      <!-- CardBookingRoomNotReserved -->
+      <card-booking-room-not-reserved
+        v-if="itemsRoomNotReserved.length > 0"
+        :items.sync="itemsRoomNotReserved"
+      />
+      <v-divider v-if="itemsRoomNotReserved.length > 0"></v-divider>
+
+      <v-divider v-if="itemsRoom.length > 0"></v-divider>
+
       <v-card-title>
         ห้องประชุม
+        <span class="ml-2 success--text">(ที่ว่าง)</span>
         <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text v-if="itemsRoom.length > 0">
-        <v-row>
-          <v-col
-            cols="12"
-            md="3"
-            sm="12"
-            v-for="(item, i) in itemsRoom"
-            :key="i"
-          >
-            <v-checkbox
-              v-model="item.roomId"
-              :label="item.name + `  (${item.quantity}  ที่นั่ง)`"
-              :color="item.color"
+        <v-radio-group v-model="item.roomId" row>
+          <v-col cols="12" md="3" v-for="(item, i) in itemsRoom" :key="i">
+            <v-radio
+              :label="`${item.name}  (${item.quantity}) ที่นั่ง`"
               :value="item.id"
-              hide-details
-              dense
-              :disabled="!item.start"
-              :required="!item.roomId"
-              @change="item.color = item.color"
-            ></v-checkbox>
+              :color="item.color"
+            ></v-radio>
           </v-col>
-        </v-row>
+        </v-radio-group>
       </v-card-text>
       <v-card-text v-else>
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
-          กรุณา ==> ระบุกำหนดการประชุมก่อน
+          กรุณาระบุกำหนดการประชุมก่อน
         </v-alert>
       </v-card-text>
       <v-divider></v-divider>
@@ -223,7 +227,9 @@
 </template>
 
 <script>
+import CardBookingRoomNotReserved from "~/components/card/CardBookingRoomNotReserved.vue";
 export default {
+  components: { CardBookingRoomNotReserved },
   props: [
     "item",
     "itemsRoom",
@@ -233,6 +239,7 @@ export default {
     "itemsFood",
     "itemsDrink",
     "getItemsRoom",
+    "itemsRoomNotReserved",
   ],
 };
 </script>

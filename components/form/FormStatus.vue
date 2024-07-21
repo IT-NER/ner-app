@@ -4,6 +4,7 @@
       <v-row>
         <v-col cols="12">
           <v-text-field
+            autofocus
             label="ชื่อสถานะ"
             prepend-icon="mdi-list-status"
             required

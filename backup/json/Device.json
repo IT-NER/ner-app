@@ -1,18 +1,22 @@
 [
   {
-    "id": 1,
-    "name": "Pointer"
+    "name": "Pointer",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 2,
-    "name": "Projector"
+    "name": "Projector",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 3,
-    "name": "Notebook"
+    "name": "Notebook",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 4,
-    "name": "computer"
+    "name": "computer",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   }
 ]

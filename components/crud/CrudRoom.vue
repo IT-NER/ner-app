@@ -147,10 +147,10 @@ export default {
 
   methods: {
     async save() {
-      // console.log("room", this.room);
-      // return;
-      // let color = await this.room.color.hexa;
-      // this.room.color = await color;
+      console.log("room", this.room);
+
+      let color = await this.room.color.hexa;
+      this.room.color = await color;
 
       this.dialog = false;
       this.overlay = true;
@@ -178,6 +178,7 @@ export default {
       this.room.id = null;
       this.room.quantity = null;
       this.room.name = null;
+      this.room.color = null;
     },
 
     async alertError() {

@@ -6,9 +6,32 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+//getItemsRoomNotReserved
+app.post("/room/notReserved", async (req, res) => {
+  let item = req.body.data;
+  let roomNotReserved = await getItemsRoomNotReserved(item);
+
+  res.status(200).json(roomNotReserved);
+});
+
+async function getItemsRoomNotReserved(item) {
+  let data = await prisma.room.findMany({
+    where: {
+      id: {
+        notIn: item,
+      },
+    },
+    include: {
+      Booking: true,
+    },
+  });
+  return data;
+}
+
 //getRoomByDateBetween
 app.post("/room/date-between", async (req, res) => {
   // console.log("req", req.body);
+  // console.log("start", new Date(req.body.data.start));
   // return;
 
   let item = req.body.data;
@@ -18,18 +41,38 @@ app.post("/room/date-between", async (req, res) => {
 });
 
 async function getRoomByDateBetween(item) {
+  let notReservedIds = [];
+
   let booking = await prisma.booking.findMany({
     where: {
-      start: {
-        lte: new Date(item.start),
-      },
-      end: {
-        gte: new Date(item.end),
+      AND: [
+        {
+          start: {
+            gte: new Date(item.start),
+          },
+          end: {
+            lte: new Date(item.end),
+          },
+        },
+      ],
+    },
+  });
+
+  booking.forEach((e) => {
+    notReservedIds.push(e.roomId);
+  });
+
+  let result = [...new Set(notReservedIds)];
+
+  let room = await prisma.room.findMany({
+    where: {
+      id: {
+        notIn: result,
       },
     },
   });
 
-  return booking;
+  return room;
 }
 // getAll
 app.get("/room", async (req, res) => {

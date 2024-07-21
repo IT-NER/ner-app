@@ -1,14 +1,17 @@
 [
   {
-    "id": 1,
-    "name": "กาแฟ"
+    "name": "กาแฟ",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 2,
-    "name": "ชา"
+    "name": "ชา",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   },
   {
-    "id": 3,
-    "name": "น้ำดื่ม"
+    "name": "น้ำดื่ม",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
   }
 ]
