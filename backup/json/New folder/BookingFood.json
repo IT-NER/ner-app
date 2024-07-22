@@ -1,0 +1,62 @@
+[
+  {
+    "bookingId": 11,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 14,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 37,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 41,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 48,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 54,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 60,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 61,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 94,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "bookingId": 119,
+    "foodId": 4,
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  }
+]

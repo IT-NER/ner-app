@@ -1,17 +1,20 @@
 [
   {
+    "id": 1,
     "name": "กาแฟ",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
+    "id": 2,
     "name": "ชา",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
+    "id": 3,
     "name": "น้ำดื่ม",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   }
 ]

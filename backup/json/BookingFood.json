@@ -2,61 +2,61 @@
   {
     "bookingId": 11,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 14,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 37,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 41,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 48,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 54,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 60,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 61,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 94,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 119,
     "foodId": 4,
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   }
 ]

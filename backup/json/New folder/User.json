@@ -10,9 +10,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 3,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 2,
@@ -25,9 +25,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 3,
@@ -40,9 +40,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 4,
@@ -55,9 +55,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 5,
@@ -70,9 +70,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 6,
@@ -85,9 +85,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 7,
@@ -100,24 +100,24 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 8,
     "email": "pirada_iso@nerubber.com",
     "username": "pirada_iso",
-    "password": "$2a$10$ifYF7QDSyK68oRnqoJdo7unpoLDsZQph2quF1Hjox4bxWgPqHPVge",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
     "lname": "โทนะหงษา",
     "fname": "คุณภิรดา",
     "status": "1",
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "3/7/2024 03:31:40.718"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 9,
@@ -130,9 +130,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 10,
@@ -145,9 +145,9 @@
     "departmentId": 1,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 11,
@@ -160,9 +160,9 @@
     "departmentId": 2,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 12,
@@ -175,9 +175,9 @@
     "departmentId": 2,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 13,
@@ -190,9 +190,9 @@
     "departmentId": 3,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 14,
@@ -205,9 +205,9 @@
     "departmentId": 3,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 15,
@@ -220,9 +220,9 @@
     "departmentId": 4,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 16,
@@ -235,9 +235,9 @@
     "departmentId": 5,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 17,
@@ -250,9 +250,9 @@
     "departmentId": 5,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 18,
@@ -265,24 +265,24 @@
     "departmentId": 5,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 19,
     "email": "arnon.ka@nerubber.com",
     "username": "arnon.ka",
-    "password": "$2a$10$nOPBv.TKSPlFEdWZz/jafOqMx6wOD4a8QZDhG7C9DJ/VJYn.sPKUe",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
     "lname": "กะการดี",
     "fname": "คุณอานนท์",
     "status": "1",
     "departmentId": 5,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "17/7/2024 09:40:40.329"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 20,
@@ -295,9 +295,9 @@
     "departmentId": 5,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 21,
@@ -310,9 +310,9 @@
     "departmentId": 6,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 22,
@@ -325,9 +325,9 @@
     "departmentId": 6,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 23,
@@ -340,9 +340,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 24,
@@ -355,9 +355,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 25,
@@ -370,9 +370,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 26,
@@ -385,9 +385,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 27,
@@ -400,9 +400,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 28,
@@ -415,9 +415,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 29,
@@ -430,9 +430,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 30,
@@ -445,9 +445,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 31,
@@ -460,9 +460,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 32,
@@ -475,9 +475,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 33,
@@ -490,9 +490,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 34,
@@ -505,9 +505,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 35,
@@ -520,9 +520,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 36,
@@ -535,9 +535,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 37,
@@ -550,9 +550,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 38,
@@ -565,9 +565,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 39,
@@ -580,9 +580,9 @@
     "departmentId": 7,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 40,
@@ -595,9 +595,9 @@
     "departmentId": 8,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 41,
@@ -610,9 +610,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 42,
@@ -625,9 +625,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 43,
@@ -640,9 +640,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 44,
@@ -655,9 +655,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 45,
@@ -670,9 +670,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 46,
@@ -685,9 +685,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 47,
@@ -700,9 +700,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 48,
@@ -715,9 +715,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 49,
@@ -730,9 +730,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 50,
@@ -745,9 +745,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 51,
@@ -760,9 +760,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 52,
@@ -775,9 +775,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 53,
@@ -790,9 +790,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 54,
@@ -805,9 +805,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 55,
@@ -820,9 +820,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 56,
@@ -835,9 +835,9 @@
     "departmentId": 9,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 57,
@@ -850,9 +850,9 @@
     "departmentId": 10,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 58,
@@ -865,9 +865,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 59,
@@ -880,9 +880,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "11/6/2024 08:18:27"
+    "updatedAt": "11/6/2024 08:18:27",
+    "img": null
   },
   {
     "id": 60,
@@ -895,9 +895,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 61,
@@ -910,9 +910,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 62,
@@ -925,9 +925,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 63,
@@ -940,9 +940,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 64,
@@ -955,9 +955,9 @@
     "departmentId": 11,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 65,
@@ -970,9 +970,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 66,
@@ -985,9 +985,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 67,
@@ -1000,9 +1000,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 68,
@@ -1015,9 +1015,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 69,
@@ -1030,9 +1030,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 70,
@@ -1045,9 +1045,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 71,
@@ -1060,9 +1060,9 @@
     "departmentId": 12,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 72,
@@ -1075,9 +1075,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 73,
@@ -1090,9 +1090,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 74,
@@ -1105,9 +1105,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 75,
@@ -1120,9 +1120,24 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
+  },
+  {
+    "id": 76,
+    "email": "khanatsanan.lh@nerubber.com",
+    "username": "khanatsanan.lh",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
+    "lname": "หลอมประโคน",
+    "fname": "คุณคณัสนันท์",
+    "status": "1",
+    "departmentId": 13,
+    "positionId": 1,
+    "roleId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 77,
@@ -1135,9 +1150,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 78,
@@ -1150,9 +1165,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 79,
@@ -1165,9 +1180,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 80,
@@ -1180,9 +1195,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 81,
@@ -1195,9 +1210,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 82,
@@ -1209,10 +1224,10 @@
     "status": "1",
     "departmentId": 13,
     "positionId": 1,
-    "roleId": 3,
-    "contract": null,
+    "roleId": 1,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "2/7/2024 04:40:36"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 83,
@@ -1225,9 +1240,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 84,
@@ -1240,9 +1255,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 85,
@@ -1255,9 +1270,9 @@
     "departmentId": 13,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 86,
@@ -1270,9 +1285,9 @@
     "departmentId": 14,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 87,
@@ -1285,9 +1300,9 @@
     "departmentId": 14,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 88,
@@ -1300,9 +1315,9 @@
     "departmentId": 14,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 89,
@@ -1315,9 +1330,9 @@
     "departmentId": 14,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 90,
@@ -1330,9 +1345,9 @@
     "departmentId": 14,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 91,
@@ -1345,9 +1360,9 @@
     "departmentId": 14,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 92,
@@ -1360,24 +1375,24 @@
     "departmentId": 15,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 93,
     "email": "buntham.bu@nerubber.com",
     "username": "buntham.bu",
-    "password": "$2a$10$ruF6G0NCiI82796qWxioLOdeCcjEfXYOIYLyS0HGy9hsukp8NzQA2",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
     "lname": "บุตรแสน",
     "fname": "คุณบุญธรรม",
     "status": "1",
     "departmentId": 16,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "3/7/2024 01:57:36.111"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 94,
@@ -1390,9 +1405,9 @@
     "departmentId": 16,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 95,
@@ -1405,9 +1420,9 @@
     "departmentId": 16,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 97,
@@ -1420,9 +1435,9 @@
     "departmentId": 16,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 98,
@@ -1435,9 +1450,9 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 99,
@@ -1450,9 +1465,9 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 100,
@@ -1465,9 +1480,9 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 101,
@@ -1480,9 +1495,9 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 102,
@@ -1495,24 +1510,24 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 103,
     "email": "jessada.ph@nerubber.com",
     "username": "jessada.ph",
-    "password": "$2a$10$KoDAW6Nw6p16gyv5O9iN3OVjpHaRb4EvQfb8l2jbGSaGHXBuOBId2",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
     "lname": "พยัคฆ์กูล",
     "fname": "คุณเจษฎา",
     "status": "1",
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "2/7/2024 10:12:00.81"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 104,
@@ -1525,9 +1540,9 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "11/6/2024 01:15:10.796"
+    "updatedAt": "11/6/2024 01:15:10.796",
+    "img": null
   },
   {
     "id": 105,
@@ -1540,9 +1555,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 106,
@@ -1555,24 +1570,24 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 107,
     "email": "saowalak.sa@nerubber.com",
     "username": "saowalak.sa",
-    "password": "$2a$10$PpyTjJEtcK5RRHmdPyNWyO546Z7X58GqmN2jwTJYUbXrraRnORaaC",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
     "lname": "สุดประโคน",
     "fname": "คุณเสาวลักษณ์",
     "status": "1",
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "3/7/2024 01:57:12.109"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 108,
@@ -1585,9 +1600,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 109,
@@ -1600,9 +1615,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 110,
@@ -1615,9 +1630,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 111,
@@ -1630,9 +1645,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 112,
@@ -1645,9 +1660,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 113,
@@ -1660,9 +1675,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 114,
@@ -1675,9 +1690,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 115,
@@ -1690,9 +1705,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 116,
@@ -1705,9 +1720,9 @@
     "departmentId": 18,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 117,
@@ -1720,9 +1735,9 @@
     "departmentId": 19,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 118,
@@ -1735,9 +1750,9 @@
     "departmentId": 19,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 119,
@@ -1750,9 +1765,9 @@
     "departmentId": 19,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 120,
@@ -1765,9 +1780,9 @@
     "departmentId": 19,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 121,
@@ -1780,9 +1795,9 @@
     "departmentId": 20,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 122,
@@ -1795,9 +1810,9 @@
     "departmentId": 20,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 123,
@@ -1810,9 +1825,9 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 124,
@@ -1825,9 +1840,9 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 125,
@@ -1840,24 +1855,24 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 126,
     "email": "anawat.mo@nerubber.com",
     "username": "anawat.mo",
-    "password": "$2a$10$efcf4ptgtsBjPe5lTFiPDOcHaiqk9nGChhzGMfRjqmuT/lxqlNhgy",
+    "password": "$2a$10$P5j1wHMi5pGd0bCM3WTVp.5bLI3qF6ToPOC/Jx4V/ojMR4HX/Mpoa",
     "lname": "มูลพรมมี",
     "fname": "คุณอนวัฒน์",
     "status": "1",
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "6/7/2024 06:27:25.778"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 127,
@@ -1870,9 +1885,9 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 128,
@@ -1885,9 +1900,9 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 129,
@@ -1900,9 +1915,9 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 130,
@@ -1915,9 +1930,9 @@
     "departmentId": 21,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 131,
@@ -1930,9 +1945,9 @@
     "departmentId": 22,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 132,
@@ -1945,9 +1960,9 @@
     "departmentId": 22,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 133,
@@ -1960,9 +1975,9 @@
     "departmentId": 22,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 134,
@@ -1975,9 +1990,9 @@
     "departmentId": 22,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 135,
@@ -1990,9 +2005,9 @@
     "departmentId": 22,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 136,
@@ -2005,9 +2020,9 @@
     "departmentId": 23,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 137,
@@ -2020,9 +2035,9 @@
     "departmentId": 23,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 138,
@@ -2035,9 +2050,9 @@
     "departmentId": 24,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 139,
@@ -2050,9 +2065,9 @@
     "departmentId": 24,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 140,
@@ -2065,9 +2080,9 @@
     "departmentId": 25,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 141,
@@ -2080,9 +2095,9 @@
     "departmentId": 25,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 142,
@@ -2095,9 +2110,9 @@
     "departmentId": 25,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 143,
@@ -2110,9 +2125,9 @@
     "departmentId": 26,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 144,
@@ -2125,9 +2140,9 @@
     "departmentId": 26,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 145,
@@ -2140,9 +2155,9 @@
     "departmentId": 26,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 146,
@@ -2155,9 +2170,9 @@
     "departmentId": 26,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 147,
@@ -2170,9 +2185,9 @@
     "departmentId": 26,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 148,
@@ -2185,9 +2200,9 @@
     "departmentId": 26,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 149,
@@ -2200,9 +2215,9 @@
     "departmentId": 27,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 150,
@@ -2215,9 +2230,9 @@
     "departmentId": 28,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 151,
@@ -2230,9 +2245,9 @@
     "departmentId": 28,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 152,
@@ -2245,9 +2260,9 @@
     "departmentId": 28,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 153,
@@ -2260,9 +2275,9 @@
     "departmentId": 28,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 154,
@@ -2275,9 +2290,9 @@
     "departmentId": 29,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 155,
@@ -2290,9 +2305,9 @@
     "departmentId": 29,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 156,
@@ -2305,9 +2320,9 @@
     "departmentId": 29,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 157,
@@ -2320,9 +2335,9 @@
     "departmentId": 29,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 158,
@@ -2335,9 +2350,9 @@
     "departmentId": 29,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 159,
@@ -2350,9 +2365,9 @@
     "departmentId": 29,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 160,
@@ -2365,9 +2380,9 @@
     "departmentId": 30,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 161,
@@ -2380,9 +2395,9 @@
     "departmentId": 30,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 162,
@@ -2395,9 +2410,9 @@
     "departmentId": 31,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 163,
@@ -2410,9 +2425,9 @@
     "departmentId": 31,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 164,
@@ -2425,9 +2440,9 @@
     "departmentId": 31,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 165,
@@ -2440,9 +2455,9 @@
     "departmentId": 31,
     "positionId": 1,
     "roleId": 1,
-    "contract": null,
     "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "updatedAt": "1/1/1900 00:00:00",
+    "img": null
   },
   {
     "id": 166,
@@ -2455,143 +2470,8 @@
     "departmentId": 17,
     "positionId": 1,
     "roleId": 3,
-    "contract": null,
     "createdAt": "10/6/2024 11:39:34",
-    "updatedAt": "10/6/2024 11:39:34"
-  },
-  {
-    "id": 167,
-    "email": "user@user.com",
-    "username": "user",
-    "password": "$2a$10$oBamGWcnTXw1VSHfxV413.TM9tVdE5dsk/483XZN7Fz.KWMHx3BUW",
-    "lname": "user",
-    "fname": "user",
-    "status": "1",
-    "departmentId": 17,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "1/7/2024 11:42:56",
-    "updatedAt": "1/7/2024 11:42:56"
-  },
-  {
-    "id": 168,
-    "email": "Prasong.ch@nerubber.com",
-    "username": "Prasong.ch@nerubber.com",
-    "password": "$2a$10$QDR6lPOf91g2xIbJoTsES.KtV3WLvtI0jw2HiG7EalGzdszEv6H46",
-    "lname": "ชอบมวย",
-    "fname": "ประสงค์",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "2/7/2024 10:08:34",
-    "updatedAt": "2/7/2024 10:08:34"
-  },
-  {
-    "id": 169,
-    "email": "warunee.se@nerubber.com",
-    "username": "warunee.se@nerubber.com",
-    "password": "$2a$10$weK6E1FzhMFRFrpJ1ZFrSOao7YQES1WW2Cf3Dj3TmIrWAT7kBkjGu",
-    "lname": "สีหานาธ",
-    "fname": "วารุณี",
-    "status": "1",
-    "departmentId": 16,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "3/7/2024 01:56:27",
-    "updatedAt": "3/7/2024 01:56:27"
-  },
-  {
-    "id": 170,
-    "email": "Mareeda.sa@nerubber.com",
-    "username": "Mareeda.sa@nerubber.com",
-    "password": "$2a$10$L.LggJh0IQ/PWTyjXlYmneu36zKmtHR4kH1SybQ8LeP10V7jbN9tG",
-    "lname": "สมานประธาน",
-    "fname": "มารีด้า",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "6/7/2024 07:04:36",
-    "updatedAt": "6/7/2024 07:04:36"
-  },
-  {
-    "id": 176,
-    "email": "123abc@gmail.com",
-    "username": "123abc@gmail.com",
-    "password": "$2a$10$iJfhkhyz32qjKyKxvcVEm..kT4IxvoTNk36tevJJA.pzpKmSn6VLq",
-    "lname": "สมุธิราช",
-    "fname": "สำรวย",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "11/7/2024 05:48:01",
-    "updatedAt": "11/7/2024 05:48:01"
-  },
-  {
-    "id": 177,
-    "email": "123@gmail.com",
-    "username": "123@gmail.com",
-    "password": "$2a$10$Zt8cKJgsSCSHySP4ggkgEOnpqFCeaRgJVEVYUjw/7sdn7UolWgoUO",
-    "lname": "บุญบาล",
-    "fname": "โชติกา ",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "11/7/2024 05:50:02",
-    "updatedAt": "11/7/2024 05:50:02"
-  },
-  {
-    "id": 178,
-    "email": "123ab@gmail.com",
-    "username": "123ab@gmail.com",
-    "password": "$2a$10$m.4xQG3v2Yvrj6lajEXz1eSjCIRumGion8mWNuPTbR4rafQAhzcIi",
-    "lname": "เสือประโคน",
-    "fname": "จันทรรัตน์",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "11/7/2024 05:51:40",
-    "updatedAt": "11/7/2024 05:51:40"
-  },
-  {
-    "id": 179,
-    "email": "1234@gmail.com",
-    "username": "1234@gmail.com",
-    "password": "$2a$10$dwUBmsWWWwdy80VXtdhan.vF3gHWiPsII9STucNJ8takEyaHKixUm",
-    "lname": "ปักกระโทก",
-    "fname": "จรัสภรณ์",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "11/7/2024 05:57:33",
-    "updatedAt": "11/7/2024 05:57:33"
-  },
-  {
-    "id": 180,
-    "email": "1234abc@gmail.com",
-    "username": "1234abc@gmail.com",
-    "password": "$2a$10$9ljworEKTiidc9yzb0T03.hPlLhCknr2nC//usXjuzIKujIgfntnq",
-    "lname": "โลกประโคน",
-    "fname": "ลำใย ",
-    "status": "1",
-    "departmentId": 13,
-    "positionId": 1,
-    "roleId": 1,
-    "contract": null,
-    "createdAt": "11/7/2024 05:59:03",
-    "updatedAt": "11/7/2024 05:59:03"
+    "updatedAt": "10/6/2024 11:39:34",
+    "img": null
   }
 ]

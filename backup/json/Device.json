@@ -1,22 +1,26 @@
 [
   {
+    "id": 1,
     "name": "Pointer",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
+    "id": 2,
     "name": "Projector",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
+    "id": 3,
     "name": "Notebook",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
+    "id": 4,
     "name": "computer",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   }
 ]

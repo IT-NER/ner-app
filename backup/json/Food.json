@@ -1,7 +1,8 @@
 [
   {
+    "id": 4,
     "name": "อาหารว่าง",
-    "createdAt": "NULL",
-    "updatedAt": "NULL"
+    "createdAt": null,
+    "updatedAt": null
   }
 ]

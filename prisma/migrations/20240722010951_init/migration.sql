@@ -206,6 +206,7 @@ CREATE TABLE [dbo].[Booking] (
     [name] NVARCHAR(1000),
     [color] NVARCHAR(1000),
     [timed] BIT CONSTRAINT [Booking_timed_df] DEFAULT 1,
+    [allDay] BIT CONSTRAINT [Booking_allDay_df] DEFAULT 0,
     [url] NVARCHAR(1000),
     [description] NVARCHAR(1000),
     [chairman] NVARCHAR(1000),
