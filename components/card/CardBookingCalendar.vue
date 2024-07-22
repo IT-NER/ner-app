@@ -66,14 +66,19 @@
           </v-col>
         </v-row>
       </v-card-actions>
-
     </v-card>
+
+    <card-booking-list-day :focus.sync="focus" />
   </div>
 </template>
 
 <script>
+import CardBookingListDay from "./CardBookingListDay.vue";
 export default {
-  props: ["items", "item", "getItems", "addItem"],
+  components: {
+    CardBookingListDay,
+  },
+  props: ["items", "item", "getItems", "addItem", "viewItem"],
 
   data: () => ({
     focus: "",
@@ -90,7 +95,8 @@ export default {
 
   methods: {
     viewDay({ date }) {
-      this.focus = date;
+      // this.focus = date;
+      this.$emit("update:focus", date);
       this.type = "day";
     },
     setToday() {
@@ -102,23 +108,11 @@ export default {
     next() {
       this.$refs.calendar.next();
     },
-    showEvent({ nativeEvent, event }) {
-      // const open = () => {
-      //   this.selectedEvent = event;
-      //   this.selectedElement = nativeEvent.target;
-      //   requestAnimationFrame(() =>
-      //     requestAnimationFrame(() => (this.selectedOpen = true))
-      //   );
-      // };
-
-      // if (this.selectedOpen) {
-      //   this.selectedOpen = false;
-      //   requestAnimationFrame(() => requestAnimationFrame(() => open()));
-      // } else {
-      //   open();
-      // }
-
-      nativeEvent.stopPropagation();
+    async showEvent({ event }) {
+      // console.log("event", event);
+      let item = await Object.assign({}, event);
+      this.$emit("update:item", item);
+      this.$emit("viewItem");
     },
   },
 };

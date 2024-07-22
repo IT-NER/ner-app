@@ -322,93 +322,140 @@ app.get("/booking/user/:id", async (req, res) => {
 
 app.post("/booking", async (req, res) => {
   let item = req.body.data;
-  let BookingDevice = [];
-  let BookingFood = [];
-  let BookingDrink = [];
-
-  if (item.BookingDevice) {
-    await item.BookingDevice.forEach((e) => {
-      let item = {
-        deviceId: e,
-      };
-      BookingDevice.push(item);
-    });
-  }
-
-  if (item.BookingFood) {
-    await item.BookingFood.forEach((e) => {
-      let item = {
-        foodId: e,
-      };
-      BookingFood.push(item);
-    });
-  }
-
-  if (item.BookingDrink) {
-    await item.BookingDrink.forEach((e) => {
-      let item = {
-        drinkId: e,
-      };
-      BookingDrink.push(item);
-    });
-  }
-
-  if (item.meetingTypeId == 1) {
-    item.programId = null;
-  }
-
-  let booking = await prisma.booking
-    .create({
-      data: {
-        start: new Date(item.start),
-        end: new Date(item.end),
-        name: item.name,
-        UserPhoneNumber: item.UserPhoneNumber,
-        color: item.color,
-        timed: item.timed,
-        url: item.url,
-        description: item.description,
-        chairman: item.chairman,
-        quantity: Number(item.quantity),
-        meetingId: item.meetingId,
-        meetingPassword: item.meetingPassword,
-        userId: Number(item.userId),
-        meetingTypeId: Number(item.meetingTypeId),
-        roomId: Number(item.roomId),
-        programId: Number(item.programId),
-        statusId: Number(item.statusId),
-
-        createdAt: new Date(),
-        updatedAt: new Date(),
-
-        BookingDevice: {
-          create: BookingDevice,
-        },
-        BookingFood: {
-          create: BookingFood,
-        },
-        BookingDrink: {
-          create: BookingDrink,
-        },
-      },
-
-      include: {
-        BookingDevice: true,
-        BookingFood: true,
-        BookingDrink: true,
-      },
-    })
-    .then((res) => {
-      // // console.log("res", res);
-      return res;
-    })
-    .catch((err) => {
-      res.status(401).json({ error: err });
-      return;
-    });
+  let booking = await create(item);
 
   res.status(200).json(booking);
 });
+app.put("/booking/:id", async (req, res) => {
+  let { id } = req.body.params;
+  let item = req.body.data;
+  let booking = await update(id, item);
+
+  res.status(200).json(booking);
+});
+
+async function create(item) {
+  let booking = await prisma.booking.create({
+    data: {
+      start: new Date(item.start),
+      end: new Date(item.end),
+      name: item.name,
+      description: item.description,
+      chairman: item.chairman,
+      quantity: Number(item.quantity),
+      programId: item.programId,
+      meetingId: item.meetingId,
+      url: item.url,
+      meetingPassword: item.meetingPassword,
+      tel: item.tel,
+      meetingTypeId: Number(item.meetingTypeId),
+      roomId: Number(item.roomId),
+      userId: Number(item.userId),
+    },
+  });
+
+  if (item.bookingDevice.length > 0) {
+    await createBookingDevice(booking.id, item.bookingDevice);
+  }
+  if (item.bookingFood.length > 0) {
+    await createBookingFood(booking.id, item.bookingFood);
+  }
+  if (item.bookingDrink.length > 0) {
+    await createBookingDrink(booking.id, item.bookingDrink);
+  }
+  return booking;
+}
+async function update(id, item) {
+  let booking = await prisma.booking.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      start: new Date(item.start),
+      end: new Date(item.end),
+      name: item.name,
+      description: item.description,
+      chairman: item.chairman,
+      quantity: Number(item.quantity),
+      programId: item.programId,
+      meetingId: item.meetingId,
+      url: item.url,
+      meetingPassword: item.meetingPassword,
+      tel: item.tel,
+      meetingTypeId: Number(item.meetingTypeId),
+      roomId: Number(item.roomId),
+      userId: Number(item.userId),
+    },
+  });
+
+  if (item.bookingDevice.length > 0) {
+    await createBookingDevice(booking.id, item.bookingDevice);
+  }
+  if (item.bookingFood.length > 0) {
+    await createBookingFood(booking.id, item.bookingFood);
+  }
+  if (item.bookingDrink.length > 0) {
+    await createBookingDrink(booking.id, item.bookingDrink);
+  }
+  return booking;
+}
+
+async function createBookingDevice(bookingId, bookingDevice) {
+  let items = [];
+  bookingDevice.forEach((e) => {
+    let item = {
+      bookingId: bookingId,
+      deviceId: e,
+    };
+    items.push(item);
+  });
+
+  await prisma.bookingDevice.deleteMany({
+    where: {
+      bookingId: Number(bookingId),
+    },
+  });
+
+  await prisma.bookingDevice.createMany({
+    data: items,
+  });
+}
+async function createBookingFood(bookingId, bookingFood) {
+  let items = [];
+  bookingFood.forEach((e) => {
+    let item = {
+      bookingId: bookingId,
+      foodId: e,
+    };
+    items.push(item);
+  });
+  await prisma.bookingFood.deleteMany({
+    where: {
+      bookingId: Number(bookingId),
+    },
+  });
+  await prisma.bookingFood.createMany({
+    data: items,
+  });
+}
+async function createBookingDrink(bookingId, bookingDrink) {
+  let items = [];
+  bookingDrink.forEach((e) => {
+    let item = {
+      bookingId: bookingId,
+      drinkId: e,
+    };
+    items.push(item);
+  });
+  await prisma.bookingDrink.deleteMany({
+    where: {
+      bookingId: Number(bookingId),
+    },
+  });
+  await prisma.bookingDrink.createMany({
+    data: items,
+  });
+}
 
 app.put("/booking/:id", async (req, res) => {
   let id = req.params.id;
@@ -584,6 +631,44 @@ app.delete("/booking/:id", async (req, res) => {
 
   res.status(200).json(booking);
 });
+
+app.post("/booking/date", async (req, res) => {
+  let item = req.body.data;
+  let booking = await getBookingByDate(item);
+
+  res.status(200).json(booking);
+});
+
+async function getBookingByDate(date) {
+  if (!date) {
+    date = new Date();
+  }
+
+  date = new Date(date);
+  console.log("date", date);
+
+  let data = await prisma.booking.findMany({
+    where: {
+      start: new Date(date),
+    },
+    include: {
+      Room: true,
+      MeetingType: true,
+      Program: true,
+      Status: true,
+      BookingDevice: true,
+      BookingFood: true,
+      BookingDrink: true,
+      User: {
+        include: {
+          Department: true,
+          Position: true,
+        },
+      },
+    },
+  });
+  return data;
+}
 
 export default {
   path: "/api",

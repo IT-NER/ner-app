@@ -66,6 +66,19 @@ app.delete("/drink/:id", async (req, res) => {
   res.status(200).json(drink);
 });
 
+// getDeviceByIds
+app.post("/drink/ids", async (req, res) => {
+  let item = req.body.data;
+  let drink = await prisma.drink.findMany({
+    where: {
+      id: {
+        in: item,
+      },
+    },
+  });
+  res.status(200).json(drink);
+});
+
 export default {
   path: "/api",
   handler: app,

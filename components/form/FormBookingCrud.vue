@@ -209,7 +209,7 @@
         <v-radio-group v-model="item.roomId" row>
           <v-col cols="12" md="3" v-for="(item, i) in itemsRoom" :key="i">
             <v-radio
-              :label="`${item.name}  (${item.quantity}) ที่นั่ง`"
+              :label="`${item.name}  (${item.quantity} ที่นั่ง)`"
               :value="item.id"
               :color="item.color"
             ></v-radio>
@@ -222,6 +222,175 @@
         </v-alert>
       </v-card-text>
       <v-divider></v-divider>
+
+      <v-card-title> ประเภทการประชุม </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-radio-group v-model="item.meetingTypeId" row>
+          <v-col
+            cols="12"
+            md="3"
+            v-for="(item, i) in itemsMeetingType"
+            :key="i"
+          >
+            <v-radio
+              :label="item.name"
+              :value="item.id"
+              @change="$emit('setItemMeetingType')"
+            ></v-radio>
+          </v-col>
+        </v-radio-group>
+      </v-card-text>
+      <v-divider></v-divider>
+      <div v-if="item.meetingTypeId == 2">
+        <v-card-title> รายละเอียดการประชุมออนไลน์ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <v-row>
+            <v-col cols="12" md="3">
+              <v-select
+                :items="itemsProgram"
+                item-text="name"
+                item-value="id"
+                v-model="item.programId"
+                label="โปรแกรม"
+                hide-details
+              ></v-select>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-text-field
+                label="ID"
+                v-model="item.meetingId"
+                hide-details
+                :required="item.meetingTypeId == 2"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-text-field
+                label="PASSWORD"
+                v-model="item.meetingPassword"
+                hide-details
+                :required="item.meetingTypeId == 2"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-text-field
+                label="URL"
+                v-model="item.url"
+                hide-details
+                :required="item.meetingTypeId == 2"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </div>
+      <v-divider></v-divider>
+      <v-card-title> รายละเอียด </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-text-field
+              label="หัวข้อ"
+              prepend-icon="mdi-star"
+              v-model="item.name"
+              hide-details
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="3">
+            <v-text-field
+              label="ประธาน"
+              prepend-icon="mdi-account-star"
+              v-model="item.chairman"
+              hide-details
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="3">
+            <v-text-field
+              label="จำนวนผู้เข้าร่วม"
+              prepend-icon="mdi-account-group"
+              v-model="item.quantity"
+              hide-details
+              required
+              type="number"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              label="เบอร์โทรสำหรับ HR ติดต่อกลับ"
+              prepend-icon="mdi-phone"
+              v-model="item.tel"
+              hide-details
+              required
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-title> อุปกรณ์ / อาหาร / เครื่องดื่ม </v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="12" md="4">
+            <v-select
+              label="อุปกรณ์"
+              prepend-icon="mdi-devices"
+              v-model="item.bookingDevice"
+              :items="itemsDevice"
+              item-text="name"
+              item-value="id"
+              hide-details
+              chips
+              multiple
+              clearable
+            ></v-select>
+          </v-col>
+          <v-col cols="12" md="4">
+            <v-select
+              label="อาหาร"
+              prepend-icon="mdi-silverware-clean"
+              v-model="item.bookingFood"
+              :items="itemsFood"
+              item-text="name"
+              item-value="id"
+              hide-details
+              chips
+              multiple
+              clearable
+            ></v-select>
+          </v-col>
+          <v-col cols="12" md="4">
+            <v-select
+              label="เครื่องดื่ม"
+              prepend-icon="mdi-coffee-outline"
+              v-model="item.bookingDrink"
+              :items="itemsDrink"
+              item-text="name"
+              item-value="id"
+              hide-details
+              chips
+              multiple
+              clearable
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-title> หมายเหตุ </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-row>
+          <v-col>
+            <v-textarea
+              prepend-icon="mdi-note"
+              v-model="item.description"
+              hide-details
+              auto-grow
+            ></v-textarea>
+          </v-col>
+        </v-row>
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -238,8 +407,10 @@ export default {
     "itemsDevice",
     "itemsFood",
     "itemsDrink",
+    "itemsProgram",
     "getItemsRoom",
     "itemsRoomNotReserved",
+    "setItemMeetingType",
   ],
 };
 </script>

@@ -123,22 +123,22 @@ export default {
           ],
         },
         {
-          name: "ตั้งค่า",
+          name: "ตั้งค่าระบบ",
           icon: "mdi-cog",
           link: "",
           lists: [
             {
-              name: "ผู้ใช้งาน",
+              name: "ระบบ ผู้ใช้งาน",
               icon: "mdi-cog",
               link: "/setting/user",
             },
             {
-              name: "จองห้องประชุม",
+              name: "ระบบ จองห้องประชุม",
               icon: "mdi-cog",
               link: "/setting/booking",
             },
             {
-              name: "ประชาสัมพันธ์",
+              name: "ระบบ ประชาสัมพันธ์",
               icon: "mdi-cog",
               link: "/setting/content",
             },

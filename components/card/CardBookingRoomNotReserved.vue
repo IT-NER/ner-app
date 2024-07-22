@@ -1,6 +1,40 @@
 <template>
   <div>
-    <v-data-table
+    <v-expansion-panels flat>
+      <v-expansion-panel v-for="(item, i) in items" :key="i">
+        <v-divider></v-divider>
+        <v-expansion-panel-header>
+          {{ item.name }}
+          <span class="ml-2 error--text">
+            ทั้งหมด {{ item.Booking.length }} รอบ
+          </span>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-card v-for="(list, y) in item.Booking" :key="y" flat>
+            <v-divider></v-divider>
+            <v-card-text>
+              <div class="title">
+                {{ list.name }}
+              </div>
+              <div class="subtitle-2">
+                <v-icon color="success">mdi-account-star</v-icon>
+                {{ list.chairman }}
+              </div>
+              <div class="subtitle-2">
+                <v-icon color="success">mdi-play</v-icon>
+                {{ $moment(list.start).format("l LT") }}
+              </div>
+              <div class="subtitle-2">
+                <v-icon color="error">mdi-stop</v-icon
+                >{{ $moment(list.end).format("l LT") }}
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
+
+    <!-- <v-data-table
       :headers="headers"
       :items="items"
       class="elevation-0"
@@ -25,37 +59,13 @@
           </div>
         </v-card>
       </template>
-    </v-data-table>
+    </v-data-table> -->
   </div>
 </template>
 
 <script>
 export default {
   props: ["items"],
-  data() {
-    return {
-      headers: [
-        {
-          text: "ลำดับ",
-          value: "no",
-          align: "center",
-          sortable: false,
-        },
-        {
-          text: "ห้องประชุม",
-          value: "name",
-          align: "start",
-          sortable: false,
-        },
-        {
-          text: "หัวข้อ",
-          value: "bookingName",
-          align: "start",
-          sortable: false,
-        },
-      ],
-    };
-  },
 };
 </script>
 

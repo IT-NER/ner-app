@@ -9,11 +9,11 @@ app.use(express.json());
 // getAll
 app.get("/meetingType", async (req, res) => {
   let meetingType = await prisma.meetingType.findMany({
-    orderBy: [
-      {
-        id: "desc",
-      },
-    ],
+    // orderBy: [
+    //   {
+    //     id: "desc",
+    //   },
+    // ],
   });
   res.status(200).json(meetingType);
 });

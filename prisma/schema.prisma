@@ -246,7 +246,7 @@ model Booking {
   updatedAt       DateTime  @updatedAt
 
   MeetingType   MeetingType?    @relation(fields: [meetingTypeId], references: [id])
-  Program       Program?        @relation(fields: [programId], references: [id])
+  Program       Program?        @relation(fields: [programId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   Room          Room?           @relation(fields: [roomId], references: [id])
   Status        Status?         @relation(fields: [statusId], references: [id])
   User          User?           @relation(fields: [userId], references: [id])

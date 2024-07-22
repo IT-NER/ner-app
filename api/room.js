@@ -8,21 +8,38 @@ app.use(express.json());
 
 //getItemsRoomNotReserved
 app.post("/room/notReserved", async (req, res) => {
-  let item = req.body.data;
-  let roomNotReserved = await getItemsRoomNotReserved(item);
+  let date = req.body.data.data;
+  let ids = req.body.data.item;
+  // console.log('item',item);
+  // return
+  let roomNotReserved = await getItemsRoomNotReserved(ids, date);
 
   res.status(200).json(roomNotReserved);
 });
 
-async function getItemsRoomNotReserved(item) {
+async function getItemsRoomNotReserved(ids, date) {
   let data = await prisma.room.findMany({
     where: {
       id: {
-        notIn: item,
+        notIn: ids,
       },
     },
     include: {
-      Booking: true,
+      Booking: {
+        where: {
+          start: {
+            gte: new Date(date.start),
+          },
+          end: {
+            lte: new Date(date.end),
+          },
+        },
+        orderBy: [
+          {
+            start: "asc",
+          },
+        ],
+      },
     },
   });
   return data;
