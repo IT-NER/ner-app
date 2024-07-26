@@ -58,7 +58,36 @@ export default {
   data() {
     return {
       selectedItem: 0,
-      items: [
+      itemsUser: [
+        {
+          name: "หน้าแรก",
+          icon: "mdi-home",
+          link: "/",
+        },
+        {
+          name: "จองห้องประชุม",
+          icon: "mdi-calendar",
+          link: "",
+          lists: [
+            {
+              name: "ปฏิทิน",
+              icon: "mdi-calendar",
+              link: "/booking/calendar",
+            },
+            {
+              name: "ประวัติการจอง",
+              icon: "mdi-calendar",
+              link: "/booking/history",
+            },
+            {
+              name: "รายการจอง (ทั้งหมด)",
+              icon: "mdi-calendar",
+              link: "/booking/lists-all",
+            },
+          ],
+        },
+      ],
+      itemsAdmin: [
         {
           name: "หน้าแรก",
           icon: "mdi-home",
@@ -82,7 +111,7 @@ export default {
             {
               name: "ประวัติการจอง",
               icon: "mdi-calendar",
-              link: "/booking/lists",
+              link: "/booking/history",
             },
             {
               name: "รายการจอง (ทั้งหมด)",
@@ -145,7 +174,26 @@ export default {
           ],
         },
       ],
+      items: [],
     };
+  },
+
+  created() {
+    this.main();
+  },
+
+  methods: {
+    async main() {
+      this.getUser();
+    },
+    async getUser() {
+      let item = this.$auth.$storage.getCookie("user");
+      if (item.Role.id == 1) {
+        this.items = this.itemsUser;
+      } else if (item.Role.id > 1) {
+        this.items = this.itemsAdmin;
+      }
+    },
   },
 };
 </script>

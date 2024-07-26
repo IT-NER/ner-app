@@ -2,8 +2,9 @@
   <div>
     <v-row>
       <v-col cols="12" md="4">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> ผู้จอง </v-card-title>
+          <v-toolbar dense flat> ผู้จอง </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <p>{{ item.User.fname }} {{ item.User.lname }}</p>
@@ -14,8 +15,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> หัวข้อ / ประธาน / รูปแบบ </v-card-title>
+          <v-toolbar dense flat> หัวข้อ / ประธาน / รูปแบบ </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <p>
@@ -32,8 +34,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> กำหนดการ / สถานที่ </v-card-title>
+          <v-toolbar dense flat> กำหนดการ / สถานที่ </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <p>เริ่ม : {{ $moment(item.start).format("lll") }} น.</p>
@@ -49,8 +52,9 @@
 
     <v-row>
       <v-col cols="12" md="4">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> อุปกรณ์ </v-card-title>
+          <v-toolbar dense flat> อุปกรณ์ </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <card-booking-list-device
@@ -61,8 +65,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> อาหาร </v-card-title>
+          <v-toolbar dense flat> อาหาร </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <card-booking-list-food
@@ -73,8 +78,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> เครื่องดื่ม </v-card-title>
+          <v-toolbar dense flat> เครื่องดื่ม </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <card-booking-list-drink
@@ -87,8 +93,9 @@
     </v-row>
     <v-row>
       <v-col cols="12" md="12">
+        <v-divider></v-divider>
         <v-card flat>
-          <v-card-title> หมายเหตุ </v-card-title>
+          <v-toolbar dense flat> หมายเหตุ </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <p v-if="item.description">

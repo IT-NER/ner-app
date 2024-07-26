@@ -6,6 +6,160 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+//getItemsRoomDisable
+app.post("/room/disable", async (req, res) => {
+  let item = req.body.data;
+  let room = await getItemsRoomDisable(item);
+  res.status(200).json(room);
+});
+
+async function getItemsRoomDisable(item) {
+  let booking = await prisma.booking.findMany({
+    where: {
+      AND: [
+        {
+          start: {
+            gte: new Date(item.start),
+          },
+          end: {
+            lte: new Date(item.end),
+          },
+          statusId: {
+            lt: 3,
+          },
+        },
+      ],
+    },
+    orderBy: [
+      {
+        roomId: "asc",
+      },
+    ],
+    include: {
+      MeetingType: true,
+      Program: true,
+      Room: true,
+      Status: true,
+      User: true,
+      BookingDevice: true,
+      BookingDrink: true,
+      BookingFood: true,
+    },
+  });
+
+  let ids = [];
+  booking.forEach((e) => {
+    ids.push(e.roomId);
+  });
+
+  let roomIds = [...new Set(ids)];
+
+  let room = await prisma.room.findMany({
+    where: {
+      id: {
+        in: roomIds,
+      },
+    },
+
+    include: {
+      Booking: {
+        where: {
+          start: {
+            gte: new Date(item.start),
+          },
+          end: {
+            lte: new Date(item.end),
+          },
+        },
+        orderBy: [
+          {
+            start: "asc",
+          },
+        ],
+        include: {
+          User: true,
+        },
+      },
+    },
+  });
+
+  return room;
+}
+
+//getItemsRoomEnable
+app.post("/room/enable", async (req, res) => {
+  let item = req.body.data;
+  // res.status(200).json(item);
+  // return;
+  let room = await getItemsRoomEnable(item);
+  res.status(200).json(room);
+});
+
+async function getItemsRoomEnable(item) {
+  let booking = await prisma.booking.findMany({
+    where: {
+      AND: [
+        {
+          start: {
+            gte: new Date(item.start),
+          },
+          end: {
+            lte: new Date(item.end),
+          },
+          statusId: {
+            lt: 3,
+          },
+        },
+      ],
+    },
+    orderBy: [
+      {
+        roomId: "asc",
+      },
+    ],
+    include: {
+      MeetingType: true,
+      Program: true,
+      Room: true,
+      Status: true,
+      User: true,
+      BookingDevice: true,
+      BookingDrink: true,
+      BookingFood: true,
+    },
+  });
+
+  let ids = [];
+  booking.forEach((e) => {
+    ids.push(e.roomId);
+  });
+
+  let roomIds = [...new Set(ids)];
+
+  let room = await prisma.room.findMany({
+    where: {
+      id: {
+        notIn: roomIds,
+      },
+    },
+  });
+
+  if (!item.id) {
+    return room;
+  }
+
+  room.push(item.Room);
+  room.sort((a, b) => {
+    return a.id - b.id;
+  });
+
+  return room;
+}
+
+async function getUniqueListBy(arr, key) {
+  return [...new Map(arr.map((item) => [item[key], item])).values()];
+}
+
 //getItemsRoomNotReserved
 app.post("/room/notReserved", async (req, res) => {
   let date = req.body.data.data;
@@ -39,9 +193,15 @@ async function getItemsRoomNotReserved(ids, date) {
             start: "asc",
           },
         ],
+        include: {
+          User: true,
+        },
       },
     },
   });
+
+  const result = data.filter((e) => e.Booking.length > 0);
+  data = result;
   return data;
 }
 
@@ -56,7 +216,6 @@ app.post("/room/date-between", async (req, res) => {
 
   res.status(200).json(room);
 });
-
 async function getRoomByDateBetween(item) {
   let notReservedIds = [];
 
@@ -79,12 +238,12 @@ async function getRoomByDateBetween(item) {
     notReservedIds.push(e.roomId);
   });
 
-  let result = [...new Set(notReservedIds)];
+  let ids = [...new Set(notReservedIds)];
 
   let room = await prisma.room.findMany({
     where: {
       id: {
-        notIn: result,
+        notIn: ids,
       },
     },
   });

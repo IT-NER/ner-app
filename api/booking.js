@@ -1,4 +1,5 @@
 import express from "express";
+import moment from "moment";
 import { PrismaClient } from "@prisma/client";
 
 let prisma = new PrismaClient();
@@ -8,38 +9,45 @@ app.use(express.json());
 
 // search
 app.post("/booking/search", async (req, res) => {
-  // console.log('req', req.body.data);
-  // return
+  // console.log("req", req.body.data);
+  // return;
   let item = req.body.data;
-  let roomId = req.body.data.roomId;
-  let meetingTypeId = req.body.data.meetingTypeId;
-  let statusId = req.body.data.statusId;
 
   let items = [
     {
-      start: {
-        gte: new Date(item.start),
-      },
-      end: {
-        lte: new Date(item.end),
-      },
+      AND: [
+        {
+          start: {
+            gte: new Date(item.start),
+          },
+          end: {
+            lte: new Date(item.end),
+          },
+        },
+      ],
     },
   ];
 
-  if (roomId) {
-    items.push({ roomId: roomId });
+  if (item.roomId) {
+    items.push({ roomId: item.roomId });
   }
-  if (meetingTypeId) {
-    items.push({ meetingTypeId: meetingTypeId });
+  if (item.meetingTypeId) {
+    items.push({ meetingTypeId: item.meetingTypeId });
   }
-  if (statusId) {
-    items.push({ statusId: statusId });
+  if (item.statusId) {
+    items.push({ statusId: item.statusId });
   }
+  // console.log("items", items);
 
   let booking = await prisma.booking.findMany({
     where: {
       AND: items,
     },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
     include: {
       Room: true,
       MeetingType: true,
@@ -55,11 +63,6 @@ app.post("/booking/search", async (req, res) => {
         },
       },
     },
-    orderBy: [
-      {
-        id: "desc",
-      },
-    ],
   });
 
   booking.forEach((e) => {
@@ -95,10 +98,9 @@ app.post("/booking/search", async (req, res) => {
 
 app.get("/booking", async (req, res) => {
   let booking = await prisma.booking.findMany({
-    // where: {
-    // OR: [{ statusId: 1 }, { statusId: 2 }]
-    // statusId: 2
-    // },
+    where: {
+      statusId: 2,
+    },
     include: {
       Room: true,
       MeetingType: true,
@@ -272,6 +274,11 @@ app.get("/booking/user/:id", async (req, res) => {
     where: {
       userId: Number(id),
     },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
     include: {
       Room: true,
       MeetingType: true,
@@ -327,7 +334,7 @@ app.post("/booking", async (req, res) => {
   res.status(200).json(booking);
 });
 app.put("/booking/:id", async (req, res) => {
-  let { id } = req.body.params;
+  let { id } = req.params;
   let item = req.body.data;
   let booking = await update(id, item);
 
@@ -388,15 +395,10 @@ async function update(id, item) {
     },
   });
 
-  if (item.bookingDevice.length > 0) {
-    await createBookingDevice(booking.id, item.bookingDevice);
-  }
-  if (item.bookingFood.length > 0) {
-    await createBookingFood(booking.id, item.bookingFood);
-  }
-  if (item.bookingDrink.length > 0) {
-    await createBookingDrink(booking.id, item.bookingDrink);
-  }
+  await createBookingDevice(booking.id, item.bookingDevice);
+  await createBookingFood(booking.id, item.bookingFood);
+  await createBookingDrink(booking.id, item.bookingDrink);
+
   return booking;
 }
 
@@ -640,17 +642,37 @@ app.post("/booking/date", async (req, res) => {
 });
 
 async function getBookingByDate(date) {
+  let dateStart = null;
+  let dateEnd = null;
+  dateStart = moment(date).format("YYYY-MM-DDT00:00:00");
   if (!date) {
-    date = new Date();
+    dateStart = moment().format("YYYY-MM-DDT00:00:00");
   }
+  dateEnd = moment(dateStart).add(1, "day").format("YYYY-MM-DDT00:00:00");
 
-  date = new Date(date);
-  console.log("date", date);
+  // console.log("dateStart", dateStart);
+  // console.log("dateEnd", dateEnd);
+  // return;
 
   let data = await prisma.booking.findMany({
     where: {
-      start: new Date(date),
+      statusId: 2,
+      AND: [
+        {
+          start: {
+            gte: new Date(dateStart),
+          },
+          end: {
+            lte: new Date(dateEnd),
+          },
+        },
+      ],
     },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
     include: {
       Room: true,
       MeetingType: true,

@@ -3,7 +3,8 @@
     <!-- datetime -->
 
     <v-card flat>
-      <v-card-title> กำหนดการประชุม </v-card-title>
+      <v-divider></v-divider>
+      <v-toolbar dense flat> กำหนดการประชุม </v-toolbar>
       <v-divider></v-divider>
       <v-card-text>
         <v-row>
@@ -39,7 +40,11 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.dateStartModal.save(item.dateStart)"
+                  @click="
+                    $refs.dateStartModal.save(item.dateStart),
+                      $emit('getItemsRoom'),
+                      $emit('setDateEnd')
+                  "
                 >
                   OK
                 </v-btn>
@@ -84,7 +89,10 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.timeStartModal.save(item.timeStart)"
+                  @click="
+                    $refs.timeStartModal.save(item.timeStart),
+                      $emit('getItemsRoom')
+                  "
                 >
                   OK
                 </v-btn>
@@ -125,7 +133,9 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.dateEndModal.save(item.dateEnd)"
+                  @click="
+                    $refs.dateEndModal.save(item.dateEnd), $emit('getItemsRoom')
+                  "
                 >
                   OK
                 </v-btn>
@@ -166,7 +176,9 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.timeEndModal.save(item.timeEnd)"
+                  @click="
+                    $refs.timeEndModal.save(item.timeEnd), $emit('getItemsRoom')
+                  "
                 >
                   OK
                 </v-btn>
@@ -184,35 +196,45 @@
         <v-spacer></v-spacer>
       </v-card-actions>
       <v-divider></v-divider>
-      <v-card-title v-if="itemsRoomNotReserved.length > 0">
+      <v-card-title>
         ห้องประชุม <span class="ml-2 red--text">(ติดจอง)</span>
         <v-spacer></v-spacer>
       </v-card-title>
 
-      <v-divider v-if="itemsRoomNotReserved.length > 0"></v-divider>
-      <!-- CardBookingRoomNotReserved -->
-      <card-booking-room-not-reserved
-        v-if="itemsRoomNotReserved.length > 0"
-        :items.sync="itemsRoomNotReserved"
+      <v-divider></v-divider>
+      <!-- CardBookingRoomDisable -->
+      <card-booking-room-disable
+        :items.sync="itemsRoomDisable"
+        :item.sync="item"
       />
-      <v-divider v-if="itemsRoomNotReserved.length > 0"></v-divider>
+      <v-divider></v-divider>
 
-      <v-divider v-if="itemsRoom.length > 0"></v-divider>
+      <v-divider v-if="itemsRoomEnable.length > 0"></v-divider>
 
-      <v-card-title>
+      <v-toolbar dense flat>
         ห้องประชุม
         <span class="ml-2 success--text">(ที่ว่าง)</span>
         <v-spacer></v-spacer>
-      </v-card-title>
+      </v-toolbar>
       <v-divider></v-divider>
-      <v-card-text v-if="itemsRoom.length > 0">
-        <v-radio-group v-model="item.roomId" row>
-          <v-col cols="12" md="3" v-for="(item, i) in itemsRoom" :key="i">
+      <!-- {{ item.roomId }} -->
+      <v-card-text v-if="itemsRoomEnable.length > 0">
+        <v-radio-group v-model="item.roomId" row hide-details>
+          <v-col cols="12" md="3" v-for="(list, i) in itemsRoomEnable" :key="i">
             <v-radio
-              :label="`${item.name}  (${item.quantity} ที่นั่ง)`"
-              :value="item.id"
-              :color="item.color"
-            ></v-radio>
+              :value="list.id"
+              :color="list.color"
+              :required="item.roomId == null"
+            >
+              <template v-slot:label>
+                <v-chip label :color="list.color" dark>
+                  {{ list.name }}
+                  <small class="ml-2 mt-1">
+                    (จำนวน {{ list.quantity }} ที่นั่ง)
+                  </small>
+                </v-chip>
+              </template>
+            </v-radio>
           </v-col>
         </v-radio-group>
       </v-card-text>
@@ -223,10 +245,10 @@
       </v-card-text>
       <v-divider></v-divider>
 
-      <v-card-title> ประเภทการประชุม </v-card-title>
+      <v-toolbar dense flat> ประเภทการประชุม </v-toolbar>
       <v-divider></v-divider>
       <v-card-text>
-        <v-radio-group v-model="item.meetingTypeId" row>
+        <v-radio-group v-model="item.meetingTypeId" row hide-details>
           <v-col
             cols="12"
             md="3"
@@ -243,7 +265,7 @@
       </v-card-text>
       <v-divider></v-divider>
       <div v-if="item.meetingTypeId == 2">
-        <v-card-title> รายละเอียดการประชุมออนไลน์ </v-card-title>
+        <v-toolbar dense flat> รายละเอียดการประชุมออนไลน์ </v-toolbar>
         <v-divider></v-divider>
         <v-card-text>
           <v-row>
@@ -285,7 +307,7 @@
         </v-card-text>
       </div>
       <v-divider></v-divider>
-      <v-card-title> รายละเอียด </v-card-title>
+      <v-toolbar dense flat> รายละเอียด </v-toolbar>
       <v-divider></v-divider>
       <v-card-text>
         <v-row>
@@ -329,7 +351,8 @@
         </v-row>
       </v-card-text>
       <v-divider></v-divider>
-      <v-card-title> อุปกรณ์ / อาหาร / เครื่องดื่ม </v-card-title>
+      <v-toolbar dense flat> อุปกรณ์ / อาหาร / เครื่องดื่ม </v-toolbar>
+      <v-divider></v-divider>
       <v-card-text>
         <v-row>
           <v-col cols="12" md="4">
@@ -377,7 +400,7 @@
         </v-row>
       </v-card-text>
       <v-divider></v-divider>
-      <v-card-title> หมายเหตุ </v-card-title>
+      <v-toolbar dense flat> หมายเหตุ </v-toolbar>
       <v-divider></v-divider>
       <v-card-text>
         <v-row>
@@ -396,21 +419,19 @@
 </template>
 
 <script>
-import CardBookingRoomNotReserved from "~/components/card/CardBookingRoomNotReserved.vue";
+import CardBookingRoomDisable from "~/components/card/CardBookingRoomDisable.vue";
 export default {
-  components: { CardBookingRoomNotReserved },
+  components: { CardBookingRoomDisable },
   props: [
     "item",
-    "itemsRoom",
     "itemsMeetingType",
     "itemsBookingStatus",
     "itemsDevice",
     "itemsFood",
     "itemsDrink",
     "itemsProgram",
-    "getItemsRoom",
-    "itemsRoomNotReserved",
-    "setItemMeetingType",
+    "itemsRoomEnable",
+    "itemsRoomDisable",
   ],
 };
 </script>
