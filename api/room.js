@@ -24,11 +24,11 @@ async function getItemsRoomDisable(item) {
           end: {
             lte: new Date(item.end),
           },
-          statusId: {
-            lt: 3,
-          },
         },
       ],
+      statusId: {
+        lt: 3,
+      },
     },
     orderBy: [
       {
@@ -89,8 +89,6 @@ async function getItemsRoomDisable(item) {
 //getItemsRoomEnable
 app.post("/room/enable", async (req, res) => {
   let item = req.body.data;
-  // res.status(200).json(item);
-  // return;
   let room = await getItemsRoomEnable(item);
   res.status(200).json(room);
 });
@@ -106,11 +104,11 @@ async function getItemsRoomEnable(item) {
           end: {
             lte: new Date(item.end),
           },
-          statusId: {
-            lt: 3,
-          },
         },
       ],
+      statusId: {
+        lt: 3,
+      },
     },
     orderBy: [
       {
@@ -144,20 +142,20 @@ async function getItemsRoomEnable(item) {
     },
   });
 
-  if (!item.id) {
-    return room;
+  console.log("item", item.id);
+  if (item.id > 0) {
+    let items = await formatItemsRoom(room, item);
+    return items;
   }
 
+  return room;
+}
+async function formatItemsRoom(room, item) {
   room.push(item.Room);
   room.sort((a, b) => {
     return a.id - b.id;
   });
-
   return room;
-}
-
-async function getUniqueListBy(arr, key) {
-  return [...new Map(arr.map((item) => [item[key], item])).values()];
 }
 
 //getItemsRoomNotReserved

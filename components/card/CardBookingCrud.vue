@@ -25,17 +25,13 @@
           </template>
           <template v-slot:item.start="{ item }">
             <span>
-              {{ $moment(item.start).format("ll") }}
-            </span>
-            <br />
-            <span> {{ $moment(item.start).format("LT") }} น. </span>
+              {{ $moment(item.start).add(543, "year").format("LLLL") }} น.</span
+            >
           </template>
           <template v-slot:item.end="{ item }">
             <span>
-              {{ $moment(item.end).format("ll") }}
-            </span>
-            <br />
-            <span> {{ $moment(item.end).format("LT") }} น. </span>
+              {{ $moment(item.end).add(543, "year").format("LLLL") }} น.</span
+            >
           </template>
           <template v-slot:item.type="{ item }">
             <v-chip label color="success" dark v-if="item.meetingTypeId > 1">
@@ -56,14 +52,39 @@
               ยกเลิก
             </v-chip>
           </template>
-          <template v-slot:item.actions="{ item }">
-            <v-btn color="warning" @click="$emit('editItem', item)">
+          <template v-slot:item.edit="{ item }">
+            <v-btn
+              outlined
+              color="warning"
+              @click="$emit('editItem', item)"
+              :disabled="item.statusId > 2"
+            >
               แก้ไข
             </v-btn>
           </template>
           <template v-slot:item.view="{ item }">
-            <v-btn color="primary" @click="$emit('viewItem', item)">
+            <v-btn outlined color="primary" @click="$emit('viewItem', item)">
               รายละเอียด
+            </v-btn>
+          </template>
+          <template v-slot:item.cancel="{ item }">
+            <v-btn
+              outlined
+              color="error"
+              :disabled="item.statusId > 2"
+              @click="$emit('cancelItem', item)"
+            >
+              ไม่อนุมัติ
+            </v-btn>
+          </template>
+          <template v-slot:item.approve="{ item }">
+            <v-btn
+              outlined
+              color="success"
+              :disabled="item.statusId > 1"
+              @click="$emit('approveItem', item)"
+            >
+              อนุมัติ
             </v-btn>
           </template>
         </v-data-table>

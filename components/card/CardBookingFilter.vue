@@ -43,8 +43,7 @@
                   color="primary"
                   @click="
                     $refs.dateStartModal.save(filter.dateStart),
-                      $emit('getItemsRoom'),
-                      $emit('setDateEnd')
+                      (filter.dateEnd = filter.dateStart)
                   "
                 >
                   OK
@@ -90,11 +89,7 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="
-                    $refs.timeStartModal.save(filter.timeStart),
-                      $emit('getItemsRoom'),
-                      $emit('setDateEnd')
-                  "
+                  @click="$refs.timeStartModal.save(filter.timeStart)"
                 >
                   OK
                 </v-btn>
@@ -139,11 +134,7 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="
-                    $refs.dateEndModal.save(filter.dateEnd),
-                      $emit('getItemsRoom'),
-                      $emit('setDateEnd')
-                  "
+                  @click="$refs.dateEndModal.save(filter.dateEnd)"
                 >
                   OK
                 </v-btn>
@@ -188,11 +179,7 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="
-                    $refs.timeEndModal.save(filter.timeEnd),
-                      $emit('getItemsRoom'),
-                      $emit('setDateEnd')
-                  "
+                  @click="$refs.timeEndModal.save(filter.timeEnd)"
                 >
                   OK
                 </v-btn>
@@ -250,62 +237,7 @@
 
 <script>
 export default {
-  props: ["filter", "item", "items"],
-
-  data() {
-    return {
-      itemsRoom: [],
-      itemsMeetingType: [],
-      itemsStatus: [],
-    };
-  },
-  methods: {
-    async getItemsMeetingType() {
-      let items = await this.$axios
-        .get("/api/meetingType")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-      return items;
-    },
-
-    async getItemsRoom() {
-      let items = await this.$axios
-        .get("/api/room")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-      return items;
-    },
-
-    async getItemsStatus() {
-      let items = await this.$axios
-        .get("/api/status")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-      return items;
-    },
-
-    async main() {
-      this.itemsRoom = await this.getItemsRoom();
-      this.itemsMeetingType = await this.getItemsMeetingType();
-      this.itemsStatus = await this.getItemsStatus();
-    },
-  },
-
-  created() {
-    this.main();
-  },
+  props: ["filter", "itemsRoom", "itemsMeetingType", "itemsStatus"],
 };
 </script>
 

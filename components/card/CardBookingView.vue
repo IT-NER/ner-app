@@ -4,12 +4,14 @@
       <v-col cols="12" md="4">
         <v-divider></v-divider>
         <v-card flat>
-          <v-toolbar dense flat> ผู้จอง </v-toolbar>
+          <v-toolbar dense flat> ผู้จอง / ฝ่าย / วันที่จอง</v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
             <p>{{ item.User.fname }} {{ item.User.lname }}</p>
             <p>{{ item.User.Department.name }}</p>
-            <p>เวลาที่จอง : {{ $moment(item.createdAt).format("lll") }}</p>
+            <p>
+              {{ $moment(item.createdAt).add(543, "year").format("LLLL") }} น.
+            </p>
             <p v-if="user.Role.id > 1">เบอร์โทร : {{ item.tel }}</p>
           </v-card-text>
         </v-card>
@@ -39,8 +41,14 @@
           <v-toolbar dense flat> กำหนดการ / สถานที่ </v-toolbar>
           <v-divider></v-divider>
           <v-card-text>
-            <p>เริ่ม : {{ $moment(item.start).format("lll") }} น.</p>
-            <p>สิ้นสุด : {{ $moment(item.end).format("lll") }} น.</p>
+            <p>
+              <v-icon color="success">mdi-play</v-icon>
+              {{ $moment(item.start).add(543, "year").format("LLLL") }} น.
+            </p>
+            <p>
+              <v-icon color="error">mdi-stop</v-icon>
+              {{ $moment(item.end).add(543, "year").format("LLLL") }} น.
+            </p>
             <p>
               {{ item.Room.name }}
             </p>
@@ -58,7 +66,7 @@
           <v-divider></v-divider>
           <v-card-text>
             <card-booking-list-device
-              :ids.sync="item.BookingDevice"
+              :ids.sync="item.bookingDevice"
               :dialogView.sync="dialogView"
             />
           </v-card-text>
@@ -71,7 +79,7 @@
           <v-divider></v-divider>
           <v-card-text>
             <card-booking-list-food
-              :ids.sync="item.BookingFood"
+              :ids.sync="item.bookingFood"
               :dialogView.sync="dialogView"
             />
           </v-card-text>
@@ -84,7 +92,7 @@
           <v-divider></v-divider>
           <v-card-text>
             <card-booking-list-drink
-              :ids.sync="item.BookingDrink"
+              :ids.sync="item.bookingDrink"
               :dialogView.sync="dialogView"
             />
           </v-card-text>

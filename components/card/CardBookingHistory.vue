@@ -22,17 +22,13 @@
           </template>
           <template v-slot:item.start="{ item }">
             <span>
-              {{ $moment(item.start).format("ll") }}
-            </span>
-            <br />
-            <span> {{ $moment(item.start).format("LT") }} น. </span>
+              {{ $moment(item.start).add(543, "year").format("LLLL") }} น.</span
+            >
           </template>
           <template v-slot:item.end="{ item }">
             <span>
-              {{ $moment(item.end).format("ll") }}
-            </span>
-            <br />
-            <span> {{ $moment(item.end).format("LT") }} น. </span>
+              {{ $moment(item.end).add(543, "year").format("LLLL") }} น.</span
+            >
           </template>
           <template v-slot:item.type="{ item }">
             <v-chip label color="success" dark v-if="item.meetingTypeId > 1">
@@ -42,13 +38,40 @@
               {{ item.MeetingType.name }}
             </v-chip>
           </template>
-          <template v-slot:item.actions="{ item }">
+          <template v-slot:item.status="{ item }">
+            <v-chip label color="warning" dark v-if="item.statusId == 1">
+              {{ item.Status.name }}
+            </v-chip>
+            <v-chip label color="success" dark v-if="item.statusId == 2">
+              {{ item.Status.name }}
+            </v-chip>
+            <v-chip label color="error" dark v-if="item.statusId == 3">
+              {{ item.Status.name }}
+            </v-chip>
+          </template>
+          <template v-slot:item.edit="{ item }">
             <v-btn
-              :disabled="item.statusId > 2"
+              :disabled="item.statusId > 1"
+              outlined
               color="warning"
               @click="$emit('editItem', item)"
             >
               แก้ไข
+            </v-btn>
+          </template>
+          <template v-slot:item.cancel="{ item }">
+            <v-btn
+              :disabled="item.statusId > 1"
+              outlined
+              color="error"
+              @click="$emit('cancelItem', item)"
+            >
+              ยกเลิก
+            </v-btn>
+          </template>
+          <template v-slot:item.view="{ item }">
+            <v-btn outlined color="primary" @click="$emit('viewItem', item)">
+              รายละเอียด
             </v-btn>
           </template>
         </v-data-table>

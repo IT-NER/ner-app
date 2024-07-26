@@ -7,6 +7,7 @@
     <card-booking-calendar
       :items.sync="items"
       :item.sync="item"
+      :dateFocus.sync="dateFocus"
       @getItems="getItems"
       @addItem="addItem"
       @viewItem="viewItem"
@@ -73,6 +74,9 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+
+    <!-- CardBookingListDay -->
+    <card-booking-list-day :focus.sync="dateFocus" @viewItem="viewItem" />
   </div>
 </template>
 
@@ -81,16 +85,18 @@ import CardBookingCalendar from "~/components/card/CardBookingCalendar.vue";
 import CardBookingRoom from "~/components/card/CardBookingRoom.vue";
 import CardBookingView from "~/components/card/CardBookingView.vue";
 import FormBookingCrud from "~/components/form/FormBookingCrud.vue";
+import CardBookingListDay from "~/components/card/CardBookingListDay.vue";
 export default {
   components: {
     CardBookingCalendar,
     FormBookingCrud,
     CardBookingRoom,
     CardBookingView,
+    CardBookingListDay,
   },
   data() {
     return {
-      focus: "",
+      dateFocus: "",
 
       items: [],
       item: {
@@ -157,7 +163,6 @@ export default {
 
   methods: {
     async editItem(item) {
-      // console.log("item", item);
       this.item = await Object.assign({}, item);
       await this.getItemsRoom();
       this.dialog = true;
@@ -165,12 +170,8 @@ export default {
 
     async getItemsRoom() {
       await this.setItemDateTime();
-
       this.itemsRoomEnable = await this.getItemsRoomEnable();
-      console.log("itemsRoomEnable", this.itemsRoomEnable);
       this.itemsRoomDisable = await this.getItemsRoomDisable();
-      // console.log("itemsRoomDisable", this.itemsRoomDisable);
-      // console.log("result", result);
     },
 
     async getItemsRoomEnable() {
@@ -366,9 +367,10 @@ export default {
       this.item.timeEndModal = false;
     },
 
-    async viewItem() {
+    async viewItem(item) {
+      console.log("item", item);
+      this.item = Object.assign({}, item);
       this.dialogView = true;
-      console.log("item", this.item);
     },
     async closeDialog() {
       this.dialog = false;

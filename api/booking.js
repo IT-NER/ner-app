@@ -556,61 +556,56 @@ app.put("/booking/:id", async (req, res) => {
   res.status(200).json(booking);
 });
 
-app.put("/booking/cancel/:id", async (req, res) => {
-  let id = req.params.id;
-
-  let booking = await prisma.booking
-    .update({
-      where: {
-        id: Number(id),
-      },
-      data: {
-        statusId: Number(3),
-        updatedAt: new Date(),
-      },
-    })
-    .then((res) => {
-      // // console.log("res", res);
-      return res;
-    })
-    .catch((err) => {
-      // // console.log("err", err);
-      res.status(401).json({ error: err });
-      return;
-    });
-
+// approve
+app.post("/booking/approve", async (req, res) => {
+  let item = req.body.data;
+  let booking = await approve(item);
   res.status(200).json(booking);
 });
-
-app.put("/booking/approve/:id", async (req, res) => {
-  let id = req.params.id;
-  // // console.log("req.body", req.body);
-  // return
-  let ApproveBy = req.body.data.ApproveBy;
-
+async function approve(item) {
   let booking = await prisma.booking
     .update({
       where: {
-        id: Number(id),
+        id: Number(item.id),
       },
       data: {
         statusId: Number(2),
-        ApproveBy: Number(ApproveBy),
-        updatedAt: new Date(),
+        ApproveBy: Number(item.ApproveBy),
       },
     })
     .then((res) => {
-      // // console.log("res", res);
       return res;
     })
     .catch((err) => {
-      // // console.log("err", err);
-      res.status(401).json({ error: err });
-      return;
+      return false;
     });
+  return booking;
+}
 
+// cancel
+app.post("/booking/cancel", async (req, res) => {
+  let item = req.body.data;
+  let booking = await cancel(item);
   res.status(200).json(booking);
 });
+async function cancel(item) {
+  let booking = await prisma.booking
+    .update({
+      where: {
+        id: Number(item.id),
+      },
+      data: {
+        statusId: Number(3),
+      },
+    })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      return false;
+    });
+  return booking;
+}
 
 app.delete("/booking/:id", async (req, res) => {
   let id = req.params.id;
@@ -649,10 +644,6 @@ async function getBookingByDate(date) {
     dateStart = moment().format("YYYY-MM-DDT00:00:00");
   }
   dateEnd = moment(dateStart).add(1, "day").format("YYYY-MM-DDT00:00:00");
-
-  // console.log("dateStart", dateStart);
-  // console.log("dateEnd", dateEnd);
-  // return;
 
   let data = await prisma.booking.findMany({
     where: {

@@ -4,7 +4,7 @@
     <v-card flat height="800">
       <v-card-title> รายการจองห้องประชุม (ประจำวัน) </v-card-title>
       <v-divider></v-divider>
-      <v-card-text v-if="items.length > 0">
+      <v-card-text v-if="items">
         <v-data-table
           :items-per-page="-1"
           :headers="headers"
@@ -27,10 +27,10 @@
             </v-chip>
           </template>
           <template v-slot:item.start="{ item }">
-            {{ $moment(item.start).format("lll") }}
+            {{ $moment(item.start).format("LLLL") }} น.
           </template>
           <template v-slot:item.end="{ item }">
-            {{ $moment(item.end).format("lll") }}
+            {{ $moment(item.end).format("LLLL") }} น.
           </template>
           <template v-slot:item.type="{ item }">
             <v-chip label color="success" dark v-if="item.meetingTypeId > 1">
@@ -39,6 +39,11 @@
             <v-chip label color="error" dark v-else>
               {{ item.MeetingType.name }}
             </v-chip>
+          </template>
+          <template v-slot:item.view="{ item }">
+            <v-btn outlined color="primary" @click="$emit('viewItem', item)">
+              รายละเอียด
+            </v-btn>
           </template>
         </v-data-table>
       </v-card-text>
@@ -62,7 +67,7 @@ export default {
         {
           text: "ลำดับ",
           value: "no",
-          align: "start",
+          align: "center",
           sortable: false,
         },
         {
@@ -71,12 +76,12 @@ export default {
           align: "start",
           sortable: false,
         },
-        {
-          text: "ประธาน",
-          value: "chairman",
-          align: "start",
-          sortable: false,
-        },
+        // {
+        //   text: "ประธาน",
+        //   value: "chairman",
+        //   align: "start",
+        //   sortable: false,
+        // },
         {
           text: "ผู้จอง",
           value: "author",
@@ -104,7 +109,13 @@ export default {
         {
           text: "ประเภท",
           value: "type",
-          align: "start",
+          align: "center",
+          sortable: false,
+        },
+        {
+          text: "รายละเอียด",
+          value: "view",
+          align: "center",
           sortable: false,
         },
       ],
@@ -113,11 +124,10 @@ export default {
 
   watch: {
     focus(val) {
-      // if (val) {
       this.main();
-      // }
     },
   },
+
   created() {
     this.main();
   },
@@ -133,6 +143,40 @@ export default {
           data: this.focus,
         })
         .then((res) => {
+          res.data.forEach((item) => {
+            item["color"] = item.Room.color;
+            item["bookingDevice"] = [];
+            item["bookingFood"] = [];
+            item["bookingDrink"] = [];
+
+            if (item.BookingDevice.length > 0) {
+              item.BookingDevice.forEach((e) => {
+                if (e.deviceId) {
+                  item["bookingDevice"].push(e.deviceId);
+                } else {
+                  item["bookingDevice"].push(e);
+                }
+              });
+            }
+            if (item.BookingFood.length > 0) {
+              item.BookingFood.forEach((e) => {
+                if (e.foodId) {
+                  item["bookingFood"].push(e.foodId);
+                } else {
+                  item["bookingFood"].push(e);
+                }
+              });
+            }
+            if (item.BookingDrink.length > 0) {
+              item.BookingDrink.forEach((e) => {
+                if (e.drinkId) {
+                  item["bookingDrink"].push(e.drinkId);
+                } else {
+                  item["bookingDrink"].push(e);
+                }
+              });
+            }
+          });
           return res.data;
         })
         .catch((err) => {

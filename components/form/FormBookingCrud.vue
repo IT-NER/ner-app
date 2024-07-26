@@ -424,6 +424,7 @@ export default {
   components: { CardBookingRoomDisable },
   props: [
     "item",
+    "items",
     "itemsMeetingType",
     "itemsBookingStatus",
     "itemsDevice",
@@ -432,6 +433,7 @@ export default {
     "itemsProgram",
     "itemsRoomEnable",
     "itemsRoomDisable",
+    "getItemsRoom",
   ],
 };
 </script>

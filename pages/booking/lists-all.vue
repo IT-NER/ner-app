@@ -2,11 +2,11 @@
   <div>
     <card-booking-filter
       :filter.sync="filter"
-      :item.sync="item"
-      :items.sync="items"
+      :itemsRoom.sync="itemsRoom"
+      :itemsMeetingType.sync="itemsMeetingType"
+      :itemsStatus.sync="itemsStatus"
       @refresh="refresh"
       @getItems="getItems"
-      @setDateEnd="setDateEnd"
     />
 
     <card-booking-crud
@@ -17,6 +17,8 @@
       @addItem="addItem"
       @editItem="editItem"
       @viewItem="viewItem"
+      @cancelItem="cancelItem"
+      @approveItem="approveItem"
     />
 
     <v-dialog
@@ -46,7 +48,7 @@
               :itemsDrink.sync="itemsDrink"
               :itemsRoomEnable.sync="itemsRoomEnable"
               :itemsRoomDisable.sync="itemsRoomDisable"
-              @getItemsRoom="getItemsRoom"
+              @getItemsRoom="filterItemsRoom"
               @setItemMeetingType="setItemMeetingType"
               @setDateEnd="setDateEnd"
             />
@@ -108,17 +110,22 @@ export default {
         timeStartModal: false,
         timeEndModal: false,
 
+        start: null,
+        end: null,
         roomId: null,
         meetingTypeId: null,
         statusId: 1,
       },
+      itemsRoom: [],
+      itemsMeetingType: [],
+      itemsStatus: [],
 
       headers: [],
       headersUser: [
         {
           text: "ลำดับ",
           value: "no",
-          align: "start",
+          align: "center",
           sortable: false,
         },
         {
@@ -126,18 +133,7 @@ export default {
           value: "name",
           align: "start",
           sortable: false,
-        },
-        {
-          text: "ประธาน",
-          value: "chairman",
-          align: "start",
-          sortable: false,
-        },
-        {
-          text: "ผู้จอง",
-          value: "author",
-          align: "start",
-          sortable: false,
+          width: 300,
         },
         {
           text: "ห้องประชุม",
@@ -160,19 +156,19 @@ export default {
         {
           text: "ประเภท",
           value: "type",
-          align: "start",
+          align: "center",
           sortable: false,
         },
         {
           text: "สถานะ",
           value: "status",
-          align: "start",
+          align: "center",
           sortable: false,
         },
         {
-          text: "VIEW",
+          text: "รายละเอียด",
           value: "view",
-          align: "start",
+          align: "center",
           sortable: false,
         },
       ],
@@ -180,7 +176,7 @@ export default {
         {
           text: "ลำดับ",
           value: "no",
-          align: "start",
+          align: "center",
           sortable: false,
         },
         {
@@ -188,18 +184,7 @@ export default {
           value: "name",
           align: "start",
           sortable: false,
-        },
-        {
-          text: "ประธาน",
-          value: "chairman",
-          align: "start",
-          sortable: false,
-        },
-        {
-          text: "ผู้จอง",
-          value: "author",
-          align: "start",
-          sortable: false,
+          width: 300,
         },
         {
           text: "ห้องประชุม",
@@ -222,24 +207,36 @@ export default {
         {
           text: "ประเภท",
           value: "type",
-          align: "start",
+          align: "center",
           sortable: false,
         },
         {
           text: "สถานะ",
           value: "status",
-          align: "start",
-          sortable: false,
-        },
-        {
-          text: "ACTIONS",
-          value: "actions",
           align: "center",
           sortable: false,
         },
         {
-          text: "VIEW",
+          text: "แก้ไข",
+          value: "edit",
+          align: "center",
+          sortable: false,
+        },
+        {
+          text: "รายละเอียด",
           value: "view",
+          align: "center",
+          sortable: false,
+        },
+        {
+          text: "ไม่อนุมัติ",
+          value: "cancel",
+          align: "center",
+          sortable: false,
+        },
+        {
+          text: "อนุมัติ",
+          value: "approve",
           align: "center",
           sortable: false,
         },
@@ -288,7 +285,6 @@ export default {
       dialog: false,
       dialogView: false,
 
-      itemsMeetingType: [],
       itemsProgram: [],
       itemsBookingStatus: [],
       itemsDevice: [],
@@ -301,95 +297,259 @@ export default {
     };
   },
 
-  created() {
-    // this.items = this.getItems();
-    // this.user = this.getUser();
-    this.itemsMeetingType = this.getItemsMeetingType();
-    this.itemsProgram = this.getItemsProgram();
-    this.itemsDevice = this.getItemsDevice();
-    this.itemsFood = this.getItemsFood();
-    this.itemsDrink = this.getItemsDrink();
+  async created() {
+    await this.getUser();
+    await this.getItemsRoom();
+    await this.getItemsStatus();
+    await this.getItems();
+    await this.getItemsMeetingType();
+    await this.getItemsProgram();
+    await this.getItemsDevice();
+    await this.getItemsFood();
+    await this.getItemsDrink();
   },
 
   watch: {
     dialog(val) {
       if (!val) {
-        this.main();
+        this.getItems();
       }
     },
   },
 
   methods: {
-    async main() {
-      this.items = await this.getItems();
-      this.user = await this.getUser();
-    },
+    async approveItem(e) {
+      let item = await Object.assign({}, e);
+      let user = await this.$auth.$storage.getCookie("user");
+      item.ApproveBy = await user.id;
 
-    async editItem(item) {
-      console.log("item", item);
-      this.item = Object.assign({}, item);
+      let confirm = await this.alertConfirmApproveItem();
+      console.log("confirm", confirm);
 
-      await this.getItemsRoom();
-      this.dialog = true;
-    },
-    async setDateTime() {
-      this.item.start = new Date(
-        this.item.dateStart + "T" + this.item.timeStart
-      );
-      this.item.end = new Date(this.item.dateEnd + "T" + this.item.timeEnd);
-    },
-    async getItemsRoom() {
-      console.log("item", this.item);
-      await this.setDateTime();
-      this.itemsRoomEnable = await this.getItemsRoomEnable();
-      this.itemsRoomDisable = await this.getItemsRoomDisable();
-      // console.log("itemsRoomEnable", this.itemsRoomEnable);
-      // console.log("itemsRoomDisable", this.itemsRoomDisable);
-
-      if (!this.item.id) {
+      if (!confirm) {
         return;
       }
-      this.item.roomId = await this.item.Room.id;
-      console.log("item", this.item);
-    },
 
-    async getItemsRoomEnable() {
-      let items = await this.$axios
-        .post("/api/room/enable", {
-          data: this.item,
+      let booking = await this.$axios
+        .post("/api/booking/approve", {
+          data: item,
         })
         .then((res) => {
-          return res.data;
+          return true;
         })
         .catch((err) => {
           return false;
         });
 
-      return items;
-    },
+      console.log("booking", booking);
+      if (!booking) {
+        return;
+      }
 
-    async getItemsRoomDisable() {
-      let items = await this.$axios
-        .post("/api/room/disable", {
-          data: this.item,
+      await this.alertSuccess();
+      await this.getItems();
+    },
+    async alertConfirmApproveItem() {
+      let item = await this.$swal
+        .fire({
+          title: "อนุมัติ",
+          text: "ต้องการอนุมัติ ใช่หรือไม่?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          cancelButtonText: "ไม่ใช่",
+          confirmButtonText: "ใช่",
         })
         .then((res) => {
-          return res.data;
+          if (res.value) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+      return item;
+    },
+
+    async cancelItem(e) {
+      let item = Object.assign({}, e);
+      let confirm = await this.alertConfirmCancelItem();
+      console.log("confirm", confirm);
+
+      if (!confirm) {
+        return;
+      }
+
+      let booking = await this.$axios
+        .post("/api/booking/cancel", {
+          data: item,
+        })
+        .then((res) => {
+          return true;
         })
         .catch((err) => {
           return false;
         });
 
-      return items;
+      console.log("booking", booking);
+      if (!booking) {
+        return;
+      }
+
+      await this.alertSuccess();
+      await this.getItems();
+    },
+    async alertConfirmCancelItem() {
+      let item = await this.$swal
+        .fire({
+          title: "ยกเลิก",
+          text: "ต้องการยกเลิก ใช่หรือไม่?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          cancelButtonText: "ไม่ใช่",
+          confirmButtonText: "ใช่",
+        })
+        .then((res) => {
+          if (res.value) {
+            // console.log("res", res.value);
+            return true;
+          } else {
+            return false;
+          }
+        });
+      return item;
     },
 
-    async setItemDateTime() {
-      this.item.start = new Date(
-        this.item.dateStart + "T" + this.item.timeStart
+    // get
+    async getItems() {
+      // return;
+
+      this.filter.start = new Date(
+        this.filter.dateStart + "T" + this.filter.timeStart
       );
-      this.item.end = new Date(this.item.dateEnd + "T" + this.item.timeEnd);
+
+      this.filter.end = new Date(
+        this.filter.dateEnd + "T" + this.filter.timeEnd
+      );
+      console.log("filter", this.filter);
+
+      this.items = await this.$axios
+        .post("/api/booking/search", {
+          data: this.filter,
+        })
+        .then((res) => {
+          res.data.forEach((item) => {
+            item["color"] = item.Room.color;
+            item["bookingDevice"] = item.BookingDevice;
+            item["bookingFood"] = item.BookingFood;
+            item["bookingDrink"] = item.BookingDrink;
+
+            item["start"] = this.$moment(new Date(item.start)).format(
+              "YYYY-MM-DDTHH:mm"
+            );
+            item["end"] = this.$moment(new Date(item.end)).format(
+              "YYYY-MM-DDTHH:mm"
+            );
+
+            item["dateStart"] = this.$moment(new Date(item.start)).format(
+              "YYYY-MM-DD"
+            );
+            item["timeStart"] = this.$moment(new Date(item.start)).format(
+              "HH:mm"
+            );
+            item["dateEnd"] = this.$moment(new Date(item.end)).format(
+              "YYYY-MM-DD"
+            );
+            item["timeEnd"] = this.$moment(new Date(item.end)).format("HH:mm");
+          });
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsMeetingType() {
+      this.itemsMeetingType = await this.$axios
+        .get("/api/meetingType")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsRoom() {
+      this.itemsRoom = await this.$axios
+        .get("/api/room")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsStatus() {
+      this.itemsStatus = await this.$axios
+        .get("/api/status")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsProgram() {
+      this.itemsProgram = await this.$axios
+        .get("/api/program")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsDevice() {
+      this.itemsDevice = await this.$axios
+        .get("/api/device")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsFood() {
+      this.itemsFood = await this.$axios
+        .get("/api/food")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsDrink() {
+      this.itemsDrink = await this.$axios
+        .get("/api/drink")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getUser() {
+      this.user = await this.$auth.$storage.getCookie("user");
+      if (this.user.Role.id == 1) {
+        this.headers = this.headersUser;
+      } else if (this.user.Role.id > 1) {
+        this.headers = this.headersAdmin;
+      }
     },
 
+    // add
     async addItem() {
       this.dialog = true;
       this.itemsRoomEnable = [];
@@ -429,6 +589,46 @@ export default {
       this.item.timeEndModal = false;
     },
 
+    // edit
+    async editItem(item) {
+      // console.log("item1", item);
+      this.item = Object.assign({}, item);
+      await this.filterItemsRoom();
+      await this.openDialog();
+    },
+    async filterItemsRoom() {
+      await this.setDateTime();
+      await this.getItemsRoomEnable();
+      await this.getItemsRoomDisable();
+      // console.log("itemsRoomEnable", this.itemsRoomEnable);
+      // console.log("itemsRoomDisable", this.itemsRoomDisable);
+    },
+    async getItemsRoomEnable() {
+      this.itemsRoomEnable = await this.$axios
+        .post("/api/room/enable", {
+          data: this.item,
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+    async getItemsRoomDisable() {
+      this.itemsRoomDisable = await this.$axios
+        .post("/api/room/disable", {
+          data: this.item,
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
+
+    // save
     async save() {
       let user = this.$auth.$storage.getCookie("user");
       this.item.userId = await user.id;
@@ -461,7 +661,7 @@ export default {
 
       this.dialog = false;
       await this.alertSuccess();
-      await this.main();
+      await this.getItems();
     },
     async create() {
       let item = await this.$axios
@@ -469,7 +669,6 @@ export default {
           data: this.item,
         })
         .then((res) => {
-          // console.log("createBooking", res.data);
           return res.data;
         })
         .catch((err) => {
@@ -493,10 +692,56 @@ export default {
       return item;
     },
 
+    // dialog
+    async openDialog() {
+      this.dialog = true;
+    },
+    async closeDialog() {
+      this.dialog = false;
+    },
+
+    // view
+    async viewItem(item) {
+      console.log("item", this.item);
+      this.item = await item;
+      this.dialogView = true;
+    },
+
+    // refresh
+    async refresh() {
+      this.filter.dateStart = this.$moment().format("YYYY-MM-DD");
+      this.filter.dateEnd = this.$moment().add(1, "days").format("YYYY-MM-DD");
+      this.filter.timeStart = this.$moment().format("00:00");
+      this.filter.timeEnd = this.$moment().format("00:00");
+
+      this.filter.statusId = 1;
+      this.filter.roomId = null;
+      this.filter.meetingTypeId = null;
+
+      await this.getItems();
+    },
+
+    // set
+    async setDateTime() {
+      this.item.start = new Date(
+        this.item.dateStart + "T" + this.item.timeStart
+      );
+      this.item.end = new Date(this.item.dateEnd + "T" + this.item.timeEnd);
+    },
     async setDateEnd() {
       this.filter.dateEnd = this.filter.dateStart;
-      await this.getItemsRoom();
+      // await this.filterItemsRoom();
     },
+    async setItemMeetingType() {
+      if (this.item.meetingTypeId == 1) {
+        this.item.programId = null;
+        this.item.meetingId = null;
+        this.item.meetingPassword = null;
+        this.item.url = null;
+      }
+    },
+
+    // alert
     async alertError() {
       this.$swal.fire({
         type: "error",
@@ -527,160 +772,6 @@ export default {
         type: "warning",
         title: "กรุณาเลือกโปรแกรม",
       });
-    },
-    async setItemMeetingType() {
-      if (this.item.meetingTypeId == 1) {
-        this.item.programId = null;
-        this.item.meetingId = null;
-        this.item.meetingPassword = null;
-        this.item.url = null;
-      }
-    },
-    async setItemMeetingType() {
-      if (this.item.meetingTypeId == 1) {
-        this.item.programId = null;
-        this.item.meetingId = null;
-        this.item.meetingPassword = null;
-        this.item.url = null;
-      }
-    },
-
-    async getUser() {
-      let user = await this.$auth.$storage.getCookie("user");
-
-      if (user.Role.id == 1) {
-        this.headers = this.headersUser;
-      } else if (user.Role.id > 1) {
-        this.headers = this.headersAdmin;
-      }
-      return user;
-    },
-    async viewItem(item) {
-      console.log("item", this.item);
-      this.item = await item;
-      this.dialogView = true;
-    },
-
-    async closeDialog() {
-      this.dialog = false;
-    },
-
-    async refresh() {
-      this.filter.dateStart = this.$moment().format("YYYY-MM-DD");
-      this.filter.dateEnd = this.$moment().add(1, "days").format("YYYY-MM-DD");
-      this.filter.timeStart = this.$moment().format("00:00");
-      this.filter.timeEnd = this.$moment().format("00:00");
-      this.filter.statusId = 1;
-
-      await this.getItems();
-    },
-    async getItems() {
-      // console.log("item", this.filter);
-
-      this.filter.start = await this.$moment(
-        this.filter.dateStart + "T" + this.filter.timeStart
-      ).format("YYYY-MM-DDTHH:mm");
-      this.filter.end = await this.$moment(
-        this.filter.dateEnd + "T" + this.filter.timeEnd
-      ).format("YYYY-MM-DDTHH:mm");
-
-      let items = await this.$axios
-        .post("/api/booking/search", {
-          data: this.filter,
-        })
-        .then((res) => {
-          res.data.forEach((item) => {
-            item["color"] = item.Room.color;
-            item["bookingDevice"] = item.BookingDevice;
-            item["bookingFood"] = item.BookingFood;
-            item["bookingDrink"] = item.BookingDrink;
-
-            item["start"] = this.$moment(new Date(item.start)).format(
-              "YYYY-MM-DDTHH:mm"
-            );
-            item["end"] = this.$moment(new Date(item.end)).format(
-              "YYYY-MM-DDTHH:mm"
-            );
-
-            item["dateStart"] = this.$moment(new Date(item.start)).format(
-              "YYYY-MM-DD"
-            );
-            item["timeStart"] = this.$moment(new Date(item.start)).format(
-              "HH:mm"
-            );
-            item["dateEnd"] = this.$moment(new Date(item.end)).format(
-              "YYYY-MM-DD"
-            );
-            item["timeEnd"] = this.$moment(new Date(item.end)).format("HH:mm");
-          });
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      this.items = items;
-      return items;
-    },
-    async getItemsMeetingType() {
-      let items = await this.$axios
-        .get("/api/meetingType")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return items;
-    },
-    async getItemsProgram() {
-      let items = await this.$axios
-        .get("/api/program")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return items;
-    },
-    async getItemsDevice() {
-      let items = await this.$axios
-        .get("/api/device")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return items;
-    },
-    async getItemsFood() {
-      let items = await this.$axios
-        .get("/api/food")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return items;
-    },
-    async getItemsDrink() {
-      let items = await this.$axios
-        .get("/api/drink")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return items;
     },
   },
 };

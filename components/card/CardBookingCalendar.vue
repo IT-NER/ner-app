@@ -6,18 +6,18 @@
         {{ $refs.calendar.title }}
         <v-spacer></v-spacer>
 
-        <v-btn color="success" @click="$emit('addItem')">
+        <v-btn outlined color="success" @click="$emit('addItem')">
           <v-icon class="mr-2"> mdi-calendar-plus</v-icon>
           จองห้องประชุม
         </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn color="primary" @click="setToday"> Today </v-btn>
+        <v-btn outlined color="primary" @click="setToday"> Today </v-btn>
 
         <v-menu bottom right>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" v-bind="attrs" v-on="on">
+            <v-btn outlined color="primary" v-bind="attrs" v-on="on">
               <span>{{ typeToLabel[type] }}</span>
               <v-icon right> mdi-menu-down </v-icon>
             </v-btn>
@@ -56,7 +56,7 @@
                 color="primary"
                 :events="items"
                 :type="type"
-                @click:event="showEvent"
+                @click:event="$emit('viewItem', $event.event)"
                 @click:more="viewDay"
                 @click:date="viewDay"
                 @change="$emit('getItems')"
@@ -67,8 +67,6 @@
         </v-row>
       </v-card-actions>
     </v-card>
-
-    <card-booking-list-day :focus.sync="focus" />
   </div>
 </template>
 
@@ -78,7 +76,7 @@ export default {
   components: {
     CardBookingListDay,
   },
-  props: ["items", "item", "getItems", "addItem", "viewItem"],
+  props: ["items", "item", "dateFocus"],
 
   data: () => ({
     focus: "",
@@ -91,10 +89,13 @@ export default {
     },
   }),
 
+  watch: {
+    focus(val) {
+      this.$emit("update:dateFocus", val);
+    },
+  },
   methods: {
     viewDay({ date }) {
-      // this.focus = date;
-      this.$emit("update:focus", date);
       this.type = "day";
     },
     setToday() {
@@ -107,7 +108,6 @@ export default {
       this.$refs.calendar.next();
     },
     async showEvent({ event }) {
-      // console.log("event", event);
       let item = await Object.assign({}, event);
       this.$emit("update:item", item);
       this.$emit("viewItem");
