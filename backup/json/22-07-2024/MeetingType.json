@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Offline",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 2,
+    "name": "Online",
+    "createdAt": null,
+    "updatedAt": null
+  }
+]

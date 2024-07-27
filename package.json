@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+<<<<<<< HEAD
     "start": "nuxt start",
     "generate": "nuxt generate"
+=======
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
@@ -21,11 +26,19 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.30.1",
+<<<<<<< HEAD
     "net": "^1.0.2",
     "nuxt": "^2.15.8",
     "nuxt-sweetalert2": "^1.0.0",
     "pm2": "^5.4.0",
     "prisma": "^5.14.0",
+=======
+    "multer": "^1.4.5-lts.1",
+    "nuxt": "^2.17.3",
+    "nuxt-sweetalert2": "^1.0.0",
+    "pm2": "^5.4.0",
+    "prisma": "^5.17.0",
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
     "vuetify": "^2.6.10"
   },
   "devDependencies": {

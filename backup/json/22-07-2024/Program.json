@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Zoom",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 2,
+    "name": "Microsoft Team",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 3,
+    "name": "Webex",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 4,
+    "name": "Stream Yard",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 5,
+    "name": "อื่นๆ",
+    "createdAt": null,
+    "updatedAt": null
+  }
+]

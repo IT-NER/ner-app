@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "ห้อง ประชุมใหญ่ชั้น 1",
+    "quantity": 90,
+    "color": "#EEB70CFF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 2,
+    "name": "ห้อง 2/1",
+    "quantity": 5,
+    "color": "#F40D24FF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 3,
+    "name": "ห้อง 2/2",
+    "quantity": 13,
+    "color": "#747674FF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 4,
+    "name": "ห้อง 3/1",
+    "quantity": 5,
+    "color": "#1DE6E9FF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 5,
+    "name": "ห้อง 3/2",
+    "quantity": 13,
+    "color": "#091EF7FF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 6,
+    "name": "ห้อง 4/1",
+    "quantity": 17,
+    "color": "#EF07DAFF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 7,
+    "name": "ห้อง 4/2",
+    "quantity": 13,
+    "color": "#FC6205FF",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "id": 8,
+    "name": "ห้อง ทรัพย์ปัญญา",
+    "quantity": 12,
+    "color": "#1C7A05FF",
+    "createdAt": null,
+    "updatedAt": null
+  }
+]

@@ -7,59 +7,64 @@ let app = express();
 app.use(express.json());
 
 // getAll
-app.get('/program', async (req, res) => {
-  let program = await prisma.program.findMany();
+app.get("/program", async (req, res) => {
+  let program = await prisma.program.findMany({
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
   res.status(200).json(program);
 });
 
 //getById
-app.get('/program/:id', async (req, res) => {
-  const { id } = req.params
+app.get("/program/:id", async (req, res) => {
+  const { id } = req.params;
   const program = await prisma.program.findUnique({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(program)
-})
-
+  });
+  res.status(200).json(program);
+});
 
 //create
-app.post('/program', async (req, res) => {
-  let item = req.body.data
+app.post("/program", async (req, res) => {
+  let item = req.body.data;
   let program = await prisma.program.create({
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(program)
-})
+  });
+  res.status(200).json(program);
+});
 
 //update
-app.put('/program/:id', async (req, res) => {
-  let id = req.params.id
-  let item = req.body.data
+app.put("/program/:id", async (req, res) => {
+  let id = req.params.id;
+  let item = req.body.data;
   let program = await prisma.program.update({
     where: {
-      id: parseInt(id)
+      id: Number(id),
     },
     data: {
-      name: item.name
+      name: item.name,
     },
-  })
-  res.status(200).json(program)
-})
+  });
+  res.status(200).json(program);
+});
 
 //delete
-app.delete('/program/:id', async (req, res) => {
-  let id = req.params.id
+app.delete("/program/:id", async (req, res) => {
+  let id = req.params.id;
   let program = await prisma.program.delete({
     where: {
-      id: parseInt(id),
+      id: Number(id),
     },
-  })
-  res.status(200).json(program)
-})
+  });
+  res.status(200).json(program);
+});
 
 export default {
   path: "/api",

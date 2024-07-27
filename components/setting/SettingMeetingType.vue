@@ -36,9 +36,9 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn :color="formColor" type="submit">
+            <v-btn outlined :color="formColor" type="submit">
               <v-icon>mdi-content-save</v-icon>
-              <span> บันทึกข้อมูล </span>
+              <span> บันทึก </span>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -58,9 +58,15 @@
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6" sm="12">
-          <v-btn color="success" dark @click="addItem" class="float-right">
+          <v-btn
+            outlined
+            color="success"
+            dark
+            @click="addItem"
+            class="float-right"
+          >
             <v-icon class="mr-2">mdi-database-plus</v-icon>
-            <span>เพิ่มข้อมูล</span>
+            <span>เพิ่ม</span>
           </v-btn>
         </v-col>
       </v-row>
@@ -79,11 +85,16 @@
                   {{ index + 1 }}
                 </template>
                 <template v-slot:item.actions="{ item }">
-                  <v-btn color="warning" small @click="editItem(item)">
+                  <v-btn outlined color="warning" small @click="editItem(item)">
                     <v-icon class="mr-auto"> mdi-database-edit </v-icon>
                     <small>แก้ไข</small>
                   </v-btn>
-                  <v-btn color="error" small @click="deleteMeetingType(item)">
+                  <v-btn
+                    outlined
+                    color="error"
+                    small
+                    @click="deleteMeetingType(item)"
+                  >
                     <v-icon class="mr-auto"> mdi-database-minus </v-icon>
                     <small>ลบ</small>
                   </v-btn>
@@ -101,7 +112,9 @@
                   </v-icon> -->
                 </template>
                 <template v-slot:no-data>
-                  <v-btn color="primary" @click="getMeetingType"> Reset </v-btn>
+                  <v-btn outlined color="primary" @click="getMeetingType">
+                    Reset
+                  </v-btn>
                 </template>
               </v-data-table>
             </v-card-text>
@@ -123,7 +136,7 @@ export default {
       { text: "ลำดับ", value: "index", align: "center" },
       { text: "ชื่อประเภทการประชุม", value: "name" },
       {
-        text: "Actions",
+        text: "ACTIONS",
         value: "actions",
         align: "center",
         sortable: false,
@@ -146,7 +159,7 @@ export default {
       return this.editedIndex === -1 ? "success" : "warning";
     },
     formTitle() {
-      return this.editedIndex === -1 ? "เพิ่มข้อมูล" : "แก้ไขข้อมูล";
+      return this.editedIndex === -1 ? "เพิ่ม" : "แก้ไข";
     },
     iconTitle() {
       return this.editedIndex === -1
@@ -206,7 +219,7 @@ export default {
           this.alertSuccess();
           this.getMeetingType();
         } else {
-          this.aleartError();
+          this.alertError();
         }
       } else {
         this.setItemDefault();
@@ -249,7 +262,7 @@ export default {
       });
     },
 
-    async aleartError() {
+    async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",
@@ -262,7 +275,7 @@ export default {
       this.$swal.fire({
         position: "top-end",
         type: "success",
-        title: "บันทึกข้อมูล เรียบร้อย",
+        title: "บันทึก เรียบร้อย",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -339,8 +352,8 @@ export default {
     async saveConfirm() {
       let saveConfirm = this.$swal
         .fire({
-          title: "บันทึกข้อมูล?",
-          text: "กดปุ่ม 'ยืนยัน' เพื่อบันทึกข้อมูล",
+          title: "บันทึก?",
+          text: "กดปุ่ม 'ยืนยัน' เพื่อบันทึก",
           type: "success",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",

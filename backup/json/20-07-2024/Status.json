@@ -1,0 +1,17 @@
+[
+  {
+    "name": "รออนุมัติ",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "name": "อนุมัติ",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  },
+  {
+    "name": "ยกเลิก",
+    "createdAt": "NULL",
+    "updatedAt": "NULL"
+  }
+]

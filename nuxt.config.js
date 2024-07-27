@@ -14,9 +14,26 @@ export default {
     "~/api/status.js",
     "~/api/user.js",
     "~/api/meetingType.js",
+<<<<<<< HEAD
     "~/api/booking.js"
   ],
 
+=======
+    "~/api/booking.js",
+    "~/api/contentType.js",
+    "~/api/contentStatus.js",
+    "~/api/reward.js",
+    "~/api/rewardImg.js",
+    "~/api/uploads.js",
+    "~/api/uploads-content.js",
+    "~/api/uploads-reward.js",
+    "~/api/content.js",
+    "~/api/contentImg.js",
+    "~/api/pointReceived.js",
+  ],
+
+  components: true,
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 
   head: {
     titleTemplate: "%s - NER",
@@ -30,6 +47,7 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
+<<<<<<< HEAD
     link: [{ rel: "icon", type: "image/x-icon", href: "/ner-logo.ico" }],
   },
 
@@ -46,6 +64,16 @@ export default {
     "@nuxtjs/moment",
     '@nuxtjs/pwa',
   ],
+=======
+    link: [{ rel: "icon", type: "image/x-icon", href: "favicon.ico" }],
+  },
+
+  css: ["~assets/global.scss"],
+
+  plugins: [],
+
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/moment", "@nuxtjs/pwa"],
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 
   moment: {
     defaultLocale: "th",
@@ -82,6 +110,7 @@ export default {
     },
 
     redirect: {
+<<<<<<< HEAD
       login: '/login',
       logout: '/',
       callback: '/login',
@@ -90,6 +119,17 @@ export default {
   },
 
   vuetify: {
+=======
+      login: "/login",
+      logout: "/",
+      callback: "/login",
+      home: "/",
+    },
+  },
+
+  vuetify: {
+    customVariables: ["~/assets/variables.scss"],
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
     theme: {
       dark: false,
       light: true,
@@ -104,15 +144,23 @@ export default {
           success: colors.green.accent3,
         },
         light: {
+<<<<<<< HEAD
           primary: '#3470B8',
           secondary: '#FFFFFF',
           success: '#1DAE4B',
           error: '#b71c1c',
+=======
+          primary: "#3470B8",
+          secondary: "#FFFFFF",
+          success: "#1DAE4B",
+          error: "#b71c1c",
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
         },
       },
     },
   },
 
+<<<<<<< HEAD
   mode: 'universal',
 
   build: {
@@ -125,4 +173,14 @@ export default {
   },
 
 
+=======
+  mode: "universal",
+
+  build: {},
+
+  server: {
+    port: 9390, // default: 3000
+    host: "0.0.0.0", // default: localhost
+  },
+>>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 };

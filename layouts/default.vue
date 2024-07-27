@@ -1,172 +1,68 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <!-- account -->
-      <Account />
-      <v-divider />
-      <!-- menu -->
-      <v-card class="mx-auto" max-width="300" tile flat>
-        <v-list nav dense>
-          <v-list-item-group v-model="selectedItem" color="success">
-            <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-              :to="item.to"
-              @click="setTitle(item)"
-            >
-              <v-list-item-icon>
-                <v-icon>
-                  {{ item.icon }}
-                </v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>
-                  {{ item.title }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-card>
+  <v-app id="inspire">
+    <!-- nevbarLeft -->
+    <v-navigation-drawer v-model="drawerLeft" app width="300">
+      <!-- CardProfile -->
+      <card-profile />
+
+      <v-divider></v-divider>
+      <!-- Menu -->
+      <menu-default :item.sync="title" />
     </v-navigation-drawer>
 
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
+    <!-- nevbarRight -->
+    <v-navigation-drawer
+      v-model="drawerRigth"
       app
-      flat
-      color="success"
-      dark
-      dense
+      right
+      v-if="$nuxt.$route.name == 'index'"
+      width="300"
     >
-      <v-app-bar-nav-icon class="mr-5" @click.stop="drawer = !drawer" />
-      <h5 class="title">
-        {{ title }}
-      </h5>
+      <card-button-link />
+      <!-- {{ $nuxt.$route.name }} -->
+    </v-navigation-drawer>
+
+    <v-app-bar app color="success" dark elevation="0">
+      <v-app-bar-nav-icon @click="drawerLeft = !drawerLeft">
+        <v-icon v-if="drawerLeft"> mdi-chevron-left </v-icon>
+        <v-icon v-else> mdi-chevron-right </v-icon>
+      </v-app-bar-nav-icon>
+
+      <v-toolbar-title>
+        <!-- {{ title }} -->
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-app-bar-nav-icon
+        @click="drawerRigth = !drawerRigth"
+        v-if="$nuxt.$route.name == 'index'"
+      >
+        <v-icon v-if="drawerRigth"> mdi-chevron-right </v-icon>
+        <v-icon v-else> mdi-chevron-left </v-icon>
+      </v-app-bar-nav-icon>
     </v-app-bar>
-    <v-divider inset></v-divider>
+
     <v-main>
       <Nuxt />
+      <btn-scroll-to-top />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Account from "~/components/Account.vue";
-
+import CardProfile from "~/components/profile/CardProfile.vue";
+import MenuDefault from "~/components/menu/MenuDefault.vue";
+import CardButtonLink from "~/components/intranet/CardButtonLink.vue";
+import BtnScrollToTop from "~/components/btn/BtnScrollToTop.vue";
 export default {
-  components: { Account },
-
+  components: { CardProfile, MenuDefault, CardButtonLink, BtnScrollToTop },
   data() {
     return {
-      selectedItem: null,
-      clipped: false,
-      drawer: true,
-      fixed: true,
-      user: null,
-      role: null,
-
+      drawerLeft: null,
+      drawerRigth: null,
       title: null,
-
-      items: [],
-
-      itemsSuperAdmin: [
-        {
-          icon: "mdi-home",
-          title: "หน้าหลัก",
-          to: "/",
-        },
-        {
-          icon: "mdi-clipboard-text-clock",
-          title: "ประวัติ",
-          to: "/booking-lists",
-        },
-        {
-          icon: "mdi-list-box",
-          title: "รายการ (ทั้งหมด)",
-          to: "/booking-lists-all",
-        },
-        {
-          icon: "mdi-account-edit",
-          title: "จัดการ ผู้ใช้งาน",
-          to: "/user-management",
-        },
-        {
-          icon: "mdi-cog",
-          title: "ตั้งค่าระบบ",
-          to: "/setting",
-        },
-      ],
-
-      itemsAdmin: [
-        {
-          icon: "mdi-home",
-          title: "หน้าหลัก",
-          to: "/",
-        },
-        {
-          icon: "mdi-clipboard-text-clock",
-          title: "ประวัติ",
-          to: "/booking-lists",
-        },
-        {
-          icon: "mdi-list-box",
-          title: "รายการ (ทั้งหมด)",
-          to: "/booking-lists-all",
-        },
-      ],
-
-      itemsUser: [
-        {
-          icon: "mdi-home",
-          title: "หน้าหลัก",
-          to: "/",
-        },
-        {
-          icon: "mdi-clipboard-text-clock",
-          title: "ประวัติ",
-          to: "/booking-lists",
-        },
-        {
-          icon: "mdi-list-box",
-          title: "รายการ (ทั้งหมด)",
-          to: "/booking-lists-all",
-        },
-      ],
-
-      miniVariant: false,
     };
-  },
-
-  created() {
-    this.getUser();
-  },
-
-  methods: {
-    async setTitle(item) {
-      // console.log("item", item);
-      this.title = item.title;
-    },
-
-    async getUser() {
-      this.user = await this.$auth.$storage.getCookie("user");
-      // this.role = user.Role.name;
-      // console.log("user", this.user);
-
-      if (this.user.roleId == 3) {
-        this.items = this.itemsSuperAdmin;
-      } else if (this.user.roleId == 2) {
-        this.items = this.itemsAdmin;
-      } else if (this.user.roleId == 1) {
-        this.items = this.itemsUser;
-      }
-    },
   },
 };
 </script>
