@@ -45,10 +45,16 @@
           </template>
           <v-date-picker v-model="content.dateStart" scrollable locale="th">
             <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="content.dateStartModal = false">
+            <v-btn
+              outlined
+              text
+              color="primary"
+              @click="content.dateStartModal = false"
+            >
               Cancel
             </v-btn>
             <v-btn
+              outlined
               text
               color="primary"
               @click="$refs.dateStartModal.save(content.dateStart)"
@@ -86,10 +92,16 @@
             format="24hr"
           >
             <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="content.timeStartModal = false">
+            <v-btn
+              outlined
+              text
+              color="primary"
+              @click="content.timeStartModal = false"
+            >
               Cancel
             </v-btn>
             <v-btn
+              outlined
               text
               color="primary"
               @click="$refs.timeStartModal.save(content.timeStart)"
@@ -127,10 +139,16 @@
             :min="content.dateStart"
           >
             <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="content.dateEndModal = false">
+            <v-btn
+              outlined
+              text
+              color="primary"
+              @click="content.dateEndModal = false"
+            >
               Cancel
             </v-btn>
             <v-btn
+              outlined
               text
               color="primary"
               @click="$refs.dateEndModal.save(content.dateEnd)"
@@ -167,10 +185,16 @@
             format="24hr"
           >
             <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="content.timeEndModal = false">
+            <v-btn
+              outlined
+              text
+              color="primary"
+              @click="content.timeEndModal = false"
+            >
               Cancel
             </v-btn>
             <v-btn
+              outlined
               text
               color="primary"
               @click="$refs.timeEndModal.save(content.timeEnd)"

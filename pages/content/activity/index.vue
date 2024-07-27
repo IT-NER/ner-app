@@ -9,8 +9,8 @@
       <v-card-title elevation="0">
         <v-text-field v-model="search" label="ค้นหา"></v-text-field>
         <v-spacer></v-spacer>
-        <v-btn color="success" @click="addItem"> เพิ่ม </v-btn>
-        <v-btn color="primary" @click="getContentByContentTypeId">
+        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
+        <v-btn outlined color="primary" @click="getContentByContentTypeId">
           รีเฟรช
         </v-btn>
       </v-card-title>
@@ -39,7 +39,9 @@
           </v-chip>
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-btn color="warning" @click="editItem(item)"> แก้ไข </v-btn>
+          <v-btn outlined color="warning" @click="editItem(item)">
+            แก้ไข
+          </v-btn>
         </template>
       </v-data-table>
     </v-card>

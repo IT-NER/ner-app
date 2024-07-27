@@ -6,7 +6,7 @@
           <v-spacer></v-spacer>
           <v-list-item-avatar size="100">
             <v-img
-              src="https://cdn.vuetifyjs.com/images/john.png"
+              src="https://investor.nerubber.com/themes/default/assets/static/images/logo-stroke.png"
               class="v-responsive"
             ></v-img>
           </v-list-item-avatar>
@@ -14,8 +14,8 @@
         </v-list-item>
         <v-divider></v-divider>
 
-        <v-banner class="success" dense dark>
-          พอยท์ : {{ user.point }}</v-banner
+        <v-toolbar class="success" dense dark elevation="0">
+          พอยท์ : COMMING SOON</v-toolbar
         >
 
         <v-divider></v-divider>
@@ -60,11 +60,11 @@ export default {
   data() {
     return {
       items: [
-        {
-          text: "โปรไฟล์",
-          icon: "mdi-account",
-          link: "/user/profile",
-        },
+        // {
+        //   text: "โปรไฟล์",
+        //   icon: "mdi-account",
+        //   link: "/user/profile",
+        // },
         { text: "ออกจากระบบ", icon: "mdi-logout", link: "/logout" },
       ],
 

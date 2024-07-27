@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn color="success" type="submit"> บันทึก </v-btn>
+    <v-btn outlined color="success" type="submit"> บันทึก </v-btn>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn color="warning" :to="path"> กลับหน้าหลัก </v-btn>
+    <v-btn outlined color="warning" :to="path"> กลับหน้าหลัก </v-btn>
   </div>
 </template>
 

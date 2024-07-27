@@ -56,7 +56,9 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="success" type="submit">บันทึก</v-btn>
+            <v-btn outlined outlined color="success" type="submit"
+              >บันทึก</v-btn
+            >
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>

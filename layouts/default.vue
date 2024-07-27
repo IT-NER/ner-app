@@ -19,7 +19,7 @@
       width="300"
     >
       <card-button-link />
-      {{ $nuxt.$route.name }}
+      <!-- {{ $nuxt.$route.name }} -->
     </v-navigation-drawer>
 
     <v-app-bar app color="success" dark elevation="0">

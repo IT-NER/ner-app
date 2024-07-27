@@ -1,6 +1,13 @@
 <template>
   <div>
-    <v-btn
+    <v-card flat>
+      <v-card-text>
+        <v-alert text prominent type="error" icon="mdi-cloud-alert">
+          COMMING SOON
+        </v-alert>
+      </v-card-text>
+    </v-card>
+    <!-- <v-btn outlined
       color="success"
       tile
       block
@@ -12,7 +19,7 @@
       outlined
     >
       {{ item.text }}
-    </v-btn>
+    </v-btn> -->
   </div>
 </template>
 

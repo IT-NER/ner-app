@@ -24,11 +24,11 @@ async function getItemsRoomDisable(item) {
           end: {
             lte: new Date(item.end),
           },
+          statusId: {
+            lt: 3,
+          },
         },
       ],
-      statusId: {
-        lt: 3,
-      },
     },
     orderBy: [
       {
@@ -64,12 +64,19 @@ async function getItemsRoomDisable(item) {
     include: {
       Booking: {
         where: {
-          start: {
-            gte: new Date(item.start),
-          },
-          end: {
-            lte: new Date(item.end),
-          },
+          AND: [
+            {
+              start: {
+                gte: new Date(item.start),
+              },
+              end: {
+                lte: new Date(item.end),
+              },
+              statusId: {
+                lt: 3,
+              },
+            },
+          ],
         },
         orderBy: [
           {
@@ -104,11 +111,11 @@ async function getItemsRoomEnable(item) {
           end: {
             lte: new Date(item.end),
           },
+          statusId: {
+            lt: 3,
+          },
         },
       ],
-      statusId: {
-        lt: 3,
-      },
     },
     orderBy: [
       {

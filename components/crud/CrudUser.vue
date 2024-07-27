@@ -28,7 +28,8 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" type="submit"> บันทึก </v-btn>
+            <v-btn outlined color="success" type="submit"> บันทึก </v-btn>
+            <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
       </form>
@@ -74,14 +75,9 @@
       <v-divider></v-divider>
       <v-toolbar dense elevation="0">
         <v-spacer></v-spacer>
-        <v-tooltip top>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn v-bind="attrs" v-on="on" color="primary" @click="getUser">
-              ค้นหา
-            </v-btn>
-          </template>
-          <div class="title">ค้นหา</div>
-        </v-tooltip>
+
+        <v-btn outlined color="primary" @click="getUser"> ค้นหา </v-btn>
+
         <v-spacer></v-spacer>
       </v-toolbar>
       <v-divider></v-divider>
@@ -89,23 +85,9 @@
         <v-text-field v-model="search" label="ค้นหา"></v-text-field>
         <v-spacer></v-spacer>
 
-        <v-tooltip top>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn color="success" v-bind="attrs" v-on="on" @click="addItem">
-              เพิ่ม
-            </v-btn>
-          </template>
-          <div class="title">เพิ่ม</div>
-        </v-tooltip>
+        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
 
-        <v-tooltip top>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn v-bind="attrs" v-on="on" color="primary" @click="refresh">
-              รีเฟรช
-            </v-btn>
-          </template>
-          <div class="title">รีเฟรช</div>
-        </v-tooltip>
+        <v-btn outlined color="primary" @click="refresh"> รีเฟรซ </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-data-table
@@ -121,24 +103,14 @@
           {{ item.fname }} {{ item.lname }}
         </template>
         <template v-slot:item.editPassword="{ item }">
-          <v-btn color="warning" @click="editPassword(item)">
+          <v-btn outlined color="warning" @click="editPassword(item)">
             แก้ไขรหัสผ่าน
           </v-btn>
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                color="warning"
-                v-bind="attrs"
-                v-on="on"
-                @click="editItem(item)"
-              >
-                แก้ไข
-              </v-btn>
-            </template>
-            <span class="title"> แก้ไข </span>
-          </v-tooltip>
+          <v-btn outlined color="warning" @click="editItem(item)">
+            แก้ไข
+          </v-btn>
         </template>
       </v-data-table>
     </v-card>
@@ -167,10 +139,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" type="submit">
-              <v-icon class="mr-2">mdi-content-save</v-icon>
-              บันทึก
-            </v-btn>
+            <v-btn outlined color="success" type="submit"> บันทึก </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>

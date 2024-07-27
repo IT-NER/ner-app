@@ -4,7 +4,9 @@
       <v-card-title>
         ค้นหา
         <v-spacer></v-spacer>
-        <v-btn color="warning" @click="$emit('refresh')"> รีเฟรซ </v-btn>
+        <v-btn outlined color="primary" @click="$emit('refresh')">
+          รีเฟรซ
+        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
@@ -32,6 +34,7 @@
               <v-date-picker v-model="filter.dateStart" scrollable locale="th">
                 <v-spacer></v-spacer>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="filter.dateStartModal = false"
@@ -39,6 +42,7 @@
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="
@@ -80,6 +84,7 @@
               >
                 <v-spacer></v-spacer>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="filter.timeStartModal = false"
@@ -87,6 +92,7 @@
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="$refs.timeStartModal.save(filter.timeStart)"
@@ -125,6 +131,7 @@
               >
                 <v-spacer></v-spacer>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="filter.dateEndModal = false"
@@ -132,6 +139,7 @@
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="$refs.dateEndModal.save(filter.dateEnd)"
@@ -170,6 +178,7 @@
               >
                 <v-spacer></v-spacer>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="filter.timeEndModal = false"
@@ -177,6 +186,7 @@
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="$refs.timeEndModal.save(filter.timeEnd)"
@@ -227,7 +237,9 @@
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary" @click="$emit('getItems')"> ค้นหา </v-btn>
+        <v-btn outlined color="primary" @click="$emit('getItems')">
+          ค้นหา
+        </v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
       <v-divider></v-divider>

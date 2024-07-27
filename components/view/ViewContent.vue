@@ -3,7 +3,7 @@
     <v-container>
       <v-row v-if="imgs.length > 0">
         <v-col>
-          <v-carousel cycle height="628" width="1200" show-arrows-on-hover>
+          <v-carousel cycle width="100%" max-height="628" show-arrows-on-hover>
             <v-carousel-item
               v-for="(item, i) in imgs"
               :key="i"
@@ -16,7 +16,10 @@
 
       <v-row>
         <v-col>
-          <h3>วันที่ : {{ $moment(item.createdAt).format("ll") }}</h3>
+          <h3>
+            ประกาศเมื่อ
+            {{ $moment(item.createdAt).add(543, "year").format("LL") }}
+          </h3>
         </v-col>
       </v-row>
       <v-row>

@@ -22,10 +22,15 @@
             </span>
           </template>
           <template v-slot:item.publish="{ item }">
-            {{ $moment(item.start).format("ll") }}
+            {{ $moment(item.start).add(543, "year").format("ll") }}
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-btn color="success" target="_blank" :href="`/${item.ticket}`">
+            <v-btn
+              outlined
+              color="success"
+              target="_blank"
+              :href="`/${item.ticket}`"
+            >
               <v-icon class="mr-2">mdi-eye</v-icon>
               เปิดดู
             </v-btn>

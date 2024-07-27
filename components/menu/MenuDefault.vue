@@ -139,16 +139,16 @@ export default {
               icon: "mdi-earth",
               link: "/content/news",
             },
-            {
-              name: "ของรางวัล",
-              icon: "mdi-earth",
-              link: "/reward",
-            },
-            {
-              name: "แลกของรางวัล",
-              icon: "mdi-earth",
-              link: "/redeem",
-            },
+            // {
+            //   name: "ของรางวัล",
+            //   icon: "mdi-earth",
+            //   link: "/reward",
+            // },
+            // {
+            //   name: "แลกของรางวัล",
+            //   icon: "mdi-earth",
+            //   link: "/redeem",
+            // },
           ],
         },
         {

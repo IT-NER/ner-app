@@ -28,7 +28,7 @@
         <span v-else> ปิด </span>
       </template>
       <template v-slot:item.actions="{ item }">
-        <v-btn color="warning" @click="editItem(item)"> แก้ไข </v-btn>
+        <v-btn outlined color="warning" @click="editItem(item)"> แก้ไข </v-btn>
       </template>
     </v-data-table>
   </div>

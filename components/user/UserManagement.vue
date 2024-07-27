@@ -14,7 +14,13 @@
       <v-divider></v-divider>
       <v-toolbar dense flat>
         <v-spacer></v-spacer>
-        <v-btn color="success" dark @click="addItem" class="float-right">
+        <v-btn
+          outlined
+          color="success"
+          dark
+          @click="addItem"
+          class="float-right"
+        >
           <v-icon class="mr-2">mdi-database-plus</v-icon>
           <span>เพิ่ม</span>
         </v-btn>
@@ -48,23 +54,23 @@
             <span>{{ item.lname }}</span>
           </template>
           <template v-slot:item.editPassword="{ item }">
-            <v-btn color="warning" small @click="editPassword(item)">
+            <v-btn outlined color="warning" small @click="editPassword(item)">
               <v-icon class="mr-auto"> mdi-pencil-lock-outline </v-icon>
               <small>แก้ไขรหัสผ่าน</small>
             </v-btn>
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-btn color="warning" small @click="editItem(item)">
+            <v-btn outlined color="warning" small @click="editItem(item)">
               <v-icon class="mr-auto"> mdi-database-edit </v-icon>
               <small>แก้ไข</small>
             </v-btn>
-            <v-btn color="error" small @click="deleteUser(item)">
+            <v-btn outlined color="error" small @click="deleteUser(item)">
               <v-icon class="mr-auto"> mdi-database-minus </v-icon>
               <small>ลบ</small>
             </v-btn>
           </template>
           <template v-slot:no-data>
-            <v-btn color="primary" @click="getRole"> Reset </v-btn>
+            <v-btn outlined color="primary" @click="getRole"> Reset </v-btn>
           </template>
         </v-data-table>
       </v-card-text>
@@ -222,7 +228,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn :color="formColor" type="submit">
+            <v-btn outlined :color="formColor" type="submit">
               <v-icon>mdi-content-save</v-icon>
               <span> บันทึก </span>
             </v-btn>
@@ -241,7 +247,7 @@
         <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn ref="btnConfirm" color="success" @click="saveConfirm">
+          <v-btn outlined ref="btnConfirm" color="success" @click="saveConfirm">
             ยืนยัน
           </v-btn>
         </v-card-actions>
@@ -258,7 +264,12 @@
         <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn ref="btnConfirm" color="success" @click="updatePassword">
+          <v-btn
+            outlined
+            ref="btnConfirm"
+            color="success"
+            @click="updatePassword"
+          >
             ยืนยัน
           </v-btn>
         </v-card-actions>
@@ -305,7 +316,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="warning" type="submit">
+            <v-btn outlined color="warning" type="submit">
               <v-icon>mdi-content-save</v-icon>
               <span> บันทึก </span>
             </v-btn>

@@ -25,7 +25,7 @@
               <v-divider></v-divider>
               <v-toolbar dense elevation="0">
                 <v-spacer></v-spacer>
-                <v-btn text color="success" type="Submit">
+                <v-btn outlined text color="success" type="Submit">
                   <v-icon class="mr-2">mdi-tray-arrow-up</v-icon>
                   อัพโหลดโปรไฟล์
                 </v-btn>
@@ -38,7 +38,7 @@
           <v-card flat>
             <v-toolbar dense elevation="0">
               <v-spacer></v-spacer>
-              <v-btn text color="warning" @click="editPassword">
+              <v-btn outlined text color="warning" @click="editPassword">
                 <v-icon class="mr-2"> mdi-lock </v-icon>
                 แก้ไขรหัสผ่าน
               </v-btn>
@@ -83,7 +83,12 @@
         <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn ref="btnConfirm" color="success" @click="updatePassword">
+          <v-btn
+            outlined
+            ref="btnConfirm"
+            color="success"
+            @click="updatePassword"
+          >
             ยืนยัน
           </v-btn>
         </v-card-actions>
@@ -130,7 +135,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="warning" type="submit">
+            <v-btn outlined color="warning" type="submit">
               <v-icon>mdi-content-save</v-icon>
               <span> บันทึก </span>
             </v-btn>

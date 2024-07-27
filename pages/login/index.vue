@@ -9,7 +9,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" type="submit"> เข้าสู่ระบบ </v-btn>
+            <v-btn outlined color="primary" type="submit"> เข้าสู่ระบบ </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>

@@ -4,20 +4,24 @@
       <v-card-title> แบนเนอร์ </v-card-title>
       <v-divider></v-divider>
       <v-card-actions :v-if="show" v-for="(item, i) in items" :key="i">
-        <v-card height="auto">
-          <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
-            <v-carousel-item
-              v-for="(list, y) in item.ContentImg"
-              :key="y"
-              :src="`/uploads/content/${list.name}`"
-              target="_blank"
-              :href="`/${item.ticket}`"
-              height="628"
-              width="auto"
-            >
-            </v-carousel-item>
-          </v-carousel>
-        </v-card>
+        <!-- <v-card height="auto" class="mx-auto"> -->
+        <v-carousel
+          cycle
+          hide-delimiter-background
+          show-arrows-on-hover
+          width="100%"
+          max-height="628"
+        >
+          <v-carousel-item
+            v-for="(list, y) in item.ContentImg"
+            :key="y"
+            :src="`/uploads/content/${list.name}`"
+            target="_blank"
+            :href="`/${item.ticket}`"
+          >
+          </v-carousel-item>
+        </v-carousel>
+        <!-- </v-card> -->
       </v-card-actions>
 
       <v-card-text v-if="!show">

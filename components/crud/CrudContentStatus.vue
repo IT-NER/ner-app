@@ -14,7 +14,13 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="success" v-bind="attrs" v-on="on" @click="addItem">
+            <v-btn
+              outlined
+              color="success"
+              v-bind="attrs"
+              v-on="on"
+              @click="addItem"
+            >
               เพิ่ม
             </v-btn>
           </template>
@@ -24,6 +30,7 @@
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
+              outlined
               v-bind="attrs"
               v-on="on"
               color="primary"
@@ -49,6 +56,7 @@
           <v-tooltip top>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
+                outlined
                 v-bind="attrs"
                 v-on="on"
                 color="warning"
@@ -93,7 +101,13 @@
             <v-spacer></v-spacer>
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
-                <v-btn color="primary" type="submit" v-bind="attrs" v-on="on">
+                <v-btn
+                  outlined
+                  color="primary"
+                  type="submit"
+                  v-bind="attrs"
+                  v-on="on"
+                >
                   บันทึก
                 </v-btn>
               </template>

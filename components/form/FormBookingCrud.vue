@@ -31,6 +31,7 @@
               <v-date-picker v-model="item.dateStart" scrollable locale="th">
                 <v-spacer></v-spacer>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="item.dateStartModal = false"
@@ -38,6 +39,7 @@
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="
@@ -80,6 +82,7 @@
               >
                 <v-spacer></v-spacer>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="item.timeStartModal = false"
@@ -87,6 +90,7 @@
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="
@@ -127,10 +131,16 @@
                 :min="item.dateStart"
               >
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="item.dateEndModal = false">
+                <v-btn
+                  outlined
+                  text
+                  color="primary"
+                  @click="item.dateEndModal = false"
+                >
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="
@@ -170,10 +180,16 @@
                 format="24hr"
               >
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="item.timeEndModal = false">
+                <v-btn
+                  outlined
+                  text
+                  color="primary"
+                  @click="item.timeEndModal = false"
+                >
                   Cancel
                 </v-btn>
                 <v-btn
+                  outlined
                   text
                   color="primary"
                   @click="
@@ -190,8 +206,8 @@
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="success" @click="$emit('getItemsRoom')">
-          ค้นหาห้องประชุม
+        <v-btn outlined outlined color="primary" @click="$emit('getItemsRoom')">
+          ค้นหา
         </v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>

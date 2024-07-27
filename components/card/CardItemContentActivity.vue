@@ -7,6 +7,7 @@
         <v-row>
           <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
             <v-card
+              tile
               class="mx-auto"
               max-width="350"
               hover

@@ -36,7 +36,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn :color="formColor" type="submit">
+            <v-btn outlined :color="formColor" type="submit">
               <v-icon>mdi-content-save</v-icon>
               <span> บันทึก </span>
             </v-btn>
@@ -58,7 +58,13 @@
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6" sm="12">
-          <v-btn color="success" dark @click="addItem" class="float-right">
+          <v-btn
+            outlined
+            color="success"
+            dark
+            @click="addItem"
+            class="float-right"
+          >
             <v-icon class="mr-2">mdi-database-plus</v-icon>
             <span>เพิ่ม</span>
           </v-btn>
@@ -79,11 +85,16 @@
                   {{ index + 1 }}
                 </template>
                 <template v-slot:item.actions="{ item }">
-                  <v-btn color="warning" small @click="editItem(item)">
+                  <v-btn outlined color="warning" small @click="editItem(item)">
                     <v-icon class="mr-auto"> mdi-database-edit </v-icon>
                     <small>แก้ไข</small>
                   </v-btn>
-                  <v-btn color="error" small @click="deleteMeetingType(item)">
+                  <v-btn
+                    outlined
+                    color="error"
+                    small
+                    @click="deleteMeetingType(item)"
+                  >
                     <v-icon class="mr-auto"> mdi-database-minus </v-icon>
                     <small>ลบ</small>
                   </v-btn>
@@ -101,7 +112,9 @@
                   </v-icon> -->
                 </template>
                 <template v-slot:no-data>
-                  <v-btn color="primary" @click="getMeetingType"> Reset </v-btn>
+                  <v-btn outlined color="primary" @click="getMeetingType">
+                    Reset
+                  </v-btn>
                 </template>
               </v-data-table>
             </v-card-text>

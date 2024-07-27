@@ -10,7 +10,12 @@
         <v-card-text> กดปุ่ม 'ยืนยัน' เพื่อบันทึก </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn ref="btnConfirm" color="success" @click="updatePassword">
+          <v-btn
+            outlined
+            ref="btnConfirm"
+            color="success"
+            @click="updatePassword"
+          >
             ยืนยัน
           </v-btn>
         </v-card-actions>
@@ -57,7 +62,7 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="warning" type="submit">
+            <v-btn outlined color="warning" type="submit">
               <v-icon>mdi-content-save</v-icon>
               <span> บันทึก </span>
             </v-btn>
@@ -70,7 +75,7 @@
       <v-card-title>
         โปรไฟล์
         <v-spacer></v-spacer>
-        <v-btn color="warning" small @click="editPassword">
+        <v-btn outlined color="warning" small @click="editPassword">
           <v-icon class="mr-auto"> mdi-pencil-lock-outline </v-icon>
           <small>แก้ไขรหัสผ่าน</small>
         </v-btn>
