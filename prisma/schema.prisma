@@ -14,19 +14,6 @@ model User {
   password     String?
   lname        String?
   fname        String?
-<<<<<<< HEAD
-  status       Boolean     @default(true)
-  departmentId Int?
-  positionId   Int?
-  roleId       Int?        @default(1)
-  contract     String?
-  Booking      Booking[]
-  Department   Department? @relation(fields: [departmentId], references: [id])
-  Position     Position?   @relation(fields: [positionId], references: [id])
-  Role         Role?       @relation(fields: [roleId], references: [id])
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-=======
   active       Boolean? @default(true)
   point        Int?     @default(0)
   img          String?
@@ -211,7 +198,6 @@ model ButtonLink {
   updatedAt DateTime @updatedAt
 
   User User[]
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 }
 
 model Role {
@@ -249,25 +235,6 @@ model Booking {
   quantity        Int?
   meetingId       String?
   meetingPassword String?
-<<<<<<< HEAD
-  UserId          Int?
-  ApproveBy       Int?
-  MeetingTypeId   Int?
-  RoomId          Int?
-  ProgramId       Int?
-  StatusId        Int?            @default(1)
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-  authorContact   String?
-  MeetingType     MeetingType?    @relation(fields: [MeetingTypeId], references: [id])
-  Program         Program?        @relation(fields: [ProgramId], references: [id])
-  Room            Room?           @relation(fields: [RoomId], references: [id])
-  Status          Status?         @relation(fields: [StatusId], references: [id])
-  User            User?           @relation(fields: [UserId], references: [id])
-  BookingDevice   BookingDevice[]
-  BookingDrink    BookingDrink[]
-  BookingFood     BookingFood[]
-=======
   ApproveBy       Int?
   tel             String?
   meetingTypeId   Int?
@@ -286,7 +253,6 @@ model Booking {
   BookingDevice BookingDevice[]
   BookingDrink  BookingDrink[]
   BookingFood   BookingFood[]
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 }
 
 model Program {
