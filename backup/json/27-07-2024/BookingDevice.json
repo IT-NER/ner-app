@@ -1,0 +1,1014 @@
+[
+  {
+    "BookingId": 4,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 5,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 5,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 6,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 6,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 6,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 10,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 10,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 11,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 14,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 14,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 14,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 14,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 15,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 15,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 15,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 16,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 16,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 17,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 18,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 18,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 19,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 19,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 20,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 20,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 21,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 21,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 22,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 22,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 23,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 23,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 24,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 24,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 24,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 24,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 25,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 25,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 26,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 26,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 28,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 28,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 30,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 30,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 31,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 31,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 31,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 31,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 32,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 32,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 33,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 33,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 34,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 34,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 35,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 35,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 36,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 36,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 37,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 37,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 38,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 38,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 39,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 41,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 41,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 41,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 41,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 42,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 43,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 44,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 45,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 45,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 45,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 46,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 47,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 47,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 48,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 48,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 51,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 51,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 51,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 52,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 52,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 53,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 55,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 55,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 56,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 56,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 58,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 58,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 58,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 58,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 59,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 60,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 60,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 60,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 60,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 61,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 61,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 61,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 61,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 63,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 63,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 66,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 66,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 67,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 69,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 69,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 73,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 73,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 74,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 74,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 74,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 74,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 75,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 76,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 76,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 77,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 77,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 77,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 77,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 79,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 79,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 79,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 79,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 82,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 83,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 84,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 84,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 84,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 84,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 85,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 85,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 85,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 85,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 86,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 86,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 86,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 86,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 87,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 87,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 87,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 87,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 88,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 88,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 88,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 88,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 89,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 89,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 89,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 91,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 91,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 92,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 92,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 93,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 93,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 95,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 95,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 97,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 97,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 97,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 97,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 98,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 98,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 98,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 99,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 99,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 103,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 103,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 103,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 103,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 104,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 104,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 104,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 104,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 105,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 105,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 107,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 107,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 107,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 107,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 108,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 110,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 110,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 110,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 110,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 114,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 114,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 114,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 116,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 116,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 116,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 116,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 117,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 117,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 117,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 117,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 119,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 119,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 119,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 119,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 122,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 123,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 123,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 123,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 124,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 124,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 124,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 125,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 125,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 125,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 125,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 126,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 126,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 126,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 126,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 127,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 127,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 128,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 132,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 132,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 132,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 133,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 133,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 133,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 133,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 134,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 134,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 134,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 134,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 135,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 135,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 135,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 135,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 136,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 137,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 137,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 137,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 137,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 138,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 138,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 138,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 138,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 139,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 139,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 139,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 139,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 140,
+    "DeviceId": 1
+  },
+  {
+    "BookingId": 140,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 140,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 140,
+    "DeviceId": 4
+  },
+  {
+    "BookingId": 141,
+    "DeviceId": 2
+  },
+  {
+    "BookingId": 141,
+    "DeviceId": 3
+  },
+  {
+    "BookingId": 141,
+    "DeviceId": 4
+  }
+]
