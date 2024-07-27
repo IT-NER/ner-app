@@ -14,11 +14,6 @@ export default {
     "~/api/status.js",
     "~/api/user.js",
     "~/api/meetingType.js",
-<<<<<<< HEAD
-    "~/api/booking.js"
-  ],
-
-=======
     "~/api/booking.js",
     "~/api/contentType.js",
     "~/api/contentStatus.js",
@@ -33,7 +28,6 @@ export default {
   ],
 
   components: true,
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 
   head: {
     titleTemplate: "%s - NER",
@@ -47,24 +41,6 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-<<<<<<< HEAD
-    link: [{ rel: "icon", type: "image/x-icon", href: "/ner-logo.ico" }],
-  },
-
-
-  css: [],
-
-  plugins: [],
-
-  components: true,
-
-  buildModules: [
-    // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify",
-    "@nuxtjs/moment",
-    '@nuxtjs/pwa',
-  ],
-=======
     link: [{ rel: "icon", type: "image/x-icon", href: "favicon.ico" }],
   },
 
@@ -73,7 +49,6 @@ export default {
   plugins: [],
 
   buildModules: ["@nuxtjs/vuetify", "@nuxtjs/moment", "@nuxtjs/pwa"],
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 
   moment: {
     defaultLocale: "th",
@@ -110,16 +85,6 @@ export default {
     },
 
     redirect: {
-<<<<<<< HEAD
-      login: '/login',
-      logout: '/',
-      callback: '/login',
-      home: '/'
-    }
-  },
-
-  vuetify: {
-=======
       login: "/login",
       logout: "/",
       callback: "/login",
@@ -129,7 +94,6 @@ export default {
 
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
     theme: {
       dark: false,
       light: true,
@@ -144,37 +108,16 @@ export default {
           success: colors.green.accent3,
         },
         light: {
-<<<<<<< HEAD
-          primary: '#3470B8',
-          secondary: '#FFFFFF',
-          success: '#1DAE4B',
-          error: '#b71c1c',
-=======
           primary: "#3470B8",
           secondary: "#FFFFFF",
           success: "#1DAE4B",
           error: "#b71c1c",
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
         },
       },
     },
   },
 
-<<<<<<< HEAD
-  mode: 'universal',
-
-  build: {
-    // Add any custom build configurations here
-  },
-
-  server: {
-    port: 9390,
-    host:"0.0.0.0"
-  },
-
-
-=======
-  mode: "universal",
+  // mode: "universal",
 
   build: {},
 
@@ -182,5 +125,4 @@ export default {
     port: 9390, // default: 3000
     host: "0.0.0.0", // default: localhost
   },
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 };

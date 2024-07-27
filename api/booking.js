@@ -327,11 +327,6 @@ app.get("/booking/user/:id", async (req, res) => {
   res.status(200).json(booking);
 });
 
-<<<<<<< HEAD
-
-// create
-=======
->>>>>>> 0528a7a86cb01cff3ea7ea8ba16c77360f239219
 app.post("/booking", async (req, res) => {
   let item = req.body.data;
   let booking = await create(item);

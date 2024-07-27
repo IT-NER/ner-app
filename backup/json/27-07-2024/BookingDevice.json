@@ -2,1519 +2,1519 @@
   {
     "bookingId": 4,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 5,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 5,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 6,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 6,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 6,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 10,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 10,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 11,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 14,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 14,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 14,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 14,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 15,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 15,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 15,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 16,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 16,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 17,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 18,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 18,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 19,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 19,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 20,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 20,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 21,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 21,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 22,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 22,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 23,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 23,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 24,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 24,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 24,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 24,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 25,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 25,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 26,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 26,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 28,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 28,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 30,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 30,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 31,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 31,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 31,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 31,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 32,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 32,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 33,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 33,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 34,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 34,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 35,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 35,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 36,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 36,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 37,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 37,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 38,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 38,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 39,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 41,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 41,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 41,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 41,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 42,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 43,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 44,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 45,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 45,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 45,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 46,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 47,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 47,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 48,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 48,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 51,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 51,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 51,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 52,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 52,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 53,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 55,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 55,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 56,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 56,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 58,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 58,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 58,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 58,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 59,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 60,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 60,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 60,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 60,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 61,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 61,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 61,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 61,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 63,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 63,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 66,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 66,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 67,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 69,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 69,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 73,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 73,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 74,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 74,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 74,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 74,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 75,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 76,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 76,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 77,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 77,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 77,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 77,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 79,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 79,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 79,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 79,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 82,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 83,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 84,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 84,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 84,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 84,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 85,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 85,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 85,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 85,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 86,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 86,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 86,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 86,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 87,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 87,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 87,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 87,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 88,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 88,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 88,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 88,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 89,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 89,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 89,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 91,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 91,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 92,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 92,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 93,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 93,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 95,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 95,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 97,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 97,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 97,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 97,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 98,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 98,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 98,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 99,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 99,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 103,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 103,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 103,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 103,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 104,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 104,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 104,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 104,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 105,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 105,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 107,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 107,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 107,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 107,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 108,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 110,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 110,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 110,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 110,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 114,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 114,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 114,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 116,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 116,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 116,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 116,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 117,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 117,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 117,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 117,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 119,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 119,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 119,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 119,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 122,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 123,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 123,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 123,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 124,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 124,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 124,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 125,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 125,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 125,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 125,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 126,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 126,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 126,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 126,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 127,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 127,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 128,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 132,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 132,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 132,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 133,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 133,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 133,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 133,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 134,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 134,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 134,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 134,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 135,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 135,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 135,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 135,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 136,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 137,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 137,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 137,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 137,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 138,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 138,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 138,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 138,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 139,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 139,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 139,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 139,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 140,
     "deviceId": 1,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 140,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 140,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 140,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 141,
     "deviceId": 2,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 141,
     "deviceId": 3,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   },
   {
     "bookingId": 141,
     "deviceId": 4,
-    "createdAt": "1/1/1900 00:00:00",
-    "updatedAt": "1/1/1900 00:00:00"
+    "createdAt": null,
+    "updatedAt": null
   }
 ]
