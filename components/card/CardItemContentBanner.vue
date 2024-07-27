@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> แบนเนอร์ </v-card-title>
+      <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
       <v-divider></v-divider>
       <v-card-actions :v-if="show" v-for="(item, i) in items" :key="i">
         <!-- <v-card height="auto" class="mx-auto"> -->
