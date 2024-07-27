@@ -1,42 +1,62 @@
 [
   {
-    "BookingId": 11,
-    "FoodId": 4
+    "bookingId": 11,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 14,
-    "FoodId": 4
+    "bookingId": 14,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 37,
-    "FoodId": 4
+    "bookingId": 37,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 41,
-    "FoodId": 4
+    "bookingId": 41,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 48,
-    "FoodId": 4
+    "bookingId": 48,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 54,
-    "FoodId": 4
+    "bookingId": 54,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 60,
-    "FoodId": 4
+    "bookingId": 60,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 61,
-    "FoodId": 4
+    "bookingId": 61,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 94,
-    "FoodId": 4
+    "bookingId": 94,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 119,
-    "FoodId": 4
+    "bookingId": 119,
+    "foodId": 4,
+    "createdAt": null,
+    "updatedAt": null
   }
 ]

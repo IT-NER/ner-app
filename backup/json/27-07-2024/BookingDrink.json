@@ -1,638 +1,956 @@
 [
   {
-    "BookingId": 4,
-    "DrinkId": 3
+    "bookingId": 4,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 5,
-    "DrinkId": 3
+    "bookingId": 5,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 6,
-    "DrinkId": 1
+    "bookingId": 6,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 6,
-    "DrinkId": 3
+    "bookingId": 6,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 7,
-    "DrinkId": 3
+    "bookingId": 7,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 8,
-    "DrinkId": 3
+    "bookingId": 8,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 9,
-    "DrinkId": 3
+    "bookingId": 9,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 10,
-    "DrinkId": 1
+    "bookingId": 10,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 10,
-    "DrinkId": 2
+    "bookingId": 10,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 10,
-    "DrinkId": 3
+    "bookingId": 10,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 11,
-    "DrinkId": 1
+    "bookingId": 11,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 14,
-    "DrinkId": 1
+    "bookingId": 14,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 14,
-    "DrinkId": 2
+    "bookingId": 14,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 14,
-    "DrinkId": 3
+    "bookingId": 14,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 15,
-    "DrinkId": 3
+    "bookingId": 15,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 16,
-    "DrinkId": 3
+    "bookingId": 16,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 17,
-    "DrinkId": 3
+    "bookingId": 17,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 18,
-    "DrinkId": 3
+    "bookingId": 18,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 19,
-    "DrinkId": 3
+    "bookingId": 19,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 20,
-    "DrinkId": 3
+    "bookingId": 20,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 21,
-    "DrinkId": 3
+    "bookingId": 21,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 22,
-    "DrinkId": 3
+    "bookingId": 22,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 23,
-    "DrinkId": 3
+    "bookingId": 23,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 24,
-    "DrinkId": 3
+    "bookingId": 24,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 25,
-    "DrinkId": 3
+    "bookingId": 25,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 26,
-    "DrinkId": 3
+    "bookingId": 26,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 28,
-    "DrinkId": 3
+    "bookingId": 28,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 29,
-    "DrinkId": 3
+    "bookingId": 29,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 30,
-    "DrinkId": 3
+    "bookingId": 30,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 31,
-    "DrinkId": 3
+    "bookingId": 31,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 32,
-    "DrinkId": 3
+    "bookingId": 32,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 33,
-    "DrinkId": 3
+    "bookingId": 33,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 34,
-    "DrinkId": 3
+    "bookingId": 34,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 35,
-    "DrinkId": 1
+    "bookingId": 35,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 35,
-    "DrinkId": 2
+    "bookingId": 35,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 35,
-    "DrinkId": 3
+    "bookingId": 35,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 36,
-    "DrinkId": 1
+    "bookingId": 36,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 36,
-    "DrinkId": 2
+    "bookingId": 36,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 36,
-    "DrinkId": 3
+    "bookingId": 36,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 37,
-    "DrinkId": 3
+    "bookingId": 37,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 38,
-    "DrinkId": 3
+    "bookingId": 38,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 39,
-    "DrinkId": 3
+    "bookingId": 39,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 40,
-    "DrinkId": 3
+    "bookingId": 40,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 41,
-    "DrinkId": 1
+    "bookingId": 41,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 41,
-    "DrinkId": 3
+    "bookingId": 41,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 42,
-    "DrinkId": 3
+    "bookingId": 42,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 43,
-    "DrinkId": 3
+    "bookingId": 43,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 44,
-    "DrinkId": 3
+    "bookingId": 44,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 45,
-    "DrinkId": 3
+    "bookingId": 45,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 46,
-    "DrinkId": 3
+    "bookingId": 46,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 47,
-    "DrinkId": 3
+    "bookingId": 47,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 48,
-    "DrinkId": 1
+    "bookingId": 48,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 48,
-    "DrinkId": 3
+    "bookingId": 48,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 49,
-    "DrinkId": 3
+    "bookingId": 49,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 50,
-    "DrinkId": 3
+    "bookingId": 50,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 51,
-    "DrinkId": 3
+    "bookingId": 51,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 52,
-    "DrinkId": 3
+    "bookingId": 52,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 53,
-    "DrinkId": 3
+    "bookingId": 53,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 54,
-    "DrinkId": 1
+    "bookingId": 54,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 54,
-    "DrinkId": 2
+    "bookingId": 54,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 54,
-    "DrinkId": 3
+    "bookingId": 54,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 55,
-    "DrinkId": 3
+    "bookingId": 55,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 56,
-    "DrinkId": 3
+    "bookingId": 56,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 57,
-    "DrinkId": 3
+    "bookingId": 57,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 58,
-    "DrinkId": 3
+    "bookingId": 58,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 59,
-    "DrinkId": 3
+    "bookingId": 59,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 60,
-    "DrinkId": 1
+    "bookingId": 60,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 60,
-    "DrinkId": 2
+    "bookingId": 60,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 60,
-    "DrinkId": 3
+    "bookingId": 60,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 61,
-    "DrinkId": 1
+    "bookingId": 61,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 61,
-    "DrinkId": 2
+    "bookingId": 61,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 61,
-    "DrinkId": 3
+    "bookingId": 61,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 62,
-    "DrinkId": 3
+    "bookingId": 62,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 63,
-    "DrinkId": 3
+    "bookingId": 63,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 64,
-    "DrinkId": 3
+    "bookingId": 64,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 66,
-    "DrinkId": 3
+    "bookingId": 66,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 67,
-    "DrinkId": 3
+    "bookingId": 67,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 69,
-    "DrinkId": 3
+    "bookingId": 69,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 70,
-    "DrinkId": 3
+    "bookingId": 70,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 72,
-    "DrinkId": 3
+    "bookingId": 72,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 73,
-    "DrinkId": 3
+    "bookingId": 73,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 74,
-    "DrinkId": 3
+    "bookingId": 74,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 75,
-    "DrinkId": 3
+    "bookingId": 75,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 76,
-    "DrinkId": 3
+    "bookingId": 76,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 77,
-    "DrinkId": 3
+    "bookingId": 77,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 78,
-    "DrinkId": 3
+    "bookingId": 78,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 79,
-    "DrinkId": 3
+    "bookingId": 79,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 80,
-    "DrinkId": 3
+    "bookingId": 80,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 81,
-    "DrinkId": 3
+    "bookingId": 81,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 82,
-    "DrinkId": 3
+    "bookingId": 82,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 83,
-    "DrinkId": 3
+    "bookingId": 83,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 84,
-    "DrinkId": 3
+    "bookingId": 84,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 85,
-    "DrinkId": 3
+    "bookingId": 85,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 86,
-    "DrinkId": 3
+    "bookingId": 86,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 87,
-    "DrinkId": 3
+    "bookingId": 87,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 88,
-    "DrinkId": 3
+    "bookingId": 88,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 89,
-    "DrinkId": 1
+    "bookingId": 89,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 90,
-    "DrinkId": 3
+    "bookingId": 90,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 91,
-    "DrinkId": 1
+    "bookingId": 91,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 92,
-    "DrinkId": 1
+    "bookingId": 92,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 93,
-    "DrinkId": 1
+    "bookingId": 93,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 93,
-    "DrinkId": 2
+    "bookingId": 93,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 93,
-    "DrinkId": 3
+    "bookingId": 93,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 94,
-    "DrinkId": 1
+    "bookingId": 94,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 94,
-    "DrinkId": 3
+    "bookingId": 94,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 95,
-    "DrinkId": 3
+    "bookingId": 95,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 96,
-    "DrinkId": 3
+    "bookingId": 96,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 97,
-    "DrinkId": 1
+    "bookingId": 97,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 97,
-    "DrinkId": 2
+    "bookingId": 97,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 97,
-    "DrinkId": 3
+    "bookingId": 97,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 98,
-    "DrinkId": 1
+    "bookingId": 98,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 98,
-    "DrinkId": 2
+    "bookingId": 98,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 98,
-    "DrinkId": 3
+    "bookingId": 98,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 99,
-    "DrinkId": 3
+    "bookingId": 99,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 100,
-    "DrinkId": 3
+    "bookingId": 100,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 101,
-    "DrinkId": 3
+    "bookingId": 101,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 102,
-    "DrinkId": 3
+    "bookingId": 102,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 103,
-    "DrinkId": 3
+    "bookingId": 103,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 104,
-    "DrinkId": 3
+    "bookingId": 104,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 105,
-    "DrinkId": 3
+    "bookingId": 105,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 106,
-    "DrinkId": 3
+    "bookingId": 106,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 107,
-    "DrinkId": 3
+    "bookingId": 107,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 108,
-    "DrinkId": 3
+    "bookingId": 108,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 109,
-    "DrinkId": 1
+    "bookingId": 109,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 109,
-    "DrinkId": 3
+    "bookingId": 109,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 110,
-    "DrinkId": 1
+    "bookingId": 110,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 110,
-    "DrinkId": 2
+    "bookingId": 110,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 110,
-    "DrinkId": 3
+    "bookingId": 110,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 111,
-    "DrinkId": 3
+    "bookingId": 111,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 112,
-    "DrinkId": 3
+    "bookingId": 112,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 113,
-    "DrinkId": 3
+    "bookingId": 113,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 114,
-    "DrinkId": 1
+    "bookingId": 114,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 114,
-    "DrinkId": 3
+    "bookingId": 114,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 115,
-    "DrinkId": 1
+    "bookingId": 115,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 115,
-    "DrinkId": 3
+    "bookingId": 115,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 116,
-    "DrinkId": 3
+    "bookingId": 116,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 117,
-    "DrinkId": 3
+    "bookingId": 117,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 118,
-    "DrinkId": 3
+    "bookingId": 118,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 119,
-    "DrinkId": 1
+    "bookingId": 119,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 119,
-    "DrinkId": 2
+    "bookingId": 119,
+    "drinkId": 2,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 119,
-    "DrinkId": 3
+    "bookingId": 119,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 121,
-    "DrinkId": 3
+    "bookingId": 121,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 122,
-    "DrinkId": 3
+    "bookingId": 122,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 124,
-    "DrinkId": 3
+    "bookingId": 124,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 125,
-    "DrinkId": 3
+    "bookingId": 125,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 126,
-    "DrinkId": 3
+    "bookingId": 126,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 127,
-    "DrinkId": 3
+    "bookingId": 127,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 128,
-    "DrinkId": 3
+    "bookingId": 128,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 129,
-    "DrinkId": 3
+    "bookingId": 129,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 130,
-    "DrinkId": 3
+    "bookingId": 130,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 131,
-    "DrinkId": 3
+    "bookingId": 131,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 132,
-    "DrinkId": 3
+    "bookingId": 132,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 134,
-    "DrinkId": 1
+    "bookingId": 134,
+    "drinkId": 1,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 134,
-    "DrinkId": 3
+    "bookingId": 134,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 135,
-    "DrinkId": 3
+    "bookingId": 135,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 136,
-    "DrinkId": 3
+    "bookingId": 136,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 137,
-    "DrinkId": 3
+    "bookingId": 137,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 138,
-    "DrinkId": 3
+    "bookingId": 138,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   },
   {
-    "BookingId": 139,
-    "DrinkId": 3
+    "bookingId": 139,
+    "drinkId": 3,
+    "createdAt": null,
+    "updatedAt": null
   }
 ]
