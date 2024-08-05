@@ -2,12 +2,24 @@
   <v-app id="inspire">
     <!-- nevbarLeft -->
     <v-navigation-drawer v-model="drawerLeft" app width="300">
-      <!-- CardProfile -->
-      <card-profile />
+      <!-- CardAccount -->
+      <card-account />
 
       <v-divider></v-divider>
       <!-- Menu -->
       <menu-default :item.sync="title" />
+
+      <template v-slot:append>
+        <v-btn block tile color="primary" dark @click="$router.push('/logout')">
+          ออกจากระบบ
+        </v-btn>
+        <v-divider></v-divider>
+        <v-toolbar class="success" dense dark elevation="0">
+          <v-spacer></v-spacer>
+          พอยท์ : COMMING SOON
+          <v-spacer></v-spacer>
+        </v-toolbar>
+      </template>
     </v-navigation-drawer>
 
     <!-- nevbarRight -->
@@ -51,12 +63,12 @@
 </template>
 
 <script>
-import CardProfile from "~/components/profile/CardProfile.vue";
+import CardAccount from "~/components/card/CardAccount.vue";
 import MenuDefault from "~/components/menu/MenuDefault.vue";
-import CardButtonLink from "~/components/intranet/CardButtonLink.vue";
+import CardButtonLink from "~/components/card/CardButtonLink.vue";
 import BtnScrollToTop from "~/components/btn/BtnScrollToTop.vue";
 export default {
-  components: { CardProfile, MenuDefault, CardButtonLink, BtnScrollToTop },
+  components: { CardAccount, MenuDefault, CardButtonLink, BtnScrollToTop },
   data() {
     return {
       drawerLeft: null,

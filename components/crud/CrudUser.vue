@@ -39,11 +39,9 @@
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
 
-    <v-card>
+    <v-card style="margin-bottom: 300px">
       <v-card-title elevation="0">
-        <div class="display-1">
-          {{ title }}
-        </div>
+        {{ title }}
         <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>

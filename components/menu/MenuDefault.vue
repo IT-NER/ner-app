@@ -65,6 +65,11 @@ export default {
           link: "/",
         },
         {
+          name: "โปรไฟล์",
+          icon: "mdi-account-edit",
+          link: "/profile",
+        },
+        {
           name: "จองห้องประชุม",
           icon: "mdi-calendar",
           link: "",
@@ -94,8 +99,13 @@ export default {
           link: "/",
         },
         {
+          name: "โปรไฟล์",
+          icon: "mdi-account-edit",
+          link: "/profile",
+        },
+        {
           name: "ผู้ใช้งาน",
-          icon: "mdi-account",
+          icon: "mdi-account-cog",
           link: "/user",
         },
         {

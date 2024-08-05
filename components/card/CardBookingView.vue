@@ -9,9 +9,7 @@
           <v-card-text>
             <p>{{ item.User.fname }} {{ item.User.lname }}</p>
             <p>{{ item.User.Department.name }}</p>
-            <p>
-              {{ $moment(item.createdAt).add(543, "year").format("LLLL") }} น.
-            </p>
+            <p>{{ $moment(item.createdAt).format("LLLL") }} น.</p>
             <p v-if="user.Role.id > 1">เบอร์โทร : {{ item.tel }}</p>
           </v-card-text>
         </v-card>
@@ -43,11 +41,11 @@
           <v-card-text>
             <p>
               <v-icon color="success">mdi-play</v-icon>
-              {{ $moment(item.start).add(543, "year").format("LLLL") }} น.
+              {{ $moment(item.start).format("LLLL") }} น.
             </p>
             <p>
               <v-icon color="error">mdi-stop</v-icon>
-              {{ $moment(item.end).add(543, "year").format("LLLL") }} น.
+              {{ $moment(item.end).format("LLLL") }} น.
             </p>
             <p>
               {{ item.Room.name }}

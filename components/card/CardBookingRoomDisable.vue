@@ -24,11 +24,11 @@
                 </v-col>
                 <v-col cols="12" md="4">
                   <v-icon class="mr-2" color="success">mdi-play</v-icon>
-                  {{ $moment(list.start).add(543, "year").format("LLLL") }} น.
+                  {{ $moment(list.start).format("LLLL") }} น.
                 </v-col>
                 <v-col cols="12" md="4">
                   <v-icon class="mr-2" color="error">mdi-stop</v-icon>
-                  {{ $moment(list.end).add(543, "year").format("LLLL") }} น.
+                  {{ $moment(list.end).format("LLLL") }} น.
                 </v-col>
               </v-row>
             </v-card-text>

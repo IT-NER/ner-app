@@ -22,7 +22,7 @@
             </span>
           </template>
           <template v-slot:item.publish="{ item }">
-            {{ $moment(item.start).add(543, "year").format("ll") }}
+            {{ $moment(item.start).format("ll") }}
           </template>
           <template v-slot:item.actions="{ item }">
             <v-btn

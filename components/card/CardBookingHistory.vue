@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-divider></v-divider>
-    <v-card flat>
+    <v-card flat style="margin-bottom: 300px">
       <v-card-title> ประวัติการจอง </v-card-title>
       <v-divider></v-divider>
       <v-card-text v-if="items">
@@ -21,14 +21,10 @@
             </v-chip>
           </template>
           <template v-slot:item.start="{ item }">
-            <span>
-              {{ $moment(item.start).add(543, "year").format("LLLL") }} น.</span
-            >
+            <span> {{ $moment(item.start).format("LLLL") }} น.</span>
           </template>
           <template v-slot:item.end="{ item }">
-            <span>
-              {{ $moment(item.end).add(543, "year").format("LLLL") }} น.</span
-            >
+            <span> {{ $moment(item.end).format("LLLL") }} น.</span>
           </template>
           <template v-slot:item.type="{ item }">
             <v-chip label color="success" dark v-if="item.meetingTypeId > 1">

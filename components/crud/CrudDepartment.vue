@@ -2,9 +2,8 @@
   <div>
     <v-card>
       <v-card-title elevation="0">
-        <div class="display-1">
-          {{ title }}
-        </div>
+        {{ title }}
+
         <v-spacer></v-spacer>
         <v-text-field v-model="search" label="ค้นหา"></v-text-field>
       </v-card-title>

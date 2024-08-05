@@ -94,8 +94,6 @@ app.post("/user", async (req, res) => {
         departmentId: item.departmentId,
         positionId: item.positionId,
         roleId: item.roleId,
-        createdAt: new Date(moment().format()),
-        updatedAt: new Date(moment().format()),
       },
     })
     .then((res) => {
@@ -126,7 +124,6 @@ app.put("/user/:id", async (req, res) => {
       departmentId: item.departmentId,
       positionId: item.positionId,
       roleId: item.roleId,
-      updatedAt: new Date(moment().format()),
     },
   });
   res.status(200).json(user);
