@@ -82,20 +82,18 @@ app.get("/user/:id", async (req, res) => {
 //create
 app.post("/user", async (req, res) => {
   let item = req.body.data;
-  let hashedPassword = await bcrypt.hash(item.password, 10);
+  let hashedPassword = await bcrypt.hash(String(item.password), 10);
   let user = await prisma.user
     .create({
       data: {
         email: item.email,
-        username: item.username,
-        password: hashedPassword,
-        lname: item.lname,
-        fname: item.fname,
-        departmentId: item.departmentId,
-        positionId: item.positionId,
-        roleId: item.roleId,
-        createdAt: new Date(moment().format()),
-        updatedAt: new Date(moment().format()),
+        username: String(item.username),
+        password: String(hashedPassword),
+        fname: String(item.fname),
+        lname: String(item.lname),
+        departmentId: Number(item.departmentId),
+        positionId: Number(item.positionId),
+        roleId: Number(item.roleId),
       },
     })
     .then((res) => {

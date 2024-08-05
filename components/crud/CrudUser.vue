@@ -300,7 +300,15 @@ export default {
 
     async setItemDefault() {
       this.user.id = null;
-      this.user.name = null;
+      this.user.email = null;
+      this.user.username = null;
+      this.user.password = null;
+      this.user.lname = null;
+      this.user.fname = null;
+      this.user.active = true;
+      this.user.departmentId = null;
+      this.user.positionId = null;
+      this.user.roleId = null;
     },
 
     async alertError() {

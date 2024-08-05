@@ -18,7 +18,7 @@
         <v-col>
           <h3>
             ประกาศเมื่อ
-            {{ $moment(item.createdAt).add(543, "year").format("LL") }}
+            {{ $moment(item.createdAt).format("LL") }}
           </h3>
         </v-col>
       </v-row>
