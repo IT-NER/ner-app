@@ -82,7 +82,7 @@ app.get("/user/:id", async (req, res) => {
 //create
 app.post("/user", async (req, res) => {
   let item = req.body.data;
-  let hashedPassword = await bcrypt.hash(item.password, 10);
+  let hashedPassword = await bcrypt.hash(String(item.password), 10);
   let user = await prisma.user
     .create({
       data: {
@@ -124,6 +124,7 @@ app.put("/user/:id", async (req, res) => {
       departmentId: item.departmentId,
       positionId: item.positionId,
       roleId: item.roleId,
+      updatedAt: new Date(moment().format()),
     },
   });
   res.status(200).json(user);
