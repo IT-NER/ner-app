@@ -1,30 +1,59 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <card-content
-        :title.sync="title"
-        :path.sync="path"
-        :content.sync="content"
-        :files.sync="files"
-      />
+      <v-card>
+        <v-toolbar elevation="0">
+          <div class="title">{{ title }}</div>
+          <v-spacer></v-spacer>
+          <v-btn color="warning" outlined @click="goToIndex">
+            กลับหน้าหลัก
+          </v-btn>
+          <v-btn color="success" outlined type="submit"> บันทึก </v-btn>
+        </v-toolbar>
+        <v-divider></v-divider>
+        <v-card-text>
+          <form-content :item.sync="item" />
+        </v-card-text>
+      </v-card>
     </form>
 
-    <v-divider></v-divider>
-    <card-item-content-img :contentImgIds.sync="contentImgIds" @main="main" />
+    <v-row>
+      <v-col cols="12" md="6">
+        <v-divider></v-divider>
+        <v-card>
+          <v-card-title>
+            รูปภาพหน้าปก
+            <v-spacer></v-spacer>
+            <v-btn
+              :disabled="!img1"
+              color="success"
+              outlined
+              @click="uploadImg1"
+              >อัพโหลด</v-btn
+            >
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <v-file-input v-model="img1" label="เพิ่มรูปภาพ"></v-file-input>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6"></v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-import CardContent from "~/components/card/CardContent.vue";
-import CardItemContentImg from "~/components/card/CardItemContentImg.vue";
+import FormContent from "~/components/form/FormContent.vue";
 export default {
-  components: { CardContent, CardItemContentImg },
+  components: { FormContent },
   data() {
     return {
       title: "BANNER",
+      item: null,
       path: "/content/banner",
 
-      content: {
+      item: {
         id: null,
         start: null,
         end: null,
@@ -46,175 +75,77 @@ export default {
         ContentImg: [],
         PointReceived: [],
 
-        dateStart: this.$moment(new Date()).format("YYYY-MM-DD"),
-        dateEnd: this.$moment(new Date()).format("YYYY-MM-DD"),
+        dateStart: this.$moment().format("YYYY-MM-DD"),
+        dateEnd: this.$moment().format("YYYY-MM-DD"),
         dateStartModal: false,
         dateEndModal: false,
 
-        timeStart: this.$moment(new Date()).format("HH:mm"),
-        timeEnd: this.$moment(new Date()).format("HH:mm"),
+        timeStart: this.$moment().format("00:00"),
+        timeEnd: this.$moment().format("00:00"),
         timeStartModal: false,
         timeEndModal: false,
       },
 
-      files: [],
-      contentImgIds: [],
+      img1: null,
+      img2: null,
     };
   },
 
   created() {
-    this.main();
+    this.getItem();
   },
 
   methods: {
-    async main() {
-      this.content = await this.getContentByTicket();
+    async uploadImg1() {
+      if (this.img1.size > 2000000) {
+        this.img1 = null;
+        this.alertOverSize();
+        return;
+      }
+      if (this.img1.type != "image/jpeg") {
+        this.img1 = null;
+        this.alertErrorType();
+        return;
+      }
 
-      // let contentImg = this.content.ContentImg
-      let contentImgIds = [];
+      console.log("img1", this.img1);
 
-      this.content.ContentImg.forEach((item) => {
-        contentImgIds.push(item.id);
-      });
-      this.contentImgIds = contentImgIds;
-      console.log("contentImgIds", this.contentImgIds);
-    },
-
-    async setDateTime() {
-      this.content.start = new Date(
-        this.content.dateStart + "T" + this.content.timeStart
-      );
-      this.content.end = new Date(
-        this.content.dateEnd + "T" + this.content.timeEnd
-      );
+      let formData = new FormData();
     },
 
     async save() {
       await this.setDateTime();
+      await this.$axios
+        .put("/api/content/" + this.item.id, {
+          data: this.item,
+        })
+        .then((res) => {
+          this.getItem();
+          this.alertSuccess();
+        })
+        .catch((err) => {
+          this.alertError();
+        });
+    },
 
-      let content = await this.update();
-      if (!content) {
-        this.alertError();
-        return;
-      }
+    async setDateTime() {
+      this.item.start = new Date(
+        this.item.dateStart + "T" + this.item.timeStart
+      );
+      this.item.end = new Date(this.item.dateEnd + "T" + this.item.timeEnd);
+    },
 
-      if (this.files.length == 0) {
-        await this.main();
-        await this.alertSuccess();
-        return;
-      }
-
-      let formData = new FormData();
-      this.files.forEach((file) => {
-        console.log(file);
-        formData.append("files", file);
+    async alertOverSize() {
+      this.$swal.fire({
+        type: "error",
+        title: "ไฟล์ภาพใหญ่กว่า 2 MB",
       });
-      if (!formData) {
-        return;
-      }
-
-      let filesUpload = await this.uploadsFiles(formData);
-      if (!filesUpload) {
-        this.alertError();
-        return;
-      }
-
-      let contentImg = await this.createContentImg(filesUpload);
-      if (!contentImg) {
-        this.alertError();
-        return;
-      }
-
-      await this.alertSuccess();
-      await this.main();
-      this.files = [];
     },
-
-    async update() {
-      let content = await this.$axios
-        .put("/api/content/" + this.content.id, {
-          data: this.content,
-        })
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return content;
-    },
-
-    async uploadsFiles(formData) {
-      let filesUpload = await this.$axios
-        .post("/api/uploads-content", formData, {
-          headers: {
-            "Reward-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      return filesUpload;
-    },
-
-    async createContentImg(filesUpload) {
-      let contentImg = await this.$axios
-        .post("/api/contentImg", {
-          data: {
-            content: this.content,
-            contentImg: filesUpload,
-          },
-        })
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-      return contentImg;
-    },
-
-    async getContentByTicket() {
-      let content = await this.$axios
-        .get("/api/content/ticket/" + this.$route.params.ticket)
-        .then((res) => {
-          if (res.data.start || res.data.end) {
-            res.data["dateStart"] = this.$moment(
-              new Date(res.data.start)
-            ).format("YYYY-MM-DD");
-            res.data["timeStart"] = this.$moment(
-              new Date(res.data.start)
-            ).format("HH:mm");
-
-            res.data["dateEnd"] = this.$moment(new Date(res.data.end)).format(
-              "YYYY-MM-DD"
-            );
-            res.data["timeEnd"] = this.$moment(new Date(res.data.end)).format(
-              "HH:mm"
-            );
-          } else {
-            res.data["dateStart"] = this.$moment(new Date()).format(
-              "YYYY-MM-DD"
-            );
-            res.data["dateEnd"] = this.$moment(new Date()).format("YYYY-MM-DD");
-            res.data["timeStart"] = this.$moment(new Date()).format("HH:mm");
-            res.data["timeEnd"] = this.$moment(new Date()).format("HH:mm");
-          }
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-
-      if (content) {
-        this.content = await content;
-      }
-      return content;
+    async alertErrorType() {
+      this.$swal.fire({
+        type: "error",
+        title: "ไฟล์ภาพต้องใช้ไฟล์ JPEG เท่านั้น",
+      });
     },
 
     async alertError() {
@@ -234,6 +165,36 @@ export default {
         showConfirmButton: false,
         timer: 1500,
       });
+    },
+    async goToIndex() {
+      this.$router.push(this.path);
+    },
+    async getItem() {
+      this.item = await this.$axios
+        .get("/api/content/ticket/" + this.$route.params.ticket)
+        .then((res) => {
+          console.log(res.data);
+          if (!res.data) {
+            this.$router.push(String(this.path));
+          }
+          res.data["dateStart"] = this.$moment(new Date(res.data.start)).format(
+            "YYYY-MM-DD"
+          );
+          res.data["timeStart"] = this.$moment(new Date(res.data.start)).format(
+            "HH:mm"
+          );
+
+          res.data["dateEnd"] = this.$moment(new Date(res.data.end)).format(
+            "YYYY-MM-DD"
+          );
+          res.data["timeEnd"] = this.$moment(new Date(res.data.end)).format(
+            "HH:mm"
+          );
+          return res.data;
+        })
+        .catch((err) => {
+          this.$router.push(String(this.path));
+        });
     },
   },
 };

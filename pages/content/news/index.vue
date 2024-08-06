@@ -28,13 +28,10 @@
           <v-chip label color="gray" dark v-if="item.contentStatusId == 1">
             {{ item.ContentStatus.name }}
           </v-chip>
-          <v-chip label color="warning" dark v-if="item.contentStatusId == 2">
+          <v-chip label color="success" dark v-if="item.contentStatusId == 2">
             {{ item.ContentStatus.name }}
           </v-chip>
-          <v-chip label color="success" dark v-if="item.contentStatusId == 3">
-            {{ item.ContentStatus.name }}
-          </v-chip>
-          <v-chip label color="primary" dark v-if="item.contentStatusId == 4">
+          <v-chip label color="error" dark v-if="item.contentStatusId == 3">
             {{ item.ContentStatus.name }}
           </v-chip>
         </template>
@@ -83,14 +80,6 @@ export default {
   created() {
     this.getUser();
     this.getContentByContentTypeId();
-  },
-
-  watch: {
-    dialog(val) {
-      if (!val) {
-        this.getContentByContentTypeId();
-      }
-    },
   },
 
   methods: {

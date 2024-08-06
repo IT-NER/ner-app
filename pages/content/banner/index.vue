@@ -6,18 +6,24 @@
         <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>
-      <v-card-title elevation="0">
-        <v-text-field v-model="search" label="ค้นหา"></v-text-field>
+      <v-toolbar elevation="0">
         <v-spacer></v-spacer>
         <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
-        <v-btn outlined color="primary" @click="getContentByContentTypeId">
-          รีเฟรช
-        </v-btn>
-      </v-card-title>
+        <v-btn outlined color="primary" @click="getItems"> รีเฟรช </v-btn>
+      </v-toolbar>
+      <v-divider></v-divider>
+      <v-toolbar elevation="0">
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          label="ค้นหา"
+          hide-details
+        ></v-text-field>
+      </v-toolbar>
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
-        :items="contents"
+        :items="items"
         :search="search"
         class="elevation-0"
       >
@@ -28,13 +34,10 @@
           <v-chip label color="gray" dark v-if="item.contentStatusId == 1">
             {{ item.ContentStatus.name }}
           </v-chip>
-          <v-chip label color="warning" dark v-if="item.contentStatusId == 2">
+          <v-chip label color="success" dark v-if="item.contentStatusId == 2">
             {{ item.ContentStatus.name }}
           </v-chip>
-          <v-chip label color="success" dark v-if="item.contentStatusId == 3">
-            {{ item.ContentStatus.name }}
-          </v-chip>
-          <v-chip label color="primary" dark v-if="item.contentStatusId == 4">
+          <v-chip label color="error" dark v-if="item.contentStatusId == 3">
             {{ item.ContentStatus.name }}
           </v-chip>
         </template>
@@ -63,8 +66,9 @@ export default {
         { text: "สถานะ", value: "status" },
         { text: "ACTIONS", value: "actions", align: "center", sortable: false },
       ],
-      contents: [],
-      content: {
+
+      items: [],
+      item: {
         id: null,
         ticket: null,
         code: null,
@@ -81,24 +85,30 @@ export default {
   },
 
   created() {
-    this.getUser();
-    this.getContentByContentTypeId();
-  },
-
-  watch: {
-    dialog(val) {
-      if (!val) {
-        this.getContentByContentTypeId();
-      }
-    },
+    this.getItems();
   },
 
   methods: {
-    async getContentByContentTypeId() {
-      this.contents = await this.$axios
-        .get("/api/content/contentType/" + this.content.contentTypeId)
+    async setItemDefault() {
+      this.item.id = null;
+      this.item.start = this.$moment().format("YYYY-MM-DDT00:00");
+      this.item.end = this.$moment().format("YYYY-MM-DDT00:00");
+      this.item.ticket = null;
+      this.item.code = null;
+      this.item.title = null;
+      this.item.description = null;
+      this.item.detail = null;
+      this.item.point = null;
+      this.item.userId = null;
+      this.item.contentTypeId = 1;
+      this.item.contentStatusId = 1;
+      this.item.active = true;
+    },
+
+    async getItems() {
+      this.items = await this.$axios
+        .get("/api/content/contentType/" + this.item.contentTypeId)
         .then((res) => {
-          console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
@@ -107,32 +117,28 @@ export default {
     },
 
     async addItem() {
-      let banner = await this.create();
-      if (!banner) {
-        this.alertError();
-        return;
-      }
-      this.$router.push("/content/banner/" + banner.ticket);
+      await this.setItemDefault();
+      await this.getUser();
+      await this.create();
     },
 
     async create() {
-      let banner = await this.$axios
+      await this.$axios
         .post("/api/content", {
-          data: this.content,
+          data: this.item,
         })
         .then((res) => {
-          return res.data;
+          this.$router.push("/content/banner/" + res.data.ticket);
         })
         .catch((err) => {
-          return false;
+          this.alertError();
+          return;
         });
-      return banner;
     },
 
     async getUser() {
-      let user = this.$auth.$storage.getCookie("user");
-      this.content.userId = user.id;
-      return user.id;
+      let user = await this.$auth.$storage.getCookie("user");
+      this.item.userId = await user.id;
     },
 
     async editItem(item) {
@@ -144,7 +150,6 @@ export default {
         type: "error",
         title: "เกิดข้อผิดพลาด",
         showConfirmButton: false,
-        timer: 1500,
       });
     },
 

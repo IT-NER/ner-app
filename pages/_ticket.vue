@@ -1,15 +1,18 @@
 <template>
   <div>
     <!-- ViewContent -->
-    <view-content v-if="id" :id.sync="id" />
+    <ViewContent v-if="id" :id.sync="id" />
+
+    <ButtonReceivedPoint v-if="id" :id.sync="id" />
   </div>
 </template>
 
 <script>
+import ButtonReceivedPoint from "~/components/btn/ButtonReceivedPoint.vue";
 import ViewContent from "~/components/view/ViewContent.vue";
 export default {
   layout: "blankLayout",
-  components: { ViewContent },
+  components: { ViewContent, ButtonReceivedPoint },
   data() {
     return {
       id: null,
