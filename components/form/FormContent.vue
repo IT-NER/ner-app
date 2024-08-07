@@ -9,6 +9,7 @@
             hide-details
             v-model="item.timed"
             inset
+            @click="$emit('setDatePublish')"
           ></v-switch>
         </v-col>
         <v-col cols="12" md="3">

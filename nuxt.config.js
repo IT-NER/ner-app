@@ -24,6 +24,7 @@ export default {
     "~/api/uploads-reward.js",
     "~/api/content.js",
     "~/api/contentImg.js",
+    "~/api/contentCoverImg.js",
     "~/api/pointReceived.js",
   ],
 

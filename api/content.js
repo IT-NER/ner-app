@@ -142,6 +142,7 @@ async function getContentPublish() {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 
@@ -158,6 +159,7 @@ async function getContentByIds(ids) {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 
@@ -179,6 +181,7 @@ app.get("/content", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
   res.status(200).json(content);
@@ -236,6 +239,7 @@ async function getContentByContentByTypeId(id) {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 
@@ -260,6 +264,7 @@ app.get("/content/:id", async (req, res) => {
         User: true,
         ContentType: true,
         ContentImg: true,
+        ContentCoverImg: true,
       },
     })
     .then((res) => {
@@ -289,6 +294,7 @@ app.get("/content/ticket/:id", async (req, res) => {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 

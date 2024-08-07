@@ -66,7 +66,7 @@
 import CardAccount from "~/components/card/CardAccount.vue";
 import MenuDefault from "~/components/menu/MenuDefault.vue";
 import CardButtonLink from "~/components/card/CardButtonLink.vue";
-import BtnScrollToTop from "~/components/btn/BtnScrollToTop.vue";
+import BtnScrollToTop from "~/components/button/BtnScrollToTop.vue";
 export default {
   components: { CardAccount, MenuDefault, CardButtonLink, BtnScrollToTop },
   data() {

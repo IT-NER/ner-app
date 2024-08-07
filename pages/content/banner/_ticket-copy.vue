@@ -21,7 +21,7 @@ export default {
   components: { CardContent, CardItemContentImg },
   data() {
     return {
-      title: "BANNER",
+      title: "แบนเนอร์",
       path: "/content/banner",
 
       content: {

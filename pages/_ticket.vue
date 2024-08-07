@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import ButtonReceivedPoint from "~/components/btn/ButtonReceivedPoint.vue";
+import ButtonReceivedPoint from "~/components/button/ButtonReceivedPoint.vue";
 import ViewContent from "~/components/view/ViewContent.vue";
 export default {
   layout: "blankLayout",

@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <v-card>
+      <v-card flat>
         <v-toolbar elevation="0">
           <div class="title">{{ title }}</div>
           <v-spacer></v-spacer>
@@ -12,44 +12,35 @@
         </v-toolbar>
         <v-divider></v-divider>
         <v-card-text>
-          <form-content :item.sync="item" />
+          <!-- FormContent -->
+          <form-content :item.sync="item" @setDatePublish="setDatePublish" />
         </v-card-text>
       </v-card>
     </form>
 
-    <v-row>
+    <v-divider></v-divider>
+
+    <v-row style="margin-bottom: 100px">
       <v-col cols="12" md="6">
-        <v-divider></v-divider>
-        <v-card>
-          <v-card-title>
-            รูปภาพหน้าปก
-            <v-spacer></v-spacer>
-            <v-btn
-              :disabled="!img1"
-              color="success"
-              outlined
-              @click="uploadImg1"
-              >อัพโหลด</v-btn
-            >
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text>
-            <v-file-input v-model="img1" label="เพิ่มรูปภาพ"></v-file-input>
-          </v-card-text>
-        </v-card>
+        <!-- FormUploadContentCoverImg -->
+        <form-upload-content-cover-img :item.sync="item" @getItem="getItem" />
       </v-col>
-      <v-col cols="12" md="6"></v-col>
+      <v-col cols="12" md="6">
+        <form-upload-content-img :item.sync="item" @getItem="getItem" />
+      </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
 import FormContent from "~/components/form/FormContent.vue";
+import FormUploadContentCoverImg from "~/components/form/FormUploadContentCoverImg.vue";
+import FormUploadContentImg from "~/components/form/FormUploadContentImg.vue";
 export default {
-  components: { FormContent },
+  components: { FormContent, FormUploadContentCoverImg, FormUploadContentImg },
   data() {
     return {
-      title: "BANNER",
+      title: "แบนเนอร์",
       item: null,
       path: "/content/banner",
 
@@ -73,6 +64,7 @@ export default {
         ContentType: null,
         User: null,
         ContentImg: [],
+        ContentCoverImg: [],
         PointReceived: [],
 
         dateStart: this.$moment().format("YYYY-MM-DD"),
@@ -85,9 +77,6 @@ export default {
         timeStartModal: false,
         timeEndModal: false,
       },
-
-      img1: null,
-      img2: null,
     };
   },
 
@@ -96,21 +85,16 @@ export default {
   },
 
   methods: {
-    async uploadImg1() {
-      if (this.img1.size > 2000000) {
-        this.img1 = null;
-        this.alertOverSize();
-        return;
+    async setDatePublish() {
+      console.log("item", this.item);
+      if (this.item.timed) {
+        if (!this.item.start || !this.item.end) {
+          this.item.dateStart = this.$moment().format("YYYY-MM-DD");
+          this.item.timeStart = this.$moment().format("00:00");
+          this.item.dateEnd = this.$moment().format("YYYY-MM-DD");
+          this.item.timeEnd = this.$moment().format("00:00");
+        }
       }
-      if (this.img1.type != "image/jpeg") {
-        this.img1 = null;
-        this.alertErrorType();
-        return;
-      }
-
-      console.log("img1", this.img1);
-
-      let formData = new FormData();
     },
 
     async save() {
@@ -147,16 +131,12 @@ export default {
         title: "ไฟล์ภาพต้องใช้ไฟล์ JPEG เท่านั้น",
       });
     },
-
     async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",
-        showConfirmButton: false,
-        timer: 1500,
       });
     },
-
     async alertSuccess() {
       this.$swal.fire({
         position: "top-end",
