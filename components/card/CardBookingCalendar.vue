@@ -49,7 +49,7 @@
       <v-card-actions>
         <v-row class="fill-height">
           <v-col>
-            <v-sheet height="auto">
+            <v-sheet height="500">
               <v-calendar
                 ref="calendar"
                 v-model="focus"
