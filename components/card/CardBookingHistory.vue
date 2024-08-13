@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-divider></v-divider>
-    <v-card flat>
+    <v-card flat style="margin-bottom: 300px">
       <v-card-title> ประวัติการจอง </v-card-title>
       <v-divider></v-divider>
       <v-card-text v-if="items">

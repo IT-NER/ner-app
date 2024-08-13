@@ -64,9 +64,9 @@ async function generateOTP() {
 }
 
 async function updateContent(id, item) {
-  item.contentStatusId = 2;
+  item.contentStatusId = 1;
   if (item.publish) {
-    item.contentStatusId = 3;
+    item.contentStatusId = 2;
   }
 
   let dateStart = new Date(item.start);
@@ -142,6 +142,7 @@ async function getContentPublish() {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 
@@ -158,6 +159,7 @@ async function getContentByIds(ids) {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 
@@ -179,6 +181,7 @@ app.get("/content", async (req, res) => {
       User: true,
       ContentType: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
   res.status(200).json(content);
@@ -194,9 +197,37 @@ app.get("/content/publish", async (req, res) => {
 app.get("/content/contentType/:id", async (req, res) => {
   let { id } = req.params;
 
-  let content = await prisma.content.findMany({
+  let contentTimeOut = await updateContentTimeOut(id);
+  let content = await getContentByContentByTypeId(id);
+  res.status(200).json(content);
+});
+
+async function updateContentTimeOut(id) {
+  let data = await prisma.content.updateMany({
     where: {
-      AND: [{ contentTypeId: Number(id) }, { active: true }],
+      AND: [
+        {
+          contentTypeId: Number(id),
+          active: Boolean(true),
+          end: {
+            lte: new Date(),
+          },
+          timed: Boolean(true),
+        },
+      ],
+    },
+    data: {
+      contentStatusId: Number(3),
+      publish: Boolean(false),
+    },
+  });
+
+  return data;
+}
+async function getContentByContentByTypeId(id) {
+  let data = await prisma.content.findMany({
+    where: {
+      AND: [{ contentTypeId: Number(id) }, { active: Boolean(true) }],
     },
     orderBy: [
       {
@@ -208,10 +239,12 @@ app.get("/content/contentType/:id", async (req, res) => {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
-  res.status(200).json(content);
-});
+
+  return data;
+}
 
 // getContentById
 app.get("/content/:id", async (req, res) => {
@@ -231,6 +264,7 @@ app.get("/content/:id", async (req, res) => {
         User: true,
         ContentType: true,
         ContentImg: true,
+        ContentCoverImg: true,
       },
     })
     .then((res) => {
@@ -260,6 +294,7 @@ app.get("/content/ticket/:id", async (req, res) => {
       ContentType: true,
       ContentStatus: true,
       ContentImg: true,
+      ContentCoverImg: true,
     },
   });
 
@@ -285,11 +320,12 @@ app.post("/content", async (req, res) => {
   let content = await prisma.content.create({
     data: {
       ticket: String(ticket),
+      start: new Date(item.start),
+      end: new Date(item.end),
       code: String(code),
       userId: Number(item.userId),
       contentTypeId: Number(item.contentTypeId),
       contentStatusId: Number(item.contentStatusId),
-      active: Boolean(item.active),
     },
     include: {
       User: true,

@@ -4,7 +4,7 @@
     <v-card flat height="800">
       <v-card-title> รายการจองห้องประชุม (ประจำวัน) </v-card-title>
       <v-divider></v-divider>
-      <v-card-text v-if="items">
+      <v-card-text v-if="items.length > 0">
         <v-data-table
           :items-per-page="-1"
           :headers="headers"

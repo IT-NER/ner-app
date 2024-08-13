@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import ButtonBackToIndexPage from "../btn/ButtonBackToIndexPage.vue";
-import ButtonSave from "../btn/ButtonSave.vue";
+import ButtonBackToIndexPage from "~/components/button/ButtonBackToIndexPage.vue";
+import ButtonSave from "~/components/button/ButtonSave.vue";
 import FormContent from "../form/FormContent.vue";
 export default {
   components: { ButtonSave, ButtonBackToIndexPage, FormContent },

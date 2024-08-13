@@ -16,6 +16,15 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+// sigle
+app.post("/uploads-content-single", upload.single("file"), (req, res) => {
+  res.json(req.file);
+});
+
+// array
+app.post("/uploads-content-array", upload.array("files"), (req, res) => {
+  res.json(req.files);
+});
 
 app.post("/uploads-content", upload.array("files"), (req, res) => {
   res.json(req.files);

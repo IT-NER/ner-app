@@ -87,13 +87,13 @@ app.post("/user", async (req, res) => {
     .create({
       data: {
         email: item.email,
-        username: String(item.username),
-        password: String(hashedPassword),
-        fname: String(item.fname),
-        lname: String(item.lname),
-        departmentId: Number(item.departmentId),
-        positionId: Number(item.positionId),
-        roleId: Number(item.roleId),
+        username: item.username,
+        password: hashedPassword,
+        lname: item.lname,
+        fname: item.fname,
+        departmentId: item.departmentId,
+        positionId: item.positionId,
+        roleId: item.roleId,
       },
     })
     .then((res) => {

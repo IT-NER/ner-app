@@ -1,0 +1,232 @@
+<template>
+  <div>
+    <v-card>
+      <v-card-title>
+        รูปภาพคอนเทนต์
+        <v-spacer></v-spacer>
+        <v-btn
+          :disabled="showButtonUpload2"
+          color="success"
+          outlined
+          @click="upload"
+          >อัพโหลด</v-btn
+        >
+      </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-file-input
+          v-model="filesContentImg"
+          label="เพิ่มรูปภาพ"
+          hide-details
+          multiple
+        ></v-file-input>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-text v-if="this.item.ContentImg.length > 0">
+        <v-container>
+          <v-row>
+            <v-col
+              cols="12"
+              md="3"
+              v-for="(item, i) in this.item.ContentImg"
+              :key="i"
+            >
+              <v-card @click="viewImg(item)">
+                <v-system-bar>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    color="warning"
+                    fab
+                    x-small
+                    @click="removeItemContentImg(item)"
+                  >
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                </v-system-bar>
+                <v-card-actions>
+                  <v-img
+                    :src="`/uploads/content/${item.name}`"
+                    :aspect-ratio="16 / 9"
+                  >
+                  </v-img>
+                </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
+      <v-card-text v-else>
+        <v-alert text prominent type="error" icon="mdi-cloud-alert">
+          ยังไม่มีรูปภาพ
+        </v-alert>
+      </v-card-text>
+    </v-card>
+
+    <v-dialog v-model="dialog" transition="dialog-transition" width="800px">
+      <v-card>
+        <v-card-actions>
+          <v-carousel v-model="index" height="auto" hide-delimiters>
+            <v-carousel-item
+              v-for="(item, i) in this.item.ContentImg"
+              :key="i"
+              :src="`/uploads/content/${item.name}`"
+              :aspect-ratio="16 / 9"
+            >
+            </v-carousel-item>
+          </v-carousel>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ["item"],
+
+  data() {
+    return {
+      dialog: false,
+      showButtonUpload2: true,
+      filesContentImg: [],
+      index: 0,
+    };
+  },
+
+  watch: {
+    filesContentImg(val) {
+      if (val.length > 0) {
+        this.showButtonUpload2 = false;
+      } else {
+        this.showButtonUpload2 = true;
+      }
+    },
+  },
+
+  methods: {
+    async viewImg(item) {
+      let index = this.item.ContentImg.indexOf(item);
+      this.index = index;
+      this.dialog = true;
+    },
+    async removeItemContentImg(item) {
+      console.log("item", item);
+      await this.$axios
+        .delete("/api/contentImg/" + item.id)
+        .then((res) => {
+          this.$emit("getItem");
+          this.alertSuccess();
+          return;
+        })
+        .catch((err) => {
+          this.alertError();
+          return;
+        });
+    },
+
+    async upload() {
+      let files = [];
+      this.filesContentImg.forEach((e) => {
+        if (e.size <= 2000000 && e.type == "image/jpeg") {
+          files.push(e);
+        }
+        return files;
+      });
+      // console.log("files", files);
+      // return;
+
+      if (files.length == 0) {
+        this.filesContentImg = [];
+        return;
+      }
+
+      this.filesContentImg = files;
+
+      let formData = new FormData();
+      this.filesContentImg.forEach((e) => {
+        formData.append("files", e);
+      });
+
+      let file = await this.uploadsImg(formData);
+      console.log("file", file);
+      if (!file) {
+        this.alertError();
+        return;
+      }
+      let contentImg = await this.createContentImg(file);
+      if (!contentImg) {
+        this.alertError();
+        return;
+      }
+
+      this.$emit("getItem");
+      this.alertSuccess();
+      this.filesContentImg = [];
+    },
+
+    async uploadsImg(formData) {
+      let filesUpload = await this.$axios
+        .post("/api/uploads-content-array", formData, {
+          headers: {
+            "Reward-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+      return filesUpload;
+    },
+
+    async createContentImg(file) {
+      let data = await this.$axios
+        .post("/api/contentImg", {
+          data: {
+            content: this.item,
+            contentImg: file,
+          },
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+      return data;
+    },
+
+    // alert
+    async alertOverSize() {
+      this.$swal.fire({
+        type: "error",
+        title: "ไฟล์ภาพใหญ่กว่า 2 MB",
+      });
+    },
+    async alertErrorType() {
+      this.$swal.fire({
+        type: "error",
+        title: "ไฟล์ภาพต้องใช้ไฟล์ JPEG เท่านั้น",
+      });
+    },
+    async alertError() {
+      this.$swal.fire({
+        type: "error",
+        title: "เกิดข้อผิดพลาด",
+      });
+    },
+    async alertSuccess() {
+      this.$swal.fire({
+        position: "top-end",
+        type: "success",
+        title: "บันทึก เรียบร้อย",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped></style>
