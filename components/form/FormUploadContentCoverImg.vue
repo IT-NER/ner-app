@@ -44,7 +44,8 @@
           <v-img
             v-if="this.item.ContentCoverImg"
             :src="`/uploads/content/${this.item.ContentCoverImg.name}`"
-            :aspect-ratio="16 / 9"
+            max-height="500px"
+            width="auto"            
           />
         </v-card-actions>
       </v-card>

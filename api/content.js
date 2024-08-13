@@ -345,6 +345,61 @@ app.put("/content/:id", async (req, res) => {
   res.status(200).json(content);
 });
 
+// getConyentPublishBanners
+app.get("/content/banner/publish", async (req, res) => {
+  let data = await getConyentPublishBanners();
+  res.status(200).json(data);
+});
+
+async function getConyentPublishBanners() {
+  let data = await prisma.content.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: Boolean(true),
+              publish: Boolean(true),
+              contentTypeId: Number(1),
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: Boolean(false),
+              publish: Boolean(true),
+              contentTypeId: Number(1),
+            },
+          ],
+        },
+      ],
+    },
+
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+      ContentCoverImg: true,
+    },
+  });
+
+  return data;
+}
+
 export default {
   path: "/api",
   handler: app,

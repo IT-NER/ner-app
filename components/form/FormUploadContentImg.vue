@@ -19,6 +19,7 @@
           label="เพิ่มรูปภาพ"
           hide-details
           multiple
+          accept="image/jpeg"
         ></v-file-input>
       </v-card-text>
       <v-divider></v-divider>
@@ -62,15 +63,24 @@
       </v-card-text>
     </v-card>
 
-    <v-dialog v-model="dialog" transition="dialog-transition" width="800px">
+    <v-dialog
+      v-model="dialog"
+      transition="dialog-transition"
+      height="auto"
+      width="300px"
+    >
       <v-card>
         <v-card-actions>
-          <v-carousel v-model="index" height="auto" hide-delimiters>
+          <v-carousel
+            v-model="index"
+            hide-delimiters
+            height="auto"
+            width="300px"
+          >
             <v-carousel-item
               v-for="(item, i) in this.item.ContentImg"
               :key="i"
               :src="`/uploads/content/${item.name}`"
-              :aspect-ratio="16 / 9"
             >
             </v-carousel-item>
           </v-carousel>

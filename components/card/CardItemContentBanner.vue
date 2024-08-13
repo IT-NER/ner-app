@@ -3,9 +3,8 @@
     <v-card flat>
       <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions :v-if="show" v-for="(item, i) in items" :key="i">
-        <!-- <v-card height="auto" class="mx-auto"> -->
-        <v-carousel
+      <v-card-actions v-for="(item, i) in items" :key="i">
+        <!-- <v-carousel
           cycle
           hide-delimiter-background
           show-arrows-on-hover
@@ -20,54 +19,34 @@
             :href="`/${item.ticket}`"
           >
           </v-carousel-item>
-        </v-carousel>
-        <!-- </v-card> -->
+        </v-carousel> -->
       </v-card-actions>
 
-      <v-card-text v-if="!show">
+      <!-- <v-card-text v-if="!show">
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
           COMING SOON
         </v-alert>
-      </v-card-text>
+      </v-card-text> -->
     </v-card>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["contentIds"],
-
   data() {
     return {
       items: [],
-      show: false,
     };
   },
 
-  watch: {
-    contentIds(val) {
-      if (val) {
-        this.getContentByIds();
-      }
-    },
-  },
-
   created() {
-    this.getContentByIds();
+    this.getItems();
   },
 
   methods: {
-    async getContentByIds() {
-      if (this.contentIds.length == 0) {
-        this.show = false;
-      } else {
-        this.show = true;
-      }
-
+    async getItems() {
       this.items = await this.$axios
-        .post("/api/content/ids", {
-          data: this.contentIds,
-        })
+        .get("/api/content/banner/publish")
         .then((res) => {
           console.log("banner", res.data);
           return res.data;

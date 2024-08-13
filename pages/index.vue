@@ -2,13 +2,15 @@
   <div>
     <v-divider></v-divider>
     <!-- CardItemContentActivity -->
-    <card-item-content-banner :contentIds.sync="bannerIds" />
-    <v-divider></v-divider>
+    <card-item-content-banner />
+    <!-- <v-divider></v-divider> -->
+
     <!-- CardItemContentBanner -->
-    <card-item-content-activity :contentIds.sync="activityIds" />
-    <v-divider></v-divider>
+    <!-- <card-item-content-activity :contentIds.sync="activityIds" /> -->
+    <!-- <v-divider></v-divider> -->
+
     <!-- CardItemContentNews -->
-    <card-item-content-news :contentIds.sync="newsIds" />
+    <!-- <card-item-content-news :contentIds.sync="newsIds" /> -->
   </div>
 </template>
 
