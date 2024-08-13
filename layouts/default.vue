@@ -14,11 +14,7 @@
           ออกจากระบบ
         </v-btn>
         <v-divider></v-divider>
-        <v-toolbar class="success" dense dark elevation="0">
-          <v-spacer></v-spacer>
-          พอยท์ : COMMING SOON
-          <v-spacer></v-spacer>
-        </v-toolbar>
+        <card-view-point />
       </template>
     </v-navigation-drawer>
 
@@ -67,14 +63,36 @@ import CardAccount from "~/components/card/CardAccount.vue";
 import MenuDefault from "~/components/menu/MenuDefault.vue";
 import CardButtonLink from "~/components/card/CardButtonLink.vue";
 import BtnScrollToTop from "~/components/button/BtnScrollToTop.vue";
+import CardViewPoint from "~/components/card/CardViewPoint.vue";
 export default {
-  components: { CardAccount, MenuDefault, CardButtonLink, BtnScrollToTop },
+  components: {
+    CardAccount,
+    MenuDefault,
+    CardButtonLink,
+    BtnScrollToTop,
+    CardViewPoint,
+  },
   data() {
     return {
       drawerLeft: null,
       drawerRigth: null,
       title: null,
+      user: null,
     };
+  },
+
+  created() {
+    this.main();
+  },
+  methods: {
+    async main() {
+      await this.getUser();
+    },
+
+    async getUser() {
+      let user = this.$auth.$storage.getCookie("user");
+      this.user = await this.$axios.get("/api/user/" + user.id);
+    },
   },
 };
 </script>

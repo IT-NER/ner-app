@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import CardItemContentActivity from "~/components/card/CardItemContentActivity.vue";
 import CardItemContentBanner from "~/components/card/CardItemContentBanner.vue";
+import CardItemContentActivity from "~/components/card/CardItemContentActivity.vue";
 import CardItemContentNews from "~/components/card/CardItemContentNews.vue";
 export default {
   components: {

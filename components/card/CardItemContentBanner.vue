@@ -4,12 +4,7 @@
       <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          show-arrows-on-hover
-          height="auto"
-        >
+        <v-carousel cycle show-arrows-on-hover height="auto">
           <v-carousel-item
             v-for="(item, i) in items"
             :key="i"
@@ -17,6 +12,13 @@
             target="_blank"
             :href="`/${item.ticket}`"
           >
+            <template v-slot:default>
+              <v-banner color="black" dark>
+                <div class="title">
+                  {{ item.title }}
+                </div>
+              </v-banner>
+            </template>
           </v-carousel-item>
         </v-carousel>
       </v-card-actions>
@@ -35,7 +37,6 @@ export default {
   data() {
     return {
       items: [],
-      show: false,
     };
   },
 

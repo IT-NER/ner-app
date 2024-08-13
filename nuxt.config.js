@@ -25,7 +25,7 @@ export default {
     "~/api/content.js",
     "~/api/contentImg.js",
     "~/api/contentCoverImg.js",
-    "~/api/pointReceived.js",
+    "~/api/point.js",
   ],
 
   components: true,
