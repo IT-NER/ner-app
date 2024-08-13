@@ -3,30 +3,29 @@
     <v-card flat>
       <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions v-for="(item, i) in items" :key="i">
-        <!-- <v-carousel
+      <v-card-actions>
+        <v-carousel
           cycle
           hide-delimiter-background
           show-arrows-on-hover
-          width="100%"
-          max-height="628"
+          height="auto"
         >
           <v-carousel-item
-            v-for="(list, y) in item.ContentImg"
-            :key="y"
-            :src="`/uploads/content/${list.name}`"
+            v-for="(item, i) in items"
+            :key="i"
+            :src="`/uploads/content/${item.ContentCoverImg.name}`"
             target="_blank"
             :href="`/${item.ticket}`"
           >
           </v-carousel-item>
-        </v-carousel> -->
+        </v-carousel>
       </v-card-actions>
 
-      <!-- <v-card-text v-if="!show">
+      <v-card-text v-if="items.length == 0">
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
           COMING SOON
         </v-alert>
-      </v-card-text> -->
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -36,6 +35,7 @@ export default {
   data() {
     return {
       items: [],
+      show: false,
     };
   },
 
