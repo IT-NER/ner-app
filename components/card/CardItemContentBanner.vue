@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions>
+      <v-card-actions v-if="items.length > 0">
         <v-carousel cycle show-arrows-on-hover height="auto">
           <v-carousel-item
             v-for="(item, i) in items"
@@ -23,7 +23,7 @@
         </v-carousel>
       </v-card-actions>
 
-      <v-card-text v-if="items.length == 0">
+      <v-card-text v-else>
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
           COMING SOON
         </v-alert>
@@ -47,9 +47,8 @@ export default {
   methods: {
     async getItems() {
       this.items = await this.$axios
-        .get("/api/content/banner/publish")
+        .get("/api/admin/content/banner/publish")
         .then((res) => {
-          console.log("banner", res.data);
           return res.data;
         })
         .catch((err) => {

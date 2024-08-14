@@ -73,12 +73,22 @@ export default {
         })
         .then((res) => {
           console.log("res", res.data);
+          this.alertReceivedSuccess();
           this.main();
           return res.data;
         })
         .catch((err) => {
           return false;
         });
+    },
+
+    async alertReceivedSuccess() {
+      this.$swal.fire({
+        position: "center",
+        type: "success",
+        title: "สำเร็จ",
+        text: "คุณได้รับพอยท์ เรียบร้อยแล้ว",
+      });
     },
 
     async main() {

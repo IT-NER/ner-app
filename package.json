@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "develop": "prisma studio"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",

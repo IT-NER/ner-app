@@ -3,42 +3,27 @@
     <v-card flat>
       <v-card-title> กิจกรรม </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions :v-if="show">
-        <v-row>
-          <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
-            <v-card
-              tile
-              class="mx-auto"
-              max-width="350"
-              hover
-              target="_blank"
-              :href="`/${item.ticket}`"
-            >
-              <v-card-actions>
-                <v-img
-                  v-for="(list, i) in item.ContentImg"
-                  :key="i"
-                  :src="`/uploads/content/${list.name}`"
-                  height="150"
-                  v-show="list.index"
-                ></v-img>
-              </v-card-actions>
-
-              <v-divider></v-divider>
-
-              <v-card-text>
-                <div class="title">{{ item.title }}</div>
-                <div class="subtitle-1 text-truncate">
-                  {{ item.description }}
+      <v-card-actions>
+        <v-carousel cycle show-arrows-on-hover height="auto">
+          <v-carousel-item
+            v-for="(item, i) in items"
+            :key="i"
+            :src="`/uploads/content/${item.ContentCoverImg.name}`"
+            target="_blank"
+            :href="`/${item.ticket}`"
+          >
+            <template v-slot:default>
+              <v-banner color="black" dark>
+                <div class="title">
+                  {{ item.title }}
                 </div>
-                <div class="subtitle-2 text-truncate">{{ item.detail }}</div>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
+              </v-banner>
+            </template>
+          </v-carousel-item>
+        </v-carousel>
       </v-card-actions>
 
-      <v-card-text v-if="!show">
+      <v-card-text v-if="items.length == 0">
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
           COMING SOON
         </v-alert>
@@ -49,41 +34,22 @@
 
 <script>
 export default {
-  props: ["contentIds"],
-
   data() {
     return {
       items: [],
-      show: false,
     };
   },
 
-  watch: {
-    contentIds(val) {
-      if (val) {
-        this.getContentByIds();
-      }
-    },
-  },
-
   created() {
-    this.getContentByIds();
+    this.getItems();
   },
 
   methods: {
-    async getContentByIds() {
-      if (this.contentIds.length == 0) {
-        this.show = false;
-      } else {
-        this.show = true;
-      }
-
+    async getItems() {
       this.items = await this.$axios
-        .post("/api/content/ids", {
-          data: this.contentIds,
-        })
+        .get("/api/content/banner/publish")
         .then((res) => {
-          console.log("res", res.data);
+          console.log("banner", res.data);
           return res.data;
         })
         .catch((err) => {

@@ -49,7 +49,6 @@ async function generateTicket(type) {
 
   return ticket;
 }
-
 // Function to generate OTP
 async function generateOTP() {
   // Declare a digits variable

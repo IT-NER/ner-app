@@ -13,7 +13,12 @@
         <v-divider></v-divider>
         <v-card-text>
           <!-- FormContent -->
-          <form-content :item.sync="item" @setDatePublish="setDatePublish" />
+          <form-content
+            :item.sync="item"
+            @updateTimed="updateTimed"
+            @updatePublish="updatePublish"
+            @updatePublishEnd="updatePublishEnd"
+          />
         </v-card-text>
       </v-card>
     </form>
@@ -63,6 +68,7 @@ export default {
         ContentStatus: null,
         ContentType: null,
         User: null,
+        contentCoverImgId: null,
         ContentImg: [],
         ContentCoverImg: [],
         PointReceived: [],
@@ -85,22 +91,55 @@ export default {
   },
 
   methods: {
-    async setDatePublish() {
-      console.log("item", this.item);
-      if (this.item.timed) {
-        if (!this.item.start || !this.item.end) {
-          this.item.dateStart = this.$moment().format("YYYY-MM-DD");
-          this.item.timeStart = this.$moment().format("00:00");
-          this.item.dateEnd = this.$moment().format("YYYY-MM-DD");
-          this.item.timeEnd = this.$moment().format("00:00");
-        }
-      }
+    async updateTimed() {
+      await this.$axios
+        .post("/api/admin/content/update/timed", {
+          data: this.item,
+        })
+        .then((res) => {
+          this.alertSuccess();
+          this.getItem();
+        })
+        .catch((err) => {
+          this.alertError();
+        });
+    },
+
+    async updatePublish() {
+      await this.$axios
+        .post("/api/admin/content/update/publish", {
+          data: this.item,
+        })
+        .then((res) => {
+          this.alertSuccess();
+          this.getItem();
+        })
+        .catch((err) => {
+          this.alertError();
+        });
+    },
+    async updatePublishEnd() {
+      await this.$axios
+        .post("/api/admin/content/update/publish/end", {
+          data: this.item,
+        })
+        .then((res) => {
+          this.alertSuccess();
+          this.getItem();
+        })
+        .catch((err) => {
+          this.alertError();
+        });
     },
 
     async save() {
       await this.setDateTime();
+      await this.update();
+    },
+
+    async update() {
       await this.$axios
-        .put("/api/content/" + this.item.id, {
+        .post("/api/admin/content/update", {
           data: this.item,
         })
         .then((res) => {
@@ -153,7 +192,7 @@ export default {
       this.item = await this.$axios
         .get("/api/content/ticket/" + this.$route.params.ticket)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (!res.data) {
             this.$router.push(String(this.path));
           }

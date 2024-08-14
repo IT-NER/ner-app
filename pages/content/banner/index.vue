@@ -1,22 +1,27 @@
 <template>
   <div>
     <v-card tile>
-      <v-toolbar elevation="0">
-        <div class="title">
-          {{ title }}
-        </div>
-        <v-spacer></v-spacer>
-        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
-        <v-btn outlined color="primary" @click="getItems"> รีเฟรช </v-btn>
-      </v-toolbar>
+      <v-card-title>
+        {{ title }}
+      </v-card-title>
+      <v-divider></v-divider>
+      <!-- CardFilterContent -->
+      <card-filter-content :item.sync="filter" @getItems="getItems" />
+      <!-- CardFilterContent -->
       <v-divider></v-divider>
       <v-toolbar elevation="0">
         <v-spacer></v-spacer>
+        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
+        <v-btn outlined color="primary" @click="refresh"> รีเฟรช </v-btn>
+      </v-toolbar>
+      <v-divider></v-divider>
+      <v-toolbar elevation="0">
         <v-text-field
           v-model="search"
           label="ค้นหา"
           hide-details
         ></v-text-field>
+        <v-spacer></v-spacer>
       </v-toolbar>
       <v-divider></v-divider>
       <v-data-table
@@ -28,27 +33,44 @@
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
         </template>
-        <template v-slot:item.dateStart="{ item }">
-          {{ $moment(item.start).format("LL") }}
-        </template>
-        <template v-slot:item.timeStart="{ item }">
-          {{ $moment(item.start).format("LT") }} น.
-        </template>
-        <template v-slot:item.dateEnd="{ item }">
-          {{ $moment(item.end).format("LL") }}
-        </template>
-        <template v-slot:item.timeEnd="{ item }">
-          {{ $moment(item.end).format("LT") }} น.
+        <template v-slot:item.title="{ item }">
+          {{ item.title }}
+          <span class="error--text" v-if="!item.title"> ไม่ได้ระบุ </span>
         </template>
 
+        <template v-slot:item.dateStart="{ item }">
+          <span v-if="item.start">
+            {{ $moment(item.start).format("LLLL") }} น.
+          </span>
+          <span v-else> - </span>
+        </template>
+        <template v-slot:item.dateEnd="{ item }">
+          <span v-if="item.end">
+            {{ $moment(item.end).format("LLLL") }} น.
+          </span>
+          <span v-else> - </span>
+        </template>
+        <template v-slot:item.timed="{ item }">
+          <v-chip color="success" label v-if="item.timed">
+            <v-icon class="mr-2">mdi-refresh-auto</v-icon>
+            อัตโนมัติ
+          </v-chip>
+          <v-chip color="primary" label v-else>
+            <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
+            กำหนดเอง
+          </v-chip>
+        </template>
         <template v-slot:item.status="{ item }">
           <v-chip label color="gray" dark v-if="item.contentStatusId == 1">
+            <v-icon class="mr-2">mdi-file-document-edit</v-icon>
             {{ item.ContentStatus.name }}
           </v-chip>
           <v-chip label color="success" dark v-if="item.contentStatusId == 2">
+            <v-icon class="mr-2">mdi-earth</v-icon>
             {{ item.ContentStatus.name }}
           </v-chip>
           <v-chip label color="error" dark v-if="item.contentStatusId == 3">
+            <v-icon class="mr-2">mdi-earth-off</v-icon>
             {{ item.ContentStatus.name }}
           </v-chip>
         </template>
@@ -63,86 +85,111 @@
 </template>
 
 <script>
+import CardFilterContent from "~/components/card/CardFilterContent.vue";
+
 export default {
+  components: { CardFilterContent },
   data() {
     return {
+      filter: {
+        start: null,
+        end: null,
+        timed: true,
+        contentStatusId: [2],
+      },
       title: "แบนเนอร์",
       search: null,
 
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "หัวข้อ", value: "title", align: "start", sortable: false },
+        {
+          text: "หัวข้อ",
+          value: "title",
+          align: "start",
+          sortable: false,
+          width: 300,
+        },
         {
           text: "เริ่ม",
           value: "dateStart",
           align: "start",
           sortable: false,
-        },
-        {
-          text: "เวลา",
-          value: "timeStart",
-          align: "start",
-          sortable: false,
+          width: 200,
         },
         {
           text: "สิ้นสุด",
           value: "dateEnd",
           align: "start",
           sortable: false,
+          width: 200,
         },
         {
-          text: "เวลา",
-          value: "timeEnd",
-          align: "start",
+          text: "การเผยแพร่",
+          value: "timed",
+          align: "center",
           sortable: false,
         },
-        { text: "พอยท์", value: "point", align: "center", sortable: false },
+        // { text: "พอยท์", value: "point", align: "center", sortable: false },
         { text: "สถานะ", value: "status", align: "center", sortable: false },
-
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
 
       items: [],
       item: {
         id: null,
+        start: null,
+        end: null,
+        timed: null,
+        publish: null,
         ticket: null,
         code: null,
         title: null,
         description: null,
         detail: null,
-        point: null,
+        point: 0,
+        contentStatusId: null,
+        contentTypeId: null,
         userId: null,
-        contentTypeId: 1,
-        contentStatusId: 1,
+        contentCoverImgId: null,
         active: true,
       },
     };
   },
 
   created() {
-    this.getItems();
+    this.main();
   },
 
   methods: {
-    async setItemDefault() {
-      this.item.id = null;
-      this.item.start = this.$moment().format("YYYY-MM-DDT00:00");
-      this.item.end = this.$moment().format("YYYY-MM-DDT00:00");
-      this.item.ticket = null;
-      this.item.code = null;
-      this.item.title = null;
-      this.item.description = null;
-      this.item.detail = null;
-      this.item.point = null;
-      this.item.userId = null;
-      this.item.contentTypeId = 1;
-      this.item.contentStatusId = 1;
-      this.item.active = true;
+    async main() {
+      await this.updateContentTimeOut();
+      await this.getItems();
     },
 
+    async updateContentTimeOut() {
+      await this.$axios
+        .get("/api/admin/content/update/timeout")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    },
+
+    async refresh() {
+      this.filter.start = null;
+      this.filter.end = null;
+      this.filter.timed = true;
+      this.filter.contentStatusId = [2];
+
+      await this.getItems();
+    },
     async getItems() {
       this.items = await this.$axios
-        .get("/api/content/contentType/" + this.item.contentTypeId)
+        .post("/api/admin/content/filter/banner", {
+          data: this.filter,
+        })
         .then((res) => {
           return res.data;
         })
@@ -152,22 +199,25 @@ export default {
     },
 
     async addItem() {
-      await this.setItemDefault();
       await this.getUser();
       await this.create();
     },
 
     async create() {
+      this.item.start = this.$moment().format("YYYY-MM-DD 00:00");
+      this.item.end = this.$moment().add(1, "days").format("YYYY-MM-DD 00:00");
+
       await this.$axios
-        .post("/api/content", {
+        .post("/api/admin/content/create/banner", {
           data: this.item,
         })
         .then((res) => {
+          console.log("res", res.data);
+
           this.$router.push("/content/banner/" + res.data.ticket);
         })
         .catch((err) => {
           this.alertError();
-          return;
         });
     },
 

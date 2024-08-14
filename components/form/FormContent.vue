@@ -9,8 +9,13 @@
             hide-details
             v-model="item.timed"
             inset
-            @click="$emit('setDatePublish')"
-          ></v-switch>
+            @click="$emit('updateTimed')"
+          >
+            <template v-slot:label>
+              <span v-if="item.timed"> การเผยแพร่ (อัตโนมัติ) </span>
+              <span v-else> การเผยแพร่ (กำหนดเอง) </span>
+            </template>
+          </v-switch>
         </v-col>
         <v-col cols="12" md="3">
           <v-switch
@@ -19,7 +24,18 @@
             hide-details
             v-model="item.publish"
             inset
+            @click="$emit('updatePublish')"
           ></v-switch>
+        </v-col>
+        <v-col cols="12" md="6" class="text-right">
+          <v-btn
+            :disabled="showBtnEnd"
+            color="error"
+            @click="$emit('updatePublishEnd')"
+          >
+            <v-icon class="mr-2"> mdi-earth-off </v-icon>
+            ปิดการประชาสัมพันธ์
+          </v-btn>
         </v-col>
       </v-row>
 
@@ -285,6 +301,16 @@
 <script>
 export default {
   props: ["item"],
+
+  computed: {
+    showBtnEnd() {
+      if (this.item.timed == false && this.item.publish == true) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+  },
 };
 </script>
 

@@ -2,8 +2,12 @@
   <div>
     <v-toolbar class="success" dense dark elevation="0">
       <v-spacer></v-spacer>
-      พอยท์ :
-      <p>{{ item }}</p>
+      <h3>
+        {{ point }} พอยท์
+        <span>
+          <v-icon color="primary" @click="getItem">mdi-refresh</v-icon>
+        </span>
+      </h3>
       <v-spacer></v-spacer>
     </v-toolbar>
   </div>
@@ -14,6 +18,7 @@ export default {
   data() {
     return {
       item: null,
+      point: 0,
     };
   },
 
@@ -23,11 +28,13 @@ export default {
 
   methods: {
     async getItem() {
-      this.item = await this.$axios
-        .get("/api/user/" + this.$auth.$state.user.id)
-        .then((res) => {
-          console.log("user", res.data);
+      let user = await this.$auth.$storage.getCookie("user");
 
+      this.item = await this.$axios
+        .get("/api/user/" + user.id)
+        .then((res) => {
+          // console.log("user", res.data);
+          this.point = res.data.point;
           return res.data;
         })
         .catch((err) => {
