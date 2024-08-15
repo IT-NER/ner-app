@@ -1,6 +1,6 @@
 <template>
   <div>
-    <card-view-content :ticket.sync="$route.params.ticket" />
+    <card-view-content :id.sync="$route.params.id" />
   </div>
 </template>
 

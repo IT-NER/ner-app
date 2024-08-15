@@ -9,8 +9,10 @@
           color="success"
           outlined
           @click="upload"
-          >อัพโหลด</v-btn
         >
+          <v-icon class="mr-2">mdi-cloud-upload</v-icon>
+          อัพโหลด
+        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
@@ -32,23 +34,26 @@
               v-for="(item, i) in this.item.ContentImg"
               :key="i"
             >
-              <v-card @click="viewImg(item)">
-                <v-system-bar>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                    color="warning"
-                    fab
-                    x-small
-                    @click="removeItemContentImg(item)"
-                  >
-                    <v-icon>mdi-close</v-icon>
-                  </v-btn>
-                </v-system-bar>
+              <v-card @click.stop="viewImg(item)">
                 <v-card-actions>
                   <v-img
                     :src="`/uploads/content/${item.name}`"
                     :aspect-ratio="16 / 9"
                   >
+                    <template v-slot:default>
+                      <v-row>
+                        <v-col cols="12" class="text-right">
+                          <v-btn
+                            color="warning"
+                            x-small
+                            fab
+                            @click.stop="removeItemContentImg(item)"
+                          >
+                            <v-icon>mdi-close</v-icon>
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                    </template>
                   </v-img>
                 </v-card-actions>
               </v-card>
@@ -67,7 +72,7 @@
       v-model="dialog"
       transition="dialog-transition"
       height="auto"
-      width="300px"
+      width="800px"
     >
       <v-card>
         <v-card-actions>
@@ -75,7 +80,7 @@
             v-model="index"
             hide-delimiters
             height="auto"
-            width="300px"
+            width="800px"
           >
             <v-carousel-item
               v-for="(item, i) in this.item.ContentImg"

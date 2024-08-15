@@ -70,78 +70,35 @@ app.get("/content/:id", async (req, res) => {
 async function findOne(id) {
   let data = await prisma.content.findFirst({
     where: {
-      AND: [{ id: Number(id) }, { active: true }],
+      id: Number(id),
     },
     include: {
       ContentStatus: true,
       ContentType: true,
-      User: true,
+      User: {
+        include: {
+          Department: true,
+          Position: true,
+        },
+      },
       ContentCoverImg: true,
       ContentImg: true,
-      PointReceived: true,
+      PointReceived: {
+        include: {
+          User: {
+            include: {
+              Department: true,
+              Position: true,
+            },
+          },
+        },
+      },
     },
     orderBy: [
       {
         id: "desc",
       },
     ],
-  });
-
-  return data;
-}
-// getBannerPublish
-app.get("/content/banner/publish", async (req, res) => {
-  let data = await getBannerPublish();
-  res.status(200).json(data);
-});
-async function getBannerPublish() {
-  let data = await prisma.content.findMany({
-    where: {
-      OR: [
-        {
-          AND: [
-            {
-              start: {
-                lte: new Date(),
-              },
-              end: {
-                gte: new Date(),
-              },
-              timed: Boolean(true),
-              publish: Boolean(true),
-              contentTypeId: Number(1),
-              contentCoverImgId: {
-                not: null,
-              },
-            },
-          ],
-        },
-        {
-          AND: [
-            {
-              timed: Boolean(false),
-              publish: Boolean(true),
-              contentTypeId: Number(1),
-              contentCoverImgId: {
-                not: null,
-              },
-            },
-          ],
-        },
-      ],
-    },
-    orderBy: [
-      {
-        id: "desc",
-      },
-    ],
-    include: {
-      User: true,
-      ContentType: true,
-      ContentStatus: true,
-      ContentImg: true,
-      ContentCoverImg: true,
-    },
   });
 
   return data;
@@ -163,12 +120,12 @@ async function filterBaner(item) {
   if (item.timed) {
     if (item.start) {
       filter.start = {
-        gte: new Date(item.start),
+        gt: new Date(item.start),
       };
     }
     if (item.end) {
       filter.end = {
-        lte: new Date(item.end),
+        lt: new Date(item.end),
       };
     }
   }
@@ -178,7 +135,6 @@ async function filterBaner(item) {
       in: item.contentStatusId,
     };
   }
-  console.log("filter", filter);
 
   let data = await prisma.content.findMany({
     where: {
@@ -367,12 +323,13 @@ app.post("/content/update/timed", async (req, res) => {
   res.status(200).json(content);
 });
 async function updateTimed(item) {
+  let start = moment().format("YYYY-MM-DD 00:00");
+  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
+
   item.start = null;
   item.end = null;
 
   if (item.timed) {
-    let start = moment().format("YYYY-MM-DD 00:00");
-    let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
     item.start = new Date(start);
     item.end = new Date(end);
   }

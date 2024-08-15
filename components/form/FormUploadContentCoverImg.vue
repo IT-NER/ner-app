@@ -9,7 +9,9 @@
           color="success"
           outlined
           @click="upload"
-          >อัพโหลด</v-btn
+        >
+          <v-icon class="mr-2">mdi-cloud-upload</v-icon>
+          อัพโหลด</v-btn
         >
       </v-card-title>
       <v-divider></v-divider>
@@ -38,14 +40,19 @@
       </v-card-text>
     </v-card>
 
-    <v-dialog v-model="dialog" max-width="800px" transition="dialog-transition">
+    <v-dialog
+      v-model="dialog"
+      transition="dialog-transition"
+      height="auto"
+      width="800px"
+    >
       <v-card>
         <v-card-actions>
           <v-img
             v-if="this.item.ContentCoverImg"
             :src="`/uploads/content/${this.item.ContentCoverImg.name}`"
-            max-height="500px"
-            width="auto"            
+            height="auto"
+            width="800px"
           />
         </v-card-actions>
       </v-card>

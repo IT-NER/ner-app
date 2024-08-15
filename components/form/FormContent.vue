@@ -259,6 +259,7 @@
             hide-details
             v-model="item.point"
             type="number"
+            required
           ></v-text-field>
         </v-col>
       </v-row>

@@ -1,15 +1,15 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <v-card flat>
-        <v-toolbar elevation="0">
-          <div class="title">{{ title }}</div>
+      <v-card>
+        <v-card-title>
+          แบนเนอร์
           <v-spacer></v-spacer>
           <v-btn color="warning" outlined @click="goToIndex">
+            <v-icon class="mr-2"> mdi-reply </v-icon>
             กลับหน้าหลัก
           </v-btn>
-          <v-btn color="success" outlined type="submit"> บันทึก </v-btn>
-        </v-toolbar>
+        </v-card-title>
         <v-divider></v-divider>
         <v-card-text>
           <!-- FormContent -->
@@ -20,12 +20,21 @@
             @updatePublishEnd="updatePublishEnd"
           />
         </v-card-text>
+        <v-divider></v-divider>
+        <v-card-title>
+          <v-spacer></v-spacer>
+          <v-btn color="success" outlined type="submit">
+            <v-icon class="mr-2"> mdi-content-save </v-icon>
+            บันทึก
+          </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-title>
       </v-card>
     </form>
 
     <v-divider></v-divider>
 
-    <v-row style="margin-bottom: 100px">
+    <v-row>
       <v-col cols="12" md="6">
         <!-- FormUploadContentCoverImg -->
         <form-upload-content-cover-img :item.sync="item" @getItem="getItem" />
@@ -34,15 +43,27 @@
         <form-upload-content-img :item.sync="item" @getItem="getItem" />
       </v-col>
     </v-row>
+
+    <v-row style="margin-bottom: 100px">
+      <v-col cols="12">
+        <card-user-received-point :item="item" @getItem="getItem" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
+import CardUserReceivedPoint from "~/components/card/CardUserReceivedPoint.vue";
 import FormContent from "~/components/form/FormContent.vue";
 import FormUploadContentCoverImg from "~/components/form/FormUploadContentCoverImg.vue";
 import FormUploadContentImg from "~/components/form/FormUploadContentImg.vue";
 export default {
-  components: { FormContent, FormUploadContentCoverImg, FormUploadContentImg },
+  components: {
+    FormContent,
+    FormUploadContentCoverImg,
+    FormUploadContentImg,
+    CardUserReceivedPoint,
+  },
   data() {
     return {
       title: "แบนเนอร์",
@@ -60,7 +81,7 @@ export default {
         title: null,
         description: null,
         detail: null,
-        point: null,
+        point: 0,
         contentStatusId: null,
         contentTypeId: null,
         userId: null,
@@ -190,9 +211,8 @@ export default {
     },
     async getItem() {
       this.item = await this.$axios
-        .get("/api/content/ticket/" + this.$route.params.ticket)
+        .get("/api/admin/content/" + this.$route.params.id)
         .then((res) => {
-          // console.log(res.data);
           if (!res.data) {
             this.$router.push(String(this.path));
           }

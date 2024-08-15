@@ -3,16 +3,22 @@
     <v-card tile>
       <v-card-title>
         {{ title }}
+        <v-spacer></v-spacer>
+        <v-btn outlined color="primary" @click="refresh">
+          <v-icon class="mr-2"> mdi-refresh </v-icon>
+          รีเฟรช
+        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <!-- CardFilterContent -->
       <card-filter-content :item.sync="filter" @getItems="getItems" />
-      <!-- CardFilterContent -->
       <v-divider></v-divider>
       <v-toolbar elevation="0">
         <v-spacer></v-spacer>
-        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
-        <v-btn outlined color="primary" @click="refresh"> รีเฟรช </v-btn>
+        <v-btn outlined color="success" @click="addItem">
+          <v-icon class="mr-2"> mdi-plus </v-icon>
+          เพิ่ม
+        </v-btn>
       </v-toolbar>
       <v-divider></v-divider>
       <v-toolbar elevation="0">
@@ -51,11 +57,11 @@
           <span v-else> - </span>
         </template>
         <template v-slot:item.timed="{ item }">
-          <v-chip color="success" label v-if="item.timed">
+          <v-chip color="primary" label v-if="item.timed">
             <v-icon class="mr-2">mdi-refresh-auto</v-icon>
             อัตโนมัติ
           </v-chip>
-          <v-chip color="primary" label v-else>
+          <v-chip color="error" label v-else>
             <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
             กำหนดเอง
           </v-chip>
@@ -76,6 +82,7 @@
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn outlined color="warning" @click="editItem(item)">
+            <v-icon class="mr-2"> mdi-pencil </v-icon>
             แก้ไข
           </v-btn>
         </template>
@@ -95,7 +102,7 @@ export default {
         start: null,
         end: null,
         timed: true,
-        contentStatusId: [2],
+        contentStatusId: [1, 2],
       },
       title: "แบนเนอร์",
       search: null,
@@ -109,6 +116,7 @@ export default {
           sortable: false,
           width: 300,
         },
+        { text: "พอยท์", value: "point", align: "center", sortable: false },
         {
           text: "เริ่ม",
           value: "dateStart",
@@ -129,7 +137,6 @@ export default {
           align: "center",
           sortable: false,
         },
-        // { text: "พอยท์", value: "point", align: "center", sortable: false },
         { text: "สถานะ", value: "status", align: "center", sortable: false },
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
@@ -181,7 +188,7 @@ export default {
       this.filter.start = null;
       this.filter.end = null;
       this.filter.timed = true;
-      this.filter.contentStatusId = [2];
+      this.filter.contentStatusId = [1, 2];
 
       await this.getItems();
     },
@@ -214,7 +221,7 @@ export default {
         .then((res) => {
           console.log("res", res.data);
 
-          this.$router.push("/content/banner/" + res.data.ticket);
+          this.$router.push("/content/banner/" + res.data.id);
         })
         .catch((err) => {
           this.alertError();
@@ -227,7 +234,7 @@ export default {
     },
 
     async editItem(item) {
-      this.$router.push("/content/banner/" + item.ticket);
+      this.$router.push("/content/banner/" + item.id);
     },
 
     async alertError() {

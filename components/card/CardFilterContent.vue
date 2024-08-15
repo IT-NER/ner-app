@@ -4,23 +4,31 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="3">
+            <div class="v-label--active">การเผยแพร่</div>
             <v-switch
-              label="กำหนดเวลาเผยแพร่"
-              prepend-icon="mdi-timer-sand"
+              label="การเผยแพร่"
               hide-details
               v-model="item.timed"
               inset
               @click="$emit('getItems')"
             >
               <template v-slot:label>
-                <span v-if="item.timed"> การเผยแพร่ (อัตโนมัติ) </span>
-                <span v-else> การเผยแพร่ (กำหนดเอง) </span>
+                <!-- <span> การเผยแพร่ </span> -->
+                <v-chip label color="primary" v-if="item.timed">
+                  <v-icon class="mr-2"> mdi-refresh-auto </v-icon>
+                  (อัตโนมัติ)
+                </v-chip>
+                <v-chip label color="error" v-else>
+                  <v-icon class="mr-2"> mdi-gesture-double-tap </v-icon>
+                  กำหนดเอง
+                </v-chip>
               </template>
             </v-switch>
           </v-col>
 
           <v-col cols="12" md="3">
             <v-select
+              label="สถานะ"
               v-model="item.contentStatusId"
               :items="itemsContentStatus"
               item-text="name"
@@ -49,6 +57,8 @@
                   readonly
                   v-bind="attrs"
                   v-on="on"
+                  clearable
+                  @click:clear="item.end = null"
                 ></v-text-field>
               </template>
               <v-date-picker v-model="item.start" scrollable locale="th">
@@ -65,7 +75,10 @@
                   outlined
                   text
                   color="primary"
-                  @click="$refs.dateStartModal.save(item.start)"
+                  @click="
+                    $refs.dateStartModal.save(item.start),
+                      (item.end = item.start)
+                  "
                 >
                   OK
                 </v-btn>
@@ -90,6 +103,8 @@
                   readonly
                   v-bind="attrs"
                   v-on="on"
+                  clearable
+                  @click:clear="item.start = null"
                 ></v-text-field>
               </template>
               <v-date-picker
@@ -124,7 +139,10 @@
     <v-divider></v-divider>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn outlined color="primary" @click="$emit('getItems')"> ค้นหา </v-btn>
+      <v-btn outlined color="primary" @click="$emit('getItems')">
+        <v-icon class="mr-2"> mdi-magnify </v-icon>
+        ค้นหา
+      </v-btn>
       <v-spacer></v-spacer>
     </v-card-actions>
   </div>

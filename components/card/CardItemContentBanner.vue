@@ -10,7 +10,7 @@
             :key="i"
             :src="`/uploads/content/${item.ContentCoverImg.name}`"
             target="_blank"
-            :href="`/${item.ticket}`"
+            :href="`/${item.id}`"
           >
             <template v-slot:default>
               <v-banner color="black" dark>
@@ -47,9 +47,15 @@ export default {
   methods: {
     async getItems() {
       this.items = await this.$axios
-        .get("/api/admin/content/banner/publish")
+        .get("/api/content/publish/banner")
         .then((res) => {
-          return res.data;
+          let items = [];
+          res.data.forEach((e) => {
+            if (e.contentCoverImgId) {
+              items.push(e);
+            }
+          });
+          return items;
         })
         .catch((err) => {
           return false;
