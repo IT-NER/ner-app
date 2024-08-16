@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-title> กิจกรรม </v-card-title>
       <v-divider></v-divider>
-      <v-card-text v-if="items.length > 0">
+      <v-card-actions v-if="items.length > 0">
         <v-container>
           <v-row>
             <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
@@ -21,7 +21,7 @@
             </v-col>
           </v-row>
         </v-container>
-      </v-card-text>
+      </v-card-actions>
 
       <v-card-text v-else>
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
