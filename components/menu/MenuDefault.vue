@@ -149,11 +149,11 @@ export default {
               icon: "mdi-earth",
               link: "/content/news",
             },
-            // {
-            //   name: "ของรางวัล",
-            //   icon: "mdi-earth",
-            //   link: "/reward",
-            // },
+            {
+              name: "รับพอยท์",
+              icon: "mdi-star",
+              link: "/point",
+            },
             // {
             //   name: "แลกของรางวัล",
             //   icon: "mdi-earth",

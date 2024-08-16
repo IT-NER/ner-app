@@ -3,7 +3,7 @@
     <form @submit.prevent="save">
       <v-card>
         <v-card-title>
-          แบนเนอร์
+          กิจกรรม
           <v-spacer></v-spacer>
           <v-btn color="warning" outlined @click="goToIndex">
             <v-icon class="mr-2"> mdi-reply </v-icon>
@@ -58,9 +58,9 @@ export default {
   },
   data() {
     return {
-      title: "แบนเนอร์",
+      title: "กิจกรรม",
       item: null,
-      path: "/content/banner",
+      path: "/content/activity",
 
       item: {
         id: null,

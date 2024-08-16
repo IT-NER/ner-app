@@ -61,6 +61,56 @@ async function generateOTP() {
 }
 
 // GET
+// getContentPublish
+app.get("/content/publish", async (req, res) => {
+  let data = await getContentPublish();
+  res.status(200).json(data);
+});
+async function getContentPublish() {
+  let data = await prisma.content.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: Boolean(true),
+              publish: Boolean(true),
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: Boolean(false),
+              publish: Boolean(true),
+            },
+          ],
+        },
+      ],
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+      ContentCoverImg: true,
+      PointReceived: true,
+    },
+  });
+  return data;
+}
+
 // findOne
 app.get("/content/:id", async (req, res) => {
   let { id } = req.params;
@@ -101,6 +151,48 @@ async function findOne(id) {
     ],
   });
 
+  let userIds = [];
+  data.PointReceived.forEach((e) => {
+    userIds.push(e.userId);
+  });
+
+  // console.log("userIds", userIds);
+
+  let userReceived = await prisma.user.findMany({
+    where: {
+      id: {
+        in: userIds,
+      },
+    },
+
+    include: {
+      Role: true,
+      Department: true,
+      Position: true,
+      PointReceived: {
+        where: {
+          contentId: Number(id),
+        },
+      },
+    },
+  });
+  let userNotReceived = await prisma.user.findMany({
+    where: {
+      id: {
+        notIn: userIds,
+      },
+      active: true,
+    },
+    include: {
+      Role: true,
+      Department: true,
+      Position: true,
+    },
+  });
+
+  data.UserNotReceived = userNotReceived;
+  data.UserReceived = userReceived;
+
   return data;
 }
 
@@ -120,12 +212,116 @@ async function filterBaner(item) {
   if (item.timed) {
     if (item.start) {
       filter.start = {
-        gt: new Date(item.start),
+        gte: new Date(item.start),
       };
     }
     if (item.end) {
       filter.end = {
-        lt: new Date(item.end),
+        lte: new Date(item.end),
+      };
+    }
+  }
+
+  if (item.contentStatusId.length > 0) {
+    filter.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
+
+  let data = await prisma.content.findMany({
+    where: {
+      AND: [filter],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+// filterActivity
+app.post("/content/filter/activity", async (req, res) => {
+  let item = req.body.data;
+  let data = await filterActivity(item);
+  res.status(200).json(data);
+});
+async function filterActivity(item) {
+  let filter = {
+    contentTypeId: Number(2),
+    timed: Boolean(item.timed),
+  };
+
+  if (item.timed) {
+    if (item.start) {
+      filter.start = {
+        gte: new Date(item.start),
+      };
+    }
+    if (item.end) {
+      filter.end = {
+        lte: new Date(item.end),
+      };
+    }
+  }
+
+  if (item.contentStatusId.length > 0) {
+    filter.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
+
+  let data = await prisma.content.findMany({
+    where: {
+      AND: [filter],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+// filterNews
+app.post("/content/filter/news", async (req, res) => {
+  let item = req.body.data;
+  let data = await filterNews(item);
+  res.status(200).json(data);
+});
+async function filterNews(item) {
+  let filter = {
+    contentTypeId: Number(3),
+    timed: Boolean(item.timed),
+  };
+
+  if (item.timed) {
+    if (item.start) {
+      filter.start = {
+        gte: new Date(item.start),
+      };
+    }
+    if (item.end) {
+      filter.end = {
+        lte: new Date(item.end),
       };
     }
   }
@@ -167,6 +363,60 @@ async function getBanner() {
   let data = await prisma.content.findMany({
     where: {
       contentTypeId: Number(1),
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+// getActivity
+app.get("/content/find/activity", async (req, res) => {
+  let data = await getActivity();
+  res.status(200).json(data);
+});
+async function getActivity() {
+  let data = await prisma.content.findMany({
+    where: {
+      contentTypeId: Number(2),
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+// getNews
+app.get("/content/find/news", async (req, res) => {
+  let data = await getNews();
+  res.status(200).json(data);
+});
+async function getNews() {
+  let data = await prisma.content.findMany({
+    where: {
+      contentTypeId: Number(3),
     },
     include: {
       ContentStatus: true,

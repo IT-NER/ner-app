@@ -1,13 +1,13 @@
 <template>
   <div>
     <v-divider></v-divider>
-    <!-- CardItemContentActivity -->
+    <!-- CardItemContentBanner -->
     <card-item-content-banner />
     <v-divider></v-divider>
 
-    <!-- CardItemContentBanner -->
-    <!-- <card-item-content-activity :contentIds.sync="activityIds" /> -->
-    <!-- <v-divider></v-divider> -->
+    <!-- CardItemContentActivity -->
+    <card-item-content-activity />
+    <v-divider></v-divider>
 
     <!-- CardItemContentNews -->
     <!-- <card-item-content-news :contentIds.sync="newsIds" /> -->

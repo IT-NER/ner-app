@@ -3,27 +3,27 @@
     <v-card flat>
       <v-card-title> กิจกรรม </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions>
-        <v-carousel cycle show-arrows-on-hover height="auto">
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="`/uploads/content/${item.ContentCoverImg.name}`"
-            target="_blank"
-            :href="`/${item.ticket}`"
-          >
-            <template v-slot:default>
-              <v-banner color="black" dark>
-                <div class="title">
+      <v-card-text v-if="items.length > 0">
+        <v-container>
+          <v-row>
+            <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
+              <v-card :href="`/${item.id}`" target="_blank">
+                <v-card-actions>
+                  <v-img
+                    :src="`/uploads/content/${item.ContentCoverImg.name}`"
+                  ></v-img>
+                </v-card-actions>
+                <v-divider></v-divider>
+                <v-card-title>
                   {{ item.title }}
-                </div>
-              </v-banner>
-            </template>
-          </v-carousel-item>
-        </v-carousel>
-      </v-card-actions>
+                </v-card-title>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
 
-      <v-card-text v-if="items.length == 0">
+      <v-card-text v-else>
         <v-alert text prominent type="error" icon="mdi-cloud-alert">
           COMING SOON
         </v-alert>
@@ -47,10 +47,15 @@ export default {
   methods: {
     async getItems() {
       this.items = await this.$axios
-        .get("/api/content/banner/publish")
+        .get("/api/content/publish/activity")
         .then((res) => {
-          console.log("banner", res.data);
-          return res.data;
+          let items = [];
+          res.data.forEach((e) => {
+            if (e.contentCoverImgId) {
+              items.push(e);
+            }
+          });
+          return items;
         })
         .catch((err) => {
           return false;

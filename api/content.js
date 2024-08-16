@@ -103,6 +103,60 @@ async function getBannerPublish() {
       ContentStatus: true,
       ContentImg: true,
       ContentCoverImg: true,
+      PointReceived: true,
+    },
+  });
+  return data;
+}
+
+// getActivityPublish
+app.get("/content/publish/activity", async (req, res) => {
+  let contentTimeOut = await updateContentTimeOut();
+  let data = await getActivityPublish();
+  res.status(200).json(data);
+});
+async function getActivityPublish() {
+  let data = await prisma.content.findMany({
+    where: {
+      OR: [
+        {
+          AND: [
+            {
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+              timed: Boolean(true),
+              publish: Boolean(true),
+              contentTypeId: Number(2),
+            },
+          ],
+        },
+        {
+          AND: [
+            {
+              timed: Boolean(false),
+              publish: Boolean(true),
+              contentTypeId: Number(2),
+            },
+          ],
+        },
+      ],
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+      ContentCoverImg: true,
+      PointReceived: true,
     },
   });
   return data;
