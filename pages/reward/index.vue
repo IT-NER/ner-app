@@ -79,7 +79,7 @@ export default {
       },
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "ชื่อ", value: "title", align: "start", sortable: false },
+        { text: "ชื่อ", value: "name", align: "start", sortable: false },
         { text: "ทิคเก็ท", value: "ticket", align: "start", sortable: false },
         { text: "รหัส", value: "code", align: "start", sortable: false },
         { text: "พอยท์", value: "point", align: "center", sortable: false },

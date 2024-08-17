@@ -30,6 +30,13 @@ app.post("/reward", async (req, res) => {
   let data = await create(item);
   res.status(200).json(data);
 });
+// update
+app.put("/reward/:id", async (req, res) => {
+  let { id } = req.params;
+  let item = req.body.data;
+  let data = await update(id, item);
+  res.status(200).json(data);
+});
 //
 //
 //
@@ -147,6 +154,19 @@ async function create(item) {
       point: 0,
       userId: Number(item.userId),
       active: Boolean(true),
+    },
+  });
+  return data;
+}
+async function update(id, item) {
+  let data = await prisma.reward.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      name: String(item.name),
+      description: String(item.description),
+      point: Number(item.point),
     },
   });
   return data;

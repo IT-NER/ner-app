@@ -13,7 +13,7 @@
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text>
-          <form-reward :item.sync="item" />
+          <form-reward :item.sync="item" @updateActive="updateActive" />
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
@@ -51,9 +51,51 @@ export default {
   },
 
   methods: {
-    async save() {},
+    async save() {
+      await this.$axios
+        .put("/api/admin/reward/" + this.$route.params.id, {
+          data: this.item,
+        })
+        .then((res) => {
+          this.getItem();
+          this.alertSuccess();
+        })
+        .catch((err) => {
+          this.getItem();
+          this.alertError();
+        });
+    },
     async goToIndex() {
       this.$router.push("/reward");
+    },
+    async updateActive() {
+      await this.$axios
+        .get("/api/admin/reward/update/active/" + this.$route.params.id)
+        .then((res) => {
+          this.getItem();
+          this.alertSuccess();
+        })
+        .catch((err) => {
+          this.getItem();
+          this.alertError();
+        });
+    },
+    async alertError() {
+      this.$swal.fire({
+        type: "error",
+        title: "เกิดข้อผิดพลาด",
+        showConfirmButton: false,
+      });
+    },
+
+    async alertSuccess() {
+      this.$swal.fire({
+        position: "top-end",
+        type: "success",
+        title: "บันทึก เรียบร้อย",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     },
     async getItem() {
       this.item = await this.$axios
