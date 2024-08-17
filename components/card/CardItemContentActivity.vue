@@ -9,14 +9,31 @@
             <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
               <v-card :href="`/${item.id}`" target="_blank">
                 <v-card-actions>
-                  <v-img
-                    :src="`/uploads/content/${item.ContentCoverImg.name}`"
-                  ></v-img>
+                  <v-img :src="`/uploads/content/${item.ContentCoverImg.name}`">
+                    <template v-slot:default>
+                      <v-toolbar dense flat dark>
+                        <v-spacer></v-spacer>
+                        {{ $moment(item.createdAt).format("ll") }}
+                      </v-toolbar>
+                    </template>
+                  </v-img>
                 </v-card-actions>
                 <v-divider></v-divider>
-                <v-card-title>
-                  {{ item.title }}
-                </v-card-title>
+                <v-card-text>
+                  <h3
+                    class="d-inline-block text-truncate"
+                    style="max-width: 200px"
+                  >
+                    หัวข้อ : {{ item.title }}
+                  </h3>
+                  <br />
+                  <h4
+                    class="d-inline-block text-truncate"
+                    style="max-width: 200px"
+                  >
+                    คำอธิบาย : {{ item.description }}
+                  </h4>
+                </v-card-text>
               </v-card>
             </v-col>
           </v-row>

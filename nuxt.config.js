@@ -2,6 +2,9 @@ import colors from "vuetify/es5/util/colors";
 
 export default {
   serverMiddleware: [
+    "~/api/admin/content.js",
+    "~/api/admin/user.js",
+    "~/api/admin/point.js",
     "~/api/auth.js",
     "~/api/room.js",
     "~/api/program.js",
@@ -23,9 +26,6 @@ export default {
     "~/api/uploads-content.js",
     "~/api/uploads-reward.js",
     "~/api/content.js",
-    "~/api/admin/content.js",
-    "~/api/admin/user.js",
-    "~/api/admin/point.js",
     "~/api/contentImg.js",
     "~/api/contentCoverImg.js",
     "~/api/point.js",
@@ -122,6 +122,8 @@ export default {
   },
 
   // mode: "universal",
+  // target: "server",
+  // ssr: true,
 
   build: {},
 

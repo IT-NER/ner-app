@@ -1,12 +1,121 @@
 import express from "express";
-import moment from "moment";
 import { PrismaClient } from "@prisma/client";
-
-let prisma = new PrismaClient();
-let app = express();
-
+import moment from "moment";
+//
+const app = express();
+const prisma = new PrismaClient();
+//
 app.use(express.json());
 
+app.get("/content/publish", async (req, res) => {
+  let data = await getContentPublish();
+  res.status(200).json(data);
+});
+
+app.get("/content/:id", async (req, res) => {
+  let { id } = req.params;
+  let data = await findOne(id);
+  res.status(200).json(data);
+});
+
+//
+//
+//
+//filter
+app.post("/content/filter/banner", async (req, res) => {
+  let item = req.body.data;
+
+  let data = await filterBaner(item);
+  res.status(200).json(data);
+});
+
+app.post("/content/filter/activity", async (req, res) => {
+  let item = req.body.data;
+  let data = await filterActivity(item);
+  res.status(200).json(data);
+});
+
+app.post("/content/filter/news", async (req, res) => {
+  let item = req.body.data;
+  let data = await filterNews(item);
+  res.status(200).json(data);
+});
+//
+//
+//
+//find
+app.get("/content/find/banner", async (req, res) => {
+  let data = await getBanner();
+  res.status(200).json(data);
+});
+
+app.get("/content/find/activity", async (req, res) => {
+  let data = await getActivity();
+  res.status(200).json(data);
+});
+
+app.get("/content/find/news", async (req, res) => {
+  let data = await getNews();
+  res.status(200).json(data);
+});
+//
+//
+//
+//create
+app.post("/content/create/banner", async (req, res) => {
+  let item = req.body.data;
+  let content = await createBanner(item);
+  res.status(200).json(content);
+});
+
+app.post("/content/create/activity", async (req, res) => {
+  let item = req.body.data;
+  let content = await createActivity(item);
+  res.status(200).json(content);
+});
+
+app.post("/content/create/news", async (req, res) => {
+  let item = req.body.data;
+  let content = await createNews(item);
+  res.status(200).json(content);
+});
+
+//update
+app.put("/content/:id", async (req, res) => {
+  let { id } = req.params;
+  let item = req.body.data;
+
+  let data = await update(id, item);
+  res.status(200).json(data);
+});
+
+app.get("/content/update/timed/:id", async (req, res) => {
+  let { id } = req.params;
+  let content = await updateTimed(id);
+  res.status(200).json(content);
+});
+
+app.get("/content/update/publish/:id", async (req, res) => {
+  let { id } = req.params;
+  let content = await updatePublish(id);
+  res.status(200).json(content);
+});
+
+app.get("/content/update/publish/end/:id", async (req, res) => {
+  let { id } = req.params;
+  let content = await updatePublishEnd(id);
+  res.status(200).json(content);
+});
+
+app.get("/content/update/timeout", async (req, res) => {
+  let data = await updateContentTimeOut();
+  res.status(200).json(data);
+});
+
+//
+//
+//
+//
 // getTicket
 async function generateTicket(contentTypeId) {
   let str = "";
@@ -60,12 +169,6 @@ async function generateOTP() {
   return OTP;
 }
 
-// GET
-// getContentPublish
-app.get("/content/publish", async (req, res) => {
-  let data = await getContentPublish();
-  res.status(200).json(data);
-});
 async function getContentPublish() {
   let data = await prisma.content.findMany({
     where: {
@@ -111,12 +214,6 @@ async function getContentPublish() {
   return data;
 }
 
-// findOne
-app.get("/content/:id", async (req, res) => {
-  let { id } = req.params;
-  let data = await findOne(id);
-  res.status(200).json(data);
-});
 async function findOne(id) {
   let data = await prisma.content.findFirst({
     where: {
@@ -196,13 +293,6 @@ async function findOne(id) {
   return data;
 }
 
-// filterBaner
-app.post("/content/filter/banner", async (req, res) => {
-  let item = req.body.data;
-
-  let data = await filterBaner(item);
-  res.status(200).json(data);
-});
 async function filterBaner(item) {
   let filter = {
     contentTypeId: Number(1),
@@ -211,13 +301,15 @@ async function filterBaner(item) {
 
   if (item.timed) {
     if (item.start) {
+      let start = moment(item.start).format("YYYY-MM-DD 00:00");
       filter.start = {
-        gte: new Date(item.start),
+        gte: new Date(start),
       };
     }
     if (item.end) {
+      let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
       filter.end = {
-        lte: new Date(item.end),
+        lte: new Date(end),
       };
     }
   }
@@ -249,12 +341,7 @@ async function filterBaner(item) {
 
   return data;
 }
-// filterActivity
-app.post("/content/filter/activity", async (req, res) => {
-  let item = req.body.data;
-  let data = await filterActivity(item);
-  res.status(200).json(data);
-});
+
 async function filterActivity(item) {
   let filter = {
     contentTypeId: Number(2),
@@ -263,13 +350,15 @@ async function filterActivity(item) {
 
   if (item.timed) {
     if (item.start) {
+      let start = moment(item.start).format("YYYY-MM-DD 00:00");
       filter.start = {
-        gte: new Date(item.start),
+        gte: new Date(start),
       };
     }
     if (item.end) {
+      let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
       filter.end = {
-        lte: new Date(item.end),
+        lte: new Date(end),
       };
     }
   }
@@ -301,12 +390,7 @@ async function filterActivity(item) {
 
   return data;
 }
-// filterNews
-app.post("/content/filter/news", async (req, res) => {
-  let item = req.body.data;
-  let data = await filterNews(item);
-  res.status(200).json(data);
-});
+
 async function filterNews(item) {
   let filter = {
     contentTypeId: Number(3),
@@ -315,13 +399,15 @@ async function filterNews(item) {
 
   if (item.timed) {
     if (item.start) {
+      let start = moment(item.start).format("YYYY-MM-DD 00:00");
       filter.start = {
-        gte: new Date(item.start),
+        gte: new Date(start),
       };
     }
     if (item.end) {
+      let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
       filter.end = {
-        lte: new Date(item.end),
+        lte: new Date(end),
       };
     }
   }
@@ -354,11 +440,6 @@ async function filterNews(item) {
   return data;
 }
 
-// getBanner
-app.get("/content/find/banner", async (req, res) => {
-  let data = await getBanner();
-  res.status(200).json(data);
-});
 async function getBanner() {
   let data = await prisma.content.findMany({
     where: {
@@ -381,11 +462,7 @@ async function getBanner() {
 
   return data;
 }
-// getActivity
-app.get("/content/find/activity", async (req, res) => {
-  let data = await getActivity();
-  res.status(200).json(data);
-});
+
 async function getActivity() {
   let data = await prisma.content.findMany({
     where: {
@@ -408,11 +485,7 @@ async function getActivity() {
 
   return data;
 }
-// getNews
-app.get("/content/find/news", async (req, res) => {
-  let data = await getNews();
-  res.status(200).json(data);
-});
+
 async function getNews() {
   let data = await prisma.content.findMany({
     where: {
@@ -436,21 +509,16 @@ async function getNews() {
   return data;
 }
 
-// CREATE
-// createBanner
-app.post("/content/create/banner", async (req, res) => {
-  let item = req.body.data;
-  let content = await createBanner(item);
-  res.status(200).json(content);
-});
 async function createBanner(item) {
   let ticket = await generateTicket(1);
   let code = await generateOTP();
+  let start = moment().format("YYYY-MM-DD 00:00");
+  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
 
   let data = await prisma.content.create({
     data: {
-      start: new Date(item.start),
-      end: new Date(item.end),
+      start: new Date(start),
+      end: new Date(end),
       timed: Boolean(true),
       publish: Boolean(false),
       ticket: String(ticket),
@@ -468,20 +536,17 @@ async function createBanner(item) {
 
   return data;
 }
-// createActivity
-app.post("/content/create/activity", async (req, res) => {
-  let item = req.body.data;
-  let content = await createActivity(item);
-  res.status(200).json(content);
-});
+
 async function createActivity(item) {
   let ticket = await generateTicket(2);
   let code = await generateOTP();
+  let start = moment().format("YYYY-MM-DD 00:00");
+  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
 
   let data = await prisma.content.create({
     data: {
-      start: new Date(item.start),
-      end: new Date(item.end),
+      start: new Date(start),
+      end: new Date(end),
       timed: Boolean(true),
       publish: Boolean(false),
       ticket: String(ticket),
@@ -498,20 +563,17 @@ async function createActivity(item) {
   });
   return data;
 }
-// createNews
-app.post("/content/create/news", async (req, res) => {
-  let item = req.body.data;
-  let content = await createNews(item);
-  res.status(200).json(content);
-});
+
 async function createNews(item) {
   let ticket = await generateTicket(3);
   let code = await generateOTP();
+  let start = moment().format("YYYY-MM-DD 00:00");
+  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
 
   let data = await prisma.content.create({
     data: {
-      start: new Date(item.start),
-      end: new Date(item.end),
+      start: new Date(start),
+      end: new Date(end),
       timed: Boolean(true),
       publish: Boolean(false),
       ticket: String(ticket),
@@ -528,106 +590,91 @@ async function createNews(item) {
   });
   return data;
 }
-
-// UPDATE
-// update
-app.post("/content/update", async (req, res) => {
-  let item = req.body.data;
-  let content = await update(item);
-  res.status(200).json(content);
-});
-async function update(item) {
-  if (!item.timed) {
-    item.start = null;
-    item.end = null;
-  }
-  if (item.publish) {
-    item.contentStatusId = 2;
-  } else {
-    item.contentStatusId = 1;
-  }
-
-  let data = await prisma.content.update({
-    where: {
-      id: Number(item.id),
-    },
-    data: {
-      start: new Date(item.start),
-      end: new Date(item.end),
-      timed: Boolean(item.timed),
-      publish: Boolean(item.publish),
-      title: item.title,
-      description: item.description,
-      detail: item.detail,
-      point: Number(item.point),
-      contentStatusId: Number(item.contentStatusId),
-      userId: Number(item.userId),
-    },
-  });
-  return data;
-}
-// updateTimed
-app.post("/content/update/timed", async (req, res) => {
-  let item = req.body.data;
-  let content = await updateTimed(item);
-  res.status(200).json(content);
-});
-async function updateTimed(item) {
-  let start = moment().format("YYYY-MM-DD 00:00");
-  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
-
-  item.start = null;
-  item.end = null;
+//update
+async function update(id, item) {
+  let start = null;
+  let end = null;
 
   if (item.timed) {
-    item.start = new Date(start);
-    item.end = new Date(end);
+    start = new Date(item.start);
+    end = new Date(item.end);
   }
 
   let data = await prisma.content.update({
     where: {
-      id: Number(item.id),
+      id: Number(id),
     },
     data: {
-      start: item.start,
-      end: item.end,
-      timed: Boolean(item.timed),
+      start: start,
+      end: end,
+      title: String(item.title),
+      description: String(item.description),
+      detail: String(item.detail),
+      point: Number(item.point),
     },
   });
   return data;
 }
-// updatePublish
-app.post("/content/update/publish", async (req, res) => {
-  let item = req.body.data;
-  let content = await updatePublish(item);
-  res.status(200).json(content);
-});
-async function updatePublish(item) {
-  item.contentStatusId = 1;
-  if (item.publish) {
-    item.contentStatusId = 2;
+
+async function updateTimed(id) {
+  let content = await findOne(id);
+
+  let start = null;
+  let end = null;
+  let timed = true;
+
+  if (content.timed) {
+    timed = false;
+  } else {
+    timed = true;
+    let dateStart = moment(new Date()).format("YYYY-MM-DD 08:00");
+    let dateEnd = moment(new Date()).add(1, "day").format("YYYY-MM-DD 08:00");
+    start = new Date(dateStart);
+    end = new Date(dateEnd);
   }
+
   let data = await prisma.content.update({
     where: {
-      id: Number(item.id),
+      id: Number(id),
     },
     data: {
-      publish: Boolean(item.publish),
-      contentStatusId: Number(item.contentStatusId),
+      start: start,
+      end: end,
+      timed: Boolean(timed),
     },
   });
   return data;
 }
-// updatePublishEnd
-app.post("/content/update/publish/end", async (req, res) => {
-  let item = req.body.data;
-  let content = await updatePublishEnd(item);
-  res.status(200).json(content);
-});
-async function updatePublishEnd(item) {
+
+async function updatePublish(id) {
+  let content = await findOne(id);
+  let publish = false;
+  let contentStatusId = 1;
+
+  if (content.publish) {
+    publish = false;
+    contentStatusId = 1;
+  } else {
+    publish = true;
+    contentStatusId = 2;
+  }
+
   let data = await prisma.content.update({
     where: {
-      id: Number(item.id),
+      id: Number(id),
+    },
+    data: {
+      publish: Boolean(publish),
+      contentStatusId: Number(contentStatusId),
+    },
+  });
+  return data;
+}
+
+async function updatePublishEnd(id) {
+  let data = await prisma.content.update({
+    where: {
+      id: Number(id),
     },
     data: {
       publish: Boolean(false),
@@ -637,12 +684,6 @@ async function updatePublishEnd(item) {
   return data;
 }
 
-// updateContentTimeOut
-app.get("/content/update/timeout", async (req, res) => {
-  let data = await updateContentTimeOut();
-  res.status(200).json(data);
-});
-// updateContentTimeOut
 async function updateContentTimeOut(id) {
   let data = await prisma.content.updateMany({
     where: {
@@ -661,7 +702,6 @@ async function updateContentTimeOut(id) {
       publish: Boolean(false),
     },
   });
-
   return data;
 }
 

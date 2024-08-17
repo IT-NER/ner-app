@@ -57,8 +57,6 @@
                   readonly
                   v-bind="attrs"
                   v-on="on"
-                  clearable
-                  @click:clear="item.end = null"
                 ></v-text-field>
               </template>
               <v-date-picker v-model="item.start" scrollable locale="th">
@@ -75,10 +73,7 @@
                   outlined
                   text
                   color="primary"
-                  @click="
-                    $refs.dateStartModal.save(item.start),
-                      (item.end = item.start)
-                  "
+                  @click="$refs.dateStartModal.save(item.start)"
                 >
                   OK
                 </v-btn>
@@ -103,8 +98,6 @@
                   readonly
                   v-bind="attrs"
                   v-on="on"
-                  clearable
-                  @click:clear="item.start = null"
                 ></v-text-field>
               </template>
               <v-date-picker

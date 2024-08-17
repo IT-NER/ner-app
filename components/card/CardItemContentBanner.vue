@@ -13,15 +13,13 @@
                 :src="`/uploads/content/${item.ContentCoverImg.name}`"
                 target="_blank"
                 :href="`/${item.id}`"
-                height="auto"
-                width="800"
               >
                 <template v-slot:default>
-                  <v-banner color="black" dark>
+                  <v-toolbar dark>
                     <div class="title">
                       {{ item.title }}
                     </div>
-                  </v-banner>
+                  </v-toolbar>
                 </template>
               </v-carousel-item>
             </v-carousel>

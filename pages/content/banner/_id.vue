@@ -106,9 +106,7 @@ export default {
   methods: {
     async updateTimed() {
       await this.$axios
-        .post("/api/admin/content/update/timed", {
-          data: this.item,
-        })
+        .get("/api/admin/content/update/timed/" + this.$route.params.id)
         .then((res) => {
           this.alertSuccess();
           this.getItem();
@@ -120,9 +118,7 @@ export default {
 
     async updatePublish() {
       await this.$axios
-        .post("/api/admin/content/update/publish", {
-          data: this.item,
-        })
+        .get("/api/admin/content/update/publish/" + this.$route.params.id)
         .then((res) => {
           this.alertSuccess();
           this.getItem();
@@ -133,9 +129,7 @@ export default {
     },
     async updatePublishEnd() {
       await this.$axios
-        .post("/api/admin/content/update/publish/end", {
-          data: this.item,
-        })
+        .get("/api/admin/content/update/publish/end/" + this.$route.params.id)
         .then((res) => {
           this.alertSuccess();
           this.getItem();
@@ -152,12 +146,22 @@ export default {
 
     async update() {
       await this.$axios
-        .post("/api/admin/content/update", {
-          data: this.item,
+        .put("/api/admin/content/" + this.$route.params.id, {
+          data: {
+            start: this.item.start,
+            end: this.item.end,
+            title: this.item.title,
+            description: this.item.description,
+            detail: this.item.detail,
+            point: this.item.point,
+            timed: this.item.timed,
+            publish: this.item.publish,
+          },
         })
         .then((res) => {
           this.getItem();
           this.alertSuccess();
+          // return res.data;
         })
         .catch((err) => {
           this.alertError();

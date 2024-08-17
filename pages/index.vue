@@ -24,6 +24,16 @@ export default {
     CardItemContentActivity,
     CardItemContentNews,
   },
+
+  created() {
+    this.updateContentTimedOut();
+  },
+
+  methods: {
+    async updateContentTimedOut() {
+      await this.$axios.get("/api/content/update/timeout");
+    },
+  },
 };
 </script>
 

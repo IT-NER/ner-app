@@ -99,8 +99,8 @@ export default {
   data() {
     return {
       filter: {
-        start: null,
-        end: null,
+        start: this.$moment(new Date()).format("YYYY-MM-DD"),
+        end: this.$moment(new Date()).add(1, "day").format("YYYY-MM-DD"),
         timed: true,
         contentStatusId: [1, 2],
       },

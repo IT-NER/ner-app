@@ -1,11 +1,15 @@
 import express from "express";
-import moment from "moment";
 import { PrismaClient } from "@prisma/client";
 
 let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+// updateContentTimeOut
+app.get("/content/update/timeout", async (req, res) => {
+  let data = await updateContentTimeOut();
+  res.status(200).json(data);
+});
 async function updateContentTimeOut() {
   let data = await prisma.content.updateMany({
     where: {
@@ -58,39 +62,14 @@ async function findOne(id) {
 
 // getBannerPublish
 app.get("/content/publish/banner", async (req, res) => {
-  let contentTimeOut = await updateContentTimeOut();
   let data = await getBannerPublish();
   res.status(200).json(data);
 });
 async function getBannerPublish() {
   let data = await prisma.content.findMany({
     where: {
-      OR: [
-        {
-          AND: [
-            {
-              start: {
-                lte: new Date(),
-              },
-              end: {
-                gte: new Date(),
-              },
-              timed: Boolean(true),
-              publish: Boolean(true),
-              contentTypeId: Number(1),
-            },
-          ],
-        },
-        {
-          AND: [
-            {
-              timed: Boolean(false),
-              publish: Boolean(true),
-              contentTypeId: Number(1),
-            },
-          ],
-        },
-      ],
+      publish: Boolean(true),
+      contentTypeId: Number(1),
     },
     orderBy: [
       {
@@ -111,39 +90,42 @@ async function getBannerPublish() {
 
 // getActivityPublish
 app.get("/content/publish/activity", async (req, res) => {
-  let contentTimeOut = await updateContentTimeOut();
   let data = await getActivityPublish();
   res.status(200).json(data);
 });
 async function getActivityPublish() {
   let data = await prisma.content.findMany({
     where: {
-      OR: [
-        {
-          AND: [
-            {
-              start: {
-                lte: new Date(),
-              },
-              end: {
-                gte: new Date(),
-              },
-              timed: Boolean(true),
-              publish: Boolean(true),
-              contentTypeId: Number(2),
-            },
-          ],
-        },
-        {
-          AND: [
-            {
-              timed: Boolean(false),
-              publish: Boolean(true),
-              contentTypeId: Number(2),
-            },
-          ],
-        },
-      ],
+      publish: Boolean(true),
+      contentTypeId: Number(2),
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+    include: {
+      User: true,
+      ContentType: true,
+      ContentStatus: true,
+      ContentImg: true,
+      ContentCoverImg: true,
+      PointReceived: true,
+    },
+  });
+  return data;
+}
+
+// getNewsPublish
+app.get("/content/publish/news", async (req, res) => {
+  let data = await getNewsPublish();
+  res.status(200).json(data);
+});
+async function getNewsPublish() {
+  let data = await prisma.content.findMany({
+    where: {
+      publish: Boolean(true),
+      contentTypeId: Number(3),
     },
     orderBy: [
       {
