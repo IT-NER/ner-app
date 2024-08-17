@@ -20,7 +20,7 @@
           v-model="item.filesContentCoverImg"
           label="เพิ่มรูปภาพ"
           hide-details
-          accept="image/jpeg"
+          accept="image/jpeg,image/png"
         ></v-file-input>
       </v-card-text>
       <v-divider></v-divider>
@@ -44,15 +44,13 @@
       v-model="dialog"
       transition="dialog-transition"
       height="auto"
-      width="800px"
+      max-width="800"
     >
       <v-card>
         <v-card-actions>
           <v-img
             v-if="this.item.ContentCoverImg"
             :src="`/uploads/content/${this.item.ContentCoverImg.name}`"
-            height="auto"
-            width="800px"
           />
         </v-card-actions>
       </v-card>
@@ -75,13 +73,32 @@ export default {
     async viewImg() {
       this.dialog = true;
     },
+    async checkSize() {
+      let data = false;
+      if (this.item.filesContentCoverImg.size <= 2000000) {
+        data = true;
+      }
+      return data;
+    },
+    async checkType() {
+      let data = false;
+      if (this.item.filesContentCoverImg.type == "image/jpeg") {
+        data = true;
+      }
+      if (this.item.filesContentCoverImg.type == "image/png") {
+        data = true;
+      }
+      return data;
+    },
     async upload() {
-      if (this.item.filesContentCoverImg.size > 2000000) {
+      let size = this.checkSize();
+      if (!size) {
         this.item.filesContentCoverImg = null;
         this.alertOverSize();
         return;
       }
-      if (this.item.filesContentCoverImg.type != "image/jpeg") {
+      let type = this.checkType();
+      if (!type) {
         this.item.filesContentCoverImg = null;
         this.alertErrorType();
         return;
@@ -150,7 +167,8 @@ export default {
     async alertErrorType() {
       this.$swal.fire({
         type: "error",
-        title: "ไฟล์ภาพต้องใช้ไฟล์ JPEG เท่านั้น",
+        title: "ไฟล์ไม่ถูกต้อง",
+        text: "อนุญาตไฟล์ .jpg/.png เท่านั้น",
       });
     },
     async alertError() {

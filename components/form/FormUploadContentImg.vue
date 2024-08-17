@@ -5,7 +5,7 @@
         รูปภาพคอนเทนต์
         <v-spacer></v-spacer>
         <v-btn
-          :disabled="showButtonUpload2"
+          :disabled="showBtnUpload"
           color="success"
           outlined
           @click="upload"
@@ -17,11 +17,11 @@
       <v-divider></v-divider>
       <v-card-text>
         <v-file-input
-          v-model="filesContentImg"
+          v-model="files"
           label="เพิ่มรูปภาพ"
           hide-details
           multiple
-          accept="image/jpeg"
+          accept="image/jpeg,image/png"
         ></v-file-input>
       </v-card-text>
       <v-divider></v-divider>
@@ -76,12 +76,7 @@
     >
       <v-card>
         <v-card-actions>
-          <v-carousel
-            v-model="index"
-            hide-delimiters
-            height="auto"
-            width="800px"
-          >
+          <v-carousel v-model="index" hide-delimiters height="auto">
             <v-carousel-item
               v-for="(item, i) in this.item.ContentImg"
               :key="i"
@@ -102,18 +97,17 @@ export default {
   data() {
     return {
       dialog: false,
-      showButtonUpload2: true,
-      filesContentImg: [],
+      files: [],
       index: 0,
     };
   },
 
-  watch: {
-    filesContentImg(val) {
-      if (val.length > 0) {
-        this.showButtonUpload2 = false;
+  computed: {
+    showBtnUpload() {
+      if (this.files.length > 0) {
+        return false;
       } else {
-        this.showButtonUpload2 = true;
+        return true;
       }
     },
   },
@@ -138,32 +132,46 @@ export default {
           return;
         });
     },
-
+    async checkSize(item) {
+      let data = false;
+      if (item.size <= 2000000) {
+        data = true;
+      }
+      return data;
+    },
+    async checkType(item) {
+      let data = false;
+      if (item.type == "image/jpeg") {
+        data = true;
+      }
+      if (item.type == "image/png") {
+        data = true;
+      }
+      return data;
+    },
     async upload() {
-      let files = [];
-      this.filesContentImg.forEach((e) => {
-        if (e.size <= 2000000 && e.type == "image/jpeg") {
-          files.push(e);
-        }
-        return files;
-      });
-      // console.log("files", files);
-      // return;
+      let filesUpload = [];
+      this.files.forEach(async (e) => {
+        let size = await this.checkSize(e);
+        let type = await this.checkType(e);
+        console.log("size", size);
+        console.log("type", type);
 
-      if (files.length == 0) {
-        this.filesContentImg = [];
-        return;
+        if (size && type) {
+          filesUpload.push(e);
+        }
+      });
+
+      if (filesUpload.length > 0) {
+        this.files = filesUpload;
       }
 
-      this.filesContentImg = files;
-
       let formData = new FormData();
-      this.filesContentImg.forEach((e) => {
+      this.files.forEach((e) => {
         formData.append("files", e);
       });
 
       let file = await this.uploadsImg(formData);
-      console.log("file", file);
       if (!file) {
         this.alertError();
         return;
@@ -176,7 +184,7 @@ export default {
 
       this.$emit("getItem");
       this.alertSuccess();
-      this.filesContentImg = [];
+      this.files = [];
     },
 
     async uploadsImg(formData) {
