@@ -5,6 +5,7 @@ export default {
     "~/api/admin/content.js",
     "~/api/admin/user.js",
     "~/api/admin/point.js",
+    "~/api/admin/reward.js",
     "~/api/auth.js",
     "~/api/room.js",
     "~/api/program.js",

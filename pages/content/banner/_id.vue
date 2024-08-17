@@ -21,14 +21,14 @@
           />
         </v-card-text>
         <v-divider></v-divider>
-        <v-card-title>
+        <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="success" outlined type="submit">
             <v-icon class="mr-2"> mdi-content-save </v-icon>
             บันทึก
           </v-btn>
           <v-spacer></v-spacer>
-        </v-card-title>
+        </v-card-actions>
       </v-card>
     </form>
 

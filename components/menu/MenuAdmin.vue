@@ -116,7 +116,7 @@ export default {
               link: "/content/news",
             },
             {
-              name: "แลกของรางวัล",
+              name: "ของรางวัล",
               icon: "mdi-ribbon",
               link: "/reward",
             },
