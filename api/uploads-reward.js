@@ -1,13 +1,11 @@
 const express = require("express");
 const multer = require("multer");
-const path = require("path");
 
 const app = express();
 app.use(express.json());
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    // callback(null, "assets/img/reward/");
     callback(null, "static/uploads/reward/");
   },
   filename: function (req, file, callback) {

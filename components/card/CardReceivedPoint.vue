@@ -7,38 +7,30 @@
         <v-btn outlined color="primary" @click="getItems"> รีเฟรซ </v-btn>
       </v-card-title>
       <v-divider></v-divider>
-      <v-card-text>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :items-per-page="-1"
-          hide-default-footer
-          elevation-0
-        >
-          <template v-slot:item.no="{ index }">
-            {{ index + 1 }}
-          </template>
-          <template v-slot:item.count="{ item }">
-            {{ item.PointReceived.length }} คน
-          </template>
-          <template v-slot:item.timed="{ item }">
-            <v-chip color="primary" label v-if="item.timed">
-              <v-icon class="mr-2">mdi-refresh-auto</v-icon>
-              อัตโนมัติ
-            </v-chip>
-            <v-chip color="error" label v-else>
-              <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
-              กำหนดเอง
-            </v-chip>
-          </template>
-          <template v-slot:item.detail="{ item }">
-            <v-btn outlined color="primary" @click="viewItem(item)">
-              <v-icon class="mr-2"> mdi-eye </v-icon>
-              รายละเอียด
-            </v-btn>
-          </template>
-        </v-data-table>
-      </v-card-text>
+      <v-data-table :headers="headers" :items="items" elevation-0>
+        <template v-slot:item.no="{ index }">
+          {{ index + 1 }}
+        </template>
+        <template v-slot:item.count="{ item }">
+          {{ item.PointReceived.length }} คน
+        </template>
+        <template v-slot:item.timed="{ item }">
+          <v-chip color="primary" label v-if="item.timed">
+            <v-icon class="mr-2">mdi-refresh-auto</v-icon>
+            อัตโนมัติ
+          </v-chip>
+          <v-chip color="error" label v-else>
+            <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
+            กำหนดเอง
+          </v-chip>
+        </template>
+        <template v-slot:item.detail="{ item }">
+          <v-btn outlined color="primary" @click="viewItem(item)">
+            <v-icon class="mr-2"> mdi-eye </v-icon>
+            รายละเอียด
+          </v-btn>
+        </template>
+      </v-data-table>
     </v-card>
   </div>
 </template>

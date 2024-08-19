@@ -154,8 +154,8 @@ export default {
       this.files.forEach(async (e) => {
         let size = await this.checkSize(e);
         let type = await this.checkType(e);
-        console.log("size", size);
-        console.log("type", type);
+        // console.log("size", size);
+        // console.log("type", type);
 
         if (size && type) {
           filesUpload.push(e);

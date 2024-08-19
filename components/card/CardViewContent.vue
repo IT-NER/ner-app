@@ -158,7 +158,7 @@ export default {
           return res.data;
         })
         .catch((err) => {
-          return false;
+          return 0;
         });
     },
   },

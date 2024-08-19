@@ -27,36 +27,26 @@
         <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>
-      <v-card-text>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          class="elevation-0"
-        >
-          <template v-slot:item.no="{ index }">
-            {{ index + 1 }}
-          </template>
-          <template v-slot:item.active="{ item }">
-            <v-toolbar dense flat>
-              <v-spacer></v-spacer>
-              <v-switch
-                inset
-                v-model="item.active"
-                hide-details
-                @click="updateActive(item)"
-              ></v-switch>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-          </template>
-          <template v-slot:item.edit="{ item }">
-            <v-btn outlined color="warning" @click="editItem(item)">
-              <v-icon class="mr-2"> mdi-pencil </v-icon>
-              แก้ไข
-            </v-btn>
-          </template>
-        </v-data-table>
-      </v-card-text>
+      <v-data-table
+        :headers="headers"
+        :items="items"
+        :search="search"
+        class="elevation-0"
+      >
+        <template v-slot:item.no="{ index }">
+          {{ index + 1 }}
+        </template>
+        <template v-slot:item.active="{ item }">
+          <v-chip label color="success" v-if="item.active"> เปิดใช้งาน </v-chip>
+          <v-chip label color="error" v-else> ปิดใช้งาน </v-chip>
+        </template>
+        <template v-slot:item.edit="{ item }">
+          <v-btn outlined color="warning" @click="editItem(item)">
+            <v-icon class="mr-2"> mdi-pencil </v-icon>
+            แก้ไข
+          </v-btn>
+        </template>
+      </v-data-table>
     </v-card>
   </div>
 </template>
@@ -83,7 +73,7 @@ export default {
         { text: "ทิคเก็ท", value: "ticket", align: "start", sortable: false },
         { text: "รหัส", value: "code", align: "start", sortable: false },
         { text: "พอยท์", value: "point", align: "center", sortable: false },
-        { text: "ACTIVE", value: "active", align: "center", sortable: false },
+        { text: "สถานะ", value: "active", align: "center", sortable: false },
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
     };

@@ -24,13 +24,43 @@
           </v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
+        <v-divider></v-divider>
+        <v-card-title> อัพโหลดรูปภาพ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <form-upload-reward-img
+            :id.sync="$route.params.id"
+            :item.sync="item"
+          />
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-title> รูปภาพ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <card-view-img
+            :items.sync="item.RewardImg"
+            @removeItem="removeItem"
+          />
+        </v-card-actions>
       </v-card>
     </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
 <script>
+import FormUploadRewardImg from "~/components/form/FormUploadRewardImg.vue";
+import CardPreViewImg from "~/components/card/CardPreViewImg.vue";
 export default {
+  components: { FormUploadRewardImg, CardPreViewImg },
   data() {
     return {
       item: {
@@ -56,9 +86,9 @@ export default {
         .put("/api/admin/reward/" + this.$route.params.id, {
           data: this.item,
         })
-        .then((res) => {
-          this.getItem();
-          this.alertSuccess();
+        .then(async (res) => {
+          await this.getItem();
+          await this.alertSuccess();
         })
         .catch((err) => {
           this.getItem();
@@ -71,9 +101,9 @@ export default {
     async updateActive() {
       await this.$axios
         .get("/api/admin/reward/update/active/" + this.$route.params.id)
-        .then((res) => {
-          this.getItem();
-          this.alertSuccess();
+        .then(async (res) => {
+          await this.getItem();
+          await this.alertSuccess();
         })
         .catch((err) => {
           this.getItem();
@@ -96,6 +126,18 @@ export default {
         showConfirmButton: false,
         timer: 1500,
       });
+    },
+    async removeItem(item) {
+      console.log("item", item);
+      await this.$axios
+        .delete("/api/admin/reward/delete/rewardImg/" + Number(item.id))
+        .then(async (res) => {
+          await this.getItem();
+          await this.alertSuccess();
+        })
+        .catch((err) => {
+          this.alertError();
+        });
     },
     async getItem() {
       this.item = await this.$axios

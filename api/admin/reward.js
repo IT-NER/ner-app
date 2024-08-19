@@ -1,11 +1,33 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import moment from "moment";
+import multer from "multer";
+//
+//
 //
 const app = express();
 const prisma = new PrismaClient();
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "static/uploads/reward/");
+  },
+  filename: function (req, file, callback) {
+    callback(null, `${Date.now()}.jpg`);
+  },
+});
+const upload = multer({ storage: storage });
+//
+//
 //
 app.use(express.json());
+
+//uploads
+app.post("/reward/uploads", upload.array("files"), async (req, res) => {
+  // res.json(req.files);
+  let rewardImg = await createRewardImg(req.body.id, req.files);
+  let data = await findOne(req.body.id);
+  res.status(200).json(data);
+});
 
 // findAll
 app.get("/reward", async (req, res) => {
@@ -35,6 +57,12 @@ app.put("/reward/:id", async (req, res) => {
   let { id } = req.params;
   let item = req.body.data;
   let data = await update(id, item);
+  res.status(200).json(data);
+});
+// deleteRewardImgById
+app.delete("/reward/delete/rewardImg/:id", async (req, res) => {
+  let { id } = req.params;
+  let data = await deleteRewardImgById(id);
   res.status(200).json(data);
 });
 //
@@ -167,6 +195,35 @@ async function update(id, item) {
       name: String(item.name),
       description: String(item.description),
       point: Number(item.point),
+    },
+  });
+  return data;
+}
+async function createRewardImg(id, files) {
+  // console.log("id", id);
+  // console.log("files", files);
+
+  let items = [];
+  files.forEach((e) => {
+    let item = {
+      rewardId: Number(id),
+      name: String(e.filename),
+      path: String(e.destination),
+      url: String("/uploads/reward/" + e.filename),
+    };
+    items.push(item);
+  });
+
+  let data = await prisma.rewardImg.createMany({
+    data: items,
+  });
+
+  return data;
+}
+async function deleteRewardImgById(id) {
+  let data = await prisma.rewardImg.delete({
+    where: {
+      id: Number(id),
     },
   });
   return data;

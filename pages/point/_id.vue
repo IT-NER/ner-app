@@ -11,7 +11,7 @@
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
-        <v-container>
+        <v-container fluid>
           <v-row>
             <v-col cols="12" md="6">
               <!-- CardViewContentById -->
