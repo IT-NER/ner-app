@@ -1,182 +1,93 @@
 <template>
   <div>
-    <v-card>
-      <v-card-title>
-        รูปภาพหน้าปก
-        <v-spacer></v-spacer>
-        <v-btn
-          :disabled="!item.filesContentCoverImg"
-          color="success"
-          outlined
-          @click="upload"
-        >
-          <v-icon class="mr-2">mdi-cloud-upload</v-icon>
-          อัพโหลด</v-btn
-        >
-      </v-card-title>
-      <v-divider></v-divider>
-      <v-card-text>
-        <v-file-input
-          v-model="item.filesContentCoverImg"
-          label="เพิ่มรูปภาพ"
-          hide-details
-          accept="image/jpeg,image/png"
-        ></v-file-input>
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-text v-if="this.item.ContentCoverImg">
-        <a>
-          <v-img
-            :src="`/uploads/content/${this.item.ContentCoverImg.name}`"
-            :aspect-ratio="16 / 9"
-            @click="viewImg"
-          />
-        </a>
-      </v-card-text>
-      <v-card-text v-else>
-        <v-alert text prominent type="error" icon="mdi-cloud-alert">
-          ยังไม่มีรูปภาพ
-        </v-alert>
-      </v-card-text>
-    </v-card>
-
-    <v-dialog
-      v-model="dialog"
-      transition="dialog-transition"
-      height="auto"
-      max-width="800"
-    >
-      <v-card>
-        <v-card-actions>
-          <v-img
-            v-if="this.item.ContentCoverImg"
-            :src="`/uploads/content/${this.item.ContentCoverImg.name}`"
-          />
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12">
+          <v-file-input
+            label="รูปภาพหน้าปก"
+            v-model="file"
+            @change="handleFiles"
+            hide-details
+            accept="image/jpeg,image/png"
+            small-chips
+          >
+            <template v-slot:append>
+              <v-btn
+                :disabled="btnDisable"
+                :v-show="!btnDisable"
+                color="success"
+                outlined
+                @click="upload"
+                class="mt-n2"
+              >
+                <v-icon class="mr-2">mdi-cloud-upload</v-icon>
+                อัพโหลด</v-btn
+              >
+            </template>
+          </v-file-input>
+        </v-col>
+      </v-row>
+      <v-row v-if="!btnDisable">
+        <v-col cols="12">
+          <card-pre-view-img :file.sync="file" />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
+import CardPreViewImg from "~/components/card/CardPreViewImg.vue";
 export default {
-  props: ["item"],
+  components: { CardPreViewImg },
 
+  props: ["id", "item"],
   data() {
     return {
-      dialog: false,
-      filesContentCoverImg: null,
+      file: null,
     };
   },
 
+  computed: {
+    btnDisable() {
+      let data = false;
+      if (!this.file) {
+        data = true;
+      }
+      return data;
+    },
+  },
+
   methods: {
-    async viewImg() {
-      this.dialog = true;
-    },
-    async checkSize() {
-      let data = false;
-      if (this.item.filesContentCoverImg.size <= 2000000) {
-        data = true;
-      }
-      return data;
-    },
-    async checkType() {
-      let data = false;
-      if (this.item.filesContentCoverImg.type == "image/jpeg") {
-        data = true;
-      }
-      if (this.item.filesContentCoverImg.type == "image/png") {
-        data = true;
-      }
-      return data;
-    },
     async upload() {
-      let size = this.checkSize();
-      if (!size) {
-        this.item.filesContentCoverImg = null;
-        this.alertOverSize();
-        return;
-      }
-      let type = this.checkType();
-      if (!type) {
-        this.item.filesContentCoverImg = null;
-        this.alertErrorType();
-        return;
-      }
-
       let formData = new FormData();
-      formData.append("file", this.item.filesContentCoverImg);
+      formData.append("id", Number(this.item.id));
+      formData.append("file", e);
 
-      let file = await this.uploadsCoverImg(formData);
-      console.log("file", file);
-      if (!file) {
-        this.alertError();
-        return;
-      }
-      let contentCoverImg = await this.createContentCoverImg(file);
-      if (!contentCoverImg) {
-        this.alertError();
-        return;
-      }
-
-      this.$emit("getItem");
-      await this.alertSuccess();
-      this.item.filesContentCoverImg = null;
-    },
-
-    async uploadsCoverImg(formData) {
-      let filesUpload = await this.$axios
-        .post("/api/uploads-content-single", formData, {
+      await this.$axios
+        .post("/api/admin/content/upload/contentCoverImg", formData, {
           headers: {
-            "Reward-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data",
           },
         })
-        .then((res) => {
-          return res.data;
+        .then(async (res) => {
+          this.file = null;
+          this.$emit("update:item", await res.data);
+          await this.alertSuccess();
         })
         .catch((err) => {
-          return false;
+          this.alertError();
         });
-      return filesUpload;
     },
 
-    async createContentCoverImg(file) {
-      let data = await this.$axios
-        .post("/api/contentCoverImg", {
-          data: {
-            content: this.item,
-            contentCoverImg: file,
-          },
-        })
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return false;
-        });
-      return data;
-    },
-
-    // alert
-    async alertOverSize() {
-      this.$swal.fire({
-        type: "error",
-        title: "ไฟล์ภาพใหญ่กว่า 2 MB",
-      });
-    },
-    async alertErrorType() {
-      this.$swal.fire({
-        type: "error",
-        title: "ไฟล์ไม่ถูกต้อง",
-        text: "อนุญาตไฟล์ .jpg/.png เท่านั้น",
-      });
-    },
     async alertError() {
       this.$swal.fire({
         type: "error",
         title: "เกิดข้อผิดพลาด",
+        showConfirmButton: false,
       });
     },
+
     async alertSuccess() {
       this.$swal.fire({
         position: "top-end",
@@ -185,6 +96,41 @@ export default {
         showConfirmButton: false,
         timer: 1500,
       });
+    },
+
+    async handleFiles(e) {
+      console.log("e", e);
+
+      if (!e) {
+        return;
+      }
+
+      let size = await this.checkSize(e);
+      let type = await this.checkType(e);
+
+      if (!size) {
+        this.file = null;
+      }
+      if (!type) {
+        this.file = null;
+      }
+    },
+    async checkSize(item) {
+      let data = false;
+      if (item.size <= 2000000) {
+        data = true;
+      }
+      return data;
+    },
+    async checkType(item) {
+      let data = false;
+      if (item.type == "image/jpeg") {
+        data = true;
+      }
+      if (item.type == "image/png") {
+        data = true;
+      }
+      return data;
     },
   },
 };

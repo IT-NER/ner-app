@@ -2,19 +2,25 @@
   <div>
     <v-card flat>
       <v-card-actions v-if="item.ContentImg">
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          hide-delimiters
-          height="auto"
-        >
-          <v-carousel-item
-            v-for="(list, i) in item.ContentImg"
-            :key="i"
-            :src="`/uploads/content/${list.name}`"
+        <v-card class="mx-auto">
+          <v-carousel
+            cycle
+            hide-delimiter-background
+            hide-delimiters
+            max-width="1366"
+            max-height="768"
+            height="auto"
           >
-          </v-carousel-item>
-        </v-carousel>
+            <v-carousel-item
+              v-for="(list, i) in item.ContentImg"
+              :key="i"
+              :src="`/uploads/content/${list.name}`"
+              max-width="1366"
+              max-height="768"
+            >
+            </v-carousel-item>
+          </v-carousel>
+        </v-card>
       </v-card-actions>
       <v-divider></v-divider>
       <v-card-actions flat>

@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'Mitr-Regular';
-  src: local('Mitr-Regular'), url('./fonts//Mitr/Mitr-Regular.ttf') format('truetype');
+  font-family: 'Kanit';
+  src: local('Kanit'), url('./fonts/Kanit/Kanit-Regular.ttf') format('truetype');
 }
 
 .v-application {
- font-family: 'Mitr-Regular' !important;
+ font-family: 'Kanit' !important;
 }
 
 // or
 
 #app {
-  font-family: 'Mitr-Regular';
+  font-family: 'Kanit';
 }

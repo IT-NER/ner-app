@@ -12,8 +12,8 @@
             @click="$emit('updateTimed')"
           >
             <template v-slot:label>
-              <span v-if="item.timed"> การเผยแพร่ (อัตโนมัติ) </span>
-              <span v-else> การเผยแพร่ (กำหนดเอง) </span>
+              <span v-if="item.timed"> การเผยแพร่ กำหนดช่วงเวลา </span>
+              <span v-else> การเผยแพร่ (ไม่กำหนดช่วงเวลา) </span>
             </template>
           </v-switch>
         </v-col>

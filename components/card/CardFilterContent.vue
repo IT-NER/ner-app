@@ -4,29 +4,6 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="3">
-            <div class="v-label--active">การเผยแพร่</div>
-            <v-switch
-              label="การเผยแพร่"
-              hide-details
-              v-model="item.timed"
-              inset
-              @click="$emit('getItems')"
-            >
-              <template v-slot:label>
-                <!-- <span> การเผยแพร่ </span> -->
-                <v-chip label color="primary" v-if="item.timed">
-                  <v-icon class="mr-2"> mdi-refresh-auto </v-icon>
-                  (อัตโนมัติ)
-                </v-chip>
-                <v-chip label color="error" v-else>
-                  <v-icon class="mr-2"> mdi-gesture-double-tap </v-icon>
-                  กำหนดเอง
-                </v-chip>
-              </template>
-            </v-switch>
-          </v-col>
-
-          <v-col cols="12" md="3">
             <v-select
               label="สถานะ"
               v-model="item.contentStatusId"
@@ -40,7 +17,7 @@
           </v-col>
 
           <!-- item.start -->
-          <v-col cols="12" md="3" v-if="item.timed">
+          <v-col cols="12" md="3">
             <v-dialog
               ref="dateStartModal"
               v-model="dateStartModal"
@@ -81,7 +58,7 @@
             </v-dialog>
           </v-col>
           <!-- item.end -->
-          <v-col cols="12" md="3" v-if="item.timed">
+          <v-col cols="12" md="3">
             <v-dialog
               ref="dateEndModal"
               v-model="dateEndModal"

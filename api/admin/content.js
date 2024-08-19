@@ -1,11 +1,85 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import moment from "moment";
+import multer from "multer";
+//
+//
 //
 const app = express();
 const prisma = new PrismaClient();
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "static/uploads/content/");
+  },
+  filename: function (req, file, callback) {
+    callback(null, `${Date.now()}.jpg`);
+  },
+});
+const upload = multer({ storage: storage });
+//
+//
 //
 app.use(express.json());
+
+//createContentImg
+app.post(
+  "/content/upload/contentImg",
+  upload.array("files"),
+  async (req, res) => {
+    let contentImg = await createContentImg(req.body.id, req.files);
+    let data = await findOne(req.body.id);
+    res.status(200).json(data);
+  }
+);
+async function createContentImg(id, files) {
+  console.log("id", id);
+  console.log("files", files);
+
+  let items = [];
+  files.forEach((e) => {
+    let item = {
+      contentId: Number(id),
+      name: String(e.filename),
+      path: String(e.destination),
+      url: String("/uploads/content/" + e.filename),
+    };
+    items.push(item);
+  });
+
+  let data = await prisma.contentImg.createMany({
+    data: items,
+  });
+
+  return data;
+}
+
+//upload
+app.post(
+  "/content/upload/contentCoverImg",
+  upload.single("files"),
+  async (req, res) => {
+    let contentCoverImg = await createContentCoverImg(req.body.id, req.files);
+    let data = await findOne(req.body.id);
+    res.status(200).json(data);
+  }
+);
+async function createContentCoverImg(id, files) {
+  console.log("id", id);
+  console.log("files", files);
+
+  let item = {
+    contentId: Number(id),
+    name: String(files.filename),
+    path: String(files.destination),
+    url: String("/uploads/content/" + files.filename),
+  };
+
+  let data = await prisma.contentCoverImg.createMany({
+    data: item,
+  });
+
+  return data;
+}
 
 app.get("/content/publish", async (req, res) => {
   let data = await getContentPublish();
@@ -38,6 +112,12 @@ app.post("/content/filter/activity", async (req, res) => {
 app.post("/content/filter/news", async (req, res) => {
   let item = req.body.data;
   let data = await filterNews(item);
+  res.status(200).json(data);
+});
+
+app.post("/content/filter/volunteer", async (req, res) => {
+  let item = req.body.data;
+  let data = await filterVolunteer(item);
   res.status(200).json(data);
 });
 //
@@ -77,6 +157,11 @@ app.post("/content/create/activity", async (req, res) => {
 app.post("/content/create/news", async (req, res) => {
   let item = req.body.data;
   let content = await createNews(item);
+  res.status(200).json(content);
+});
+app.post("/content/create/volunteer", async (req, res) => {
+  let item = req.body.data;
+  let content = await createVolunteer(item);
   res.status(200).json(content);
 });
 
@@ -127,6 +212,9 @@ async function generateTicket(contentTypeId) {
   }
   if (contentTypeId == 3) {
     str = "NE";
+  }
+  if (contentTypeId == 4) {
+    str = "VO";
   }
 
   let ticket = "";
@@ -294,35 +382,28 @@ async function findOne(id) {
 }
 
 async function filterBaner(item) {
-  let filter = {
-    contentTypeId: Number(1),
-    timed: Boolean(item.timed),
-  };
+  let start = moment(item.start).format("YYYY-MM-DD 00:00");
+  let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
-  if (item.timed) {
-    if (item.start) {
-      let start = moment(item.start).format("YYYY-MM-DD 00:00");
-      filter.start = {
-        gte: new Date(start),
-      };
-    }
-    if (item.end) {
-      let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
-      filter.end = {
-        lte: new Date(end),
-      };
-    }
-  }
-
-  if (item.contentStatusId.length > 0) {
-    filter.contentStatusId = {
-      in: item.contentStatusId,
-    };
-  }
-
-  let data = await prisma.content.findMany({
+  let data = [];
+  let data1 = await prisma.content.findMany({
     where: {
-      AND: [filter],
+      AND: [
+        {
+          start: {
+            gte: new Date(start),
+          },
+          end: {
+            lte: new Date(end),
+          },
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(1),
+          },
+        },
+      ],
     },
     include: {
       ContentStatus: true,
@@ -338,40 +419,73 @@ async function filterBaner(item) {
       },
     ],
   });
+  let data2 = await prisma.content.findMany({
+    where: {
+      AND: [
+        {
+          start: null,
+          end: null,
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(1),
+          },
+        },
+      ],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  if (data1.length > 0) {
+    data1.forEach((e) => {
+      data.push(e);
+    });
+  }
+  if (data2.length > 0) {
+    data2.forEach((e) => {
+      data.push(e);
+    });
+  }
 
   return data;
 }
 
 async function filterActivity(item) {
-  let filter = {
-    contentTypeId: Number(2),
-    timed: Boolean(item.timed),
-  };
+  let start = moment(item.start).format("YYYY-MM-DD 00:00");
+  let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
-  if (item.timed) {
-    if (item.start) {
-      let start = moment(item.start).format("YYYY-MM-DD 00:00");
-      filter.start = {
-        gte: new Date(start),
-      };
-    }
-    if (item.end) {
-      let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
-      filter.end = {
-        lte: new Date(end),
-      };
-    }
-  }
-
-  if (item.contentStatusId.length > 0) {
-    filter.contentStatusId = {
-      in: item.contentStatusId,
-    };
-  }
-
-  let data = await prisma.content.findMany({
+  let data = [];
+  let data1 = await prisma.content.findMany({
     where: {
-      AND: [filter],
+      AND: [
+        {
+          start: {
+            gte: new Date(start),
+          },
+          end: {
+            lte: new Date(end),
+          },
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(2),
+          },
+        },
+      ],
     },
     include: {
       ContentStatus: true,
@@ -387,40 +501,73 @@ async function filterActivity(item) {
       },
     ],
   });
+  let data2 = await prisma.content.findMany({
+    where: {
+      AND: [
+        {
+          start: null,
+          end: null,
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(2),
+          },
+        },
+      ],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  if (data1.length > 0) {
+    data1.forEach((e) => {
+      data.push(e);
+    });
+  }
+  if (data2.length > 0) {
+    data2.forEach((e) => {
+      data.push(e);
+    });
+  }
 
   return data;
 }
 
 async function filterNews(item) {
-  let filter = {
-    contentTypeId: Number(3),
-    timed: Boolean(item.timed),
-  };
+  let start = moment(item.start).format("YYYY-MM-DD 00:00");
+  let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
-  if (item.timed) {
-    if (item.start) {
-      let start = moment(item.start).format("YYYY-MM-DD 00:00");
-      filter.start = {
-        gte: new Date(start),
-      };
-    }
-    if (item.end) {
-      let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
-      filter.end = {
-        lte: new Date(end),
-      };
-    }
-  }
-
-  if (item.contentStatusId.length > 0) {
-    filter.contentStatusId = {
-      in: item.contentStatusId,
-    };
-  }
-
-  let data = await prisma.content.findMany({
+  let data = [];
+  let data1 = await prisma.content.findMany({
     where: {
-      AND: [filter],
+      AND: [
+        {
+          start: {
+            gte: new Date(start),
+          },
+          end: {
+            lte: new Date(end),
+          },
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(3),
+          },
+        },
+      ],
     },
     include: {
       ContentStatus: true,
@@ -436,6 +583,127 @@ async function filterNews(item) {
       },
     ],
   });
+  let data2 = await prisma.content.findMany({
+    where: {
+      AND: [
+        {
+          start: null,
+          end: null,
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(3),
+          },
+        },
+      ],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  if (data1.length > 0) {
+    data1.forEach((e) => {
+      data.push(e);
+    });
+  }
+  if (data2.length > 0) {
+    data2.forEach((e) => {
+      data.push(e);
+    });
+  }
+
+  return data;
+}
+async function filterVolunteer(item) {
+  let start = moment(item.start).format("YYYY-MM-DD 00:00");
+  let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
+
+  let data = [];
+  let data1 = await prisma.content.findMany({
+    where: {
+      AND: [
+        {
+          start: {
+            gte: new Date(start),
+          },
+          end: {
+            lte: new Date(end),
+          },
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(4),
+          },
+        },
+      ],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+  let data2 = await prisma.content.findMany({
+    where: {
+      AND: [
+        {
+          start: null,
+          end: null,
+          contentStatusId: {
+            in: item.contentStatusId,
+          },
+          contentTypeId: {
+            equals: Number(4),
+          },
+        },
+      ],
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  if (data1.length > 0) {
+    data1.forEach((e) => {
+      data.push(e);
+    });
+  }
+  if (data2.length > 0) {
+    data2.forEach((e) => {
+      data.push(e);
+    });
+  }
 
   return data;
 }
@@ -490,6 +758,28 @@ async function getNews() {
   let data = await prisma.content.findMany({
     where: {
       contentTypeId: Number(3),
+    },
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+async function getVolunteer() {
+  let data = await prisma.content.findMany({
+    where: {
+      contentTypeId: Number(4),
     },
     include: {
       ContentStatus: true,
@@ -584,6 +874,32 @@ async function createNews(item) {
       point: Number(0),
       contentStatusId: Number(1),
       contentTypeId: Number(3),
+      userId: Number(item.userId),
+      active: Boolean(true),
+    },
+  });
+  return data;
+}
+async function createVolunteer(item) {
+  let ticket = await generateTicket(4);
+  let code = await generateOTP();
+  let start = moment().format("YYYY-MM-DD 00:00");
+  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
+
+  let data = await prisma.content.create({
+    data: {
+      start: new Date(start),
+      end: new Date(end),
+      timed: Boolean(true),
+      publish: Boolean(false),
+      ticket: String(ticket),
+      code: String(code),
+      title: null,
+      description: null,
+      detail: null,
+      point: Number(0),
+      contentStatusId: Number(1),
+      contentTypeId: Number(4),
       userId: Number(item.userId),
       active: Boolean(true),
     },

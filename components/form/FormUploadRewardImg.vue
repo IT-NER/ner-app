@@ -70,7 +70,7 @@ export default {
       await this.$axios
         .post("/api/admin/reward/uploads", formData, {
           headers: {
-            "Reward-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data",
           },
         })
         .then(async (res) => {

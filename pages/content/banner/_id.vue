@@ -29,20 +29,32 @@
           </v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
+        <v-divider></v-divider>
+        <v-card-title> อัพโหลดรูปภาพ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <v-row>
+            <v-col cols="12" md="6">
+              <form-upload-content-cover-img :item.sync="item" />
+            </v-col>
+            <v-col cols="12" md="6">
+              <form-upload-content-img :item.sync="item" />
+            </v-col>
+          </v-row>
+        </v-card-text>
       </v-card>
     </form>
 
-    <v-divider></v-divider>
+    <!-- <v-divider></v-divider> -->
 
-    <v-row style="margin-bottom: 100px">
+    <!-- <v-row style="margin-bottom: 100px">
       <v-col cols="12" md="6">
-        <!-- FormUploadContentCoverImg -->
         <form-upload-content-cover-img :item.sync="item" @getItem="getItem" />
       </v-col>
       <v-col cols="12" md="6">
         <form-upload-content-img :item.sync="item" @getItem="getItem" />
       </v-col>
-    </v-row>
+    </v-row> -->
   </div>
 </template>
 

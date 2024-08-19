@@ -116,6 +116,11 @@ export default {
               link: "/content/news",
             },
             {
+              name: "จิตอาสา",
+              icon: "mdi-earth",
+              link: "/content/volunteer",
+            },
+            {
               name: "ของรางวัล",
               icon: "mdi-ribbon",
               link: "/reward",

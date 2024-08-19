@@ -17,11 +17,11 @@
         <template v-slot:item.timed="{ item }">
           <v-chip color="primary" label v-if="item.timed">
             <v-icon class="mr-2">mdi-refresh-auto</v-icon>
-            อัตโนมัติ
+            กำหนดช่วงเวลา
           </v-chip>
           <v-chip color="error" label v-else>
             <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
-            กำหนดเอง
+            ไม่กำหนดช่วงเวลา
           </v-chip>
         </template>
         <template v-slot:item.detail="{ item }">

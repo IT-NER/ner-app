@@ -4,7 +4,7 @@
       <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
       <v-divider></v-divider>
       <v-card-actions v-if="items.length > 0">
-        <v-card class="mx-auto">
+        <v-card flat>
           <v-card-actions>
             <v-carousel cycle show-arrows-on-hover height="auto">
               <v-carousel-item
@@ -13,13 +13,15 @@
                 :src="`/uploads/content/${item.ContentCoverImg.name}`"
                 target="_blank"
                 :href="`/${item.id}`"
+                width="1920"
+                height="1080"
               >
                 <template v-slot:default>
-                  <v-toolbar dark>
+                  <v-banner color="black" dark>
                     <div class="title">
                       {{ item.title }}
                     </div>
-                  </v-toolbar>
+                  </v-banner>
                 </template>
               </v-carousel-item>
             </v-carousel>

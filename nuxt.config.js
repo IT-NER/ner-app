@@ -122,7 +122,7 @@ export default {
     },
   },
 
-  mode: "universal",
+  // mode: "universal",
   // target: "server",
   // ssr: true,
 

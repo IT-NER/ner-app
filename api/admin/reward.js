@@ -200,9 +200,6 @@ async function update(id, item) {
   return data;
 }
 async function createRewardImg(id, files) {
-  // console.log("id", id);
-  // console.log("files", files);
-
   let items = [];
   files.forEach((e) => {
     let item = {

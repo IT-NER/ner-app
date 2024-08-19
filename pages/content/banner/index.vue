@@ -59,11 +59,11 @@
         <template v-slot:item.timed="{ item }">
           <v-chip color="primary" label v-if="item.timed">
             <v-icon class="mr-2">mdi-refresh-auto</v-icon>
-            อัตโนมัติ
+            กำหนดช่วงเวลา
           </v-chip>
           <v-chip color="error" label v-else>
             <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
-            กำหนดเอง
+            ไม่กำหนดช่วงเวลา
           </v-chip>
         </template>
         <template v-slot:item.status="{ item }">
@@ -101,8 +101,7 @@ export default {
       filter: {
         start: this.$moment(new Date()).format("YYYY-MM-DD"),
         end: this.$moment(new Date()).add(1, "day").format("YYYY-MM-DD"),
-        timed: true,
-        contentStatusId: [1, 2],
+        contentStatusId: [1, 2, 3],
       },
       title: "แบนเนอร์",
       search: null,
@@ -185,10 +184,9 @@ export default {
     },
 
     async refresh() {
-      this.filter.start = null;
-      this.filter.end = null;
-      this.filter.timed = true;
-      this.filter.contentStatusId = [1, 2];
+      this.filter.start = this.$moment().format("YYYY-MM-DD");
+      this.filter.end = this.$moment().add(1, "day").format("YYYY-MM-DD");
+      this.filter.contentStatusId = [1, 2, 3];
 
       await this.getItems();
     },
