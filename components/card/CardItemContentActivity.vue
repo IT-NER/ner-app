@@ -1,35 +1,51 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> กิจกรรม </v-card-title>
-      <v-divider></v-divider>
+      <v-alert color="success" dark tile> กิจกรรม </v-alert>
+
+      <!-- <v-card-title> กิจกรรม </v-card-title>
+      <v-divider></v-divider> -->
       <v-card-actions v-if="items.length > 0">
-        <v-container>
+        <v-container fluid>
           <v-row>
-            <v-col cols="12" md="3" v-for="(item, i) in items" :key="i">
-              <v-card :href="`/${item.id}`" target="_blank">
+            <v-col cols="12" md="3" sm="4" v-for="(item, i) in items" :key="i">
+              <v-toolbar dense flat dark>
+                <v-spacer></v-spacer>
+                {{ $moment(item.createdAt).format("ll") }}
+              </v-toolbar>
+
+              <v-card :href="`/${item.id}`" target="_blank" outlined tile>
                 <v-card-actions>
-                  <v-img :src="`/uploads/content/${item.ContentCoverImg.name}`">
-                    <template v-slot:default>
-                      <v-toolbar dense flat dark>
-                        <v-spacer></v-spacer>
-                        {{ $moment(item.createdAt).format("ll") }}
-                      </v-toolbar>
-                    </template>
-                  </v-img>
+                  <v-carousel
+                    cycle
+                    hide-delimiter-background
+                    hide-delimiters
+                    :show-arrows="false"
+                    width="300"
+                    height="150"
+                  >
+                    <v-carousel-item
+                      v-for="(list, i) in item.ContentImg"
+                      :key="i"
+                      :src="list.url"
+                      width="300"
+                      height="150"
+                    >
+                    </v-carousel-item>
+                  </v-carousel>
                 </v-card-actions>
                 <v-divider></v-divider>
                 <v-card-text>
                   <h3
                     class="d-inline-block text-truncate"
-                    style="max-width: 200px"
+                    style="max-width: 150px"
                   >
                     หัวข้อ : {{ item.title }}
                   </h3>
                   <br />
                   <h4
                     class="d-inline-block text-truncate"
-                    style="max-width: 200px"
+                    style="max-width: 150px"
                   >
                     คำอธิบาย : {{ item.description }}
                   </h4>

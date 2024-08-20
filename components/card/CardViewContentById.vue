@@ -2,21 +2,19 @@
   <div>
     <v-card flat>
       <v-card-actions v-if="item.ContentImg">
-        <v-card class="mx-auto">
+        <v-card class="mx-auto" flat>
           <v-carousel
             cycle
             hide-delimiter-background
             hide-delimiters
-            max-width="1366"
-            max-height="768"
+            show-arrows-on-hover
+            width="854"
             height="auto"
           >
             <v-carousel-item
               v-for="(list, i) in item.ContentImg"
               :key="i"
               :src="`/uploads/content/${list.name}`"
-              max-width="1366"
-              max-height="768"
             >
             </v-carousel-item>
           </v-carousel>

@@ -10,7 +10,14 @@
     <v-divider></v-divider>
 
     <!-- CardItemContentNews -->
-    <!-- <card-item-content-news :contentIds.sync="newsIds" /> -->
+    <card-item-content-news />
+    <v-divider></v-divider>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 

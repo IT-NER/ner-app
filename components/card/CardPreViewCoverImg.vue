@@ -18,7 +18,7 @@
                           fab
                           color="warning"
                           class="float-right"
-                          @click.stop="removeItem(item)"
+                          @click.stop="removeItem"
                         >
                           <v-icon>mdi-close</v-icon>
                         </v-btn>
@@ -41,8 +41,6 @@ export default {
 
   computed: {
     item() {
-      console.log("file", typeof this.file);
-
       if (!this.file) {
         return null;
       }
@@ -54,10 +52,8 @@ export default {
   },
 
   methods: {
-    removeItem(item) {
-      console.log("item", item);
-      let index = this.items.indexOf(item);
-      this.files.splice(index, 1);
+    removeItem() {
+      this.$emit("update:file", null);
     },
   },
 };

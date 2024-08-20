@@ -31,27 +31,6 @@ app.post(
     res.status(200).json(data);
   }
 );
-async function createContentImg(id, files) {
-  console.log("id", id);
-  console.log("files", files);
-
-  let items = [];
-  files.forEach((e) => {
-    let item = {
-      contentId: Number(id),
-      name: String(e.filename),
-      path: String(e.destination),
-      url: String("/uploads/content/" + e.filename),
-    };
-    items.push(item);
-  });
-
-  let data = await prisma.contentImg.createMany({
-    data: items,
-  });
-
-  return data;
-}
 
 //upload
 app.post(
@@ -59,53 +38,9 @@ app.post(
   upload.single("file"),
   async (req, res) => {
     let data = await createContentCoverImg(req.body.id, req.file);
-    // let data = await findOne(req.body.id);
     res.status(200).json(data);
   }
 );
-async function createContentCoverImg(id, file) {
-  console.log("id", id);
-  console.log("file", file);
-
-  let item = {
-    name: String(file.filename),
-    url: String("/uploads/content/" + file.filename),
-  };
-
-  let contentCoverImgId = await prisma.content.findFirst({
-    where: {
-      id: Number(id),
-    },
-    select: {
-      contentCoverImgId: true,
-    },
-  });
-
-  if (Number(contentCoverImgId)) {
-    let contentCoverImg = await prisma.contentCoverImg.update({
-      where: {
-        id: Number(contentCoverImgId),
-      },
-      data: item,
-    });
-  } else {
-    let contentCoverImg = await prisma.contentCoverImg.create({
-      data: item,
-    });
-
-    let content = await prisma.content.update({
-      where: {
-        id: Number(id),
-      },
-      data: {
-        contentCoverImgId: Number(contentCoverImg.id),
-      },
-    });
-  }
-
-  let data = await findOne(id);
-  return data;
-}
 
 app.get("/content/publish", async (req, res) => {
   let data = await getContentPublish();
@@ -222,6 +157,23 @@ app.get("/content/update/timeout", async (req, res) => {
   let data = await updateContentTimeOut();
   res.status(200).json(data);
 });
+
+//deleteContentImgById
+app.delete("/content/delete/contentImg/:id", async (req, res) => {
+  let { id } = req.params;
+  let contentImg = await deleteContentImgById(id);
+  let data = await findOne(contentImg.contentId);
+  res.status(200).json(data);
+});
+async function deleteContentImgById(id) {
+  let data = await prisma.contentImg.delete({
+    where: {
+      id: Number(id),
+    },
+  });
+
+  return data;
+}
 
 //
 //
@@ -1046,7 +998,64 @@ async function updateContentTimeOut(id) {
   });
   return data;
 }
+async function createContentImg(id, files) {
+  let items = [];
+  files.forEach((e) => {
+    let item = {
+      contentId: Number(id),
+      name: String(e.filename),
+      path: String(e.destination),
+      url: String("/uploads/content/" + e.filename),
+    };
+    items.push(item);
+  });
 
+  let data = await prisma.contentImg.createMany({
+    data: items,
+  });
+
+  return data;
+}
+async function createContentCoverImg(id, file) {
+  let item = {
+    name: String(file.filename),
+    url: String("/uploads/content/" + file.filename),
+  };
+
+  let contentCoverImgId = await prisma.content.findFirst({
+    where: {
+      id: Number(id),
+    },
+    select: {
+      contentCoverImgId: true,
+    },
+  });
+
+  if (Number(contentCoverImgId)) {
+    let contentCoverImg = await prisma.contentCoverImg.update({
+      where: {
+        id: Number(contentCoverImgId),
+      },
+      data: item,
+    });
+  } else {
+    let contentCoverImg = await prisma.contentCoverImg.create({
+      data: item,
+    });
+
+    let content = await prisma.content.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        contentCoverImgId: Number(contentCoverImg.id),
+      },
+    });
+  }
+
+  let data = await findOne(id);
+  return data;
+}
 export default {
   path: "/api/admin",
   handler: app,

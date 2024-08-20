@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card flat>
       <v-card-title>
         รายชื่อพนักงาน
         <span class="ml-2 success--text">
@@ -19,7 +19,6 @@
           v-model="search1"
           hide-details
         ></v-text-field>
-        <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
@@ -65,7 +64,6 @@
             hide-details
             clearable
           ></v-text-field>
-          <v-spacer></v-spacer>
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text>

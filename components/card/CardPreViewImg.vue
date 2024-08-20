@@ -41,8 +41,6 @@ export default {
 
   computed: {
     items() {
-      // console.log("files", this.files);
-
       let data = [];
       if (!this.files.length) {
         data = [];
@@ -58,7 +56,6 @@ export default {
 
   methods: {
     removeItem(item) {
-      console.log("item", item);
       let index = this.items.indexOf(item);
       this.files.splice(index, 1);
     },

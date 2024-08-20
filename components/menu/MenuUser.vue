@@ -70,6 +70,11 @@ export default {
           link: "/profile",
         },
         {
+          name: "ของรางวัล",
+          icon: "mdi-swap-horizontal",
+          link: "/redeem",
+        },
+        {
           name: "จองห้องประชุม",
           icon: "mdi-calendar",
           link: "",

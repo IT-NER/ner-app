@@ -70,6 +70,11 @@ export default {
           link: "/profile",
         },
         {
+          name: "ของรางวัล",
+          icon: "mdi-swap-horizontal",
+          link: "/redeem",
+        },
+        {
           name: "ผู้ใช้งาน",
           icon: "mdi-account-cog",
           link: "/user",
@@ -129,6 +134,11 @@ export default {
               name: "รับพอยท์",
               icon: "mdi-star",
               link: "/point",
+            },
+            {
+              name: "แลกของรางวัล",
+              icon: "mdi-swap-horizontal",
+              link: "/redeems",
             },
           ],
         },
