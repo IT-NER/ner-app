@@ -29,7 +29,7 @@
       </v-row>
       <v-row v-if="!btnDisable">
         <v-col cols="12">
-          <card-pre-view-img :file.sync="file" />
+          <card-pre-view-cover-img :file.sync="file" />
         </v-col>
       </v-row>
     </v-container>
@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import CardPreViewImg from "~/components/card/CardPreViewImg.vue";
+import CardPreViewCoverImg from "~/components/card/CardPreViewCoverImg.vue";
 export default {
-  components: { CardPreViewImg },
+  components: { CardPreViewCoverImg },
 
   props: ["id", "item"],
   data() {
@@ -62,7 +62,7 @@ export default {
     async upload() {
       let formData = new FormData();
       formData.append("id", Number(this.item.id));
-      formData.append("file", e);
+      formData.append("file", this.file);
 
       await this.$axios
         .post("/api/admin/content/upload/contentCoverImg", formData, {

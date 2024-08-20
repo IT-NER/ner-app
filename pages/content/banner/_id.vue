@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <v-card>
+      <v-card flat>
         <v-card-title>
           แบนเนอร์
           <v-spacer></v-spacer>
@@ -34,31 +34,40 @@
         <v-divider></v-divider>
         <v-card-text>
           <v-row>
-            <v-col cols="12" md="6">
+            <v-col cols="12">
               <form-upload-content-cover-img :item.sync="item" />
             </v-col>
-            <v-col cols="12" md="6">
+            <v-col cols="12">
               <form-upload-content-img :item.sync="item" />
             </v-col>
           </v-row>
         </v-card-text>
+        <v-divider></v-divider>
+        <v-card-title> รูปภาพหน้าปก </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <card-view-content-cover-img :item.sync="item" />
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-title> รูปภาพ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <card-view-content-img :item.sync="item" />
+        </v-card-text>
       </v-card>
     </form>
 
-    <!-- <v-divider></v-divider> -->
-
-    <!-- <v-row style="margin-bottom: 100px">
-      <v-col cols="12" md="6">
-        <form-upload-content-cover-img :item.sync="item" @getItem="getItem" />
-      </v-col>
-      <v-col cols="12" md="6">
-        <form-upload-content-img :item.sync="item" @getItem="getItem" />
-      </v-col>
-    </v-row> -->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
 <script>
+import CardViewContentImg from "~/components/card/CardViewContentImg.vue";
+import CardViewContentCoverImg from "~/components/card/CardViewContentCoverImg.vue";
 import FormContent from "~/components/form/FormContent.vue";
 import FormUploadContentCoverImg from "~/components/form/FormUploadContentCoverImg.vue";
 import FormUploadContentImg from "~/components/form/FormUploadContentImg.vue";
@@ -67,6 +76,8 @@ export default {
     FormContent,
     FormUploadContentCoverImg,
     FormUploadContentImg,
+    CardViewContentCoverImg,
+    CardViewContentImg,
   },
   data() {
     return {

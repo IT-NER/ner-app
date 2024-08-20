@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12">
           <v-file-input
-            label="รูปภาพหน้าปก"
+            label="รูปภาพ"
             v-model="files"
             multiple
             @change="handleFiles"

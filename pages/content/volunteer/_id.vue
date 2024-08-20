@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="save">
-      <v-card>
+      <v-card flat>
         <v-card-title>
           จิตอาสา
           <v-spacer></v-spacer>
@@ -29,24 +29,45 @@
           </v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
+        <v-divider></v-divider>
+        <v-card-title> อัพโหลดรูปภาพ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <v-row>
+            <v-col cols="12">
+              <form-upload-content-cover-img :item.sync="item" />
+            </v-col>
+            <v-col cols="12">
+              <form-upload-content-img :item.sync="item" />
+            </v-col>
+          </v-row>
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-title> รูปภาพหน้าปก </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <card-view-content-cover-img :item.sync="item" />
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-title> รูปภาพ </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <card-view-content-img :item.sync="item" />
+        </v-card-text>
       </v-card>
     </form>
 
-    <v-divider></v-divider>
-
-    <v-row style="margin-bottom: 100px">
-      <v-col cols="12" md="6">
-        <!-- FormUploadContentCoverImg -->
-        <form-upload-content-cover-img :item.sync="item" @getItem="getItem" />
-      </v-col>
-      <v-col cols="12" md="6">
-        <form-upload-content-img :item.sync="item" @getItem="getItem" />
-      </v-col>
-    </v-row>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
 <script>
+import CardViewContentImg from "~/components/card/CardViewContentImg.vue";
+import CardViewContentCoverImg from "~/components/card/CardViewContentCoverImg.vue";
 import FormContent from "~/components/form/FormContent.vue";
 import FormUploadContentCoverImg from "~/components/form/FormUploadContentCoverImg.vue";
 import FormUploadContentImg from "~/components/form/FormUploadContentImg.vue";
@@ -55,6 +76,8 @@ export default {
     FormContent,
     FormUploadContentCoverImg,
     FormUploadContentImg,
+    CardViewContentCoverImg,
+    CardViewContentImg,
   },
   data() {
     return {
@@ -175,6 +198,33 @@ export default {
       this.item.end = new Date(this.item.dateEnd + "T" + this.item.timeEnd);
     },
 
+    async alertOverSize() {
+      this.$swal.fire({
+        type: "error",
+        title: "ไฟล์ภาพใหญ่กว่า 2 MB",
+      });
+    },
+    async alertErrorType() {
+      this.$swal.fire({
+        type: "error",
+        title: "ไฟล์ภาพต้องใช้ไฟล์ JPEG เท่านั้น",
+      });
+    },
+    async alertError() {
+      this.$swal.fire({
+        type: "error",
+        title: "เกิดข้อผิดพลาด",
+      });
+    },
+    async alertSuccess() {
+      this.$swal.fire({
+        position: "top-end",
+        type: "success",
+        title: "บันทึก เรียบร้อย",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
     async goToIndex() {
       this.$router.push(this.path);
     },
@@ -203,33 +253,6 @@ export default {
         .catch((err) => {
           this.$router.push(String(this.path));
         });
-    },
-    async alertOverSize() {
-      this.$swal.fire({
-        type: "error",
-        title: "ไฟล์ภาพใหญ่กว่า 2 MB",
-      });
-    },
-    async alertErrorType() {
-      this.$swal.fire({
-        type: "error",
-        title: "ไฟล์ภาพต้องใช้ไฟล์ JPEG เท่านั้น",
-      });
-    },
-    async alertError() {
-      this.$swal.fire({
-        type: "error",
-        title: "เกิดข้อผิดพลาด",
-      });
-    },
-    async alertSuccess() {
-      this.$swal.fire({
-        position: "top-end",
-        type: "success",
-        title: "บันทึก เรียบร้อย",
-        showConfirmButton: false,
-        timer: 1500,
-      });
     },
   },
 };
