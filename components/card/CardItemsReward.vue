@@ -16,15 +16,13 @@
                 hide-delimiter-background
                 hide-delimiters
                 :show-arrows="false"
-                width="300"
-                height="150"
+                height="auto"
               >
                 <v-carousel-item
                   v-for="(list, i) in item.RewardImg"
                   :key="i"
                   :src="list.url"
-                  width="300"
-                  height="150"
+                  width="100vw"
                 >
                 </v-carousel-item>
               </v-carousel>

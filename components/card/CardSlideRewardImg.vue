@@ -1,43 +1,25 @@
 <template>
   <div>
-    <v-container fluid>
-      <v-row v-if="item.ContentImg.length > 0">
-        <v-col
-          cols="12"
-          md="2"
-          sm="3"
-          v-for="(list, i) in item.ContentImg"
-          :key="i"
+    <v-card width="100vw" class="mx-auto">
+      <v-card-actions>
+        <v-carousel
+          v-model="index"
+          cycle
+          hide-delimiter-background
+          hide-delimiters
+          show-arrows-on-hover
+          height="auto"
         >
-          <v-card @click="viewImg(list)">
-            <v-card-actions>
-              <v-img :src="list.url" width="300" height="auto">
-                <v-row>
-                  <v-col cols="12">
-                    <v-btn
-                      color="warning"
-                      class="float-right"
-                      x-small
-                      fab
-                      @click.stop="removeItem(list)"
-                    >
-                      <v-icon>mdi-close</v-icon>
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-img>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-row v-else>
-        <v-col cols="12">
-          <v-alert text prominent type="error" icon="mdi-cloud-alert">
-            กรุณาอัพโหลดรูปภาพหน้าปก
-          </v-alert>
-        </v-col>
-      </v-row>
-    </v-container>
+          <v-carousel-item
+            v-for="(list, i) in item.RewardImg"
+            :key="i"
+            :src="list.url"
+            @click="viewImg(list)"
+          >
+          </v-carousel-item>
+        </v-carousel>
+      </v-card-actions>
+    </v-card>
 
     <v-dialog
       v-model="dialog"
@@ -69,7 +51,7 @@
                 height="auto"
               >
                 <v-carousel-item
-                  v-for="(list, i) in item.ContentImg"
+                  v-for="(list, i) in item.RewardImg"
                   :key="i"
                   :src="list.url"
                   width="100vw"
@@ -94,18 +76,29 @@ export default {
       index: 0,
     };
   },
+
+  computed: {
+    show() {
+      let data = false;
+      if (this.item.RewardImg) {
+        data = true;
+      }
+      return data;
+    },
+  },
+
   methods: {
     async viewImg(list) {
-      this.index = this.item.ContentImg.indexOf(list);
+      this.index = this.item.RewardImg.indexOf(list);
       this.dialog = true;
       if (this.dialog) {
         this.dialogImg = true;
       }
     },
     async removeItem(item) {
-      console.log("item", item);
+      // console.log("item", item);
       await this.$axios
-        .delete("/api/admin/content/delete/contentImg/" + item.id)
+        .delete("/api/admin/reward/delete/rewardImg/" + item.id)
         .then(async (res) => {
           this.$emit("update:item", await res.data);
           await this.alertSuccess();

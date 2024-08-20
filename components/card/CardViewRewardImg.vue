@@ -41,26 +41,44 @@
 
     <v-dialog
       v-model="dialog"
+      fullscreen
       transition="dialog-transition"
-      max-width="1366"
-      height="auto"
+      persistent
     >
-      <v-card flat>
-        <v-card-actions>
-          <v-carousel
-            v-model="index"
-            hide-delimiter-background
-            hide-delimiters
-            height="auto"
-          >
-            <v-carousel-item
-              v-for="(list, i) in item.RewardImg"
-              :key="i"
-              :src="list.url"
-            >
-            </v-carousel-item>
-          </v-carousel>
-        </v-card-actions>
+      <v-card
+        flat
+        class="d-flex justify-center align-center ma-auto"
+        tile
+        color="black"
+      >
+        <v-card-text>
+          <v-row>
+            <v-col cols="12">
+              <v-btn color="error" class="float-right" @click="dialog = false">
+                ปิด
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="12">
+              <v-carousel
+                v-model="index"
+                cycle
+                hide-delimiter-background
+                hide-delimiters
+                show-arrows-on-hover
+                height="auto"
+              >
+                <v-carousel-item
+                  v-for="(list, i) in item.RewardImg"
+                  :key="i"
+                  :src="list.url"
+                  width="100vw"
+                >
+                </v-carousel-item>
+              </v-carousel>
+            </v-col>
+          </v-row>
+        </v-card-text>
       </v-card>
     </v-dialog>
   </div>
@@ -72,6 +90,7 @@ export default {
   data() {
     return {
       dialog: false,
+      dialogImg: false,
       index: 0,
     };
   },
@@ -85,10 +104,14 @@ export default {
       return data;
     },
   },
+
   methods: {
     async viewImg(list) {
       this.index = this.item.RewardImg.indexOf(list);
       this.dialog = true;
+      if (this.dialog) {
+        this.dialogImg = true;
+      }
     },
     async removeItem(item) {
       // console.log("item", item);

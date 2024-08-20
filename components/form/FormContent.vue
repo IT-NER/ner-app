@@ -264,7 +264,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="12">
           <v-text-field
             label="หัวข้อ"
             prepend-icon="mdi-format-title"
@@ -273,7 +273,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="12">
           <v-text-field
             label="คำอธิบาย"
             prepend-icon="mdi-image-text"

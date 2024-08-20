@@ -41,6 +41,7 @@ async function findOne(id) {
   let data = await prisma.content.findFirst({
     where: {
       id: Number(id),
+      contentStatusId: Number(2),
     },
     include: {
       ContentStatus: true,

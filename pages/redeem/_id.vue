@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-card v-if="item" flat>
+    <v-card flat>
       <v-card-title>
-        {{ item.name }}
+        ของรางวัล
         <v-spacer></v-spacer>
         <v-btn color="warning" outlined @click="goToIndex">
           <v-icon class="mr-2"> mdi-reply </v-icon>
@@ -11,36 +11,27 @@
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
-        <!-- <v-card class="mx-auto" flat> -->
-        <!-- <v-card-actions> -->
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          hide-delimiters
-          show-arrows-on-hover
-          height="auto"
-        >
-          <v-carousel-item
-            v-for="(list, i) in item.RewardImg"
-            :key="i"
-            :src="list.url"
-            class="mx-auto"
-            width="50vw"
-          >
-          </v-carousel-item>
-        </v-carousel>
-        <!-- </v-card-actions> -->
-        <!-- </v-card> -->
+        <card-slide-reward-img :item.sync="item" />
       </v-card-text>
     </v-card>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
 <script>
+import CardSlideRewardImg from "~/components/card/CardSlideRewardImg.vue";
 export default {
+  components: { CardSlideRewardImg },
   data() {
     return {
-      item: null,
+      item: {
+        RewardImg: [],
+      },
     };
   },
   created() {
