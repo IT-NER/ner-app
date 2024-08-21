@@ -48,7 +48,7 @@
             <v-divider></v-divider>
             <v-card-actions v-if="user">
               <v-spacer></v-spacer>
-              แลกใช้ {{ item.point }} พอยท์
+              ใช้ {{ item.point }} พอยท์
             </v-card-actions>
           </v-card>
         </v-col>

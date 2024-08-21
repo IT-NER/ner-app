@@ -32,6 +32,7 @@ export default {
     "~/api/contentCoverImg.js",
     "~/api/point.js",
     "~/api/point-pay.js",
+    "~/api/point-pay-status.js",
     "~/api/redeem.js",
   ],
 

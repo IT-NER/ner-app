@@ -42,22 +42,27 @@ app.post("/user/search", async (req, res) => {
   res.status(200).json(user);
 });
 
-// getAll
+// findAll
 app.get("/user", async (req, res) => {
-  let user = await prisma.user.findMany({
+  let data = await findAll();
+  res.status(200).json(data);
+});
+async function findAll() {
+  let data = await prisma.user.findMany({
+    where: {
+      active: Boolean(true),
+    },
     include: {
-      Booking: true,
-      Content: true,
-      PointPay: true,
-      PointReceived: true,
-      PointReceivedPay: true,
-      Reward: true,
-      ContentUser: true,
-      Content: true,
       ButtonLink: true,
       Department: true,
       Position: true,
       Role: true,
+      Booking: true,
+      Content: true,
+      Reward: true,
+      PointReceived: true,
+      PointPay: true,
+      PointReceivedPay: true,
     },
     orderBy: [
       {
@@ -65,9 +70,8 @@ app.get("/user", async (req, res) => {
       },
     ],
   });
-  res.status(200).json(user);
-});
-
+  return data;
+}
 //findOne
 app.get("/user/:id", async (req, res) => {
   let { id } = req.params;
