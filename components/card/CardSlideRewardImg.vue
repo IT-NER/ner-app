@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-card width="100vw" class="mx-auto">
-      <v-card-actions>
+    <v-card width="100vw" class="mx-auto" flat>
+      <v-card-text>
         <v-carousel
           v-model="index"
           cycle
@@ -15,10 +15,12 @@
             :key="i"
             :src="list.url"
             @click="viewImg(list)"
+            width="100vw"
+            :aspect-ratio="16 / 9"
           >
           </v-carousel-item>
         </v-carousel>
-      </v-card-actions>
+      </v-card-text>
     </v-card>
 
     <v-dialog

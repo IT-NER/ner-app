@@ -116,7 +116,7 @@ async function findAll() {
       User: {
         include: {
           PointPay: true,
-          PointPayRequest: true,
+
           Position: true,
           Department: true,
           Role: true,
@@ -141,7 +141,7 @@ async function findOne(id) {
       User: {
         include: {
           PointPay: true,
-          PointPayRequest: true,
+
           Position: true,
           Department: true,
           Role: true,

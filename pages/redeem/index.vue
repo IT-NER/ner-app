@@ -4,7 +4,7 @@
       <v-card-title> ของรางวัล </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
-        <card-items-reward :items.sync="items" />
+        <card-items-reward :items.sync="items" :user.sync="user" />
       </v-card-text>
     </v-card>
   </div>
@@ -29,13 +29,26 @@ export default {
         userId: null,
         active: null,
       },
+      user: null,
     };
   },
 
-  created() {
-    this.getItems();
+  async created() {
+    await this.getItems();
+    await this.getUser();
   },
   methods: {
+    async getUser() {
+      let user = await this.$auth.$storage.getCookie("user");
+      this.user = await this.$axios
+        .get("/api/user/" + Number(user.id))
+        .then(async (res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return false;
+        });
+    },
     async getItems() {
       this.items = await this.$axios
         .get("/api/rewards")

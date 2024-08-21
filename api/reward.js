@@ -29,13 +29,12 @@ async function findAll() {
           Reward: true,
           PointReceived: true,
           PointPay: true,
-          PointPayRequest: true,
+
           PointReceivedPay: true,
         },
       },
       RewardImg: true,
       PointPay: true,
-      PointPayRequest: true,
     },
   });
   return data;
@@ -56,7 +55,6 @@ async function findOne(id) {
       User: {
         include: {
           PointPay: true,
-          PointPayRequest: true,
           Position: true,
           Department: true,
           Role: true,

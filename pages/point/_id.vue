@@ -14,8 +14,8 @@
         <v-container fluid>
           <v-row>
             <v-col cols="12" md="6">
-              <!-- CardViewContentById -->
-              <card-view-content-by-id :id.sync="$route.params.id" />
+              <!-- CardViewContent -->
+              <card-view-content :item.sync="item" />
             </v-col>
             <v-col cols="12" md="6">
               <!-- CardUserReceivedPoint -->
@@ -30,9 +30,9 @@
 
 <script>
 import CardUserReceivedPoint from "~/components/card/CardUserReceivedPoint.vue";
-import CardViewContentById from "~/components/card/CardViewContentById.vue";
+import CardViewContent from "~/components/card/CardViewContent.vue";
 export default {
-  components: { CardViewContentById, CardUserReceivedPoint },
+  components: { CardViewContent, CardUserReceivedPoint },
   data() {
     return {
       item: {

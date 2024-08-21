@@ -2,9 +2,6 @@
   <div>
     <v-card flat>
       <v-alert color="success" dark tile> กิจกรรม </v-alert>
-
-      <!-- <v-card-title> กิจกรรม </v-card-title>
-      <v-divider></v-divider> -->
       <v-card-actions v-if="items.length > 0">
         <v-container fluid>
           <v-row>
@@ -21,15 +18,14 @@
                     hide-delimiter-background
                     hide-delimiters
                     :show-arrows="false"
-                    width="300"
-                    height="150"
+                    height="auto"
                   >
                     <v-carousel-item
                       v-for="(list, i) in item.ContentImg"
                       :key="i"
                       :src="list.url"
-                      width="300"
-                      height="150"
+                      :aspect-ratio="16 / 9"
+                      width="100vw"
                     >
                     </v-carousel-item>
                   </v-carousel>

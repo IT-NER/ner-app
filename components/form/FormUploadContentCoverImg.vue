@@ -117,7 +117,7 @@ export default {
     },
     async checkSize(item) {
       let data = false;
-      if (item.size <= 2000000) {
+      if (item.size <= 3000000) {
         data = true;
       }
       return data;

@@ -11,7 +11,7 @@
         >
           <v-card @click="viewImg(list)">
             <v-card-actions>
-              <v-img :src="list.url">
+              <v-img :src="list.url" :aspect-ratio="16 / 9">
                 <v-row>
                   <v-col cols="12">
                     <v-btn
@@ -72,7 +72,8 @@
                   v-for="(list, i) in item.RewardImg"
                   :key="i"
                   :src="list.url"
-                  width="100vw"
+                  width="60vw"
+                  class="mx-auto"
                 >
                 </v-carousel-item>
               </v-carousel>

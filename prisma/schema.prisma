@@ -33,7 +33,6 @@ model User {
   Reward           Reward[]
   PointReceived    PointReceived[]
   PointPay         PointPay[]
-  PointPayRequest  PointPayRequest[]
   PointReceivedPay PointReceivedPay[]
 }
 
@@ -122,33 +121,29 @@ model PointReceived {
 }
 
 model PointPay {
-  id                Int      @id @default(autoincrement())
-  point             Int?
-  userId            Int?
-  rewardId          Int?
-  pointPayRequestId Int?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  id               Int       @id @default(autoincrement())
+  point            Int?
+  userId           Int?
+  rewardId         Int?
+  status           String?
+  approveDate      DateTime?
+  approveBy        Int?
+  pointPayStatusId Int?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 
   User             User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   Reward           Reward?            @relation(fields: [rewardId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  PointPayRequest  PointPayRequest?   @relation(fields: [pointPayRequestId], references: [id])
+  PointPayStatus   PointPayStatus?    @relation(fields: [pointPayStatusId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointReceivedPay PointReceivedPay[]
 }
 
-model PointPayRequest {
+model PointPayStatus {
   id        Int      @id @default(autoincrement())
-  ticket    String   @unique
-  approve   Boolean? @default(false)
-  userId    Int?
-  rewardId  Int?
-  approveId Int?
-  active    Boolean? @default(true)
+  name      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  User     User?      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  Reward   Reward?    @relation(fields: [rewardId], references: [id])
   PointPay PointPay[]
 }
 
@@ -173,17 +168,16 @@ model Reward {
   ticket      String   @unique
   code        String?
   name        String?
-  description String?
+  description String?  @db.VarChar(8000)
   point       Int?     @default(0)
   userId      Int?
   active      Boolean? @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  User            User?             @relation(fields: [userId], references: [id])
-  RewardImg       RewardImg[]
-  PointPay        PointPay[]
-  PointPayRequest PointPayRequest[]
+  User      User?       @relation(fields: [userId], references: [id])
+  RewardImg RewardImg[]
+  PointPay  PointPay[]
 }
 
 model RewardImg {

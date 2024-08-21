@@ -5,7 +5,11 @@
         <v-col cols="12" v-if="item.contentCoverImgId">
           <v-card @click="viewImg" height="auto">
             <v-card-actions>
-              <v-img :src="item.ContentCoverImg.url" width="100vw" />
+              <v-img
+                :src="item.ContentCoverImg.url"
+                width="100vw"
+                :aspect-ratio="16 / 9"
+              />
             </v-card-actions>
           </v-card>
         </v-col>
@@ -28,6 +32,7 @@
         class="d-flex justify-center align-center ma-auto"
         tile
         color="black"
+        v-if="item.contentCoverImgId"
       >
         <v-card-text>
           <v-row>
@@ -44,7 +49,11 @@
                 height="auto"
                 :show-arrows="false"
               >
-                <v-carousel-item :src="item.ContentCoverImg.url" width="100vw">
+                <v-carousel-item
+                  :src="item.ContentCoverImg.url"
+                  width="60vw"
+                  class="mx-auto"
+                >
                 </v-carousel-item>
               </v-carousel>
             </v-col>

@@ -1,26 +1,24 @@
 <template>
   <div>
-    <v-card flat>
-      <v-card class="mx-auto" flat>
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          hide-delimiters
-          show-arrows-on-hover
-          height="auto"
+    <v-card flat width="100vw" class="mx-auto">
+      <v-carousel
+        cycle
+        hide-delimiter-background
+        hide-delimiters
+        show-arrows-on-hover
+        height="auto"
+      >
+        <v-carousel-item
+          v-for="(list, i) in item.ContentImg"
+          :key="i"
+          :src="`/uploads/content/${list.name}`"
+          :aspect-ratio="16 / 9"
         >
-          <v-carousel-item
-            v-for="(list, i) in item.ContentImg"
-            :key="i"
-            :src="`/uploads/content/${list.name}`"
-            width="100vw"
-          >
-          </v-carousel-item>
-        </v-carousel>
-      </v-card>
+        </v-carousel-item>
+      </v-carousel>
     </v-card>
 
-    <v-card flat>
+    <v-card flat width="100vw" class="mx-auto">
       <v-card-actions>
         <v-spacer></v-spacer>
         {{ $moment(item.createdAt).format("ll") }}

@@ -60,7 +60,7 @@ export default {
         return;
       }
       if (
-        e.size < 2000000 &&
+        e.size < 3000000 &&
         (e.type == "image/jpeg" || e.type == "image/png")
       ) {
         this.file = await Object.assign({}, e.File);

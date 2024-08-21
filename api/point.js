@@ -30,7 +30,6 @@ async function checkReceivePoint(item) {
   });
   return data;
 }
-
 // addPointUser
 app.post("/point/addPointUser", async (req, res) => {
   let item = req.body.data;
@@ -56,7 +55,6 @@ async function addPointUser(item) {
   let pointUser = await updatePointUser(item, pointTotal);
   return true;
 }
-
 async function updatePointUser(item, pointTotal) {
   let data = await prisma.user.update({
     where: {

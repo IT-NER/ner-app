@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-card flat>
+      <v-divider></v-divider>
       <v-card-title>
         รายชื่อพนักงาน
         <span class="ml-2 success--text">
@@ -21,23 +22,21 @@
         ></v-text-field>
       </v-card-title>
       <v-divider></v-divider>
-      <v-card-text>
-        <v-data-table
-          :search="search1"
-          :headers="headers1"
-          :items="item.PointReceived"
-          elevation-0
-          :sort-by.sync="sortBy"
-          :sort-desc.sync="sortDesc"
-        >
-          <template v-slot:item.no="{ index }">
-            {{ index + 1 }}
-          </template>
-          <template v-slot:item.date="{ item }">
-            {{ $moment(item.createdAt).format("lll") }} น.
-          </template>
-        </v-data-table>
-      </v-card-text>
+      <v-data-table
+        :search="search1"
+        :headers="headers1"
+        :items="item.PointReceived"
+        elevation-0
+        :sort-by.sync="sortBy"
+        :sort-desc.sync="sortDesc"
+      >
+        <template v-slot:item.no="{ index }">
+          {{ index + 1 }}
+        </template>
+        <template v-slot:item.date="{ item }">
+          {{ $moment(item.createdAt).format("lll") }} น.
+        </template>
+      </v-data-table>
     </v-card>
 
     <v-dialog
@@ -66,28 +65,26 @@
           ></v-text-field>
         </v-card-title>
         <v-divider></v-divider>
-        <v-card-text>
-          <v-data-table
-            v-model="selected"
-            item-key="id"
-            :search="search2"
-            :headers="headers2"
-            :items="item.UserNotReceived"
-            :items-per-page="-1"
-            elevation-0
-            show-select
-            height="400"
-            fixed-header
-            hide-default-footer
-          >
-            <template v-slot:item.no="{ index }">
-              {{ index + 1 }}
-            </template>
-            <template v-slot:item.date="{ item }">
-              {{ $moment(item.createdAt).format("lll") }} น.
-            </template>
-          </v-data-table>
-        </v-card-text>
+        <v-data-table
+          v-model="selected"
+          item-key="id"
+          :search="search2"
+          :headers="headers2"
+          :items="item.UserNotReceived"
+          :items-per-page="-1"
+          elevation-0
+          show-select
+          height="400"
+          fixed-header
+          hide-default-footer
+        >
+          <template v-slot:item.no="{ index }">
+            {{ index + 1 }}
+          </template>
+          <template v-slot:item.date="{ item }">
+            {{ $moment(item.createdAt).format("lll") }} น.
+          </template>
+        </v-data-table>
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>

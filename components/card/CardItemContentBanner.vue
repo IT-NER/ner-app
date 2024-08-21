@@ -5,9 +5,7 @@
         อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์
       </v-alert>
 
-      <!-- <v-card-title> อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์ </v-card-title>
-      <v-divider></v-divider> -->
-      <v-card-actions v-if="items.length > 0">
+      <v-card-text v-if="items.length > 0">
         <v-carousel
           cycle
           show-arrows-on-hover
@@ -22,6 +20,7 @@
             target="_blank"
             :href="`/${item.id}`"
             width="100vw"
+            :aspect-ratio="16 / 9"
           >
             <template v-slot:default>
               <v-toolbar color="black" dark>
@@ -34,7 +33,7 @@
             </template>
           </v-carousel-item>
         </v-carousel>
-      </v-card-actions>
+      </v-card-text>
 
       <v-card-text v-else>
         <v-alert text prominent type="error" icon="mdi-cloud-alert">

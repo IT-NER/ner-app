@@ -68,16 +68,34 @@ app.get("/user", async (req, res) => {
   res.status(200).json(user);
 });
 
-//getById
+//findOne
 app.get("/user/:id", async (req, res) => {
   let { id } = req.params;
-  let user = await prisma.user.findUnique({
+  let data = await findOne(id);
+  res.status(200).json(data);
+});
+
+async function findOne(id) {
+  let data = await prisma.user.findFirst({
     where: {
       id: Number(id),
     },
+    include: {
+      ButtonLink: true,
+      Department: true,
+      Position: true,
+      Role: true,
+      Booking: true,
+      Content: true,
+      Reward: true,
+      PointReceived: true,
+      PointPay: true,
+      PointReceivedPay: true,
+    },
   });
-  res.status(200).json(user);
-});
+
+  return data;
+}
 
 //create
 app.post("/user", async (req, res) => {
