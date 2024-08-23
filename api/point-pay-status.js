@@ -12,7 +12,13 @@ app.get("/point-pay-status", async (req, res) => {
 });
 
 async function findAll() {
-  let data = await prisma.pointPayStatus.findMany();
+  let data = await prisma.pointPayStatus.findMany({
+    where: {
+      id: {
+        in: [1, 2, 3],
+      },
+    },
+  });
   return data;
 }
 

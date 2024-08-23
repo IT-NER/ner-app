@@ -54,7 +54,15 @@ async function findOne(id) {
       RewardImg: true,
       User: {
         include: {
-          PointPay: true,
+          PointPay: {
+            include: {
+              User: true,
+              Reward: true,
+              PointPayStatus: true,
+              PointReceivedPay: true,
+            },
+          },
+
           Position: true,
           Department: true,
           Role: true,

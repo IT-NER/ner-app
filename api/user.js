@@ -1,13 +1,46 @@
 import express from "express";
+import { PrismaClient } from "@prisma/client";
 import moment from "moment";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import multer from "multer";
 
-import { PrismaClient } from "@prisma/client";
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "static/uploads/profile/");
+  },
+  filename: function (req, file, callback) {
+    callback(null, `${Date.now()}.jpg`);
+  },
+});
+const upload = multer({ storage: storage });
+//
+//
+//
 let prisma = new PrismaClient();
-
 let app = express();
 app.use(express.json());
+
+//upload
+app.post("/user/upload", upload.single("file"), async (req, res) => {
+  // res.json(req.file);
+  let img = await uploadProfile(req.body.id, req.file);
+  let data = await findOne(Number(req.body.id));
+  res.status(200).json(data);
+});
+async function uploadProfile(userId, file) {
+  console.log("userId", userId);
+  console.log("file", file);
+
+  let data = await prisma.user.update({
+    where: {
+      id: Number(userId),
+    },
+    data: {
+      img: String("/uploads/profile/" + file.filename),
+    },
+  });
+  return data;
+}
 
 //search
 app.post("/user/search", async (req, res) => {
@@ -181,6 +214,26 @@ app.put("/user/update-password/:id", async (req, res) => {
     }
   }
 });
+
+//resetPassword
+app.post("/user/reset-password", async (req, res) => {
+  let item = req.body.data;
+  let data = await resetPassword(item);
+  return res.status(200).json(data);
+});
+async function resetPassword(item) {
+  let newPassword = await bcrypt.hash(item.newPassword, 10);
+  let data = await prisma.user.update({
+    where: {
+      id: Number(item.id),
+    },
+    data: {
+      password: String(newPassword),
+    },
+  });
+
+  return data;
+}
 
 //delete
 app.delete("/user/:id", async (req, res) => {

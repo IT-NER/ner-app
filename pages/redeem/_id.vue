@@ -31,6 +31,20 @@
         />
         <v-spacer></v-spacer>
       </v-card-actions>
+      <v-divider></v-divider>
+      <v-card-title> ประวัติการแลกของรางวัล </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text v-if="itemsPointPay.length > 0">
+        <card-point-pay-by-user-id
+          :items.sync="itemsPointPay"
+          @cancel="cancel"
+        />
+      </v-card-text>
+      <v-card-text v-else>
+        <v-alert text prominent type="error" icon="mdi-cloud-alert">
+          ไม่มีรายการ
+        </v-alert>
+      </v-card-text>
     </v-card>
 
     <br />
@@ -46,9 +60,15 @@
 <script>
 import BtnScrollToTop from "~/components/button/BtnScrollToTop.vue";
 import ButtonRedeem from "~/components/button/ButtonRedeem.vue";
+import CardPointPayByUserId from "~/components/card/CardPointPayByUserId.vue";
 import CardSlideRewardImg from "~/components/card/CardSlideRewardImg.vue";
 export default {
-  components: { CardSlideRewardImg, BtnScrollToTop, ButtonRedeem },
+  components: {
+    CardSlideRewardImg,
+    BtnScrollToTop,
+    ButtonRedeem,
+    CardPointPayByUserId,
+  },
   data() {
     return {
       item: {
@@ -56,7 +76,10 @@ export default {
       },
 
       show: false,
-      user: null,
+      user: {
+        id: null,
+        PointPay: [],
+      },
 
       pointPay: {
         id: null,
@@ -72,12 +95,32 @@ export default {
         PointPayStatus: [],
         PointReceivedPay: [],
       },
+
+      itemsPointPay: [],
     };
   },
-  created() {
-    this.getItem();
+  async created() {
+    await this.getItem();
   },
   methods: {
+    async cancel(item) {
+      // console.log("item", item);
+
+      let confirm = await this.alertConfirmCancel();
+      if (!confirm) {
+        return;
+      }
+
+      await this.$axios
+        .get("/api/point-pay/cancel/" + item.id)
+        .then((res) => {
+          this.getItem();
+          this.alertSuccess();
+        })
+        .catch((err) => {
+          this.alertError();
+        });
+    },
     async redeemItem(item) {
       console.log("item", item);
       let confirm = await this.alertConfirm();
@@ -136,40 +179,66 @@ export default {
         });
       return result;
     },
-    async checkPoint(item) {
-      let user = await this.$auth.$storage.getCookie("user");
-      this.user = await this.getUser(user.id);
-
-      let data = false;
-      if (this.user.point >= item.point) {
-        data = true;
-      } else {
-        data = false;
-      }
-      return data;
-    },
-
-    async getItem() {
-      this.item = await this.$axios
-        .get("/api/reward/" + this.$route.params.id)
-        .then(async (res) => {
-          this.show = await this.checkPoint(res.data);
-          return res.data;
+    async alertConfirmCancel() {
+      let result = await this.$swal
+        .fire({
+          title: "ยีนยัน",
+          text: "ต้องการยกเลิก ใช่หรือไม่?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          cancelButtonText: "ไม่ใช่",
+          confirmButtonText: "ใช่",
         })
-        .catch((err) => {
-          return null;
+        .then((res) => {
+          if (res.value) {
+            return true;
+          } else {
+            return false;
+          }
         });
+      return result;
     },
-    async getUser(id) {
-      let item = await this.$axios
-        .get("/api/user/" + Number(id))
+
+    async getUser() {
+      let user = await this.$auth.$storage.getCookie("user");
+
+      this.user = await this.$axios
+        .get("/api/user/" + Number(user.id))
         .then(async (res) => {
           return res.data;
         })
         .catch((err) => {
           return false;
         });
-      return item;
+    },
+
+    async getItem() {
+      this.item = await this.$axios
+        .get("/api/reward/" + this.$route.params.id)
+        .then(async (res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return null;
+        });
+      await this.getUser();
+      await this.checkBtnPointPay();
+      await this.getItemsPointPay();
+    },
+
+    async getItemsPointPay() {
+      // console.log("itemsPointPay", this.item.User.PointPay);
+      this.itemsPointPay = this.item.User.PointPay.filter(
+        (e) => e.rewardId == this.item.id
+      );
+    },
+    async checkBtnPointPay() {
+      this.show = false;
+      if (this.user.point >= this.item.point) {
+        this.show = true;
+      }
     },
 
     async goToIndex() {

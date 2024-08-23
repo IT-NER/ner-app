@@ -8,7 +8,7 @@
             v-if="!user.img"
             src="https://investor.nerubber.com/themes/default/assets/static/images/logo-stroke.png"
           />
-          <v-img v-else :src="`/uploads/profile/${user.img}`" />
+          <v-img v-else :src="user.img" />
         </v-avatar>
         <v-spacer></v-spacer>
       </v-card-actions>
@@ -25,14 +25,25 @@
 export default {
   data() {
     return {
-      user: {},
+      user: {
+        Department: {
+          name: null,
+        },
+      },
     };
   },
 
   methods: {
     async getUser() {
-      this.user = this.$auth.$storage.getCookie("user");
-      // console.log("user", this.user);
+      let user = this.$auth.$storage.getCookie("user");
+      this.user = await this.$axios
+        .get("/api/user/" + user.id)
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return null;
+        });
     },
   },
   created() {
