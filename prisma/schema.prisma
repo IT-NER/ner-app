@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlserver"
+  provider = "sqllite"
   url      = env("DATABASE_URL")
 }
 
