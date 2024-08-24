@@ -8,7 +8,6 @@
       fixed
       bottom
       right
-      small
       color="success"
       @click="toTop"
     >

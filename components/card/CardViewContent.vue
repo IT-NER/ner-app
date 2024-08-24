@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card flat width="100vw" class="mx-auto">
+    <v-card flat width="80vw" class="mx-auto">
       <v-carousel
         cycle
         hide-delimiter-background
@@ -18,7 +18,7 @@
       </v-carousel>
     </v-card>
 
-    <v-card flat width="100vw" class="mx-auto">
+    <v-card flat width="80vw" class="mx-auto">
       <v-card-actions>
         <v-spacer></v-spacer>
         {{ $moment(item.createdAt).format("ll") }}

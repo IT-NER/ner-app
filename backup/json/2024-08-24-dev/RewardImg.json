@@ -1,0 +1,123 @@
+[
+  {
+    "id": 97,
+    "url": "/uploads/reward/1724220132259.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724220132259.jpg",
+    "index": "0",
+    "rewardId": 7,
+    "active": "1",
+    "createdAt": "21/8/2024 06:02:12.268",
+    "updatedAt": "21/8/2024 06:02:12.268"
+  },
+  {
+    "id": 99,
+    "url": "/uploads/reward/1724220132260.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724220132260.jpg",
+    "index": "0",
+    "rewardId": 7,
+    "active": "1",
+    "createdAt": "21/8/2024 06:02:12.268",
+    "updatedAt": "21/8/2024 06:02:12.268"
+  },
+  {
+    "id": 100,
+    "url": "/uploads/reward/1724220132264.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724220132264.jpg",
+    "index": "0",
+    "rewardId": 7,
+    "active": "1",
+    "createdAt": "21/8/2024 06:02:12.268",
+    "updatedAt": "21/8/2024 06:02:12.268"
+  },
+  {
+    "id": 101,
+    "url": "/uploads/reward/1724222006981.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006981.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 102,
+    "url": "/uploads/reward/1724222006984.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006984.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 103,
+    "url": "/uploads/reward/1724222006987.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006987.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 104,
+    "url": "/uploads/reward/1724222006988.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006988.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 105,
+    "url": "/uploads/reward/1724222006990.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006990.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 106,
+    "url": "/uploads/reward/1724222006993.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006993.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 107,
+    "url": "/uploads/reward/1724222006995.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006995.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  },
+  {
+    "id": 108,
+    "url": "/uploads/reward/1724222006996.jpg",
+    "path": "static/uploads/reward/",
+    "name": "1724222006996.jpg",
+    "index": "0",
+    "rewardId": 8,
+    "active": "1",
+    "createdAt": "21/8/2024 06:33:27.001",
+    "updatedAt": "21/8/2024 06:33:27.001"
+  }
+]

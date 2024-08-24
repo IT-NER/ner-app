@@ -2,10 +2,10 @@
   <div>
     <v-container fluid>
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <card-profile-img :item.sync="item" @getItem="getItem" />
         </v-col>
-        <v-col cols="12" md="8">
+        <v-col cols="12" md="6">
           <card-profile-detail :item.sync="item" @getItem="getItem" />
         </v-col>
       </v-row>

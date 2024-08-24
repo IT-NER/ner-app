@@ -41,6 +41,51 @@ async function getItemsUserNotPointReceived(id) {
   return userNotReceived;
 }
 
+// filter
+app.post("/user/filter", async (req, res) => {
+  let item = req.body.data;
+  let data = await filter(item);
+  res.status(200).json(data);
+});
+async function filter(item) {
+  let items = {};
+
+  if (item.departmentId.length > 0) {
+    items.departmentId = {
+      in: item.departmentId,
+    };
+  }
+
+  if (item.positionId.length > 0) {
+    items.positionId = {
+      in: item.positionId,
+    };
+  }
+
+  let data = await prisma.user.findMany({
+    where: items,
+    include: {
+      ButtonLink: true,
+      Department: true,
+      Position: true,
+      Role: true,
+      Booking: true,
+      Content: true,
+      Reward: true,
+      PointReceived: true,
+      PointPay: true,
+      PointReceivedPay: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+
 export default {
   path: "/api/admin",
   handler: app,

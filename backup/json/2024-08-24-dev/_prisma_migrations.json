@@ -1,0 +1,52 @@
+[
+  {
+    "id": "124a4bf5-7f46-4826-b551-d9b3f5c9bd1d",
+    "checksum": "23cceb014b6e2ca425b11e5429f6b43a2654ceb91839899666d1c1f37fd0055c",
+    "finished_at": "20/8/2024 01:58:53.6851618 +00",
+    "migration_name": "20240819121214_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "20/8/2024 01:58:53.6575925 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "3b25db3e-b316-402c-972a-c3287fe7d702",
+    "checksum": "424ec3ad12a31dec4dd56981edf139f29d2ce858961a25dd0c24ec41a6804f17",
+    "finished_at": "21/8/2024 07:17:29.6645419 +00",
+    "migration_name": "20240821071729_imit",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "21/8/2024 07:17:29.4843008 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "4bd6ab0e-1152-410e-9fc7-dc06f39aa6bd",
+    "checksum": "4fc5500a4a9a9fa4d27752f077cccac6dddf0698713504dea4e3fa72300f2344",
+    "finished_at": "21/8/2024 06:08:24.1719392 +00",
+    "migration_name": "20240821060824_imit",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "21/8/2024 06:08:24.029722 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "a0e234ec-21c9-4da9-aba0-dc2f0666fb37",
+    "checksum": "bdae7f97b5d78dc10f2cf21d608359bfddfd8ec66db1d02b9344894f152c68a4",
+    "finished_at": "6/8/2024 09:10:52.4135792 +00",
+    "migration_name": "20240806091052_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "6/8/2024 09:10:52.3534422 +00",
+    "applied_steps_count": 1
+  },
+  {
+    "id": "c4673aa8-ea38-4a3d-936e-7af5d52ffac7",
+    "checksum": "6c53b8ee5710ba50db67acda4b5fea55cd63d0e1e53e306b9545a3ba966906b7",
+    "finished_at": "5/8/2024 04:29:43.1142087 +00",
+    "migration_name": "20240727032810_init",
+    "logs": null,
+    "rolled_back_at": null,
+    "started_at": "5/8/2024 04:29:43.0394378 +00",
+    "applied_steps_count": 1
+  }
+]

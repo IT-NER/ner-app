@@ -5,35 +5,41 @@
         อินทราเน็ต : บริษัท นอร์ทอีส รับเบอร์
       </v-alert>
 
-      <v-card-text v-if="items.length > 0">
-        <v-carousel
-          cycle
-          show-arrows-on-hover
-          hide-delimiter-background
-          hide-delimiters
-          height="auto"
-        >
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="`/uploads/content/${item.ContentCoverImg.name}`"
-            target="_blank"
-            :href="`/${item.id}`"
-            width="100vw"
-            :aspect-ratio="16 / 9"
-          >
-            <template v-slot:default>
-              <v-toolbar color="black" dark>
-                <div class="title">
-                  {{ item.title }}
-                </div>
-                <v-spacer></v-spacer>
-                {{ $moment(item.createdAt).format("ll") }}
-              </v-toolbar>
-            </template>
-          </v-carousel-item>
-        </v-carousel>
-      </v-card-text>
+      <v-card-actions v-if="items.length > 0">
+        <v-container fluid>
+          <v-row>
+            <v-col cols="12">
+              <v-carousel
+                cycle
+                show-arrows-on-hover
+                hide-delimiter-background
+                hide-delimiters
+                height="auto"
+              >
+                <v-carousel-item
+                  v-for="(item, i) in items"
+                  :key="i"
+                  :src="`/uploads/content/${item.ContentCoverImg.name}`"
+                  target="_blank"
+                  :href="`/${item.id}`"
+                  width="100vw"
+                  :aspect-ratio="16 / 9"
+                >
+                  <template v-slot:default>
+                    <v-toolbar color="black" dark>
+                      <div class="title">
+                        {{ item.title }}
+                      </div>
+                      <v-spacer></v-spacer>
+                      {{ $moment(item.createdAt).format("ll") }}
+                    </v-toolbar>
+                  </template>
+                </v-carousel-item>
+              </v-carousel>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-actions>
 
       <v-card-text v-else>
         <v-alert text prominent type="error" icon="mdi-cloud-alert">

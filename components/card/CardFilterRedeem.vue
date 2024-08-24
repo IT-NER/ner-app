@@ -2,19 +2,6 @@
   <div>
     <v-container fluid>
       <v-row>
-        <v-col cols="12" md="6">
-          <v-select
-            label="สถานะ"
-            v-model="item.pointPayStatusId"
-            :items="itemsPointPayStatus"
-            item-text="name"
-            item-value="id"
-            multiple
-            clearable
-            hide-details
-          ></v-select>
-        </v-col>
-
         <!-- item.start -->
         <v-col cols="12" md="3">
           <v-dialog
@@ -104,12 +91,26 @@
             </v-date-picker>
           </v-dialog>
         </v-col>
+        <v-col cols="12" md="6">
+          <v-select
+            label="สถานะ"
+            prepend-icon="mdi-list-status"
+            v-model="item.pointPayStatusId"
+            :items="itemsPointPayStatus"
+            item-text="name"
+            item-value="id"
+            multiple
+            clearable
+            hide-details
+          ></v-select>
+        </v-col>
       </v-row>
 
       <v-row>
-        <v-col cols="12" md="12">
+        <v-col cols="12" md="6">
           <v-select
             label="ของรางวัล"
+            prepend-icon="mdi-ribbon"
             v-model="item.rewardId"
             :items="itemsReward"
             item-text="name"
@@ -119,9 +120,10 @@
             hide-details
           ></v-select>
         </v-col>
-        <v-col cols="12" md="12">
+        <v-col cols="12" md="6">
           <v-autocomplete
             label="รายชื่อพนักงาน"
+            prepend-icon="mdi-account"
             v-model="item.userId"
             :items="itemsUser"
             item-text="name"

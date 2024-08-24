@@ -53,10 +53,46 @@ app.get("/content/:id", async (req, res) => {
   res.status(200).json(data);
 });
 
-//
-//
-//
-//filter
+// filterAll
+app.post("/content/filter", async (req, res) => {
+  let item = req.body.data;
+
+  let data = await filterContent(item);
+  res.status(200).json(data);
+});
+async function filterContent(item) {
+  let items = {};
+  if (item.contentTypeId) {
+    items.contentTypeId = {
+      in: item.contentTypeId,
+    };
+  }
+  if (item.contentStatusId) {
+    items.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
+
+  let data = await prisma.content.findMany({
+    where: items,
+    include: {
+      ContentStatus: true,
+      ContentType: true,
+      User: true,
+      ContentCoverImg: true,
+      ContentImg: true,
+      PointReceived: true,
+    },
+    orderBy: [
+      {
+        id: "desc",
+      },
+    ],
+  });
+
+  return data;
+}
+
 app.post("/content/filter/banner", async (req, res) => {
   let item = req.body.data;
 

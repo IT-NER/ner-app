@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card width="100vw" class="mx-auto" flat>
-      <v-card-text>
+      <v-card-actions>
         <v-carousel
           v-model="index"
           cycle
@@ -15,12 +15,11 @@
             :key="i"
             :src="list.url"
             @click="viewImg(list)"
-            width="100vw"
             :aspect-ratio="16 / 9"
           >
           </v-carousel-item>
         </v-carousel>
-      </v-card-text>
+      </v-card-actions>
     </v-card>
 
     <v-dialog
@@ -36,14 +35,17 @@
         color="black"
       >
         <v-card-text>
-          <v-row>
-            <v-col cols="12">
+          <v-card flat color="black" width="80vw" class="mx-auto">
+            <v-card-actions>
+              <v-spacer></v-spacer>
               <v-btn color="error" class="float-right" @click="dialog = false">
                 ปิด
                 <v-icon>mdi-close</v-icon>
               </v-btn>
-            </v-col>
-            <v-col cols="12">
+            </v-card-actions>
+          </v-card>
+          <v-card flat color="black" width="80vw" class="mx-auto">
+            <v-card-actions>
               <v-carousel
                 v-model="index"
                 cycle
@@ -56,12 +58,13 @@
                   v-for="(list, i) in item.RewardImg"
                   :key="i"
                   :src="list.url"
-                  width="100vw"
+                  width="80vw"
+                  class="mx-auto"
                 >
                 </v-carousel-item>
               </v-carousel>
-            </v-col>
-          </v-row>
+            </v-card-actions>
+          </v-card>
         </v-card-text>
       </v-card>
     </v-dialog>

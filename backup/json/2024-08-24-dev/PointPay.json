@@ -1,0 +1,50 @@
+[
+  {
+    "id": 13,
+    "point": 100,
+    "userId": 166,
+    "rewardId": 7,
+    "createdAt": "23/8/2024 09:35:16.79",
+    "updatedAt": "23/8/2024 09:35:45.933",
+    "approveBy": null,
+    "approveDate": "23/8/2024 09:35:45.929",
+    "pointPayStatusId": 4,
+    "status": null
+  },
+  {
+    "id": 14,
+    "point": 100,
+    "userId": 166,
+    "rewardId": 7,
+    "createdAt": "23/8/2024 09:35:58.819",
+    "updatedAt": "23/8/2024 09:37:22.47",
+    "approveBy": 166,
+    "approveDate": "23/8/2024 09:37:22.469",
+    "pointPayStatusId": 3,
+    "status": null
+  },
+  {
+    "id": 15,
+    "point": 100,
+    "userId": 166,
+    "rewardId": 7,
+    "createdAt": "23/8/2024 09:40:33.065",
+    "updatedAt": "23/8/2024 09:48:14.069",
+    "approveBy": 166,
+    "approveDate": "23/8/2024 09:48:14.067",
+    "pointPayStatusId": 3,
+    "status": null
+  },
+  {
+    "id": 16,
+    "point": 100,
+    "userId": 166,
+    "rewardId": 7,
+    "createdAt": "24/8/2024 04:52:33.016",
+    "updatedAt": "24/8/2024 04:52:33.016",
+    "approveBy": null,
+    "approveDate": null,
+    "pointPayStatusId": 1,
+    "status": null
+  }
+]

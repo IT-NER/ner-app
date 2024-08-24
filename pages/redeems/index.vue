@@ -101,6 +101,27 @@
       </v-data-table>
     </v-card>
 
+    <v-dialog
+      v-model="dialog"
+      scrollable
+      persistent
+      width="1000"
+      transition="dialog-transition"
+    >
+      <v-card>
+        <v-card-title>
+          เพิ่มรายการ
+          <small class="ml-2" color="success"> (ผู้ขอแลกของรางวัล) </small>
+          <v-spacer></v-spacer>
+          <v-icon @click="dialog = false">mdi-close</v-icon>
+        </v-card-title>
+
+        <v-divider></v-divider>
+        <!-- <v-card-text> -->
+        <card-items-user />
+        <!-- </v-card-text> -->
+      </v-card>
+    </v-dialog>
     <br />
     <br />
     <br />
@@ -111,9 +132,10 @@
 
 <script>
 import CardFilterRedeem from "~/components/card/CardFilterRedeem.vue";
+import CardItemsUser from "~/components/card/CardItemsUser.vue";
 import CardViewRewardById from "~/components/card/CardViewRewardById.vue";
 export default {
-  components: { CardFilterRedeem, CardViewRewardById },
+  components: { CardFilterRedeem, CardViewRewardById, CardItemsUser },
 
   data() {
     return {
@@ -172,12 +194,14 @@ export default {
       ],
       search: null,
       selected: [],
+
+      search2: null,
+      selected2: [],
+
+      dialog: false,
     };
   },
 
-  computed: {
-    showSelect(e) {},
-  },
   async created() {
     await this.getItemsPointPayStatus();
     await this.getItemsReward();
@@ -186,6 +210,13 @@ export default {
   },
 
   methods: {
+    async save() {
+      console.log("selected2", this.selected2);
+    },
+    async addItem() {
+      this.dialog = true;
+    },
+
     async approve() {
       let confirm = await this.alertConfirm();
       if (!confirm) {
@@ -245,7 +276,6 @@ export default {
         });
     },
 
-    async addItem() {},
     async viewItem(item) {
       this.$router.push("/redeems/" + item.id);
     },

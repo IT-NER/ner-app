@@ -1,0 +1,79 @@
+[
+  {
+    "id": 261,
+    "pointPayId": null,
+    "pointReceivedId": 255,
+    "userId": 166,
+    "received": 100,
+    "pay": 0,
+    "total": 100,
+    "createdAt": "23/8/2024 09:34:37.468",
+    "updatedAt": "23/8/2024 09:34:37.474"
+  },
+  {
+    "id": 262,
+    "pointPayId": null,
+    "pointReceivedId": 256,
+    "userId": 166,
+    "received": 150,
+    "pay": 0,
+    "total": 250,
+    "createdAt": "23/8/2024 09:34:44.857",
+    "updatedAt": "23/8/2024 09:34:44.863"
+  },
+  {
+    "id": 263,
+    "pointPayId": null,
+    "pointReceivedId": 257,
+    "userId": 166,
+    "received": 200,
+    "pay": 0,
+    "total": 450,
+    "createdAt": "23/8/2024 09:34:52.185",
+    "updatedAt": "23/8/2024 09:34:52.19"
+  },
+  {
+    "id": 264,
+    "pointPayId": 13,
+    "pointReceivedId": null,
+    "userId": 166,
+    "received": null,
+    "pay": 0,
+    "total": 450,
+    "createdAt": "23/8/2024 09:35:16.796",
+    "updatedAt": "23/8/2024 09:35:45.946"
+  },
+  {
+    "id": 265,
+    "pointPayId": 14,
+    "pointReceivedId": null,
+    "userId": 166,
+    "received": null,
+    "pay": 0,
+    "total": 450,
+    "createdAt": "23/8/2024 09:35:58.825",
+    "updatedAt": "23/8/2024 09:37:22.485"
+  },
+  {
+    "id": 266,
+    "pointPayId": 15,
+    "pointReceivedId": null,
+    "userId": 166,
+    "received": null,
+    "pay": 0,
+    "total": 450,
+    "createdAt": "23/8/2024 09:40:33.072",
+    "updatedAt": "23/8/2024 09:48:14.084"
+  },
+  {
+    "id": 267,
+    "pointPayId": 16,
+    "pointReceivedId": null,
+    "userId": 166,
+    "received": null,
+    "pay": 100,
+    "total": 350,
+    "createdAt": "24/8/2024 04:52:33.027",
+    "updatedAt": "24/8/2024 04:52:33.04"
+  }
+]

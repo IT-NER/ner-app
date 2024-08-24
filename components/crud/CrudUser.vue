@@ -1,26 +1,119 @@
 <template>
   <div>
+    <v-overlay :value="overlay">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
+
+    <v-card flat>
+      <v-card-title>
+        {{ title }}
+        <v-spacer></v-spacer>
+      </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-container fluid>
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-autocomplete
+                :items="departments"
+                v-model="filter.departmentId"
+                item-text="name"
+                item-value="id"
+                label="ฝ่าย"
+                clearable
+                hide-details
+                multiple
+              ></v-autocomplete>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-select
+                :items="positions"
+                v-model="filter.positionId"
+                item-text="name"
+                item-value="id"
+                label="ตำแหน่ง"
+                clearable
+                hide-details
+                multiple
+              ></v-select>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
+
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn outlined color="primary" @click="getUser"> ค้นหา </v-btn>
+        <v-spacer></v-spacer>
+      </v-card-actions>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
+        <v-btn outlined color="primary" @click="refresh"> รีเฟรซ </v-btn>
+      </v-card-actions>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-container fluid>
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-text-field
+                v-model="search"
+                label="ค้นหา"
+                hide-details
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-data-table
+        :headers="headers"
+        :items="items"
+        class="elevation-0"
+        :search="search"
+      >
+        <template v-slot:item.no="{ index }">
+          {{ index + 1 }}
+        </template>
+        <template v-slot:item.date="{ item }">
+          {{ $moment(item.createdAt).format("ll") }}
+        </template>
+
+        <template v-slot:item.editPassword="{ item }">
+          <v-btn outlined color="warning" @click="editPassword(item)">
+            แก้ไขรหัสผ่าน
+          </v-btn>
+        </template>
+        <template v-slot:item.active="{ item }">
+          <v-chip label :color="getColorActive(item.active)">
+            <span v-if="item.active"> เปิด </span>
+            <span v-else> ปิด </span>
+          </v-chip>
+        </template>
+        <template v-slot:item.edit="{ item }">
+          <v-btn outlined color="warning" @click="editItem(item)">
+            แก้ไข
+          </v-btn>
+        </template>
+      </v-data-table>
+    </v-card>
+
     <v-dialog
       v-model="dialog"
       scrollable
       persistent
       transition="slide-y-reverse-transition"
-      max-width="1024"
+      width="800"
     >
       <form @submit.prevent="save">
         <v-card>
-          <v-toolbar dense elevation="0">
+          <v-card-title>
             {{ title }}
             <v-spacer></v-spacer>
-            <v-tooltip top>
-              <template v-slot:activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" @click="dialog = false">
-                  mdi-close
-                </v-icon>
-              </template>
-              <div class="title">ปิด</div>
-            </v-tooltip>
-          </v-toolbar>
+            <v-icon @click="dialog = false"> mdi-close </v-icon>
+          </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
             <form-user :user.sync="user" />
@@ -35,104 +128,35 @@
       </form>
     </v-dialog>
 
-    <v-overlay :value="overlay">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
-    </v-overlay>
-
-    <v-card style="margin-bottom: 300px">
-      <v-card-title elevation="0">
-        {{ title }}
-        <v-spacer></v-spacer>
-      </v-card-title>
-      <v-divider></v-divider>
-      <v-card-text>
-        <v-row>
-          <v-col cols="12" md="3">
-            <v-select
-              :items="departments"
-              v-model="itemSearch.departmentId"
-              item-text="name"
-              item-value="id"
-              label="ฝ่าย"
-              clearable
-            ></v-select>
-          </v-col>
-          <v-col cols="12" md="3">
-            <v-select
-              :items="positions"
-              v-model="itemSearch.positionId"
-              item-text="name"
-              item-value="id"
-              label="ตำแหน่ง"
-              clearable
-            ></v-select>
-          </v-col>
-        </v-row>
-      </v-card-text>
-
-      <v-divider></v-divider>
-      <v-toolbar dense elevation="0">
-        <v-spacer></v-spacer>
-
-        <v-btn outlined color="primary" @click="getUser"> ค้นหา </v-btn>
-
-        <v-spacer></v-spacer>
-      </v-toolbar>
-      <v-divider></v-divider>
-      <v-card-title elevation-0>
-        <v-text-field v-model="search" label="ค้นหา"></v-text-field>
-        <v-spacer></v-spacer>
-
-        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
-
-        <v-btn outlined color="primary" @click="refresh"> รีเฟรซ </v-btn>
-      </v-card-title>
-      <v-divider></v-divider>
-      <v-data-table
-        :headers="headers"
-        :items="items"
-        class="elevation-0"
-        :search="search"
-      >
-        <template v-slot:item.no="{ index }">
-          {{ index + 1 }}
-        </template>
-        <template v-slot:item.fullName="{ item }">
-          {{ item.fname }} {{ item.lname }}
-        </template>
-        <template v-slot:item.editPassword="{ item }">
-          <v-btn outlined color="warning" @click="editPassword(item)">
-            แก้ไขรหัสผ่าน
-          </v-btn>
-        </template>
-        <template v-slot:item.actions="{ item }">
-          <v-btn outlined color="warning" @click="editItem(item)">
-            แก้ไข
-          </v-btn>
-        </template>
-      </v-data-table>
-    </v-card>
-
+    <!-- editPassword -->
     <v-dialog
       v-model="dialogNewPassword"
       persistent
-      max-width="300"
+      width="300"
       transition="slide-y-reverse-transition"
     >
       <form @submit.prevent="updatePassword">
         <v-card>
-          <v-toolbar dense elevation="0">
+          <v-card-title>
             แก้ไขรหัสผ่าน
             <v-spacer></v-spacer>
             <v-icon @click="dialogNewPassword = false">mdi-close</v-icon>
-          </v-toolbar>
+          </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
-            <v-text-field
-              label="รหัสผ่านใหม่"
-              v-model="user.newPassword"
-              required
-            ></v-text-field>
+            <v-container fluid>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                    label="รหัสผ่านใหม่"
+                    v-model="user.newPassword"
+                    hide-details
+                    required
+                    autofocus
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
@@ -143,6 +167,12 @@
         </v-card>
       </form>
     </v-dialog>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
@@ -162,18 +192,26 @@ export default {
 
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "ชื่อ-นามสกุล", value: "fullName" },
-        { text: "ฝ่าย", value: "Department.name" },
-        { text: "ตำแหน่ง", value: "Position.name" },
-        { text: "USERNAME", value: "username" },
-        { text: "EMAIL", value: "email" },
+        { text: "วันที่", value: "date", sortable: false },
+        { text: "ชื่อ", value: "fname", sortable: false },
+        { text: "นามสกุล", value: "lname", sortable: false },
+        { text: "ฝ่าย", value: "Department.name", sortable: false },
+        { text: "ตำแหน่ง", value: "Position.name", sortable: false },
+        { text: "USERNAME", value: "username", sortable: false },
+        { text: "EMAIL", value: "email", sortable: false },
+        {
+          text: "สถานะการใช้งาน",
+          value: "active",
+          align: "center",
+          sortable: false,
+        },
         {
           text: "แก้ไขรหัสผ่าน",
           value: "editPassword",
           align: "center",
           sortable: false,
         },
-        { text: "ACTIONS", value: "actions", align: "center", sortable: false },
+        { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
 
       items: [],
@@ -206,9 +244,9 @@ export default {
       departments: [],
       positions: [],
 
-      itemSearch: {
-        departmentId: null,
-        positionId: null,
+      filter: {
+        departmentId: [],
+        positionId: [1, 2, 3],
       },
     };
   },
@@ -220,15 +258,21 @@ export default {
   },
 
   methods: {
+    getColorActive(active) {
+      let data = "success";
+      if (!active) {
+        data = "error";
+      }
+      return data;
+    },
     async refresh() {
-      this.itemSearch.departmentId = null;
-      this.itemSearch.positionId = null;
-
+      this.filter.departmentId = [];
+      this.filter.positionId = [1, 2, 3];
       await this.getUser();
     },
 
     async editPassword(item) {
-      console.log(item);
+      // console.log(item);
       this.dialogNewPassword = true;
       this.user = item;
     },
@@ -253,11 +297,10 @@ export default {
       this.departments = await this.$axios
         .get("/api/department")
         .then((res) => {
-          // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
+          return [];
         });
     },
 
@@ -265,11 +308,10 @@ export default {
       this.positions = await this.$axios
         .get("/api/position")
         .then((res) => {
-          // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
+          return [];
         });
     },
 
@@ -374,8 +416,8 @@ export default {
 
     async getUser() {
       this.items = await this.$axios
-        .post("/api/user/search", {
-          data: this.itemSearch,
+        .post("/api/admin/user/filter", {
+          data: this.filter,
         })
         .then((res) => {
           // console.log("res", res.data);

@@ -218,11 +218,13 @@ app.put("/user/update-password/:id", async (req, res) => {
 //resetPassword
 app.post("/user/reset-password", async (req, res) => {
   let item = req.body.data;
+
   let data = await resetPassword(item);
   return res.status(200).json(data);
 });
 async function resetPassword(item) {
   let newPassword = await bcrypt.hash(item.newPassword, 10);
+
   let data = await prisma.user.update({
     where: {
       id: Number(item.id),

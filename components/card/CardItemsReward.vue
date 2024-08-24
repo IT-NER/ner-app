@@ -10,11 +10,27 @@
           v-for="(item, i) in items"
           :key="i"
         >
-          <v-toolbar color="black" dark>
-            {{ item.name }}
-          </v-toolbar>
-          <v-card @click="viewItem(item)" tile>
-            <v-card-text>
+          <v-card color="success" dark tile @click="viewItem(item)">
+            <v-card-title dark>
+              {{ item.name }}
+            </v-card-title>
+            <v-divider></v-divider>
+            <v-progress-linear
+              v-if="user"
+              :value="percen(item)"
+              height="20"
+              striped
+              dark
+              :color="progressColor(item)"
+            >
+              <template v-slot:default>
+                <strong>{{ Math.ceil(percen(item)) }}%</strong>
+              </template>
+            </v-progress-linear>
+          </v-card>
+
+          <v-card @click="viewItem(item)" color="black" tile>
+            <v-card-actions>
               <v-carousel
                 cycle
                 hide-delimiter-background
@@ -31,21 +47,10 @@
                 >
                 </v-carousel-item>
               </v-carousel>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions v-if="user">
-              <v-progress-linear
-                :value="percen(item)"
-                height="25"
-                :color="progressColor(item)"
-                dark
-              >
-                <template v-slot:default>
-                  <strong>{{ Math.ceil(percen(item)) }}%</strong>
-                </template>
-              </v-progress-linear>
             </v-card-actions>
-            <v-divider></v-divider>
+          </v-card>
+
+          <v-card color="success" dark tile @click="viewItem(item)">
             <v-card-actions v-if="user">
               <v-spacer></v-spacer>
               ใช้ {{ item.point }} พอยท์
@@ -63,12 +68,12 @@ export default {
 
   methods: {
     progressColor(item) {
-      console.log("item", item);
+      // console.log("item", item);
 
-      let color = "warning";
+      let color = "deep-orange";
       let data = Number((this.user.point / item.point) * 100);
       if (data >= 100) {
-        color = "success";
+        color = "light-green darken-4";
       }
       return color;
     },

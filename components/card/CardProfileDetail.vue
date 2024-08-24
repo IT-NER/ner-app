@@ -4,7 +4,7 @@
       <v-card-title>
         ข้อมูลโปรไฟล์
         <v-spacer></v-spacer>
-        <v-btn color="warning" outlined @click="resetPassword">
+        <v-btn color="warning" outlined @click="editPassword">
           แก้ไขรหัสผ่าน
         </v-btn>
       </v-card-title>
@@ -49,10 +49,19 @@
       </v-card-text>
     </v-card>
 
-    <v-dialog v-model="dialog" max-width="500px" transition="dialog-transition">
+    <v-dialog
+      v-model="dialog"
+      max-width="300"
+      persistent
+      transition="dialog-transition"
+    >
       <form @submit.prevent="resetPassword">
         <v-card>
-          <v-card-title> แก้ไขรหัสผ่าน </v-card-title>
+          <v-card-title>
+            แก้ไขรหัสผ่าน
+            <v-spacer></v-spacer>
+            <v-icon @click="dialog = false">mdi-close</v-icon>
+          </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
             <v-text-field
@@ -92,9 +101,11 @@ export default {
     },
   },
   methods: {
-    async resetPassword() {
+    async editPassword() {
       this.dialog = true;
       this.newPassword = null;
+    },
+    async resetPassword() {
       let item = {
         id: this.item.id,
         newPassword: this.newPassword,
@@ -105,6 +116,7 @@ export default {
           data: item,
         })
         .then((res) => {
+          this.dialog = false;
           this.alertSuccess();
           this.$emit("getItem");
         })

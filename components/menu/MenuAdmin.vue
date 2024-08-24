@@ -75,6 +75,11 @@ export default {
           link: "/redeem",
         },
         {
+          name: "ประวัติการขอแลกของรางวัล",
+          icon: "mdi-history",
+          link: "/point-history",
+        },
+        {
           name: "ผู้ใช้งาน",
           icon: "mdi-account-cog",
           link: "/user",

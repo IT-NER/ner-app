@@ -3,11 +3,11 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" v-if="item.contentCoverImgId">
-          <v-card @click="viewImg" height="auto">
+          <v-card @click="viewImg" height="auto" width="40vw" class="mx-auto">
             <v-card-actions>
               <v-img
                 :src="item.ContentCoverImg.url"
-                width="100vw"
+                width="30vw"
                 :aspect-ratio="16 / 9"
               />
             </v-card-actions>

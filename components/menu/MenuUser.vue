@@ -75,6 +75,11 @@ export default {
           link: "/redeem",
         },
         {
+          name: "ประวัติการขอแลกของรางวัล",
+          icon: "mdi-history",
+          link: "/point-history",
+        },
+        {
           name: "จองห้องประชุม",
           icon: "mdi-calendar",
           link: "",
