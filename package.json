@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "generate": "nuxt generate",
-    "start": "nuxt start",
-    "develop": "prisma studio"
+    "generate": "nuxt build && nuxt start"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
