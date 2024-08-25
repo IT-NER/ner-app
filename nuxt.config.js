@@ -124,9 +124,9 @@ export default {
     },
   },
 
-  // mode: "universal",
-  // target: "server",
-  // ssr: true,
+  mode: "universal",
+  target: "server",
+  ssr: true,
 
   build: {},
 
