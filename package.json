@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nuxt build && nuxt start", 
-    "generate": "yarn install && nuxt build && nuxt start"
+    "build": "nuxt build", 
+    "start":"nuxt start"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
