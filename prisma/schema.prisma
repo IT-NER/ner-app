@@ -46,7 +46,7 @@ model Content {
   code              String?
   title             String?
   description       String?
-  detail            String?   @db.VarChar(8000)
+  detail            String?   
   point             Int?      @default(0)
   contentStatusId   Int?
   contentTypeId     Int?
@@ -168,7 +168,7 @@ model Reward {
   ticket      String   @unique
   code        String?
   name        String?
-  description String?  @db.VarChar(8000)
+  description String?  
   point       Int?     @default(0)
   userId      Int?
   active      Boolean? @default(true)
