@@ -124,14 +124,14 @@ export default {
     },
   },
 
-  mode: "universal",
-  target: "server",
-  ssr: true,
+  // mode: "universal",
+  // target: "server",
+  // ssr: true,
 
   build: {},
 
   server: {
-   port: 9390, // default: 3000
+  // port: 9390, // default: 3000
    host: "0.0.0.0", // default: localhost
   },
 };
