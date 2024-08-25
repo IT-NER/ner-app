@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "generate": "nuxt build && nuxt start"
+    "generate": "yarn install && npx prisma migrate dev && nuxt build && nuxt start"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
