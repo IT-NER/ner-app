@@ -131,6 +131,7 @@ export default {
   build: {},
 
   server: {
-    host: "https://sqllite--ner-app-uat.netlify.app"
+    port:3000,
+    host: "0.0.0.0"
  },
 };
