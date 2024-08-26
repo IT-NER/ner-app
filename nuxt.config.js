@@ -131,6 +131,6 @@ export default {
   build: {},
 
   server: {
-    host: "https://sqllite--ner-app-uat.netlify.app/"
+    host: "https://sqllite--ner-app-uat.netlify.app"
  },
 };
