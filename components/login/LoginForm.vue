@@ -7,10 +7,9 @@
             autofocus
             ref="identifier"
             prepend-icon="mdi-account"
-            label="Email/Username"
+            label="EMAIL / USERNAME"
             v-model="user.identifier"
             type="text"
-            outlined
             hide-details
             required
           ></v-text-field>
@@ -21,9 +20,8 @@
             v-model="user.password"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPassword ? 'text' : 'password'"
-            label="Password"
+            label="PASSWORD"
             @click:append="showPassword = !showPassword"
-            outlined
             hide-details
             required
           ></v-text-field>

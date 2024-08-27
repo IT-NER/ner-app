@@ -1,21 +1,15 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> ของรางวัล </v-card-title>
+      <v-card-title> ประวัติการขอแลกของรางวัล </v-card-title>
       <v-divider></v-divider>
-      <v-card-text>
-        <card-items-reward :items.sync="items" :user.sync="user" />
-      </v-card-text>
+      <v-card-text> </v-card-text>
     </v-card>
   </div>
 </template>
 
 <script>
-import CardItemsReward from "~/components/card/CardItemsReward.vue";
 export default {
-  components: {
-    CardItemsReward,
-  },
   data() {
     return {
       items: [],

@@ -11,7 +11,7 @@
                 {{ $moment(item.createdAt).format("ll") }}
               </v-toolbar>
 
-              <v-card :href="`/${item.id}`" target="_blank" outlined tile>
+              <v-card :href="`/${item.id}`" target="_blank" tile>
                 <v-card-actions>
                   <v-carousel
                     cycle

@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent width="300px">
       <form @submit.prevent="login">
         <v-card>
-          <v-card-title> NER </v-card-title>
+          <v-card-title> NER INTRANET </v-card-title>
           <v-divider></v-divider>
           <login-form :user.sync="user"></login-form>
           <v-divider></v-divider>
@@ -54,10 +54,10 @@ export default {
         }
       } catch (err) {
         // console.log("errs", err);
-        // this.alertError();
+        this.alertError();
         this.setItemDefault();
         // this.$router.push("/login");
-        window.location.href = "/login";
+        // window.location.href = "/login";
       }
     },
 
@@ -79,9 +79,7 @@ export default {
     async alertError() {
       this.$swal.fire({
         type: "error",
-        title: "เกิดข้อผิดพลาด",
-        showConfirmButton: false,
-        timer: 1500,
+        title: "USERNAME / PASSWORD \n ไม่ถูกต้อง!",
       });
     },
 
