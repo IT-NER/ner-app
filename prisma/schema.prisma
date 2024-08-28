@@ -125,14 +125,13 @@ model PointPay {
   point            Int?
   userId           Int?
   rewardId         Int?
-  status           String?
   approveDate      DateTime?
   approveBy        Int?
   pointPayStatusId Int?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 
-  User             User?              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  User             User?              @relation(fields: [userId], references: [id])
   Reward           Reward?            @relation(fields: [rewardId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointPayStatus   PointPayStatus?    @relation(fields: [pointPayStatusId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   PointReceivedPay PointReceivedPay[]

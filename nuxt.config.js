@@ -35,6 +35,7 @@ export default {
     "~/api/point-pay.js",
     "~/api/point-pay-status.js",
     "~/api/redeem.js",
+    "~/api/point-received-pay.js",
   ],
 
   components: true,

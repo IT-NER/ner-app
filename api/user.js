@@ -111,7 +111,6 @@ app.get("/user/:id", async (req, res) => {
   let data = await findOne(id);
   res.status(200).json(data);
 });
-
 async function findOne(id) {
   let data = await prisma.user.findFirst({
     where: {
@@ -247,6 +246,44 @@ app.delete("/user/:id", async (req, res) => {
   });
   res.status(200).json(user);
 });
+
+//findByRewardId
+app.get("/user/rewardId/:id", async (req, res) => {
+  let { id } = req.params;
+  let data = await findByRewardId(id);
+  res.status(200).json(data);
+});
+async function findByRewardId(rewardId) {
+  let reward = await prisma.reward.findFirst({
+    where: {
+      id: Number(rewardId),
+    },
+  });
+
+  let point = reward.point;
+
+  let data = await prisma.user.findMany({
+    where: {
+      point: {
+        gte: Number(point),
+      },
+    },
+    include: {
+      ButtonLink: true,
+      Department: true,
+      Position: true,
+      Role: true,
+      Booking: true,
+      Content: true,
+      Reward: true,
+      PointReceived: true,
+      PointPay: true,
+      PointReceivedPay: true,
+    },
+  });
+
+  return data;
+}
 
 export default {
   path: "/api",

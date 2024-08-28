@@ -83,67 +83,6 @@ async function pay(item) {
   return data;
 }
 
-// filter
-app.post("/point-pay/filter", async (req, res) => {
-  let item = req.body.data;
-  let data = await filter(item);
-  res.status(200).json(data);
-});
-async function filter(item) {
-  let dateStart = moment(item.start).format("YYYY-MM-DD 00:00");
-  let dateEnd = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
-
-  let items = {};
-
-  if (item.pointPayStatusId.length > 0) {
-    items.pointPayStatusId = {
-      in: item.pointPayStatusId,
-    };
-  }
-  if (item.rewardId.length > 0) {
-    items.rewardId = {
-      in: item.rewardId,
-    };
-  }
-  if (item.userId.length > 0) {
-    items.userId = {
-      in: item.userId,
-    };
-  }
-  if (item.start) {
-    items.createdAt = {
-      gte: new Date(dateStart),
-    };
-  }
-  if (item.end) {
-    items.createdAt = {
-      lte: new Date(dateEnd),
-    };
-  }
-
-  let data = await prisma.pointPay.findMany({
-    where: items,
-    include: {
-      User: {
-        include: {
-          Department: true,
-          Position: true,
-          Role: true,
-        },
-      },
-      Reward: true,
-      PointPayStatus: true,
-      PointReceivedPay: true,
-    },
-    orderBy: [
-      {
-        id: "desc",
-      },
-    ],
-  });
-  return data;
-}
-
 // findByUserId
 app.get("/point-pay/user/:id", async (req, res) => {
   let { id } = req.params;
@@ -182,7 +121,6 @@ app.get("/point-pay/cancel/:id", async (req, res) => {
   let data = await cancelById(id);
   res.status(200).json(data);
 });
-
 async function cancelById(id) {
   let pointPay = await prisma.pointPay.findFirst({
     where: {

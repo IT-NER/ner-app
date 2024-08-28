@@ -105,22 +105,73 @@
       v-model="dialog"
       scrollable
       persistent
-      width="1000"
+      width="800"
       transition="dialog-transition"
     >
-      <v-card>
-        <v-card-title>
-          เพิ่มรายการ
-          <small class="ml-2" color="success"> (ผู้ขอแลกของรางวัล) </small>
-          <v-spacer></v-spacer>
-          <v-icon @click="dialog = false">mdi-close</v-icon>
-        </v-card-title>
-
-        <v-divider></v-divider>
-        <!-- <v-card-text> -->
-        <card-items-user />
-        <!-- </v-card-text> -->
-      </v-card>
+      <form @submit.prevent="save">
+        <v-card>
+          <v-card-title>
+            เพิ่มรายการ
+            <small class="ml-2" color="success"> (ผู้ขอแลกของรางวัล) </small>
+            <v-spacer></v-spacer>
+            <v-icon @click="dialog = false">mdi-close</v-icon>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <v-container fluid>
+              <v-row>
+                <v-col cols="12" md="12">
+                  <v-autocomplete
+                    label="เลือกของรางวัล"
+                    prepend-icon="mdi-ribbon"
+                    v-model="selectedReward2"
+                    :items="itemsReward"
+                    item-text="name"
+                    item-value="id"
+                    clearable
+                    hide-details
+                    required
+                    @change="getItemsUserByReward"
+                  ></v-autocomplete>
+                </v-col>
+                <v-col cols="12" md="12">
+                  <v-text-field
+                    label="ค้นหา"
+                    prepend-icon="mdi-magnify"
+                    v-model="searchUser2"
+                    clearable
+                    hide-details
+                    @change="getItemsUserByReward"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-data-table
+            :items-per-page="-1"
+            :headers="headersUser2"
+            :items="itemsUser2"
+            :search="searchUser2"
+            class="elevation-0"
+            v-model="selectedUser2"
+            hide-default-footer
+            show-select
+            fixed-header
+            height="400"
+          >
+            <template v-slot:item.no="{ index }">
+              {{ index + 1 }}
+            </template>
+          </v-data-table>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="success" outlined type="submit"> บันทึก </v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </form>
     </v-dialog>
     <br />
     <br />
@@ -132,10 +183,9 @@
 
 <script>
 import CardFilterRedeem from "~/components/card/CardFilterRedeem.vue";
-import CardItemsUser from "~/components/card/CardItemsUser.vue";
 import CardViewRewardById from "~/components/card/CardViewRewardById.vue";
 export default {
-  components: { CardFilterRedeem, CardViewRewardById, CardItemsUser },
+  components: { CardFilterRedeem, CardViewRewardById },
 
   data() {
     return {
@@ -195,10 +245,34 @@ export default {
       search: null,
       selected: [],
 
-      search2: null,
-      selected2: [],
-
       dialog: false,
+
+      headersUser2: [
+        { text: "ลำดับ", value: "no", align: "center", sortable: false },
+
+        {
+          text: "ชื่อ",
+          value: "fname",
+          align: "start",
+          sortable: false,
+        },
+        {
+          text: "นามสกุล",
+          value: "lname",
+          align: "start",
+          sortable: false,
+        },
+        {
+          text: "ฝ่าย",
+          value: "Department.name",
+          align: "start",
+          sortable: false,
+        },
+      ],
+      itemsUser2: [],
+      searchUser2: null,
+      selectedUser2: [],
+      selectedReward2: [],
     };
   },
 
@@ -210,11 +284,65 @@ export default {
   },
 
   methods: {
+    async getItemsUserByReward() {
+      if (!this.selectedReward2) {
+        this.itemsUser2 = [];
+        this.searchUser2 = null;
+        this.selectedUser2 = [];
+        this.selectedReward2 = [];
+        return;
+      }
+
+      this.itemsUser2 = await this.$axios
+        .get("/api/user/rewardId/" + this.selectedReward2)
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return [];
+        });
+    },
+
     async save() {
-      console.log("selected2", this.selected2);
+      console.log("selectedReward2", this.selectedReward2);
+      console.log("selectedUser2", this.selectedUser2);
+
+      if (!this.selectedUser2.length) {
+        this.alertSelectUser();
+        return;
+      }
+
+      let rewardId = this.selectedReward2;
+      let userIds = [];
+      this.selectedUser2.forEach((e) => {
+        userIds.push(e.id);
+      });
+      // console.log("rewardId", rewardId);
+      // console.log("userIds", userIds);
+
+      await this.$axios
+        .post("/api/admin/point-pay", {
+          data: {
+            rewardId: rewardId,
+            userIds: userIds,
+          },
+        })
+        .then(async (res) => {
+          this.dialog = false;
+          await this.getItems();
+          await this.alertSuccess();
+        })
+        .catch((err) => {
+          return false;
+        });
     },
     async addItem() {
       this.dialog = true;
+
+      this.itemsUser2 = [];
+      this.searchUser2 = null;
+      this.selectedUser2 = [];
+      this.selectedReward2 = [];
     },
 
     async approve() {
@@ -280,6 +408,13 @@ export default {
       this.$router.push("/redeems/" + item.id);
     },
 
+    async alertSelectUser() {
+      this.$swal.fire({
+        type: "warning",
+        title: "กรุณาเลือกรายชื่อผู้ขอแลกรางวัล",
+      });
+    },
+
     async alertError() {
       this.$swal.fire({
         type: "error",
@@ -308,9 +443,10 @@ export default {
       }
       return data;
     },
+
     async getItems() {
       this.selected = [];
-      // console.log("filter", this.filter);
+      console.log("filter", this.filter);
 
       this.items = await this.$axios
         .post("/api/admin/point-pay/filter", {
@@ -323,12 +459,14 @@ export default {
           return [];
         });
     },
+
     async refresh() {
       this.filter.start = null;
       this.filter.end = null;
       this.filter.userId = [];
       this.filter.rewardId = [];
       this.filter.pointPayStatusId = [1];
+      await this.getItems();
     },
     async getItemsPointPayStatus() {
       this.itemsPointPayStatus = await this.$axios
