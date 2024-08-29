@@ -172,6 +172,11 @@ export default {
               icon: "mdi-cog",
               link: "/setting/content",
             },
+            {
+              name: "ระบบ จองรถ",
+              icon: "mdi-car",
+              link: "/setting/car",
+            },
           ],
         },
       ],

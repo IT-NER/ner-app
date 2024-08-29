@@ -1,0 +1,20 @@
+[
+{"type":"header","version":"5.0.2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"mazdabur_jsauction"},
+{"type":"table","name":"tbl_usecar_brand","database":"mazdabur_jsauction","data":
+[
+{"brand_id":"11","brand_name":"TOYOTA","brand_comment":""},
+{"brand_id":"12","brand_name":"ISUZU","brand_comment":""},
+{"brand_id":"13","brand_name":"NISSAN","brand_comment":""},
+{"brand_id":"14","brand_name":"MAZDA","brand_comment":""},
+{"brand_id":"15","brand_name":"MITSUBISHI","brand_comment":""},
+{"brand_id":"16","brand_name":"CHEVROLET","brand_comment":""},
+{"brand_id":"17","brand_name":"FORD","brand_comment":""},
+{"brand_id":"18","brand_name":"HONDA","brand_comment":""},
+{"brand_id":"19","brand_name":"SUZUKI","brand_comment":""},
+{"brand_id":"20","brand_name":"MG","brand_comment":""},
+{"brand_id":"22","brand_name":"HIN BUS","brand_comment":""},
+{"brand_id":"23","brand_name":"HINO","brand_comment":""}
+]
+}
+]

@@ -1,0 +1,30 @@
+[
+{"type":"header","version":"5.0.2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"mazdabur_jsauction"},
+{"type":"table","name":"tbl_usecar_color","database":"mazdabur_jsauction","data":
+[
+{"color_id":"1","color_name":"แดง","color_comment":""},
+{"color_id":"2","color_name":"น้ำเงิน ","color_comment":""},
+{"color_id":"3","color_name":"เหลือง","color_comment":""},
+{"color_id":"4","color_name":"ขาว","color_comment":""},
+{"color_id":"5","color_name":"ดำ","color_comment":""},
+{"color_id":"6","color_name":"ม่วง","color_comment":""},
+{"color_id":"7","color_name":"เขียว","color_comment":""},
+{"color_id":"8","color_name":"ส้ม","color_comment":""},
+{"color_id":"9","color_name":"น้ำตาล ","color_comment":""},
+{"color_id":"10","color_name":"ชมพู","color_comment":""},
+{"color_id":"11","color_name":"ฟ้า","color_comment":""},
+{"color_id":"12","color_name":"เทา","color_comment":""},
+{"color_id":"13","color_name":"บรอนซ์","color_comment":""},
+{"color_id":"16","color_name":"ชมพู น้ำเงิน เขียว เหลือง ขาว","color_comment":""},
+{"color_id":"17","color_name":"เทา  ดำ","color_comment":""},
+{"color_id":"18","color_name":"ดำ เทา","color_comment":""},
+{"color_id":"19","color_name":"น้ำเงิน เทา","color_comment":""},
+{"color_id":"20","color_name":"ฟ้า เทา","color_comment":""},
+{"color_id":"21","color_name":"ขาวดำ","color_comment":""},
+{"color_id":"22","color_name":"แดง ดำ","color_comment":""},
+{"color_id":"23","color_name":"เขียว ดำ","color_comment":""},
+{"color_id":"24","color_name":"ขาว เทา","color_comment":""}
+]
+}
+]

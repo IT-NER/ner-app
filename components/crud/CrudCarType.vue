@@ -1,7 +1,18 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> ลิ้งภายใน </v-card-title>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" outlined @click="refresh">
+          <v-icon class="mr-2">mdi-refresh</v-icon>
+          รีเฟรช
+        </v-btn>
+      </v-card-actions>
+      <v-divider></v-divider>
+      <v-card-title>
+        ประเภทรถ
+        <v-spacer></v-spacer>
+      </v-card-title>
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -11,18 +22,19 @@
         </v-btn>
       </v-card-actions>
       <v-divider></v-divider>
-      <v-data-table :headers="headers" :items="items">
+      <v-card-actions>
+        <v-text-field
+          label="ค้นหา"
+          prepend-icon="mdi-magnify"
+          v-model="search"
+          hide-details
+        ></v-text-field>
+        <v-spacer></v-spacer>
+      </v-card-actions>
+      <v-divider></v-divider>
+      <v-data-table :headers="headers" :items="items" :search="search">
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
-        </template>
-        <template v-slot:item.link="{ item }">
-          <a :href="`https://${item.url}`" target="blank">
-            {{ item.url }}
-          </a>
-        </template>
-        <template v-slot:item.status="{ item }">
-          <v-chip color="success" label v-if="item.active"> เปิด </v-chip>
-          <v-chip color="error" label v-else> ปิด </v-chip>
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn color="warning" outlined @click="editItem(item)">
@@ -35,6 +47,7 @@
 
     <v-dialog
       v-model="dialog"
+      scrollable
       persistent
       max-width="500px"
       transition="dialog-transition"
@@ -48,12 +61,15 @@
           </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
-            <form-button-link :item="item" />
+            <form-car-type :item.sync="item" />
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="success" outlined type="submit"> บันทึก </v-btn>
+            <v-btn color="success" outlined type="submit">
+              <v-icon>mdi-content-save</v-icon>
+              บันทึก
+            </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
@@ -63,36 +79,27 @@
 </template>
 
 <script>
-import FormButtonLink from "~/components/form/FormButtonLink.vue";
+import FormCarType from "~/components/form/FormCarType.vue";
+
 export default {
-  components: { FormButtonLink },
+  components: { FormCarType },
   data() {
     return {
+      dialog: false,
+      search: null,
+      items: [],
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "ชื่อปุ่ม", value: "name", align: "start", sortable: false },
-        { text: "ลิ้งค์", value: "link", align: "start", sortable: false },
-        {
-          text: "สถานะการใช้งาน",
-          value: "status",
-          align: "center",
-          sortable: false,
-        },
-        { text: "หมายเหตุ", value: "remark", align: "start", sortable: false },
+        { text: "ชื่อประเภทรถ", value: "name" },
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
-      items: [],
-      dialog: false,
       item: {
-        id: 0,
+        id: null,
         name: null,
-        url: null,
-        remark: null,
-        active: true,
-        User: [],
       },
     };
   },
+
   computed: {
     title() {
       let data = "เพิ่ม";
@@ -102,30 +109,21 @@ export default {
       return data;
     },
   },
+
   created() {
     this.getItems();
   },
-
   methods: {
-    async editItem(item) {
-      let date = await Object.assign({}, item);
-      this.item = await date;
-
-      console.log("item", this.item);
-      this.dialog = true;
-    },
     async save() {
-      console.log("item", this.item);
       if (this.item.id > 0) {
         this.update();
         return;
       }
       this.create();
     },
-
     async create() {
       await this.$axios
-        .post("/api/admin/button-link", {
+        .post("/api/admin/car-type", {
           data: this.item,
         })
         .then(async (res) => {
@@ -138,9 +136,10 @@ export default {
           return;
         });
     },
+
     async update() {
       await this.$axios
-        .put("/api/admin/button-link/" + this.item.id, {
+        .put("/api/admin/car-type/" + this.item.id, {
           data: this.item,
         })
         .then(async (res) => {
@@ -153,6 +152,7 @@ export default {
           return;
         });
     },
+
     async alertError() {
       this.$swal.fire({
         type: "error",
@@ -168,24 +168,29 @@ export default {
         timer: 1500,
       });
     },
-    async addItem() {
-      this.item.id = 0;
-      this.item.name = null;
-      this.item.url = null;
-      this.item.remark = null;
-      this.item.active = true;
-      console.log("item", this.item);
-      this.dialog = true;
-    },
     async getItems() {
       this.items = await this.$axios
-        .get("/api/admin/button-link")
+        .get("/api/admin/car-type")
         .then((res) => {
           return res.data;
         })
         .catch((err) => {
           return [];
         });
+    },
+    async refresh() {
+      this.getItems();
+    },
+    async editItem(item) {
+      let data = await Object.assign({}, item);
+      this.item = await data;
+      this.dialog = true;
+    },
+    async addItem() {
+      this.item.id = null;
+      this.item.name = null;
+
+      this.dialog = true;
     },
   },
 };

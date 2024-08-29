@@ -35,6 +35,70 @@ model User {
   PointReceivedPay PointReceivedPay[]
 }
 
+model Car {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  req_name  String?
+  reg_txt   String?
+  reg_no    Int?
+  mileage   Int?
+  active    Boolean? @default(true)
+  remark    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  CarType    CarType?  @relation(fields: [carTypeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  carTypeId  Int?
+  CarBrand   CarBrand? @relation(fields: [carBrandId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  carBrandId Int?
+  CarModel   CarModel? @relation(fields: [carModelId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  carModelId Int?
+  Province   Province? @relation(fields: [provinceId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  provinceId Int?
+}
+
+model CarType {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Car       Car[]
+}
+
+model CarBrand {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  CarModel CarModel[]
+  Car      Car[]
+}
+
+model CarModel {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  CarBrand   CarBrand? @relation(fields: [carBrandId], references: [id])
+  carBrandId Int?
+  Car        Car[]
+}
+
+model Province {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Car Car[]
+}
+
 model Content {
   id                Int       @id @default(autoincrement())
   start             DateTime?
