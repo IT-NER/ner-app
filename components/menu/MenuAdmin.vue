@@ -85,6 +85,11 @@ export default {
           link: "/user",
         },
         {
+          name: "ลิ้งภายใน",
+          icon: "mdi-link",
+          link: "/link",
+        },
+        {
           name: "จองห้องประชุม",
           icon: "mdi-calendar",
           link: "",

@@ -222,22 +222,25 @@ export default {
         password: null,
         lname: null,
         fname: null,
-        status: null,
+        active: true,
+        point: 0,
+        img: null,
+        buttonLinkId: null,
         departmentId: null,
         positionId: null,
         roleId: null,
-        point: null,
-        imgUrl: null,
-        Booking: null,
-        Department: null,
-        Position: null,
-        Role: null,
-        Content: null,
-        PointReceived: null,
-        PointPay: null,
-        PointReceivedPay: null,
-        ButtonLink: null,
-        buttonLinkId: null,
+
+        ButtonLink: [],
+        Department: [],
+        Position: [],
+        Role: [],
+        Booking: [],
+        Content: [],
+        Reward: [],
+        PointReceived: [],
+        PointPay: [],
+        PointReceivedPay: [],
+
         newPassword: null,
       },
 
@@ -316,12 +319,15 @@ export default {
     },
 
     async save() {
+      // console.log("user", this.user);
+      // return;
+
       this.dialog = false;
       this.overlay = true;
 
       let success = false;
 
-      if (this.user.id > 0) {
+      if (this.user.id) {
         success = await this.update();
       } else {
         success = await this.create();

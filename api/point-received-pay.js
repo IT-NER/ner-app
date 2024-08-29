@@ -36,7 +36,18 @@ async function findByUserId(userId) {
           },
         },
       },
-      PointReceived: true,
+      PointReceived: {
+        include: {
+          Content: {
+            include: {
+              ContentStatus: true,
+              ContentType: true,
+              ContentCoverImg: true,
+              ContentImg: true,
+            },
+          },
+        },
+      },
     },
     orderBy: [
       {

@@ -24,7 +24,6 @@ model User {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  ButtonLink       ButtonLink?        @relation(fields: [buttonLinkId], references: [id])
   Department       Department?        @relation(fields: [departmentId], references: [id])
   Position         Position?          @relation(fields: [positionId], references: [id])
   Role             Role?              @relation(fields: [roleId], references: [id])
@@ -195,14 +194,12 @@ model RewardImg {
 
 model ButtonLink {
   id        Int      @id @default(autoincrement())
-  ticket    String   @unique
-  url       String   @unique
+  name      String   @unique
+  url       String?
   remark    String?
   active    Boolean? @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  User User[]
 }
 
 model Role {

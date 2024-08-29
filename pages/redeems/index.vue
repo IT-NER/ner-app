@@ -85,19 +85,13 @@
           </v-chip>
         </template>
         <template v-slot:item.reward="{ item }">
-          <card-view-reward-by-id :id="item.rewardId" />
+          <card-view-slide-reward-by-id :id="item.rewardId" />
         </template>
         <template v-slot:item.approveDate="{ item }">
           <span v-if="item.approveDate">
             {{ $moment(item.approveDate).format("lll") }} น.
           </span>
         </template>
-        <!-- <template v-slot:item.view="{ item }">
-          <v-btn outlined color="primary" @click="viewItem(item)">
-            <v-icon class="mr-2"> mdi-eye </v-icon>
-            รายละเอียด
-          </v-btn>
-        </template> -->
       </v-data-table>
     </v-card>
 
@@ -117,36 +111,59 @@
             <v-icon @click="dialog = false">mdi-close</v-icon>
           </v-card-title>
           <v-divider></v-divider>
-          <v-card-text>
-            <v-container fluid>
-              <v-row>
-                <v-col cols="12" md="12">
-                  <v-autocomplete
-                    label="เลือกของรางวัล"
-                    prepend-icon="mdi-ribbon"
-                    v-model="selectedReward2"
-                    :items="itemsReward"
-                    item-text="name"
-                    item-value="id"
-                    clearable
-                    hide-details
-                    required
-                    @change="getItemsUserByReward"
-                  ></v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="12">
-                  <v-text-field
-                    label="ค้นหา"
-                    prepend-icon="mdi-magnify"
-                    v-model="searchUser2"
-                    clearable
-                    hide-details
-                    @change="getItemsUserByReward"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text>
+          <v-card-title>
+            <v-autocomplete
+              label="เลือกของรางวัล"
+              prepend-icon="mdi-ribbon"
+              v-model="selectedReward2"
+              :items="itemsReward"
+              item-text="name"
+              item-value="id"
+              clearable
+              hide-details
+              :required="selectedReward2.length == 0"
+              @change="getItemsUserByReward"
+            >
+              <template v-slot:selection="data">
+                <v-chip
+                  v-bind="data.attrs"
+                  :input-value="data.selected"
+                  @click="data.select"
+                >
+                  <v-avatar left>
+                    <v-img :src="data.item.RewardImg[0].url" />
+                  </v-avatar>
+                  {{ data.item.name }}
+                </v-chip>
+              </template>
+              <template v-slot:item="data">
+                <template>
+                  <v-list-item-avatar>
+                    <img :src="data.item.RewardImg[0].url" />
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      {{ data.item.name }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ data.item.point }} พอยท์
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                </template>
+              </template>
+            </v-autocomplete>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-toolbar>
+            <v-text-field
+              label="ค้นหา"
+              prepend-icon="mdi-magnify"
+              v-model="searchUser2"
+              clearable
+              hide-details
+              @change="getItemsUserByReward"
+            ></v-text-field>
+          </v-toolbar>
           <v-divider></v-divider>
           <v-data-table
             :items-per-page="-1"
@@ -183,9 +200,9 @@
 
 <script>
 import CardFilterRedeem from "~/components/card/CardFilterRedeem.vue";
-import CardViewRewardById from "~/components/card/CardViewRewardById.vue";
+import CardViewSlideRewardById from "~/components/card/CardViewSlideRewardById.vue";
 export default {
-  components: { CardFilterRedeem, CardViewRewardById },
+  components: { CardFilterRedeem, CardViewSlideRewardById },
 
   data() {
     return {
@@ -240,7 +257,6 @@ export default {
           align: "start",
           sortable: false,
         },
-        // { text: "รายละเอียด", value: "view", align: "center", sortable: false },
       ],
       search: null,
       selected: [],
@@ -254,19 +270,25 @@ export default {
           text: "ชื่อ",
           value: "fname",
           align: "start",
-          sortable: false,
+          sortable: true,
         },
         {
           text: "นามสกุล",
           value: "lname",
           align: "start",
-          sortable: false,
+          sortable: true,
         },
         {
           text: "ฝ่าย",
           value: "Department.name",
           align: "start",
-          sortable: false,
+          sortable: true,
+        },
+        {
+          text: "พอยท์",
+          value: "point",
+          align: "end",
+          sortable: true,
         },
       ],
       itemsUser2: [],

@@ -51,30 +51,32 @@ app.post("/register", async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(item.password, 10);
 
-  const user = await prisma.user.create({
-    data: {
-      email: item.email,
-      username: item.username,
-      password: hashedPassword,
-      lname: item.lname,
-      fname: item.fname,
-      status: item.status,
-      departmentId: item.departmentId,
-      positionId: item.positionId,
-      roleId: item.roleId,
-    },
-  }).then((res) => {
-    // console.log('res', res);
-    return res;
-  }).catch((err) => {
-    // console.log('err', err);
-    res.status(401).json({ error: "Invalid credentials" });
-    return;
-  });
+  const user = await prisma.user
+    .create({
+      data: {
+        email: item.email,
+        username: item.username,
+        password: hashedPassword,
+        lname: item.lname,
+        fname: item.fname,
+        active: item.active,
+        departmentId: item.departmentId,
+        positionId: item.positionId,
+        roleId: item.roleId,
+      },
+    })
+    .then((res) => {
+      // console.log('res', res);
+      return res;
+    })
+    .catch((err) => {
+      // console.log('err', err);
+      res.status(401).json({ error: "Invalid credentials" });
+      return;
+    });
 
   res.status(200).json(user);
 });
-
 
 // [POST] /logout
 app.post("/logout", (req, res, next) => {

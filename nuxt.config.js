@@ -8,6 +8,7 @@ export default {
     "~/api/admin/reward.js",
     "~/api/admin/redeem.js",
     "~/api/admin/point-pay.js",
+    "~/api/admin/button-link.js",
     "~/api/auth.js",
     "~/api/room.js",
     "~/api/program.js",

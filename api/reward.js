@@ -20,7 +20,6 @@ async function findAll() {
     include: {
       User: {
         include: {
-          ButtonLink: true,
           Department: true,
           Position: true,
           Role: true,

@@ -8,7 +8,6 @@
             hide-delimiter-background
             hide-delimiters
             show-arrows-on-hover
-            width="854"
             height="auto"
           >
             <v-carousel-item
@@ -22,6 +21,7 @@
       </v-card-actions>
       <v-divider></v-divider>
       <v-card-actions flat>
+        จำนวน {{ item.point }} พอยท์
         <v-spacer></v-spacer>
         วันที่สร้าง : {{ $moment(item.createdAt).format("ll") }}
       </v-card-actions>
@@ -30,13 +30,13 @@
         <v-container>
           <v-row>
             <v-col cols="12">
-              <h1>หัวข้อ : {{ item.title }}</h1>
+              <h1>{{ item.title }}</h1>
             </v-col>
             <v-col cols="12">
-              <h2>คำอธิบาย : {{ item.description }}</h2>
+              <h2>{{ item.description }}</h2>
             </v-col>
             <v-col cols="12">
-              <h3>เนื้อหา : {{ item.detail }}</h3>
+              <h3>{{ item.detail }}</h3>
             </v-col>
           </v-row>
         </v-container>
@@ -80,6 +80,13 @@ export default {
 
   created() {
     this.getItem();
+  },
+  watch: {
+    id(val) {
+      if (val) {
+        this.getItem();
+      }
+    },
   },
   methods: {
     async getItem() {

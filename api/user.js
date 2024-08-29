@@ -86,7 +86,6 @@ async function findAll() {
       active: Boolean(true),
     },
     include: {
-      ButtonLink: true,
       Department: true,
       Position: true,
       Role: true,
@@ -117,7 +116,6 @@ async function findOne(id) {
       id: Number(id),
     },
     include: {
-      ButtonLink: true,
       Department: true,
       Position: true,
       Role: true,
@@ -145,6 +143,7 @@ app.post("/user", async (req, res) => {
         password: hashedPassword,
         lname: item.lname,
         fname: item.fname,
+        active: item.active,
         departmentId: item.departmentId,
         positionId: item.positionId,
         roleId: item.roleId,
@@ -174,11 +173,10 @@ app.put("/user/:id", async (req, res) => {
       username: item.username,
       lname: item.lname,
       fname: item.fname,
-      status: item.status,
+      active: item.active,
       departmentId: item.departmentId,
       positionId: item.positionId,
       roleId: item.roleId,
-      updatedAt: new Date(moment().format()),
     },
   });
   res.status(200).json(user);
@@ -269,7 +267,6 @@ async function findByRewardId(rewardId) {
       },
     },
     include: {
-      ButtonLink: true,
       Department: true,
       Position: true,
       Role: true,

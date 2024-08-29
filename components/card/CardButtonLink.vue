@@ -1,25 +1,31 @@
 <template>
   <div>
-    <v-card flat>
-      <v-card-text>
-        <v-alert text prominent type="error" icon="mdi-cloud-alert">
-          COMMING SOON
-        </v-alert>
-      </v-card-text>
-    </v-card>
-    <!-- <v-btn outlined
-      color="success"
-      tile
-      block
-      dark
-      v-for="(item, i) in buttonLinks"
-      :key="i"
-      :href="item.url"
-      target="_blank"
-      outlined
-    >
-      {{ item.text }}
-    </v-btn> -->
+    <div v-if="items.length > 0">
+      <v-card flat v-for="(item, i) in items" :key="i">
+        <v-card-actions>
+          <v-btn
+            block
+            text
+            color="success"
+            :href="`https://${item.url}`"
+            target="_blank"
+          >
+            {{ item.name }}
+          </v-btn>
+        </v-card-actions>
+        <v-divider></v-divider>
+      </v-card>
+    </div>
+
+    <div v-else>
+      <v-card flat>
+        <v-card-text>
+          <v-alert text prominent type="error" icon="mdi-cloud-alert">
+            COMING SOON
+          </v-alert>
+        </v-card-text>
+      </v-card>
+    </div>
   </div>
 </template>
 
@@ -27,16 +33,25 @@
 export default {
   data() {
     return {
-      buttonLinks: [],
-
-      buttonLink: {
-        id: null,
-        ticket: null,
-        remark: null,
-        active: null,
-        User: null,
-      },
+      items: [],
     };
+  },
+
+  created() {
+    this.getItems();
+  },
+
+  methods: {
+    async getItems() {
+      this.items = await this.$axios
+        .get("/api/admin/button-link-active")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return [];
+        });
+    },
   },
 };
 </script>

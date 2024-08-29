@@ -65,7 +65,6 @@ async function filter(item) {
   let data = await prisma.user.findMany({
     where: items,
     include: {
-      ButtonLink: true,
       Department: true,
       Position: true,
       Role: true,
