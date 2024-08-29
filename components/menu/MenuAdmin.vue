@@ -75,7 +75,7 @@ export default {
           link: "/redeem",
         },
         {
-          name: "ประวัติการขอแลกของรางวัล",
+          name: "ประวัติการ รับ-จ่าย พอยท์",
           icon: "mdi-history",
           link: "/point-history",
         },

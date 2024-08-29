@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> ประวัติการขอแลกของรางวัล </v-card-title>
+      <v-card-title> ประวัติการ รับ-จ่าย พอยท์ </v-card-title>
       <v-divider></v-divider>
 
       <v-data-table :headers="headers" :items="items" class="elevation-0">
