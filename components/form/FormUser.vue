@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col cols="12">
           <v-switch
@@ -16,6 +16,7 @@
             label="FIRSTNAME"
             prepend-icon="mdi-account-cog"
             required
+            hide-details
             v-model="user.fname"
           ></v-text-field>
         </v-col>
@@ -24,6 +25,7 @@
             label="LASTNAME"
             prepend-icon="mdi-account-cog"
             required
+            hide-details
             v-model="user.lname"
           ></v-text-field>
         </v-col>
@@ -33,6 +35,7 @@
             prepend-icon="mdi-account"
             label="USERNAME"
             required
+            hide-details
             v-model="user.username"
           ></v-text-field>
         </v-col>
@@ -43,6 +46,7 @@
             label="EMAIL"
             type="email"
             required
+            hide-details
             v-model="user.email"
           ></v-text-field>
         </v-col>

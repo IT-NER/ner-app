@@ -8,6 +8,7 @@
             required
             v-model="item.ticket"
             disabled
+            hide-details
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="3">
@@ -16,6 +17,7 @@
             v-model="item.code"
             required
             disabled
+            hide-details
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="3">
@@ -24,6 +26,7 @@
             required
             v-model="item.point"
             type="number"
+            hide-details
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="3">
@@ -45,6 +48,7 @@
             autofocus
             label="NAME"
             required
+            hide-details
             v-model="item.name"
           ></v-text-field>
         </v-col>

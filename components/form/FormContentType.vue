@@ -1,12 +1,13 @@
 <template>
   <div>
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col cols="12">
           <v-text-field
             label="ชื่อประเภทคอนเทนต์"
             prepend-icon="mdi-list-status"
             required
+            hide-details
             v-model="contentType.name"
           ></v-text-field>
         </v-col>

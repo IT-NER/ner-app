@@ -38,9 +38,8 @@ model User {
 model Car {
   id        Int      @id @default(autoincrement())
   name      String   @unique
-  req_name  String?
-  reg_txt   String?
-  reg_no    Int?
+  reg       String?
+  qty       Int?
   mileage   Int?
   active    Boolean? @default(true)
   remark    String?

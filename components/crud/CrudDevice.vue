@@ -1,47 +1,33 @@
 <template>
   <div>
     <v-card>
-      <v-card-title elevation="0">
-        <div class="display-1">
-          {{ title }}
-        </div>
+      <v-card-title>
+        อุปกรณ์
         <v-spacer></v-spacer>
-        <v-text-field v-model="search" label="ค้นหา"></v-text-field>
       </v-card-title>
       <v-divider></v-divider>
-      <v-toolbar elevation="0">
+      <v-card-title>
+        <v-text-field
+          v-model="search"
+          label="ค้นหา"
+          hide-details
+        ></v-text-field>
+        <v-spacer></v-spacer>
+      </v-card-title>
+      <v-divider></v-divider>
+      <v-card-actions>
         <v-spacer></v-spacer>
 
-        <v-tooltip top>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              outlined
-              color="success"
-              v-bind="attrs"
-              v-on="on"
-              @click="addItem"
-            >
-              เพิ่ม
-            </v-btn>
-          </template>
-          <div class="title">เพิ่ม</div>
-        </v-tooltip>
+        <v-btn outlined color="success" @click="addItem">
+          <v-icon>mdi-plus</v-icon>
+          เพิ่ม
+        </v-btn>
 
-        <v-tooltip top>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              outlined
-              v-bind="attrs"
-              v-on="on"
-              color="primary"
-              @click="getDevice"
-            >
-              รีเฟรช
-            </v-btn>
-          </template>
-          <div class="title">รีเฟรช</div>
-        </v-tooltip>
-      </v-toolbar>
+        <v-btn outlined color="primary" @click="getDevice">
+          <v-icon>mdi-refresh</v-icon>
+          รีเฟรช
+        </v-btn>
+      </v-card-actions>
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
@@ -53,20 +39,10 @@
           {{ index + 1 }}
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                outlined
-                v-bind="attrs"
-                v-on="on"
-                color="warning"
-                @click="editItem(item)"
-              >
-                แก้ไข
-              </v-btn>
-            </template>
-            <span class="title"> แก้ไข </span>
-          </v-tooltip>
+          <v-btn outlined color="warning" @click="editItem(item)">
+            <v-icon>mdi-pencil</v-icon>
+            แก้ไข
+          </v-btn>
         </template>
       </v-data-table>
     </v-card>
@@ -80,7 +56,7 @@
     >
       <form @submit.prevent="save">
         <v-card>
-          <v-card-title elevation="0">
+          <v-card-title>
             {{ title }}
             <v-spacer></v-spacer>
             <v-tooltip top>
@@ -99,20 +75,10 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-tooltip top>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  outlined
-                  color="primary"
-                  type="submit"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  บันทึก
-                </v-btn>
-              </template>
-              <div class="title">บันทึก</div>
-            </v-tooltip>
+            <v-btn outlined color="success" type="submit">
+              <v-icon>mdi-content-save</v-icon>
+              บันทึก
+            </v-btn>
           </v-card-actions>
         </v-card>
       </form>
@@ -132,7 +98,6 @@ export default {
 
   data() {
     return {
-      title: "อุปกรณ์",
       search: null,
       dialog: false,
       overlay: false,
@@ -152,6 +117,16 @@ export default {
 
   created() {
     this.getDevice();
+  },
+
+  computed: {
+    title() {
+      let data = "เพิ่ม";
+      if (this.device.id > 0) {
+        data = "แก้ไข";
+      }
+      return data;
+    },
   },
 
   methods: {

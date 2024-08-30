@@ -5,7 +5,7 @@
         รับพอยท์
         <v-spacer></v-spacer>
         <v-btn color="warning" outlined @click="goToIndex">
-          <v-icon class="mr-2"> mdi-reply </v-icon>
+          <v-icon> mdi-reply </v-icon>
           กลับหน้าหลัก
         </v-btn>
       </v-card-title>

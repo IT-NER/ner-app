@@ -5,7 +5,7 @@
         {{ title }}
         <v-spacer></v-spacer>
         <v-btn outlined color="primary" @click="refresh">
-          <v-icon class="mr-2"> mdi-refresh </v-icon>
+          <v-icon> mdi-refresh </v-icon>
           รีเฟรช
         </v-btn>
       </v-card-title>
@@ -16,7 +16,7 @@
       <v-toolbar elevation="0">
         <v-spacer></v-spacer>
         <v-btn outlined color="success" @click="addItem">
-          <v-icon class="mr-2"> mdi-plus </v-icon>
+          <v-icon> mdi-plus </v-icon>
           เพิ่ม
         </v-btn>
       </v-toolbar>
@@ -58,31 +58,31 @@
         </template>
         <template v-slot:item.timed="{ item }">
           <v-chip color="primary" label v-if="item.timed">
-            <v-icon class="mr-2">mdi-refresh-auto</v-icon>
+            <v-icon>mdi-refresh-auto</v-icon>
             กำหนดช่วงเวลา
           </v-chip>
           <v-chip color="error" label v-else>
-            <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
+            <v-icon>mdi-gesture-double-tap</v-icon>
             ไม่กำหนดช่วงเวลา
           </v-chip>
         </template>
         <template v-slot:item.status="{ item }">
           <v-chip label color="gray" dark v-if="item.contentStatusId == 1">
-            <v-icon class="mr-2">mdi-file-document-edit</v-icon>
+            <v-icon>mdi-file-document-edit</v-icon>
             {{ item.ContentStatus.name }}
           </v-chip>
           <v-chip label color="success" dark v-if="item.contentStatusId == 2">
-            <v-icon class="mr-2">mdi-earth</v-icon>
+            <v-icon>mdi-earth</v-icon>
             {{ item.ContentStatus.name }}
           </v-chip>
           <v-chip label color="error" dark v-if="item.contentStatusId == 3">
-            <v-icon class="mr-2">mdi-earth-off</v-icon>
+            <v-icon>mdi-earth-off</v-icon>
             {{ item.ContentStatus.name }}
           </v-chip>
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn outlined color="warning" @click="editItem(item)">
-            <v-icon class="mr-2"> mdi-pencil </v-icon>
+            <v-icon> mdi-pencil </v-icon>
             แก้ไข
           </v-btn>
         </template>

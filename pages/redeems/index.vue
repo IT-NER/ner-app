@@ -21,7 +21,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="primary" outlined @click="getItems">
-          <v-icon class="mr-2">mdi-magnify</v-icon>
+          <v-icon>mdi-magnify</v-icon>
           ค้นหา
         </v-btn>
         <v-spacer></v-spacer>
@@ -47,7 +47,7 @@
 
         <v-spacer></v-spacer>
         <v-btn color="success" outlined @click="addItem">
-          <v-icon class="mr-2">mdi-plus</v-icon>
+          <v-icon>mdi-plus</v-icon>
           เพิ่มรายการ
         </v-btn>
       </v-card-actions>

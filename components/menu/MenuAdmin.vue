@@ -85,11 +85,6 @@ export default {
           link: "/user",
         },
         {
-          name: "ลิ้งภายใน",
-          icon: "mdi-link",
-          link: "/link",
-        },
-        {
           name: "จองห้องประชุม",
           icon: "mdi-calendar",
           link: "",
@@ -153,6 +148,11 @@ export default {
           ],
         },
         {
+          name: "ลิ้งภายใน",
+          icon: "mdi-link",
+          link: "/link",
+        },
+        {
           name: "ตั้งค่าระบบ",
           icon: "mdi-cog",
           link: "",
@@ -174,7 +174,7 @@ export default {
             },
             {
               name: "ระบบ จองรถ",
-              icon: "mdi-car",
+              icon: "mdi-cog",
               link: "/setting/car",
             },
           ],

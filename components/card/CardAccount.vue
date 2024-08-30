@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-avatar size="100">
+        <v-avatar size="104">
           <v-img
             v-if="!user.img"
             src="https://investor.nerubber.com/themes/default/assets/static/images/logo-stroke.png"

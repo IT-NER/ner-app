@@ -6,7 +6,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="success" outlined @click="addItem">
-          <v-icon class="mr-2">mdi-plus</v-icon>
+          <v-icon>mdi-plus</v-icon>
           เพิ่ม
         </v-btn>
       </v-card-actions>
@@ -16,7 +16,7 @@
           {{ index + 1 }}
         </template>
         <template v-slot:item.link="{ item }">
-          <a :href="`https://${item.url}`" target="blank">
+          <a :href="item.url" target="blank">
             {{ item.url }}
           </a>
         </template>
@@ -26,7 +26,7 @@
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn color="warning" outlined @click="editItem(item)">
-            <v-icon class="mr-2">mdi-pencil</v-icon>
+            <v-icon>mdi-pencil</v-icon>
             แก้ไข
           </v-btn>
         </template>

@@ -6,7 +6,7 @@
           ของรางวัล
           <v-spacer></v-spacer>
           <v-btn color="warning" outlined @click="goToIndex">
-            <v-icon class="mr-2"> mdi-reply </v-icon>
+            <v-icon> mdi-reply </v-icon>
             กลับหน้าหลัก
           </v-btn>
         </v-card-title>
@@ -18,7 +18,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="success" outlined type="submit">
-            <v-icon class="mr-2"> mdi-content-save </v-icon>
+            <v-icon> mdi-content-save </v-icon>
             บันทึก
           </v-btn>
           <v-spacer></v-spacer>

@@ -65,7 +65,7 @@
             @click="addItem"
             class="float-right"
           >
-            <v-icon class="mr-2">mdi-database-plus</v-icon>
+            <v-icon>mdi-database-plus</v-icon>
             <span>เพิ่ม</span>
           </v-btn>
         </v-col>

@@ -4,7 +4,7 @@
       <v-tabs align-with-title background-color="success" dark v-model="tab">
         <v-tabs-slider color="yellow"></v-tabs-slider>
         <v-tab v-for="(item, i) in items" :key="i">
-          <v-icon class="mr-2">
+          <v-icon>
             {{ item.icon }}
           </v-icon>
           <span>

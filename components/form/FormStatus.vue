@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col cols="12">
           <v-text-field
@@ -8,6 +8,7 @@
             label="ชื่อสถานะ"
             prepend-icon="mdi-list-status"
             required
+            hide-details
             v-model="status.name"
           ></v-text-field>
         </v-col>

@@ -18,7 +18,7 @@
               target="_blank"
               :href="`/${item.id}`"
             >
-              <v-icon class="mr-2">mdi-eye</v-icon>
+              <v-icon>mdi-eye</v-icon>
               รายละเอียด
             </v-btn>
           </template>

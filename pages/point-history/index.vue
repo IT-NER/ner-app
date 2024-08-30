@@ -45,19 +45,19 @@
         </template>
         <template v-slot:item.received="{ item }">
           <v-chip label color="success" v-if="item.received">
-            <v-icon class="mr-2">mdi-plus</v-icon>
+            <v-icon>mdi-plus</v-icon>
             {{ item.received }}
           </v-chip>
         </template>
         <template v-slot:item.pay="{ item }">
           <v-chip label color="error" v-if="item.pay">
-            <v-icon class="mr-2">mdi-minus</v-icon>
+            <v-icon>mdi-minus</v-icon>
             {{ item.pay }}
           </v-chip>
         </template>
         <template v-slot:item.total="{ item }">
           <v-chip label color="primary" v-if="item.total">
-            <v-icon class="mr-2">mdi-sigma</v-icon>
+            <v-icon>mdi-sigma</v-icon>
             {{ item.total }}
           </v-chip>
         </template>

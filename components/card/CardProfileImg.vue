@@ -27,7 +27,7 @@
         >
           <template v-slot:append>
             <v-btn color="success" outlined :disabled="!file" @click="upload">
-              <v-icon class="mr-2">mdi-cloud-upload</v-icon>
+              <v-icon>mdi-cloud-upload</v-icon>
               อัพโหลด
             </v-btn>
           </template>

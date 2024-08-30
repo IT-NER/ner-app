@@ -21,7 +21,7 @@
       <v-card-title> อัพโหลดรูปภาพ </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
-        <v-container>
+        <v-container fluid>
           <v-row>
             <v-col>
               <v-file-input

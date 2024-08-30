@@ -110,7 +110,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn outlined color="primary" @click="$emit('getItems')">
-        <v-icon class="mr-2"> mdi-magnify </v-icon>
+        <v-icon> mdi-magnify </v-icon>
         ค้นหา
       </v-btn>
       <v-spacer></v-spacer>

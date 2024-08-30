@@ -1,13 +1,22 @@
 <template>
   <div>
+    <v-card flat>
+      <v-card-title>
+        <v-spacer></v-spacer>
+        ลิ้งค์ภายใน
+        <v-spacer></v-spacer>
+      </v-card-title>
+    </v-card>
+    <v-divider></v-divider>
     <div v-if="items.length > 0">
       <v-card flat v-for="(item, i) in items" :key="i">
         <v-card-actions>
           <v-btn
+            small
             block
             text
             color="success"
-            :href="`https://${item.url}`"
+            :href="item.url"
             target="_blank"
           >
             {{ item.name }}

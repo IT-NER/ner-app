@@ -7,7 +7,7 @@
         <v-spacer></v-spacer>
 
         <v-btn outlined color="success" @click="$emit('addItem')">
-          <v-icon class="mr-2"> mdi-calendar-plus</v-icon>
+          <v-icon> mdi-calendar-plus</v-icon>
           จองห้องประชุม
         </v-btn>
       </v-card-title>

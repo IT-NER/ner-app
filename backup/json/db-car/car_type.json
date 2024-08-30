@@ -1,6 +1,16 @@
 [
-  { "id": "1", "name": "รถกระบะ" },
-  { "id": "2", "name": "รถเก๋ง" },
-  { "id": "3", "name": "รถตู้" },
-  { "id": "4", "name": "รถอเนกประสงค์" }
+  { "id": 1, "name": "รถ กอล์ฟ", "createdAt": null, "updatedAt": null },
+  { "id": 2, "name": "รถ กระบะ", "createdAt": null, "updatedAt": null },
+  { "id": 3, "name": "รถ SUV", "createdAt": null, "updatedAt": null },
+  { "id": 4, "name": "รถ ตู้", "createdAt": null, "updatedAt": null },
+  { "id": 5, "name": "รถ 6 ล้อ", "createdAt": null, "updatedAt": null },
+  { "id": 6, "name": "รถ 10 ล้อ (ดั้ม)", "createdAt": null, "updatedAt": null },
+  { "id": 7, "name": "รถ 10 ล้อ (พ่วง)", "createdAt": null, "updatedAt": null },
+  {
+    "id": 8,
+    "name": "รถ 10 ล้อ (บรรทุกน้ำ)",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "id": 9, "name": "รถ หัวลาก", "createdAt": null, "updatedAt": null }
 ]

@@ -1,13 +1,6 @@
 [
   { "id": "1", "name": "TOYOTA", "createdAt": null, "updatedAt": null },
-  { "id": "2", "name": "ISUZU", "createdAt": null, "updatedAt": null },
-  { "id": "3", "name": "NISSAN", "createdAt": null, "updatedAt": null },
-  { "id": "4", "name": "MAZDA", "createdAt": null, "updatedAt": null },
-  { "id": "5", "name": "MITSUBISHI", "createdAt": null, "updatedAt": null },
-  { "id": "6", "name": "CHEVROLET", "createdAt": null, "updatedAt": null },
-  { "id": "7", "name": "FORD", "createdAt": null, "updatedAt": null },
-  { "id": "8", "name": "HONDA", "createdAt": null, "updatedAt": null },
-  { "id": "9", "name": "SUZUKI", "createdAt": null, "updatedAt": null },
-  { "id": "10", "name": "MG", "createdAt": null, "updatedAt": null },
-  { "id": "11", "name": "HINO", "createdAt": null, "updatedAt": null }
+  { "id": "2", "name": " HYUNDAI", "createdAt": null, "updatedAt": null },
+  { "id": "3", "name": "HINO", "createdAt": null, "updatedAt": null },
+  { "id": "4", "name": "ISUZU", "createdAt": null, "updatedAt": null }
 ]

@@ -27,7 +27,7 @@
       </v-card-actions>
       <v-divider></v-divider>
       <v-card-text>
-        <v-container>
+        <v-container fluid>
           <v-row>
             <v-col cols="12">
               <h1>{{ item.name }}</h1>

@@ -1,14 +1,6 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" outlined @click="refresh">
-          <v-icon class="mr-2">mdi-refresh</v-icon>
-          รีเฟรช
-        </v-btn>
-      </v-card-actions>
-      <v-divider></v-divider>
       <v-card-title>
         ยี่ห้อรถ
         <v-spacer></v-spacer>
@@ -17,8 +9,12 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="success" outlined @click="addItem">
-          <v-icon class="mr-2">mdi-plus</v-icon>
+          <v-icon>mdi-plus</v-icon>
           เพิ่ม
+        </v-btn>
+        <v-btn color="primary" outlined @click="refresh">
+          <v-icon>mdi-refresh</v-icon>
+          รีเฟรช
         </v-btn>
       </v-card-actions>
       <v-divider></v-divider>
@@ -38,7 +34,7 @@
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn color="warning" outlined @click="editItem(item)">
-            <v-icon class="mr-2">mdi-pencil</v-icon>
+            <v-icon>mdi-pencil</v-icon>
             แก้ไข
           </v-btn>
         </template>

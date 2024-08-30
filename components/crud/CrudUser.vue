@@ -6,7 +6,7 @@
 
     <v-card flat>
       <v-card-title>
-        {{ title }}
+        ผู้ใช้งาน
         <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>
@@ -44,29 +44,33 @@
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn outlined color="primary" @click="getUser"> ค้นหา </v-btn>
+        <v-btn outlined color="primary" @click="getUser">
+          <v-icon>mdi-magnify</v-icon>
+          ค้นหา
+        </v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn outlined color="success" @click="addItem"> เพิ่ม </v-btn>
-        <v-btn outlined color="primary" @click="refresh"> รีเฟรซ </v-btn>
+        <v-btn outlined color="success" @click="addItem">
+          <v-icon>mdi-plus</v-icon>
+          เพิ่ม
+        </v-btn>
+        <v-btn outlined color="primary" @click="refresh">
+          <v-icon>mdi-refresh</v-icon>
+          รีเฟรซ
+        </v-btn>
       </v-card-actions>
       <v-divider></v-divider>
-      <v-card-text>
-        <v-container fluid>
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field
-                v-model="search"
-                label="ค้นหา"
-                hide-details
-              ></v-text-field>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card-text>
+      <v-card-title>
+        <v-text-field
+          v-model="search"
+          label="ค้นหา"
+          hide-details
+        ></v-text-field>
+        <v-spacer></v-spacer>
+      </v-card-title>
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
@@ -77,12 +81,13 @@
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
         </template>
-        <template v-slot:item.date="{ item }">
+        <!-- <template v-slot:item.date="{ item }">
           {{ $moment(item.createdAt).format("ll") }}
-        </template>
+        </template> -->
 
         <template v-slot:item.editPassword="{ item }">
           <v-btn outlined color="warning" @click="editPassword(item)">
+            <v-icon>mdi-pencil-lock</v-icon>
             แก้ไขรหัสผ่าน
           </v-btn>
         </template>
@@ -94,6 +99,7 @@
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn outlined color="warning" @click="editItem(item)">
+            <v-icon>mdi-pencil</v-icon>
             แก้ไข
           </v-btn>
         </template>
@@ -121,8 +127,10 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn outlined color="success" type="submit"> บันทึก </v-btn>
-            <v-spacer></v-spacer>
+            <v-btn outlined color="success" type="submit">
+              <v-icon>mdi-content-save</v-icon>
+              บันทึก
+            </v-btn>
           </v-card-actions>
         </v-card>
       </form>
@@ -161,8 +169,10 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn outlined color="success" type="submit"> บันทึก </v-btn>
-            <v-spacer></v-spacer>
+            <v-btn outlined color="success" type="submit">
+              <v-icon>mdi-content-save</v-icon>
+              บันทึก
+            </v-btn>
           </v-card-actions>
         </v-card>
       </form>
@@ -184,7 +194,6 @@ export default {
 
   data() {
     return {
-      title: "ผู้ใช้งาน",
       search: null,
       dialog: false,
       dialogNewPassword: false,
@@ -192,7 +201,7 @@ export default {
 
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "วันที่", value: "date", sortable: false },
+        // { text: "วันที่", value: "date", sortable: false },
         { text: "ชื่อ", value: "fname", sortable: false },
         { text: "นามสกุล", value: "lname", sortable: false },
         { text: "ฝ่าย", value: "Department.name", sortable: false },
@@ -258,6 +267,16 @@ export default {
     this.getUser();
     this.getDepartment();
     this.getPosition();
+  },
+
+  computed: {
+    title() {
+      let data = "เพิ่ม";
+      if (this.user.id > 0) {
+        data = "แก้ไข";
+      }
+      return data;
+    },
   },
 
   methods: {

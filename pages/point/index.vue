@@ -16,7 +16,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="primary" outlined @click="getItems">
-          <v-icon class="mr-2">mdi-magnify</v-icon>
+          <v-icon>mdi-magnify</v-icon>
           ค้นหา
         </v-btn>
         <v-spacer></v-spacer>
@@ -31,11 +31,11 @@
         </template>
         <template v-slot:item.timed="{ item }">
           <v-chip color="primary" label v-if="item.timed">
-            <v-icon class="mr-2">mdi-refresh-auto</v-icon>
+            <v-icon>mdi-refresh-auto</v-icon>
             กำหนดช่วงเวลา
           </v-chip>
           <v-chip color="error" label v-else>
-            <v-icon class="mr-2">mdi-gesture-double-tap</v-icon>
+            <v-icon>mdi-gesture-double-tap</v-icon>
             ไม่กำหนดช่วงเวลา
           </v-chip>
         </template>
@@ -46,7 +46,7 @@
         </template>
         <template v-slot:item.detail="{ item }">
           <v-btn outlined color="primary" @click="viewItem(item)">
-            <v-icon class="mr-2"> mdi-eye </v-icon>
+            <v-icon> mdi-eye </v-icon>
             รายละเอียด
           </v-btn>
         </template>

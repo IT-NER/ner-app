@@ -5,7 +5,7 @@
         ของรางวัล
         <v-spacer></v-spacer>
         <v-btn outlined color="primary" @click="getItems">
-          <v-icon class="mr-2"> mdi-refresh </v-icon>
+          <v-icon> mdi-refresh </v-icon>
           รีเฟรช
         </v-btn>
       </v-card-title>
@@ -13,7 +13,7 @@
       <v-card-title>
         <v-spacer></v-spacer>
         <v-btn outlined color="success" @click="addItem">
-          <v-icon class="mr-2"> mdi-plus </v-icon>
+          <v-icon> mdi-plus </v-icon>
           เพิ่ม
         </v-btn>
       </v-card-title>
@@ -42,7 +42,7 @@
         </template>
         <template v-slot:item.edit="{ item }">
           <v-btn outlined color="warning" @click="editItem(item)">
-            <v-icon class="mr-2"> mdi-pencil </v-icon>
+            <v-icon> mdi-pencil </v-icon>
             แก้ไข
           </v-btn>
         </template>

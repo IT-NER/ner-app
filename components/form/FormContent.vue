@@ -33,7 +33,7 @@
             color="error"
             @click="$emit('updatePublishEnd')"
           >
-            <v-icon class="mr-2"> mdi-earth-off </v-icon>
+            <v-icon> mdi-earth-off </v-icon>
             ปิดการประชาสัมพันธ์
           </v-btn>
         </v-col>

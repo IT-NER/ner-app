@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col cols="12">
           <v-text-field
@@ -8,6 +8,7 @@
             label="ชื่อห้องประชุม"
             prepend-icon="mdi-map-marker"
             required
+            hide-details
             v-model="room.name"
           ></v-text-field>
         </v-col>
@@ -17,6 +18,7 @@
             label="จำนวนที่นั่ง"
             ref="quantity"
             type="number"
+            hide-details
             v-model="room.quantity"
           ></v-text-field>
         </v-col>

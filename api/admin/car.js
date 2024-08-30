@@ -24,13 +24,14 @@ app.use(express.json());
 //upload
 app.post("/car/upload", upload.single("file"), async (req, res) => {
   let car = await updateCarImg(req.body.id, req.file);
-  let data = await findOne(car.id);
+  let data = await findOne(req.body.id);
   res.status(200).json(data);
 });
 async function updateCarImg(id, file) {
   console.log("file", file);
 
-  let url = "/uploads/car/" + file.filename;
+  let url = String("/uploads/car/" + file.filename);
+
   let data = await prisma.car.update({
     where: {
       id: Number(id),
@@ -41,6 +42,34 @@ async function updateCarImg(id, file) {
   });
   return data;
 }
+
+//uploads
+app.post("/car/uploads", upload.array("files"), async (req, res) => {
+  let car = await createCarImg(req.body.id, req.files);
+  let data = await findOne(req.body.id);
+  res.status(200).json(data);
+});
+async function createCarImg(id, files) {
+  console.log("files", files);
+
+  let items = [];
+  files.forEach((e) => {
+    let url = String("/uploads/car/" + e.filename);
+    let item = {
+      carId: Number(id),
+      name: String(e.filename),
+      url: String(url),
+    };
+    items.push(item);
+  });
+
+  let data = await prisma.carImg.createMany({
+    data: items,
+  });
+
+  return data;
+}
+
 // find
 app.get("/car", async (req, res) => {
   let data = await find();
@@ -95,12 +124,18 @@ app.post("/car", async (req, res) => {
   res.status(200).json(data);
 });
 async function create(item) {
+  let province = await prisma.province.findFirst({
+    where: {
+      id: Number(item.provinceId),
+    },
+  });
+
+  item.name = String(item.reg + "-" + province.name);
   let data = await prisma.car.create({
     data: {
       name: String(item.name),
-      req_name: String(item.req_name),
-      reg_txt: String(item.reg_txt),
-      reg_no: Number(item.reg_no),
+      reg: String(item.reg),
+      qty: Number(item.qty),
       mileage: Number(item.mileage),
       active: Boolean(item.active),
       remark: String(item.remark),
@@ -121,15 +156,22 @@ app.put("/car/:id", async (req, res) => {
   res.status(200).json(data);
 });
 async function update(id, item) {
+  let province = await prisma.province.findFirst({
+    where: {
+      id: Number(item.provinceId),
+    },
+  });
+
+  item.name = String(item.reg + "-" + province.name);
+
   let data = await prisma.car.update({
     where: {
       id: Number(id),
     },
     data: {
       name: String(item.name),
-      req_name: String(item.req_name),
-      reg_txt: String(item.reg_txt),
-      reg_no: Number(item.reg_no),
+      reg: String(item.reg),
+      qty: Number(item.qty),
       mileage: Number(item.mileage),
       active: Boolean(item.active),
       remark: String(item.remark),

@@ -5,6 +5,7 @@
         <v-col cols="12" md="3">
           <v-autocomplete
             label="ประเภทรถ"
+            dense
             required
             hide-details
             autofocus
@@ -17,18 +18,20 @@
         <v-col cols="12" md="3">
           <v-autocomplete
             label="ยี่ห้อรถ"
+            dense
             required
             hide-details
             :items="itemsCarBrand"
             item-text="name"
             item-value="id"
             v-model="item.carBrandId"
-            @change="getCarModel"
+            @change="$emit('getCarModel')"
           ></v-autocomplete>
         </v-col>
         <v-col cols="12" md="3">
           <v-autocomplete
             label="รุ่นรถ"
+            dense
             required
             hide-details
             :items="itemsCarModel"
@@ -41,6 +44,7 @@
         <v-col cols="12" md="3">
           <v-autocomplete
             label="สีรถ"
+            dense
             required
             hide-details
             :items="itemsCarColor"
@@ -54,74 +58,109 @@
         <v-col cols="12" md="3">
           <v-text-field
             label="ทะเบียนรถ"
-            hide-details
-            readonly
-            disabled
-            v-model="regName"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="3">
-          <v-text-field
-            label="ทะเบียน (อักษรย่อ)"
+            dense
             required
             hide-details
-            v-model="item.reg_txt"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="3">
-          <v-text-field
-            label="ทะเบียน (ตัวเลข)"
-            required
-            hide-details
-            v-model="item.reg_no"
-            type="number"
+            v-model="item.reg"
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="3">
           <v-autocomplete
-            label="ทะเบียน (จังหวัด)"
+            label="จังหวัด"
+            dense
             required
             hide-details
             :items="itemsProvince"
             item-text="name"
             item-value="id"
             v-model="item.provinceId"
-            @change="getProvinceById"
           ></v-autocomplete>
         </v-col>
-      </v-row>
-      <v-row>
+
+        <v-col cols="12" md="3">
+          <v-text-field
+            label="จำนวนที่นั่ง"
+            dense
+            hide-details
+            v-model="item.qty"
+            type="number"
+            min="0"
+          ></v-text-field>
+        </v-col>
         <v-col cols="12" md="3">
           <v-text-field
             label="เลขไมล์"
+            dense
             hide-details
             v-model="item.mileage"
             type="number"
+            min="0"
           ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" md="6">
+          <v-textarea
+            label="หมายเหตุ"
+            dense
+            v-model="item.remark"
+            hide-details
+            auto-grow
+          ></v-textarea>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-container fluid>
+            <v-row>
+              <v-col cols="12" md="12">
+                <v-file-input
+                  label="รูปภาพหน้าปก"
+                  dense
+                  accept="image/jpeg, image/png"
+                  prepend-inner-icon="mdi-cloud-upload"
+                  clearable
+                  hide-details
+                  v-model="file"
+                  @change="handleFile"
+                ></v-file-input>
+              </v-col>
+              <v-col cols="12" md="12">
+                <v-file-input
+                  label="รูปภาพรถ"
+                  dense
+                  accept="image/jpeg, image/png"
+                  prepend-inner-icon="mdi-cloud-upload"
+                  clearable
+                  multiple
+                  hide-details
+                  v-model="files"
+                  @change="handleFiles"
+                ></v-file-input>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col cols="12" md="6">
-          <v-file-input
-            label="รูปภาพหน้าปก"
-            accept="image/jpeg, image/png"
-            prepend-inner-icon="mdi-cloud-upload"
-            clearable
-            v-model="item.file"
-            @change="handleFile"
-          ></v-file-input>
+          <v-card flat v-if="item.img">
+            <v-card-text>
+              <v-img :src="item.img" />
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col cols="12" md="6">
-          <v-file-input
-            label="รูปภาพรถ"
-            accept="image/jpeg, image/png"
-            prepend-inner-icon="mdi-cloud-upload"
-            clearable
-            multiple
-            v-model="item.files"
-            @change="handleFiles"
-          ></v-file-input>
+          <v-container fluid :v-show="item.CarImg">
+            <v-row>
+              <v-col cols="3" v-for="(list, i) in item.CarImg" :key="i">
+                <v-card>
+                  <v-card-actions>
+                    <v-img :src="list.url" :aspect-ratio="16 / 9" />
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-col>
       </v-row>
     </v-container>
@@ -130,44 +169,17 @@
 
 <script>
 export default {
-  props: ["item"],
-  data() {
-    return {
-      itemsCarType: [],
-      itemsCarBrand: [],
-      itemsCarModel: [],
-      itemsCarColor: [],
-      itemsProvince: [],
-      province: {
-        name: null,
-      },
-    };
-  },
-  created() {
-    this.getCarType();
-    this.getCarBrand();
-    this.getCarColor();
-    this.getProvince();
-  },
-  computed: {
-    regName() {
-      let txt1 = "";
-      let txt2 = "";
-      let txt3 = "";
-      if (this.item.reg_txt) {
-        txt1 = this.item.reg_txt;
-      }
-      if (this.item.reg_no) {
-        txt2 = this.item.reg_no;
-      }
-      if (this.item.provinceId) {
-        txt3 = this.province.name;
-      }
-      let data = txt1 + "-" + txt2 + "-" + txt3;
-      this.item.name = data;
-      return data;
-    },
-  },
+  props: [
+    "item",
+    "itemsCarType",
+    "itemsCarBrand",
+    "itemsCarModel",
+    "itemsCarColor",
+    "itemsProvince",
+    "file",
+    "files",
+  ],
+
   methods: {
     async handleFile(e) {
       console.log("e", e);
@@ -180,29 +192,33 @@ export default {
       let type = await this.checkType(e);
 
       if (!size) {
-        this.item.file = null;
+        this.file = null;
       }
       if (!type) {
-        this.item.file = null;
+        this.file = null;
       }
+
+      this.$emit("update:file", this.file);
     },
     async handleFiles(e) {
       if (!e) {
         return;
       }
 
-      this.item.files.forEach(async (e) => {
+      this.files.forEach(async (e) => {
         let size = await this.checkSize(e);
         let type = await this.checkType(e);
 
-        let index = this.item.files.indexOf(e);
+        let index = this.files.indexOf(e);
         if (!size) {
-          this.item.files.splice(index, 1);
+          this.files.splice(index, 1);
         }
         if (!type) {
-          this.item.files.splice(index, 1);
+          this.files.splice(index, 1);
         }
       });
+
+      this.$emit("update:files", this.files);
     },
 
     async checkSize(item) {
@@ -221,70 +237,6 @@ export default {
         data = true;
       }
       return data;
-    },
-    async getProvinceById() {
-      this.province = await this.$axios
-        .get("/api/admin/province/" + this.item.provinceId)
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return null;
-        });
-    },
-
-    async getProvince() {
-      this.itemsProvince = await this.$axios
-        .get("/api/admin/province")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return [];
-        });
-    },
-    async getCarModel() {
-      this.itemsCarModel = await this.$axios
-        .get("/api/admin/car-model/brand/" + this.item.carBrandId)
-        .then((res) => {
-          if (!res.data.length) {
-            this.item.carModelId = null;
-          }
-          return res.data;
-        })
-        .catch((err) => {
-          return [];
-        });
-    },
-    async getCarBrand() {
-      this.itemsCarBrand = await this.$axios
-        .get("/api/admin/car-brand")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return [];
-        });
-    },
-    async getCarColor() {
-      this.itemsCarColor = await this.$axios
-        .get("/api/admin/car-color-asc")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return [];
-        });
-    },
-    async getCarType() {
-      this.itemsCarType = await this.$axios
-        .get("/api/admin/car-type")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return [];
-        });
     },
   },
 };

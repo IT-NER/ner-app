@@ -21,7 +21,7 @@
                 @click="upload"
                 class="mt-n2"
               >
-                <v-icon class="mr-2">mdi-cloud-upload</v-icon>
+                <v-icon>mdi-cloud-upload</v-icon>
                 อัพโหลด</v-btn
               >
             </template>
