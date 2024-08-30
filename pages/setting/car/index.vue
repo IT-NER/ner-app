@@ -15,10 +15,11 @@
 
       <v-tabs-items v-model="tab">
         <v-tab-item v-for="(item, i) in items" :key="i">
-          <crud-car-type v-if="item.index == 1" />
-          <crud-car-brand v-if="item.index == 2" />
-          <crud-car-model v-if="item.index == 3" />
-          <crud-car v-if="item.index == 4" />
+          <crud-car v-if="item.index == 1" />
+          <crud-car-type v-if="item.index == 2" />
+          <crud-car-brand v-if="item.index == 3" />
+          <crud-car-model v-if="item.index == 4" />
+          <crud-car-color v-if="item.index == 5" />
         </v-tab-item>
       </v-tabs-items>
     </template>
@@ -30,36 +31,48 @@ import CrudCar from "~/components/crud/CrudCar.vue";
 import CrudCarType from "~/components/crud/CrudCarType.vue";
 import CrudCarBrand from "~/components/crud/CrudCarBrand.vue";
 import CrudCarModel from "~/components/crud/CrudCarModel.vue";
+import CrudCarColor from "~/components/crud/CrudCarColor.vue";
 
 export default {
-  components: { CrudCar, CrudCarType, CrudCarBrand, CrudCarModel },
+  components: {
+    CrudCar,
+    CrudCarType,
+    CrudCarBrand,
+    CrudCarModel,
+    CrudCarColor,
+  },
   data() {
     return {
       tab: {
         index: 1,
-        text: "ประเภทรถ",
+        text: "รถ",
         icon: "mdi-cog",
       },
 
       items: [
         {
           index: 1,
-          text: "ประเภทรถ",
+          text: "รถ",
           icon: "mdi-cog",
         },
         {
           index: 2,
-          text: "ยี่ห้อรถ",
+          text: "ประเภทรถ",
           icon: "mdi-cog",
         },
         {
           index: 3,
-          text: "รุ่นรถ",
+          text: "ยี่ห้อรถ",
           icon: "mdi-cog",
         },
         {
           index: 4,
-          text: "รถ",
+          text: "รุ่นรถ",
+          icon: "mdi-cog",
+        },
+        {
+          index: 5,
+          text: "สีรถ",
           icon: "mdi-cog",
         },
       ],

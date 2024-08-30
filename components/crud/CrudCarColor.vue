@@ -10,7 +10,7 @@
       </v-card-actions>
       <v-divider></v-divider>
       <v-card-title>
-        รถ
+        สีรถ
         <v-spacer></v-spacer>
       </v-card-title>
       <v-divider></v-divider>
@@ -49,7 +49,7 @@
       v-model="dialog"
       scrollable
       persistent
-      width="auto"
+      max-width="500px"
       transition="dialog-transition"
     >
       <form @submit.prevent="save">
@@ -61,7 +61,7 @@
           </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
-            <form-car :item.sync="item" />
+            <form-car-color :item.sync="item" />
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
@@ -79,10 +79,10 @@
 </template>
 
 <script>
-import FormCar from "~/components/form/FormCar.vue";
+import FormCarColor from "~/components/form/FormCarColor.vue";
 
 export default {
-  components: { FormCar },
+  components: { FormCarColor },
   data() {
     return {
       dialog: false,
@@ -90,30 +90,12 @@ export default {
       items: [],
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "ประเภทรถ", value: "CarType.name" },
-        { text: "ยี่ห้อรถ", value: "CarBrand.name" },
-        { text: "รุ่นรถ", value: "CarModel.name" },
-        { text: "สีรถ", value: "CarColor.name" },
-        { text: "ทะเบียน", value: "name" },
+        { text: "ชื่อสีรถ", value: "name" },
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
       item: {
         id: null,
         name: null,
-        req_name: null,
-        reg_txt: null,
-        reg_no: null,
-        mileage: null,
-        active: null,
-        img: null,
-        remark: null,
-        carTypeId: null,
-        carBrandId: null,
-        carModelId: null,
-        carColorId: null,
-        provinceId: null,
-        file: null,
-        files: [],
       },
     };
   },
@@ -133,85 +115,31 @@ export default {
   },
   methods: {
     async save() {
-      console.log("item", this.item);
-      let file = this.item.file;
-      let files = this.item.files;
-
       if (this.item.id > 0) {
         this.update();
         return;
       }
-      let item = await this.create();
-      if (!item) {
-        this.alertError();
-        return;
-      }
-      this.item = await item;
-      if (file) {
-        this.item = await this.upload(file);
-      }
-      if (files) {
-        alert("files");
-      }
+      this.create();
     },
-    async upload(file) {
-      let formData = new FormData();
-      formData.append("id", Number(this.item.id));
-      formData.append("file", file);
-
-      let data = await this.$axios
-        .post("/api/admin/car/upload", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then(async (res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return null;
-        });
-      return data;
-    },
-    async uploads() {
-      let formData = new FormData();
-      formData.append("id", Number(this.item.id));
-      this.item.files.forEach((e) => {
-        formData.append("files", e);
-      });
-
+    async create() {
       await this.$axios
-        .post("/api/admin/car/uploads", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+        .post("/api/admin/car-color", {
+          data: this.item,
         })
         .then(async (res) => {
-          this.item.files = [];
-          this.$emit("update:item", await res.data);
+          this.dialog = false;
+          await this.getItems();
           await this.alertSuccess();
         })
         .catch((err) => {
           this.alertError();
+          return;
         });
-    },
-    async create() {
-      let data = await this.$axios
-        .post("/api/admin/car", {
-          data: this.item,
-        })
-        .then(async (res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          return null;
-        });
-      return data;
     },
 
     async update() {
       await this.$axios
-        .put("/api/admin/car/" + this.item.id, {
+        .put("/api/admin/car-color/" + this.item.id, {
           data: this.item,
         })
         .then(async (res) => {
@@ -242,7 +170,7 @@ export default {
     },
     async getItems() {
       this.items = await this.$axios
-        .get("/api/admin/car")
+        .get("/api/admin/car-color")
         .then((res) => {
           return res.data;
         })
@@ -261,20 +189,6 @@ export default {
     async addItem() {
       this.item.id = null;
       this.item.name = null;
-      this.item.req_name = null;
-      this.item.reg_txt = null;
-      this.item.reg_no = null;
-      this.item.mileage = null;
-      this.item.active = true;
-      this.item.remark = null;
-      this.item.img = null;
-      this.item.carTypeId = null;
-      this.item.carBrandId = null;
-      this.item.carModelId = null;
-      this.item.carColorId = null;
-      this.item.provinceId = null;
-      this.item.file = null;
-      this.item.files = [];
 
       this.dialog = true;
     },

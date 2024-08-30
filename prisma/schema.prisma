@@ -44,6 +44,7 @@ model Car {
   mileage   Int?
   active    Boolean? @default(true)
   remark    String?
+  img       String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -55,9 +56,31 @@ model Car {
   carModelId Int?
   Province   Province? @relation(fields: [provinceId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   provinceId Int?
+  CarColor   CarColor? @relation(fields: [carColorId], references: [id])
+  carColorId Int?
+  CarImg     CarImg[]
 }
 
 model CarType {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  active    Boolean? @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Car       Car[]
+}
+
+model CarImg {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  url       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Car       Car?     @relation(fields: [carId], references: [id])
+  carId     Int?
+}
+
+model CarColor {
   id        Int      @id @default(autoincrement())
   name      String   @unique
   active    Boolean? @default(true)

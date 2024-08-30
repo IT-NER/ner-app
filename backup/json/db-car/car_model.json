@@ -1,120 +1,347 @@
 [
-{"type":"header","version":"5.0.2","comment":"Export to JSON plugin for PHPMyAdmin"},
-{"type":"database","name":"mazdabur_jsauction"},
-{"type":"table","name":"tbl_usecar_model","database":"mazdabur_jsauction","data":
-[
-{"model_id":"1","model_name":"TIGER","model_comment":"","brand_id":"11"},
-{"model_id":"2","model_name":"SPORT CRUISER ","model_comment":"","brand_id":"11"},
-{"model_id":"3","model_name":"SPORT RIDER","model_comment":"","brand_id":"11"},
-{"model_id":"4","model_name":"VIGO","model_comment":"","brand_id":"11"},
-{"model_id":"5","model_name":"REVO","model_comment":"","brand_id":"11"},
-{"model_id":"6","model_name":"COROLLA ","model_comment":"","brand_id":"11"},
-{"model_id":"7","model_name":"CAMRY","model_comment":"","brand_id":"11"},
-{"model_id":"8","model_name":"AVANZA ","model_comment":"","brand_id":"11"},
-{"model_id":"9","model_name":"SOLUNA ","model_comment":"","brand_id":"11"},
-{"model_id":"10","model_name":"YARIS","model_comment":"","brand_id":"11"},
-{"model_id":"11","model_name":"HIACE ","model_comment":"","brand_id":"11"},
-{"model_id":"12","model_name":"COMMUTER","model_comment":"","brand_id":"11"},
-{"model_id":"13","model_name":"VENTURY ","model_comment":"","brand_id":"11"},
-{"model_id":"14","model_name":"WISH","model_comment":"","brand_id":"11"},
-{"model_id":"15","model_name":"HARRIER","model_comment":"","brand_id":"11"},
-{"model_id":"16","model_name":"LANDCRUISER ","model_comment":"","brand_id":"11"},
-{"model_id":"17","model_name":"FORTUNER ","model_comment":"","brand_id":"11"},
-{"model_id":"18","model_name":"INNOVA","model_comment":"","brand_id":"11"},
-{"model_id":"19","model_name":"ALPHARD","model_comment":"","brand_id":"11"},
-{"model_id":"20","model_name":"ESTIMA","model_comment":"","brand_id":"11"},
-{"model_id":"21","model_name":"PRIUR ","model_comment":"","brand_id":"11"},
-{"model_id":"22","model_name":"SPARK ","model_comment":"","brand_id":"12"},
-{"model_id":"23","model_name":"SPACE","model_comment":"","brand_id":"12"},
-{"model_id":"24","model_name":"D-MAX ","model_comment":"","brand_id":"12"},
-{"model_id":"25","model_name":"ADVENTURE","model_comment":"","brand_id":"12"},
-{"model_id":"26","model_name":"MU-7","model_comment":"","brand_id":"12"},
-{"model_id":"27","model_name":"MU-X","model_comment":"","brand_id":"12"},
-{"model_id":"28","model_name":"FRONTIER ","model_comment":"","brand_id":"13"},
-{"model_id":"29","model_name":"NAVARA  ","model_comment":"","brand_id":"13"},
-{"model_id":"30","model_name":"NP300 NAVARA","model_comment":"","brand_id":"13"},
-{"model_id":"31","model_name":"SUNNY","model_comment":"","brand_id":"13"},
-{"model_id":"32","model_name":"TIIDA ","model_comment":"","brand_id":"13"},
-{"model_id":"33","model_name":"MARCH ","model_comment":"","brand_id":"13"},
-{"model_id":"34","model_name":"ALMERA ","model_comment":"","brand_id":"13"},
-{"model_id":"35","model_name":"NOTE","model_comment":"","brand_id":"13"},
-{"model_id":"36","model_name":"SYLPHY ","model_comment":"","brand_id":"13"},
-{"model_id":"37","model_name":"PULSAR  ","model_comment":"","brand_id":"13"},
-{"model_id":"38","model_name":"JUKE ","model_comment":"","brand_id":"13"},
-{"model_id":"39","model_name":"CEFIRO ","model_comment":"","brand_id":"13"},
-{"model_id":"40","model_name":"TEANA","model_comment":"","brand_id":"13"},
-{"model_id":"41","model_name":"X-TRIL ","model_comment":"","brand_id":"13"},
-{"model_id":"42","model_name":"XCITER","model_comment":"","brand_id":"13"},
-{"model_id":"43","model_name":"URVAN ","model_comment":"","brand_id":"13"},
-{"model_id":"44","model_name":"BIG URVAN NV350 (CNG)","model_comment":"","brand_id":"13"},
-{"model_id":"45","model_name":"FIGHTER ","model_comment":"","brand_id":"14"},
-{"model_id":"46","model_name":"BT-50 ","model_comment":"","brand_id":"14"},
-{"model_id":"47","model_name":"MAZDA 2 ","model_comment":"","brand_id":"14"},
-{"model_id":"48","model_name":"MAZDA 3","model_comment":"","brand_id":"14"},
-{"model_id":"49","model_name":"CX-5 ","model_comment":"","brand_id":"14"},
-{"model_id":"50","model_name":"CX-3 ","model_comment":"","brand_id":"14"},
-{"model_id":"51","model_name":"STRADA","model_comment":"","brand_id":"15"},
-{"model_id":"52","model_name":"TRITON","model_comment":"","brand_id":"15"},
-{"model_id":"53","model_name":"SPACE WAGON","model_comment":"","brand_id":"15"},
-{"model_id":"54","model_name":"MIRAGE  ","model_comment":"","brand_id":"15"},
-{"model_id":"55","model_name":"ATTRAGE  ","model_comment":"","brand_id":"15"},
-{"model_id":"56","model_name":"LANCER","model_comment":"","brand_id":"15"},
-{"model_id":"57","model_name":"PAJERO","model_comment":"","brand_id":"15"},
-{"model_id":"58","model_name":"COLORADO","model_comment":"","brand_id":"16"},
-{"model_id":"59","model_name":"ALLROADER","model_comment":"","brand_id":"16"},
-{"model_id":"60","model_name":"AVEO","model_comment":"","brand_id":"16"},
-{"model_id":"61","model_name":"SONIC","model_comment":"","brand_id":"16"},
-{"model_id":"62","model_name":"ZAFIRA","model_comment":"","brand_id":"16"},
-{"model_id":"63","model_name":"OPTRA","model_comment":"","brand_id":"16"},
-{"model_id":"64","model_name":"CAPTIVA ","model_comment":"","brand_id":"16"},
-{"model_id":"65","model_name":"CRUZE ","model_comment":"","brand_id":"16"},
-{"model_id":"66","model_name":"TRAILBLAZER","model_comment":"","brand_id":"16"},
-{"model_id":"67","model_name":"RANGER ","model_comment":"","brand_id":"17"},
-{"model_id":"68","model_name":"LASER  ","model_comment":"","brand_id":"17"},
-{"model_id":"69","model_name":"FOCUS  ","model_comment":"","brand_id":"17"},
-{"model_id":"70","model_name":"FIESTA ","model_comment":"","brand_id":"17"},
-{"model_id":"71","model_name":"ESCAPE ","model_comment":"","brand_id":"17"},
-{"model_id":"72","model_name":"EVEREST ","model_comment":"","brand_id":"17"},
-{"model_id":"73","model_name":"ECOSPORT  ","model_comment":"","brand_id":"17"},
-{"model_id":"74","model_name":"ACCORD","model_comment":"","brand_id":"18"},
-{"model_id":"75","model_name":"CIVIC","model_comment":"","brand_id":"18"},
-{"model_id":"76","model_name":"CITY","model_comment":"","brand_id":"18"},
-{"model_id":"77","model_name":"JAZZ  ","model_comment":"","brand_id":"18"},
-{"model_id":"78","model_name":"CR-V  ","model_comment":"","brand_id":"18"},
-{"model_id":"79","model_name":"HR-V","model_comment":"","brand_id":"18"},
-{"model_id":"80","model_name":"STREAM ","model_comment":"","brand_id":"18"},
-{"model_id":"81","model_name":"Freed ","model_comment":"","brand_id":"18"},
-{"model_id":"82","model_name":"BRIO","model_comment":"","brand_id":"18"},
-{"model_id":"83","model_name":"BRV SV","model_comment":"","brand_id":"18"},
-{"model_id":"84","model_name":"CARIBIAN SPORTY","model_comment":"","brand_id":"19"},
-{"model_id":"85","model_name":"CARRY","model_comment":"","brand_id":"19"},
-{"model_id":"86","model_name":"APV","model_comment":"","brand_id":"19"},
-{"model_id":"87","model_name":"CELERIO","model_comment":"","brand_id":"19"},
-{"model_id":"88","model_name":"CIAZ","model_comment":"","brand_id":"19"},
-{"model_id":"89","model_name":"ERTIGA","model_comment":"","brand_id":"19"},
-{"model_id":"90","model_name":"SWIFT","model_comment":"","brand_id":"19"},
-{"model_id":"91","model_name":"SX4","model_comment":"","brand_id":"19"},
-{"model_id":"92","model_name":"GRAND VITARA","model_comment":"","brand_id":"19"},
-{"model_id":"93","model_name":"VITARA","model_comment":"","brand_id":"19"},
-{"model_id":"94","model_name":"MG GS","model_comment":"","brand_id":"20"},
-{"model_id":"95","model_name":"MG HS","model_comment":"","brand_id":"20"},
-{"model_id":"96","model_name":"MG 3","model_comment":"","brand_id":"20"},
-{"model_id":"97","model_name":"MG 5","model_comment":"","brand_id":"20"},
-{"model_id":"98","model_name":"MG 6","model_comment":"","brand_id":"20"},
-{"model_id":"99","model_name":"MG ZS","model_comment":"","brand_id":"20"},
-{"model_id":"100","model_name":"MG EXTENDER","model_comment":"","brand_id":"20"},
-{"model_id":"101","model_name":"MG V80","model_comment":"","brand_id":"20"},
-{"model_id":"102","model_name":"VIOS","model_comment":"","brand_id":"11"},
-{"model_id":"104","model_name":"CBR","model_comment":"","brand_id":"18"},
-{"model_id":"105","model_name":"NPR 150 HP","model_comment":"","brand_id":"12"},
-{"model_id":"106","model_name":"DRAGON","model_comment":"","brand_id":"12"},
-{"model_id":"107","model_name":"8 ล้อ แอร์ 2 ชั้น","model_comment":"","brand_id":"22"},
-{"model_id":"108","model_name":"6 ล้อ NPR โฉมการ์ตูน","model_comment":"","brand_id":"12"},
-{"model_id":"109","model_name":"6 ล้อ","model_comment":"","brand_id":"12"},
-{"model_id":"110","model_name":"VIOS E","model_comment":"","brand_id":"11"},
-{"model_id":"111","model_name":"MOBILIO","model_comment":"MOBILIO S(MNC)","brand_id":"18"},
-{"model_id":"112","model_name":"HI-NO","model_comment":"","brand_id":"23"},
-{"model_id":"113","model_name":"MAZDA2","model_comment":"","brand_id":"14"}
-]
-}
+  { "name": "TIGER", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  {
+    "name": "SPORT CRUISER ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "SPORT RIDER",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "VIGO", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  { "name": "REVO", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  {
+    "name": "COROLLA ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "CAMRY", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  {
+    "name": "AVANZA ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "SOLUNA ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "YARIS", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  { "name": "HIACE ", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  {
+    "name": "COMMUTER",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "VENTURY ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "WISH", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  {
+    "name": "HARRIER",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "LANDCRUISER ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "FORTUNER ",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "INNOVA", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  {
+    "name": "ALPHARD",
+    "carBrandId": "1",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "ESTIMA", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  { "name": "PRIUR ", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  { "name": "VIOS", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  { "name": "VIOS E", "carBrandId": "1", "createdAt": null, "updatedAt": null },
+  { "name": "SPARK ", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  { "name": "SPACE", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  { "name": "D-MAX ", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  {
+    "name": "ADVENTURE",
+    "carBrandId": "2",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "MU-7", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  { "name": "MU-X", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  {
+    "name": "NPR 150 HP",
+    "carBrandId": "2",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "DRAGON", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  { "name": "6 ล้อ", "carBrandId": "2", "createdAt": null, "updatedAt": null },
+  {
+    "name": "6 ล้อ NPR โฉมการ์ตูน",
+    "carBrandId": "2",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "FRONTIER ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "NAVARA  ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "NP300 NAVARA",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "SUNNY", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  { "name": "TIIDA ", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  { "name": "MARCH ", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  {
+    "name": "ALMERA ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "NOTE", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  {
+    "name": "SYLPHY ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "PULSAR  ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "JUKE ", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  {
+    "name": "CEFIRO ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "TEANA", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  {
+    "name": "X-TRIL ",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "XCITER", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  { "name": "URVAN ", "carBrandId": "3", "createdAt": null, "updatedAt": null },
+  {
+    "name": "BIG URVAN NV350 (CNG)",
+    "carBrandId": "3",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "FIGHTER ",
+    "carBrandId": "4",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "BT-50 ", "carBrandId": "4", "createdAt": null, "updatedAt": null },
+  {
+    "name": "MAZDA 2 ",
+    "carBrandId": "4",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "MAZDA 3",
+    "carBrandId": "4",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "CX-5 ", "carBrandId": "4", "createdAt": null, "updatedAt": null },
+  { "name": "CX-3 ", "carBrandId": "4", "createdAt": null, "updatedAt": null },
+  { "name": "STRADA", "carBrandId": "5", "createdAt": null, "updatedAt": null },
+  { "name": "TRITON", "carBrandId": "5", "createdAt": null, "updatedAt": null },
+  {
+    "name": "SPACE WAGON",
+    "carBrandId": "5",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "MIRAGE  ",
+    "carBrandId": "5",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "ATTRAGE  ",
+    "carBrandId": "5",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "LANCER", "carBrandId": "5", "createdAt": null, "updatedAt": null },
+  { "name": "PAJERO", "carBrandId": "5", "createdAt": null, "updatedAt": null },
+  {
+    "name": "COLORADO",
+    "carBrandId": "6",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "ALLROADER",
+    "carBrandId": "6",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "AVEO", "carBrandId": "6", "createdAt": null, "updatedAt": null },
+  { "name": "SONIC", "carBrandId": "6", "createdAt": null, "updatedAt": null },
+  { "name": "ZAFIRA", "carBrandId": "6", "createdAt": null, "updatedAt": null },
+  { "name": "OPTRA", "carBrandId": "6", "createdAt": null, "updatedAt": null },
+  {
+    "name": "CAPTIVA ",
+    "carBrandId": "6",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "CRUZE ", "carBrandId": "6", "createdAt": null, "updatedAt": null },
+  {
+    "name": "TRAILBLAZER",
+    "carBrandId": "6",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "RANGER ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "LASER  ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "FOCUS  ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "FIESTA ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "ESCAPE ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "EVEREST ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "ECOSPORT  ",
+    "carBrandId": "7",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "ACCORD", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "CIVIC", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "CITY", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "JAZZ  ", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "CR-V  ", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "HR-V", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  {
+    "name": "STREAM ",
+    "carBrandId": "8",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "Freed ", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "BRIO", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "BRV SV", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  { "name": "CBR", "carBrandId": "8", "createdAt": null, "updatedAt": null },
+  {
+    "name": "MOBILIO",
+    "carBrandId": "8",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "CARIBIAN SPORTY",
+    "carBrandId": "9",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "CARRY", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  { "name": "APV", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  {
+    "name": "CELERIO",
+    "carBrandId": "9",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "CIAZ", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  { "name": "ERTIGA", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  { "name": "SWIFT", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  { "name": "SX4", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  {
+    "name": "GRAND VITARA",
+    "carBrandId": "9",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "VITARA", "carBrandId": "9", "createdAt": null, "updatedAt": null },
+  { "name": "MG GS", "carBrandId": "10", "createdAt": null, "updatedAt": null },
+  { "name": "MG HS", "carBrandId": "10", "createdAt": null, "updatedAt": null },
+  { "name": "MG 3", "carBrandId": "10", "createdAt": null, "updatedAt": null },
+  { "name": "MG 5", "carBrandId": "10", "createdAt": null, "updatedAt": null },
+  { "name": "MG 6", "carBrandId": "10", "createdAt": null, "updatedAt": null },
+  { "name": "MG ZS", "carBrandId": "10", "createdAt": null, "updatedAt": null },
+  {
+    "name": "MG EXTENDER",
+    "carBrandId": "10",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  {
+    "name": "MG V80",
+    "carBrandId": "10",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  { "name": "HI-NO", "carBrandId": "11", "createdAt": null, "updatedAt": null }
 ]

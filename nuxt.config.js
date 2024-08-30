@@ -13,6 +13,7 @@ export default {
     "~/api/admin/car-type.js",
     "~/api/admin/car-brand.js",
     "~/api/admin/car-model.js",
+    "~/api/admin/car-color.js",
     "~/api/admin/province.js",
     "~/api/auth.js",
     "~/api/room.js",
