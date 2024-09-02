@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card flat>
       <v-card-title>
         ของรางวัล
         <v-spacer></v-spacer>

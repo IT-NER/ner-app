@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card tile>
+    <v-card flat>
       <v-card-title>
         {{ title }}
         <v-spacer></v-spacer>

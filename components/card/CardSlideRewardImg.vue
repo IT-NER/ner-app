@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card width="100vw" class="mx-auto" flat>
+    <v-card width="50vw" class="mx-auto" flat>
       <v-card-actions>
         <v-carousel
           v-model="index"

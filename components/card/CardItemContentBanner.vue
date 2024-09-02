@@ -26,13 +26,20 @@
                   :aspect-ratio="16 / 9"
                 >
                   <template v-slot:default>
-                    <v-toolbar color="black" dark>
-                      <div class="title">
-                        {{ item.title }}
-                      </div>
-                      <v-spacer></v-spacer>
-                      {{ $moment(item.createdAt).format("ll") }}
-                    </v-toolbar>
+                    <v-alert text prominent dark>
+                      <v-container fluid>
+                        <v-row>
+                          <v-col cols="12" md="6">
+                            <h1>
+                              {{ item.title }}
+                            </h1>
+                            <h3>
+                              {{ $moment(item.createdAt).format("ll") }}
+                            </h3>
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-alert>
                   </template>
                 </v-carousel-item>
               </v-carousel>

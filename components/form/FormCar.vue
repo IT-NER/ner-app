@@ -140,29 +140,6 @@
           </v-container>
         </v-col>
       </v-row>
-
-      <v-row>
-        <v-col cols="12" md="6">
-          <v-card flat v-if="item.img">
-            <v-card-text>
-              <v-img :src="item.img" />
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-container fluid :v-show="item.CarImg">
-            <v-row>
-              <v-col cols="3" v-for="(list, i) in item.CarImg" :key="i">
-                <v-card>
-                  <v-card-actions>
-                    <v-img :src="list.url" :aspect-ratio="16 / 9" />
-                  </v-card-actions>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-col>
-      </v-row>
     </v-container>
   </div>
 </template>
