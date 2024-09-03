@@ -7,6 +7,60 @@ let prisma = new PrismaClient();
 let app = express();
 app.use(express.json());
 
+// delete
+app.post("/point/delete", async (req, res) => {
+  let item = req.body.data;
+  let data = await deletePoint(item);
+  res.status(200).json(data);
+});
+
+async function deletePoint(items) {
+  items.forEach(async (e) => {
+    let pointReceivedPay = await prisma.pointReceivedPay.findFirst({
+      where: {
+        pointReceivedId: Number(e.id),
+      },
+    });
+
+    let deletePointReceivedPay = await prisma.pointReceivedPay.delete({
+      where: {
+        id: Number(pointReceivedPay.id),
+      },
+    });
+
+    let pointReceived = await prisma.pointReceived.delete({
+      where: {
+        id: Number(e.id),
+      },
+    });
+
+    let user = await prisma.pointReceivedPay.findMany({
+      where: {
+        userId: Number(e.userId),
+      },
+    });
+
+    let sumReceived = 0;
+    let sumPay = 0;
+    user.forEach((u) => {
+      sumReceived += u.received;
+      sumPay += u.pay;
+    });
+    let total = sumReceived - sumPay;
+
+    let updatePoint = await prisma.user.update({
+      where: {
+        id: Number(e.userId),
+      },
+      data: {
+        point: Number(total),
+      },
+    });
+  });
+
+  return "success";
+}
+
 // received
 app.post("/point/received", async (req, res) => {
   let item = req.body.data;

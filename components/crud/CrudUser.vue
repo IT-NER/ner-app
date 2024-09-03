@@ -206,8 +206,8 @@ export default {
         { text: "นามสกุล", value: "lname", sortable: false },
         { text: "ฝ่าย", value: "Department.name", sortable: false },
         { text: "ตำแหน่ง", value: "Position.name", sortable: false },
-        // { text: "USERNAME", value: "username", sortable: false },
-        // { text: "EMAIL", value: "email", sortable: false },
+        { text: "USERNAME", value: "username", sortable: false },
+        { text: "EMAIL", value: "email", sortable: false },
         { text: "พอยท์", value: "point", align: "end", sortable: false },
         {
           text: "สถานะการใช้งาน",

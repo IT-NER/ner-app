@@ -12,6 +12,15 @@
           <v-icon>mdi-plus</v-icon>
           เพิ่มรายชื่อ
         </v-btn>
+        <v-btn
+          color="error"
+          outlined
+          :disabled="!selected1.length"
+          @click="deletePoint"
+        >
+          <v-icon>mdi-delete</v-icon>
+          ลบ
+        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-title>
@@ -23,6 +32,8 @@
       </v-card-title>
       <v-divider></v-divider>
       <v-data-table
+        v-model="selected1"
+        show-select
         :search="search1"
         :headers="headers1"
         :items="item.PointReceived"
@@ -66,7 +77,7 @@
         </v-card-title>
         <v-divider></v-divider>
         <v-data-table
-          v-model="selected"
+          v-model="selected2"
           item-key="id"
           :search="search2"
           :headers="headers2"
@@ -107,12 +118,12 @@ export default {
     return {
       sortBy: "id",
       sortDesc: true,
-
       item: {
         PointReceived: [],
       },
       dialog: false,
 
+      selected1: [],
       search1: null,
       headers1: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
@@ -165,7 +176,7 @@ export default {
         },
       ],
 
-      selected: [],
+      selected2: [],
     };
   },
   watch: {
@@ -181,14 +192,34 @@ export default {
     this.getItem();
   },
   methods: {
+    async deletePoint() {
+      console.log("selected1", this.selected1);
+      // return;
+
+      this.item = await this.$axios
+        .post("/api/admin/point/delete", {
+          data: this.selected1,
+        })
+        .then((res) => {
+          this.search1 = null;
+          this.selected1 = [];
+          this.getItem();
+          this.alertSuccess();
+          return res.data;
+        })
+        .catch((err) => {
+          return null;
+        });
+    },
+
     async addPoint() {
-      // // console.log("seleceted", this.selected);
-      if (!this.selected.length) {
+      // // console.log("seleceted", this.selected2);
+      if (!this.selected2.length) {
         this.alertNotSelected();
         return;
       }
       let userIds = [];
-      this.selected.forEach((e) => {
+      this.selected2.forEach((e) => {
         userIds.push(e.id);
       });
       let items = {
