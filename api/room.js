@@ -147,7 +147,7 @@ async function getItemsRoomEnable(item) {
     },
   });
 
-  console.log("item", item.id);
+  // console.log("item", item.id);
   if (item.id > 0) {
     let items = await formatItemsRoom(room, item);
     return items;
@@ -196,7 +196,7 @@ async function findOnd(id) {
 
 //create
 app.post("/room", async (req, res) => {
-  // console.log('req', req.body);
+  // // console.log('req', req.body);
   // return
 
   let item = req.body.data;

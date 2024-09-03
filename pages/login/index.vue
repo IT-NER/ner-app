@@ -47,13 +47,13 @@ export default {
         const result = await this.$auth.loginWith("local", {
           data: this.user,
         });
-        // // console.log("result", result);
+        // // // console.log("result", result);
         if (result) {
           await this.setStorageAndCookie(result);
           await this.$router.push("/");
         }
       } catch (err) {
-        // console.log("errs", err);
+        // // console.log("errs", err);
         this.alertError();
         this.setItemDefault();
         // this.$router.push("/login");

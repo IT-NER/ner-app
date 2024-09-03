@@ -45,7 +45,7 @@ export default {
         return null;
       }
       let data = URL.createObjectURL(this.file);
-      console.log("data", data);
+      // console.log("data", data);
 
       return data;
     },

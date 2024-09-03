@@ -119,7 +119,7 @@ export default {
 
   methods: {
     getColorStatus(item) {
-      console.log("item", item);
+      // console.log("item", item);
       let data = "grey";
       if (item.contentStatusId == 2) {
         data = "success";
@@ -130,7 +130,7 @@ export default {
       return data;
     },
     async getItems() {
-      console.log("filter", this.filter);
+      // console.log("filter", this.filter);
 
       this.items = await this.$axios
         .post("/api/admin/content/filter", {

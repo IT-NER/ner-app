@@ -68,7 +68,7 @@ export default {
 
   methods: {
     progressColor(item) {
-      // console.log("item", item);
+      // // console.log("item", item);
 
       let color = "deep-orange";
       let data = Number((this.user.point / item.point) * 100);
@@ -80,7 +80,7 @@ export default {
 
     percen(item) {
       let data = Number((this.user.point / item.point) * 100);
-      console.log("data", data);
+      // console.log("data", data);
       if (data >= 100) {
         data = 100;
       }

@@ -7,16 +7,16 @@ app.use(express.json());
 
 //create
 app.post("/contentCoverImg", async (req, res) => {
-  // console.log("body", req.body);
+  // // console.log("body", req.body);
   // return;
 
   let item = req.body.data.content;
   let file = req.body.data.contentCoverImg;
 
   let contentCoverImg = await createContentCoverImg(file);
-  console.log("contentCoverImg", contentCoverImg);
+  // console.log("contentCoverImg", contentCoverImg);
   let content = await updateContent(contentCoverImg, item);
-  console.log("content", content);
+  // console.log("content", content);
 
   res.status(200).json(content);
 });

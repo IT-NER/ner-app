@@ -220,7 +220,7 @@ export default {
   methods: {
     // view
     async viewItem(item) {
-      console.log("item", this.item);
+      // console.log("item", this.item);
       this.item = await item;
       this.dialogView = true;
     },
@@ -228,7 +228,7 @@ export default {
     async cancelItem(e) {
       let item = Object.assign({}, e);
       let confirm = await this.alertConfirmCancelItem();
-      console.log("confirm", confirm);
+      // console.log("confirm", confirm);
 
       if (!confirm) {
         return;
@@ -245,7 +245,7 @@ export default {
           return false;
         });
 
-      console.log("booking", booking);
+      // console.log("booking", booking);
       if (!booking) {
         return;
       }
@@ -267,7 +267,7 @@ export default {
         })
         .then((res) => {
           if (res.value) {
-            // console.log("res", res.value);
+            // // console.log("res", res.value);
             return true;
           } else {
             return false;
@@ -278,7 +278,7 @@ export default {
 
     // edit
     async editItem(item) {
-      // console.log("item", item);
+      // // console.log("item", item);
       this.item = await Object.assign({}, item);
       await this.getItemsRoom();
       await this.openDialog();
@@ -287,8 +287,8 @@ export default {
     async getItemsRoom() {
       await this.getItemsRoomEnable();
       await this.getItemsRoomDisable();
-      // console.log("itemsRoomEnable", this.itemsRoomEnable);
-      // console.log("itemsRoomDisable", this.itemsRoomDisable);
+      // // console.log("itemsRoomEnable", this.itemsRoomEnable);
+      // // console.log("itemsRoomDisable", this.itemsRoomDisable);
 
       this.item.roomId = await this.item.Room.id;
     },
@@ -337,7 +337,7 @@ export default {
         }
       }
 
-      // console.log("item", this.item);
+      // // console.log("item", this.item);
       let item = null;
       if (this.item.id) {
         item = await this.update();

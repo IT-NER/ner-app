@@ -182,7 +182,7 @@ export default {
   },
   methods: {
     async addPoint() {
-      // console.log("seleceted", this.selected);
+      // // console.log("seleceted", this.selected);
       if (!this.selected.length) {
         this.alertNotSelected();
         return;
@@ -236,7 +236,7 @@ export default {
     },
 
     deleteItem(item) {
-      console.log("item", item);
+      // console.log("item", item);
     },
 
     async alertError() {

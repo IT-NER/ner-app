@@ -9,7 +9,7 @@ app.use(express.json());
 
 // search
 app.post("/booking/search", async (req, res) => {
-  // console.log("req", req.body.data);
+  // // console.log("req", req.body.data);
   // return;
   let item = req.body.data;
 
@@ -37,7 +37,7 @@ app.post("/booking/search", async (req, res) => {
   if (item.statusId) {
     items.push({ statusId: item.statusId });
   }
-  // console.log("items", items);
+  // // console.log("items", items);
 
   let booking = await prisma.booking.findMany({
     where: {
@@ -459,7 +459,6 @@ async function createBookingDrink(bookingId, bookingDrink) {
   });
 }
 
-
 // update
 app.put("/booking/:id", async (req, res) => {
   let id = req.params.id;
@@ -546,11 +545,11 @@ app.put("/booking/:id", async (req, res) => {
       },
     })
     .then((res) => {
-      // // console.log("res", res);
+      // // // console.log("res", res);
       return res;
     })
     .catch((err) => {
-      // // console.log("err", err);
+      // // // console.log("err", err);
       res.status(401).json({ error: err });
       return;
     });
@@ -619,11 +618,11 @@ app.delete("/booking/:id", async (req, res) => {
       },
     })
     .then((res) => {
-      // // console.log("res", res);
+      // // // console.log("res", res);
       return res;
     })
     .catch((err) => {
-      // // console.log("err", err);
+      // // // console.log("err", err);
       res.status(401).json({ error: err });
       return;
     });

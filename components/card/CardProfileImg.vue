@@ -88,7 +88,7 @@ export default {
     },
 
     async handleFiles(e) {
-      console.log("e", e);
+      // console.log("e", e);
 
       if (!e) {
         return;
@@ -96,8 +96,8 @@ export default {
 
       let size = await this.checkSize(e);
       let type = await this.checkType(e);
-      console.log("size", size);
-      console.log("type", type);
+      // console.log("size", size);
+      // console.log("type", type);
 
       if (!size) {
         this.file = null;

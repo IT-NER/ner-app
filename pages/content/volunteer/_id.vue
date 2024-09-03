@@ -12,8 +12,8 @@
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text>
-          <!-- FormContent -->
-          <form-content
+          <!-- FormContent2 -->
+          <form-content-2
             :item.sync="item"
             @updateTimed="updateTimed"
             @updatePublish="updatePublish"
@@ -68,12 +68,12 @@
 <script>
 import CardViewContentImg from "~/components/card/CardViewContentImg.vue";
 import CardViewContentCoverImg from "~/components/card/CardViewContentCoverImg.vue";
-import FormContent from "~/components/form/FormContent.vue";
+import FormContent2 from "~/components/form/FormContent2.vue";
 import FormUploadContentCoverImg from "~/components/form/FormUploadContentCoverImg.vue";
 import FormUploadContentImg from "~/components/form/FormUploadContentImg.vue";
 export default {
   components: {
-    FormContent,
+    FormContent2,
     FormUploadContentCoverImg,
     FormUploadContentImg,
     CardViewContentCoverImg,

@@ -83,6 +83,16 @@
             label="ROLE"
           ></v-select>
         </v-col>
+        <v-col cols="12" md="6" sm="12" v-if="user.id > 0">
+          <v-text-field
+            prepend-icon="mdi-star"
+            label="พอยท์"
+            type="text"
+            hide-details
+            disabled
+            v-model="user.point"
+          ></v-text-field>
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -111,22 +121,22 @@ export default {
       this.departments = await this.$axios
         .get("/api/department")
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
         });
     },
     async getRole() {
       this.roles = await this.$axios
         .get("/api/role")
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
         });
     },
 
@@ -134,11 +144,11 @@ export default {
       this.positions = await this.$axios
         .get("/api/position")
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
         });
     },
   },

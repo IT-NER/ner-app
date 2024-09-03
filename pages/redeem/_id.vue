@@ -104,7 +104,7 @@ export default {
   },
   methods: {
     async cancel(item) {
-      // console.log("item", item);
+      // // console.log("item", item);
 
       let confirm = await this.alertConfirmCancel();
       if (!confirm) {
@@ -122,7 +122,7 @@ export default {
         });
     },
     async redeemItem(item) {
-      console.log("item", item);
+      // console.log("item", item);
       let confirm = await this.alertConfirm();
       if (!confirm) {
         return;
@@ -229,7 +229,7 @@ export default {
     },
 
     async getItemsPointPay() {
-      // console.log("itemsPointPay", this.item.User.PointPay);
+      // // console.log("itemsPointPay", this.item.User.PointPay);
       this.itemsPointPay = this.item.User.PointPay.filter(
         (e) => e.rewardId == this.item.id
       );

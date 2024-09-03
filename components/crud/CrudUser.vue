@@ -206,8 +206,9 @@ export default {
         { text: "นามสกุล", value: "lname", sortable: false },
         { text: "ฝ่าย", value: "Department.name", sortable: false },
         { text: "ตำแหน่ง", value: "Position.name", sortable: false },
-        { text: "USERNAME", value: "username", sortable: false },
-        { text: "EMAIL", value: "email", sortable: false },
+        // { text: "USERNAME", value: "username", sortable: false },
+        // { text: "EMAIL", value: "email", sortable: false },
+        { text: "พอยท์", value: "point", align: "end", sortable: false },
         {
           text: "สถานะการใช้งาน",
           value: "active",
@@ -294,7 +295,7 @@ export default {
     },
 
     async editPassword(item) {
-      // console.log(item);
+      // // console.log(item);
       this.dialogNewPassword = true;
       this.user = item;
     },
@@ -305,13 +306,13 @@ export default {
           data: this.user,
         })
         .then(async (res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           this.dialogNewPassword = false;
           await this.alertSuccess();
           await this.getUser();
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
         });
     },
 
@@ -338,7 +339,7 @@ export default {
     },
 
     async save() {
-      // console.log("user", this.user);
+      // // console.log("user", this.user);
       // return;
 
       this.dialog = false;
@@ -401,11 +402,11 @@ export default {
           data: this.user,
         })
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return true;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
           return false;
         });
 
@@ -418,11 +419,11 @@ export default {
           data: this.user,
         })
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return true;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
           return false;
         });
 
@@ -445,11 +446,11 @@ export default {
           data: this.filter,
         })
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          console.log("err", err);
+          // console.log("err", err);
         });
     },
   },

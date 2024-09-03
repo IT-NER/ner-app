@@ -111,11 +111,11 @@ export default {
       let date = await Object.assign({}, item);
       this.item = await date;
 
-      console.log("item", this.item);
+      // console.log("item", this.item);
       this.dialog = true;
     },
     async save() {
-      console.log("item", this.item);
+      // console.log("item", this.item);
       if (this.item.id > 0) {
         this.update();
         return;
@@ -174,7 +174,7 @@ export default {
       this.item.url = null;
       this.item.remark = null;
       this.item.active = true;
-      console.log("item", this.item);
+      // console.log("item", this.item);
       this.dialog = true;
     },
     async getItems() {

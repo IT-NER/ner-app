@@ -326,8 +326,8 @@ export default {
     },
 
     async save() {
-      console.log("selectedReward2", this.selectedReward2);
-      console.log("selectedUser2", this.selectedUser2);
+      // console.log("selectedReward2", this.selectedReward2);
+      // console.log("selectedUser2", this.selectedUser2);
 
       if (!this.selectedUser2.length) {
         this.alertSelectUser();
@@ -339,8 +339,8 @@ export default {
       this.selectedUser2.forEach((e) => {
         userIds.push(e.id);
       });
-      // console.log("rewardId", rewardId);
-      // console.log("userIds", userIds);
+      // // console.log("rewardId", rewardId);
+      // // console.log("userIds", userIds);
 
       await this.$axios
         .post("/api/admin/point-pay", {
@@ -468,7 +468,7 @@ export default {
 
     async getItems() {
       this.selected = [];
-      console.log("filter", this.filter);
+      // console.log("filter", this.filter);
 
       this.items = await this.$axios
         .post("/api/admin/point-pay/filter", {

@@ -104,7 +104,7 @@ export default {
       }
     },
     async removeItem(item) {
-      console.log("item", item);
+      // console.log("item", item);
       await this.$axios
         .delete("/api/admin/content/delete/contentImg/" + item.id)
         .then(async (res) => {

@@ -355,7 +355,7 @@ async function findOne(id) {
     userIds.push(e.userId);
   });
 
-  // console.log("userIds", userIds);
+  // // console.log("userIds", userIds);
 
   let userReceived = await prisma.user.findMany({
     where: {
@@ -821,9 +821,9 @@ async function createBanner(item) {
 
   let data = await prisma.content.create({
     data: {
-      start: new Date(start),
-      end: new Date(end),
-      timed: Boolean(true),
+      // start: new Date(start),
+      // end: new Date(end),
+      timed: Boolean(false),
       publish: Boolean(false),
       ticket: String(ticket),
       code: String(code),
@@ -849,9 +849,9 @@ async function createActivity(item) {
 
   let data = await prisma.content.create({
     data: {
-      start: new Date(start),
-      end: new Date(end),
-      timed: Boolean(true),
+      // start: new Date(start),
+      // end: new Date(end),
+      timed: Boolean(false),
       publish: Boolean(false),
       ticket: String(ticket),
       code: String(code),
@@ -876,9 +876,9 @@ async function createNews(item) {
 
   let data = await prisma.content.create({
     data: {
-      start: new Date(start),
-      end: new Date(end),
-      timed: Boolean(true),
+      // start: new Date(start),
+      // end: new Date(end),
+      timed: Boolean(false),
       publish: Boolean(false),
       ticket: String(ticket),
       code: String(code),

@@ -32,12 +32,19 @@
 
     <v-app-bar app color="success" dark elevation="0">
       <v-app-bar-nav-icon @click="drawerLeft = !drawerLeft">
-        <v-icon v-if="drawerLeft"> mdi-chevron-left </v-icon>
-        <v-icon v-else> mdi-chevron-right </v-icon>
+        <!-- <v-icon v-if="drawerLeft"> mdi-chevron-left </v-icon>
+        <v-icon v-else> mdi-chevron-right </v-icon> -->
       </v-app-bar-nav-icon>
 
       <v-toolbar-title>
-        <!-- {{ title }} -->
+        <span class="mr-2">
+          <v-avatar size="45">
+            <img src="/logo/NER_Logo_Final2.jpg" />
+          </v-avatar>
+        </span>
+        <span style="margin-top: 25px">
+          บริษัท นอร์ทอีส รับเบอร์ จำกัด มหาชน
+        </span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -46,8 +53,8 @@
         @click="drawerRigth = !drawerRigth"
         v-if="$nuxt.$route.name == 'index'"
       >
-        <v-icon v-if="drawerRigth"> mdi-chevron-right </v-icon>
-        <v-icon v-else> mdi-chevron-left </v-icon>
+        <!-- <v-icon v-if="drawerRigth"> mdi-list-box-outline </v-icon>
+        <v-icon v-else> mdi-list-box-outline </v-icon> -->
       </v-app-bar-nav-icon>
     </v-app-bar>
 

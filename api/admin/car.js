@@ -28,7 +28,7 @@ app.post("/car/upload", upload.single("file"), async (req, res) => {
   res.status(200).json(data);
 });
 async function updateCarImg(id, file) {
-  console.log("file", file);
+  // console.log("file", file);
 
   let url = String("/uploads/car/" + file.filename);
 
@@ -50,7 +50,7 @@ app.post("/car/uploads", upload.array("files"), async (req, res) => {
   res.status(200).json(data);
 });
 async function createCarImg(id, files) {
-  console.log("files", files);
+  // console.log("files", files);
 
   let items = [];
   files.forEach((e) => {

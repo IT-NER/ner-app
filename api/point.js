@@ -9,7 +9,7 @@ app.use(express.json());
 
 // checkReceivePoint
 app.post("/point/checkReceivePoint", async (req, res) => {
-  // console.log("req", req.body.data);
+  // // console.log("req", req.body.data);
   // return;
 
   let item = req.body.data;
@@ -135,7 +135,7 @@ async function checkTimedContent(id) {
       ],
     },
   });
-  // console.log("data", data);
+  // // console.log("data", data);
   return data;
 }
 

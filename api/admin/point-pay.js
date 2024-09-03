@@ -11,8 +11,8 @@ app.use(express.json());
 app.post("/point-pay", async (req, res) => {
   let rewardId = req.body.data.rewardId;
   let userIds = req.body.data.userIds;
-  // console.log("rewardId", rewardId);
-  // console.log("userIds", userIds);
+  // // console.log("rewardId", rewardId);
+  // // console.log("userIds", userIds);
 
   let data = await pay(rewardId, userIds);
   res.status(200).json(data);
@@ -36,7 +36,7 @@ async function pay(rewardId, userIds) {
       },
     });
 
-    // console.log("pointPay", pointPay);
+    // // console.log("pointPay", pointPay);
 
     let pointReceivedPay = await prisma.pointReceivedPay.create({
       data: {
@@ -45,14 +45,14 @@ async function pay(rewardId, userIds) {
         pay: Number(reward.point),
       },
     });
-    // console.log("pointReceivedPay", pointReceivedPay);
+    // // console.log("pointReceivedPay", pointReceivedPay);
 
     let point = await prisma.pointReceivedPay.findMany({
       where: {
         userId: Number(e),
       },
     });
-    // console.log("point", point);
+    // // console.log("point", point);
 
     let sumReceived = 0;
     let sumPay = 0;
@@ -61,7 +61,7 @@ async function pay(rewardId, userIds) {
       sumPay += e2.pay;
     });
     let pointTotal = sumReceived - sumPay;
-    // console.log("pointTotal", pointTotal);
+    // // console.log("pointTotal", pointTotal);
 
     let updatePointReceivedPay = await prisma.pointReceivedPay.update({
       where: {
@@ -71,7 +71,7 @@ async function pay(rewardId, userIds) {
         total: Number(pointTotal),
       },
     });
-    // console.log("updatePointReceivedPay", updatePointReceivedPay);
+    // // console.log("updatePointReceivedPay", updatePointReceivedPay);
 
     let updateUser = await prisma.user.update({
       where: {
@@ -81,7 +81,7 @@ async function pay(rewardId, userIds) {
         point: Number(pointTotal),
       },
     });
-    // console.log("updateUser", updateUser);
+    // // console.log("updateUser", updateUser);
 
     let data = await prisma.pointPay.findFirst({
       where: {
@@ -101,7 +101,7 @@ async function pay(rewardId, userIds) {
       },
     });
 
-    // console.log("data", data);
+    // // console.log("data", data);
     items.push(data);
   });
 
@@ -149,7 +149,7 @@ async function filter(item) {
       lte: new Date(dateEnd),
     };
   }
-  // console.log("items", items);
+  // // console.log("items", items);
 
   let data = await prisma.pointPay.findMany({
     where: items,
@@ -171,7 +171,7 @@ async function filter(item) {
       },
     ],
   });
-  // console.log("data", data);
+  // // console.log("data", data);
 
   return data;
 }

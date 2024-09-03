@@ -180,7 +180,7 @@ export default {
           return res.data;
         })
         .catch((err) => {
-          console.log("err", err);
+          // console.log("err", err);
         });
     },
 
@@ -200,7 +200,7 @@ export default {
           return res.data;
         })
         .catch((err) => {
-          console.log("err", err);
+          // console.log("err", err);
         });
     },
 
@@ -218,7 +218,7 @@ export default {
           data: this.item,
         })
         .then((res) => {
-          console.log("res", res.data);
+          // console.log("res", res.data);
 
           this.$router.push("/content/activity/" + res.data.id);
         })

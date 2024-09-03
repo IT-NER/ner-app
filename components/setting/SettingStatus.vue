@@ -184,11 +184,11 @@ export default {
       this.statuss = await this.$axios
         .get("/api/status")
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return res.data;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
         });
     },
 
@@ -322,11 +322,11 @@ export default {
           data: this.editedItem,
         })
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return true;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
           return false;
         });
 
@@ -339,11 +339,11 @@ export default {
           data: this.editedItem,
         })
         .then((res) => {
-          // console.log("res", res.data);
+          // // console.log("res", res.data);
           return true;
         })
         .catch((err) => {
-          // console.log("err", err);
+          // // console.log("err", err);
           return false;
         });
 

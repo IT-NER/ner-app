@@ -28,8 +28,8 @@ app.post("/user/upload", upload.single("file"), async (req, res) => {
   res.status(200).json(data);
 });
 async function uploadProfile(userId, file) {
-  console.log("userId", userId);
-  console.log("file", file);
+  // console.log("userId", userId);
+  // console.log("file", file);
 
   let data = await prisma.user.update({
     where: {
@@ -153,7 +153,7 @@ app.post("/user", async (req, res) => {
       return res;
     })
     .catch((err) => {
-      // console.log('err', err);
+      // // console.log('err', err);
       return res.status(401).json({ error: "Invalid credentials" });
     });
 
@@ -193,7 +193,7 @@ app.put("/user/update-password/:id", async (req, res) => {
       id: Number(id),
     },
   });
-  // console.log("check", check);
+  // // console.log("check", check);
 
   let user = null;
   if (check.password == item.password) {

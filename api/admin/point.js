@@ -29,9 +29,9 @@ app.post("/point/received", async (req, res) => {
   res.status(200).json(data);
 });
 async function received(contentId, userId, point) {
-  // console.log("contentId", contentId);
-  // console.log("userId", userId);
-  // console.log("point", point);
+  // // console.log("contentId", contentId);
+  // // console.log("userId", userId);
+  // // console.log("point", point);
 
   let count = await checkReceived(contentId, userId);
   if (count > 0) {

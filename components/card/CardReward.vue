@@ -58,7 +58,7 @@ export default {
       }
 
       let result = await this.validateFiles(e);
-      console.log("result", result);
+      // console.log("result", result);
       if (result.length == 0) {
         this.$emit("update:files", []);
       }

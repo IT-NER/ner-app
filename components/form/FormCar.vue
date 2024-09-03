@@ -159,7 +159,7 @@ export default {
 
   methods: {
     async handleFile(e) {
-      console.log("e", e);
+      // console.log("e", e);
 
       if (!e) {
         return;

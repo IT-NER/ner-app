@@ -33,7 +33,7 @@ export default {
       this.item = await this.$axios
         .get("/api/user/" + user.id)
         .then((res) => {
-          // console.log("user", res.data);
+          // // console.log("user", res.data);
           this.point = res.data.point;
           return res.data;
         })

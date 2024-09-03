@@ -9,6 +9,7 @@
           x-large
           outlined
           :disabled="received"
+          v-if="item.point > 0"
           @click="addPoint"
         >
           กดรับ {{ item.point }} พอยท์

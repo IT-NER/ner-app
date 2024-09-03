@@ -7,7 +7,7 @@ app.use(express.json());
 
 //create
 app.post("/contentImg", async (req, res) => {
-  // console.log("body", req.body);
+  // // console.log("body", req.body);
   // return;
 
   let content = req.body.data.content;

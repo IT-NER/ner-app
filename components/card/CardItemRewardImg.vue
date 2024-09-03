@@ -157,7 +157,7 @@ export default {
     },
 
     async setImgIndex(item) {
-      console.log("item", item);
+      // console.log("item", item);
       let itemImg = Object.assign({}, item);
 
       let RewardImg = await this.$axios

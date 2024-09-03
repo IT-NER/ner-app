@@ -210,9 +210,9 @@ export default {
     },
 
     async save() {
-      console.log("item", this.item);
-      console.log("file", this.file);
-      console.log("files", this.files);
+      // console.log("item", this.item);
+      // console.log("file", this.file);
+      // console.log("files", this.files);
 
       if (this.item.id > 0) {
         this.item = await this.update();
@@ -338,7 +338,7 @@ export default {
       this.getItems();
     },
     async editItem(item) {
-      console.log("item", item);
+      // console.log("item", item);
 
       let data = await Object.assign({}, item);
       this.item = await data;

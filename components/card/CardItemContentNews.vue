@@ -1,15 +1,19 @@
 <template>
   <div>
-    <v-card outlined>
+    <v-card flat>
       <v-alert color="success" dark tile> ข่าวสาร </v-alert>
       <v-card-text v-if="items.length > 0">
-        <v-data-table :headers="headers" :items="items" hide-default-footer>
+        <v-data-table :headers="headers" :items="items">
           <template v-slot:item.no="{ index }">
             {{ index + 1 }}
           </template>
-
           <template v-slot:item.publish="{ item }">
-            {{ $moment(item.start).format("ll") }}
+            <span v-if="item.start">
+              {{ $moment(item.start).format("ll") }}
+            </span>
+            <span v-else>
+              {{ $moment(item.createdAt).format("ll") }}
+            </span>
           </template>
           <template v-slot:item.detail="{ item }">
             <v-btn
@@ -83,13 +87,14 @@ export default {
       this.items = await this.$axios
         .get("/api/content/publish/news")
         .then((res) => {
-          let items = [];
-          res.data.forEach((e) => {
-            if (e.contentCoverImgId) {
-              items.push(e);
-            }
-          });
-          return items;
+          // let items = [];
+          // res.data.forEach((e) => {
+          //   if (e.contentCoverImgId) {
+          //     items.push(e);
+          //   }
+          // });
+          // return items;
+          return res.data;
         })
         .catch((err) => {
           return false;

@@ -212,7 +212,7 @@ export default {
     },
 
     async getItemsBookingDay() {
-      console.log("focus", this.focus);
+      // console.log("focus", this.focus);
     },
     async setDateTime() {
       this.item.start = new Date(
@@ -237,7 +237,7 @@ export default {
         }
       }
 
-      console.log("item", this.item);
+      // console.log("item", this.item);
       let item = null;
       if (this.item.id) {
         item = await this.update();
@@ -260,7 +260,7 @@ export default {
           data: this.item,
         })
         .then((res) => {
-          console.log("createBooking", res.data);
+          // console.log("createBooking", res.data);
           return res.data;
         })
         .catch((err) => {
@@ -368,7 +368,7 @@ export default {
     },
 
     async viewItem(item) {
-      console.log("item", item);
+      // console.log("item", item);
       this.item = Object.assign({}, item);
       this.dialogView = true;
     },

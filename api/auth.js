@@ -66,11 +66,11 @@ app.post("/register", async (req, res) => {
       },
     })
     .then((res) => {
-      // console.log('res', res);
+      // // console.log('res', res);
       return res;
     })
     .catch((err) => {
-      // console.log('err', err);
+      // // console.log('err', err);
       res.status(401).json({ error: "Invalid credentials" });
       return;
     });

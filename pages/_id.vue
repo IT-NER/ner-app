@@ -87,7 +87,7 @@ export default {
           data = true;
         }
       }
-      console.log("data", data);
+      // console.log("data", data);
       return data;
     },
     async getItem() {
