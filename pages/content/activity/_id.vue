@@ -20,17 +20,15 @@
             @updatePublishEnd="updatePublishEnd"
           />
         </v-card-text>
+
         <v-divider></v-divider>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="success" outlined type="submit">
-            <v-icon> mdi-content-save </v-icon>
-            บันทึก
-          </v-btn>
-          <v-spacer></v-spacer>
-        </v-card-actions>
-        <v-divider></v-divider>
-        <v-card-title> อัพโหลดรูปภาพ </v-card-title>
+        <v-card-title>
+          อัพโหลดรูปภาพ
+          <small class="ml-2">
+            *** หมายเหตุ : รูปภาพต้องเป็นไฟล์ประเภท JPG,PNG และ ขนาดไฟล์ไม่เกิน
+            3 MB
+          </small>
+        </v-card-title>
         <v-divider></v-divider>
         <v-card-text>
           <v-row>
@@ -54,6 +52,15 @@
         <v-card-text>
           <card-view-content-img :item.sync="item" />
         </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="success" outlined type="submit">
+            <v-icon> mdi-content-save </v-icon>
+            บันทึก
+          </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-actions>
       </v-card>
     </form>
 
@@ -128,15 +135,19 @@ export default {
 
   methods: {
     async updateTimed() {
-      await this.$axios
-        .get("/api/admin/content/update/timed/" + this.$route.params.id)
-        .then((res) => {
-          this.alertSuccess();
-          this.getItem();
-        })
-        .catch((err) => {
-          this.alertError();
-        });
+      this.item.dateStart = this.$moment().format("YYYY-MM-DD");
+      this.item.dateEnd = this.$moment().format("YYYY-MM-DD");
+      this.item.timeStart = this.$moment().format("00:00");
+      this.item.timeEnd = this.$moment().format("00:00");
+      // await this.$axios
+      //   .get("/api/admin/content/update/timed/" + this.$route.params.id)
+      //   .then((res) => {
+      //     this.alertSuccess();
+      //     this.getItem();
+      //   })
+      //   .catch((err) => {
+      //     this.alertError();
+      //   });
     },
 
     async updatePublish() {

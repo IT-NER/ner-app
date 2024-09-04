@@ -69,8 +69,29 @@ app.get("/content/publish/banner", async (req, res) => {
 async function getBannerPublish() {
   let data = await prisma.content.findMany({
     where: {
-      publish: Boolean(true),
-      contentTypeId: Number(1),
+      AND: [
+        {
+          OR: [
+            {
+              timed: Boolean(true),
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+            },
+            {
+              timed: Boolean(false),
+              start: null,
+              end: null,
+            },
+          ],
+
+          publish: Boolean(true),
+          contentTypeId: Number(1),
+        },
+      ],
     },
     orderBy: [
       {
@@ -97,8 +118,29 @@ app.get("/content/publish/activity", async (req, res) => {
 async function getActivityPublish() {
   let data = await prisma.content.findMany({
     where: {
-      publish: Boolean(true),
-      contentTypeId: Number(2),
+      AND: [
+        {
+          OR: [
+            {
+              timed: Boolean(true),
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+            },
+            {
+              timed: Boolean(false),
+              start: null,
+              end: null,
+            },
+          ],
+
+          publish: Boolean(true),
+          contentTypeId: Number(2),
+        },
+      ],
     },
     orderBy: [
       {
@@ -125,8 +167,29 @@ app.get("/content/publish/news", async (req, res) => {
 async function getNewsPublish() {
   let data = await prisma.content.findMany({
     where: {
-      publish: Boolean(true),
-      contentTypeId: Number(3),
+      AND: [
+        {
+          OR: [
+            {
+              timed: Boolean(true),
+              start: {
+                lte: new Date(),
+              },
+              end: {
+                gte: new Date(),
+              },
+            },
+            {
+              timed: Boolean(false),
+              start: null,
+              end: null,
+            },
+          ],
+
+          publish: Boolean(true),
+          contentTypeId: Number(3),
+        },
+      ],
     },
     orderBy: [
       {

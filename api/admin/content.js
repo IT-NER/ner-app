@@ -399,25 +399,29 @@ async function filterBaner(item) {
   let start = moment(item.start).format("YYYY-MM-DD 00:00");
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
+  let filter = {
+    contentTypeId: Number(1),
+  };
+
+  if (item.start) {
+    filter.start = {
+      gte: new Date(start),
+    };
+  }
+  if (item.end) {
+    filter.end = {
+      lte: new Date(end),
+    };
+  }
+  if (item.contentStatusId) {
+    filter.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
   let data = [];
   let data1 = await prisma.content.findMany({
     where: {
-      AND: [
-        {
-          start: {
-            gte: new Date(start),
-          },
-          end: {
-            lte: new Date(end),
-          },
-          contentStatusId: {
-            in: item.contentStatusId,
-          },
-          contentTypeId: {
-            equals: Number(1),
-          },
-        },
-      ],
+      AND: [filter],
     },
     include: {
       ContentStatus: true,
@@ -481,25 +485,30 @@ async function filterActivity(item) {
   let start = moment(item.start).format("YYYY-MM-DD 00:00");
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
+  let filter = {
+    contentTypeId: Number(2),
+  };
+
+  if (item.start) {
+    filter.start = {
+      gte: new Date(start),
+    };
+  }
+  if (item.end) {
+    filter.end = {
+      lte: new Date(end),
+    };
+  }
+  if (item.contentStatusId) {
+    filter.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
+
   let data = [];
   let data1 = await prisma.content.findMany({
     where: {
-      AND: [
-        {
-          start: {
-            gte: new Date(start),
-          },
-          end: {
-            lte: new Date(end),
-          },
-          contentStatusId: {
-            in: item.contentStatusId,
-          },
-          contentTypeId: {
-            equals: Number(2),
-          },
-        },
-      ],
+      AND: [filter],
     },
     include: {
       ContentStatus: true,
@@ -563,25 +572,29 @@ async function filterNews(item) {
   let start = moment(item.start).format("YYYY-MM-DD 00:00");
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
+  let filter = {
+    contentTypeId: Number(3),
+  };
+
+  if (item.start) {
+    filter.start = {
+      gte: new Date(start),
+    };
+  }
+  if (item.end) {
+    filter.end = {
+      lte: new Date(end),
+    };
+  }
+  if (item.contentStatusId) {
+    filter.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
   let data = [];
   let data1 = await prisma.content.findMany({
     where: {
-      AND: [
-        {
-          start: {
-            gte: new Date(start),
-          },
-          end: {
-            lte: new Date(end),
-          },
-          contentStatusId: {
-            in: item.contentStatusId,
-          },
-          contentTypeId: {
-            equals: Number(3),
-          },
-        },
-      ],
+      AND: [filter],
     },
     include: {
       ContentStatus: true,
@@ -644,25 +657,29 @@ async function filterVolunteer(item) {
   let start = moment(item.start).format("YYYY-MM-DD 00:00");
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
+  let filter = {
+    contentTypeId: Number(4),
+  };
+
+  if (item.start) {
+    filter.start = {
+      gte: new Date(start),
+    };
+  }
+  if (item.end) {
+    filter.end = {
+      lte: new Date(end),
+    };
+  }
+  if (item.contentStatusId) {
+    filter.contentStatusId = {
+      in: item.contentStatusId,
+    };
+  }
   let data = [];
   let data1 = await prisma.content.findMany({
     where: {
-      AND: [
-        {
-          start: {
-            gte: new Date(start),
-          },
-          end: {
-            lte: new Date(end),
-          },
-          contentStatusId: {
-            in: item.contentStatusId,
-          },
-          contentTypeId: {
-            equals: Number(4),
-          },
-        },
-      ],
+      AND: [filter],
     },
     include: {
       ContentStatus: true,
@@ -924,10 +941,14 @@ async function createVolunteer(item) {
 async function update(id, item) {
   let start = null;
   let end = null;
+  let contentStatusId = 1;
 
   if (item.timed) {
     start = new Date(item.start);
     end = new Date(item.end);
+  }
+  if (item.publish) {
+    contentStatusId = 2;
   }
 
   let data = await prisma.content.update({
@@ -937,10 +958,13 @@ async function update(id, item) {
     data: {
       start: start,
       end: end,
+      timed: Boolean(item.timed),
+      publish: Boolean(item.publish),
       title: String(item.title),
       description: String(item.description),
       detail: String(item.detail),
       point: Number(item.point),
+      contentStatusId: Number(contentStatusId),
     },
   });
   return data;

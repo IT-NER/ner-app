@@ -78,7 +78,6 @@
         <template v-slot:item.date="{ item }">
           {{ $moment(item.createdAt).format("lll") }} น.
         </template>
-
         <template v-slot:item.status="{ item }">
           <v-chip label :color="getColorStatus(item.pointPayStatusId)">
             {{ item.PointPayStatus.name }}
@@ -86,6 +85,10 @@
         </template>
         <template v-slot:item.reward="{ item }">
           <card-view-slide-reward-by-id :id="item.rewardId" />
+          <!-- {{ item.Reward.RewardImg[0] }} -->
+          <!-- <v-avatar size="50">
+            <img :src="item.Reward.RewardImg[0].url" />
+          </v-avatar> -->
         </template>
         <template v-slot:item.approveDate="{ item }">
           <span v-if="item.approveDate">

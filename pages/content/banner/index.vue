@@ -4,31 +4,31 @@
       <v-card-title>
         {{ title }}
         <v-spacer></v-spacer>
-        <v-btn outlined color="primary" @click="refresh">
-          <v-icon> mdi-refresh </v-icon>
-          รีเฟรช
-        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <!-- CardFilterContent -->
       <card-filter-content :item.sync="filter" @getItems="getItems" />
       <v-divider></v-divider>
-      <v-toolbar elevation="0">
+      <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn outlined color="success" @click="addItem">
           <v-icon> mdi-plus </v-icon>
           เพิ่ม
         </v-btn>
-      </v-toolbar>
+        <v-btn outlined color="primary" @click="refresh">
+          <v-icon> mdi-refresh </v-icon>
+          รีเฟรช
+        </v-btn>
+      </v-card-actions>
       <v-divider></v-divider>
-      <v-toolbar elevation="0">
+      <v-card-title>
         <v-text-field
           v-model="search"
           label="ค้นหา"
           hide-details
         ></v-text-field>
         <v-spacer></v-spacer>
-      </v-toolbar>
+      </v-card-title>
       <v-divider></v-divider>
       <v-data-table
         :headers="headers"
@@ -88,6 +88,12 @@
         </template>
       </v-data-table>
     </v-card>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
@@ -99,8 +105,8 @@ export default {
   data() {
     return {
       filter: {
-        start: this.$moment(new Date()).format("YYYY-MM-DD"),
-        end: this.$moment(new Date()).add(1, "day").format("YYYY-MM-DD"),
+        start: null,
+        end: null,
         contentStatusId: [1, 2, 3],
       },
       title: "แบนเนอร์",
@@ -184,8 +190,8 @@ export default {
     },
 
     async refresh() {
-      this.filter.start = this.$moment().format("YYYY-MM-DD");
-      this.filter.end = this.$moment().add(1, "day").format("YYYY-MM-DD");
+      this.filter.start = null;
+      this.filter.end = null;
       this.filter.contentStatusId = [1, 2, 3];
 
       await this.getItems();

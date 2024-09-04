@@ -161,7 +161,11 @@ async function filter(item) {
           Role: true,
         },
       },
-      Reward: true,
+      Reward: {
+        include: {
+          RewardImg: true,
+        },
+      },
       PointPayStatus: true,
       PointReceivedPay: true,
     },

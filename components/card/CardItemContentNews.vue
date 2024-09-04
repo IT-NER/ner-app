@@ -67,6 +67,7 @@ export default {
           value: "publish",
           align: "center",
           sortable: false,
+          width: 100,
         },
         {
           text: "รายละเอียด",

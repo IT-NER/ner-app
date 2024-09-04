@@ -100,3 +100,10 @@ export default {
   },
 };
 </script>
+
+<style>
+body {
+  background-image: url("/static/logo/logo.jpg");
+  background-color: #cccccc;
+}
+</style>

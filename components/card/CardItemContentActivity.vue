@@ -3,7 +3,14 @@
     <v-card flat>
       <v-alert color="success" dark tile> กิจกรรม </v-alert>
 
-      <v-data-iterator :items="items" v-if="items.length > 0">
+      <v-data-iterator
+        v-if="items.length > 0"
+        :items="items"
+        :footer-props="{
+          'items-per-page-options': [4, 8, 12, -1],
+        }"
+        :items-per-page="8"
+      >
         <template v-slot:default="props">
           <v-container fluid>
             <v-row>
@@ -28,7 +35,7 @@
                         width="100vw"
                       >
                         <template v-slot:default>
-                          <v-alert text prominent dark dense>
+                          <v-alert text prominent dense>
                             <v-container fluid>
                               <v-row>
                                 <v-col cols="12" md="12" class="text-right">

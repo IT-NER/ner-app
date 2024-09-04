@@ -24,10 +24,10 @@
                   :aspect-ratio="16 / 9"
                 >
                   <template v-slot:default>
-                    <v-alert text prominent dark>
+                    <v-alert text prominent>
                       <v-container fluid>
                         <v-row>
-                          <v-col cols="12" md="6">
+                          <v-col cols="12">
                             <h1>
                               {{ item.title }}
                             </h1>

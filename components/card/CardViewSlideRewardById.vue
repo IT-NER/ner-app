@@ -1,6 +1,10 @@
 <template>
   <div>
-    <v-card>
+    <v-card flat width="150" class="mx-auto">
+      <v-card-actions>
+        {{ item.name }}
+      </v-card-actions>
+      <v-divider></v-divider>
       <v-card-actions>
         <v-carousel
           v-model="index"
@@ -14,15 +18,10 @@
             v-for="(list, i) in item.RewardImg"
             :key="i"
             :src="list.url"
-            width="250"
+            width="150"
             :aspect-ratio="16 / 9"
             class="mx-auto"
           >
-            <template v-slot:default>
-              <v-toolbar dense dark>
-                {{ item.name }}
-              </v-toolbar>
-            </template>
           </v-carousel-item>
         </v-carousel>
       </v-card-actions>

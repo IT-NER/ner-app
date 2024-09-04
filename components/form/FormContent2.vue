@@ -24,7 +24,6 @@
             hide-details
             v-model="item.publish"
             inset
-            @click="$emit('updatePublish')"
           ></v-switch>
         </v-col>
         <v-col cols="12" md="9" class="text-right">
