@@ -400,6 +400,7 @@ async function filterBaner(item) {
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
   let filter = {
+    timed: Boolean(true),
     contentTypeId: Number(1),
   };
 
@@ -486,6 +487,7 @@ async function filterActivity(item) {
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
   let filter = {
+    timed: Boolean(true),
     contentTypeId: Number(2),
   };
 
@@ -573,6 +575,7 @@ async function filterNews(item) {
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
   let filter = {
+    timed: Boolean(true),
     contentTypeId: Number(3),
   };
 
@@ -658,6 +661,7 @@ async function filterVolunteer(item) {
   let end = moment(item.end).add(1, "day").format("YYYY-MM-DD 00:00");
 
   let filter = {
+    timed: Boolean(true),
     contentTypeId: Number(4),
   };
 

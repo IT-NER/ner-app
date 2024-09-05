@@ -14,15 +14,7 @@
         <v-card-text>
           <form-reward :item.sync="item" @updateActive="updateActive" />
         </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="success" outlined type="submit">
-            <v-icon> mdi-content-save </v-icon>
-            บันทึก
-          </v-btn>
-          <v-spacer></v-spacer>
-        </v-card-actions>
+
         <v-divider></v-divider>
         <v-card-title> อัพโหลดรูปภาพ </v-card-title>
         <v-divider></v-divider>
@@ -38,6 +30,15 @@
         <v-card-text>
           <card-view-reward-img :item.sync="item" />
         </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="success" outlined type="submit">
+            <v-icon> mdi-content-save </v-icon>
+            บันทึก
+          </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-actions>
       </v-card>
     </form>
 
@@ -53,10 +54,11 @@
 </template>
 
 <script>
+import FormReward from "~/components/form/FormReward.vue";
 import FormUploadRewardImg from "~/components/form/FormUploadRewardImg.vue";
 import CardViewRewardImg from "~/components/card/CardViewRewardImg.vue";
 export default {
-  components: { FormUploadRewardImg, CardViewRewardImg },
+  components: { FormUploadRewardImg, CardViewRewardImg, FormReward },
   data() {
     return {
       item: {

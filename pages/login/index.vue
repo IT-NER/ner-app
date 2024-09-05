@@ -7,7 +7,7 @@
             <v-avatar size="50" class="mr-2">
               <img src="logo/NER_Logo_Final2.jpg" />
             </v-avatar>
-            บริษัท นอร์ทอีส รับเบอร์ จำกัด มหาชน
+            บริษัท นอร์ทอีส รับเบอร์ จำกัด (มหาชน)
           </v-card-title>
           <v-divider></v-divider>
           <login-form :user.sync="user"></login-form>

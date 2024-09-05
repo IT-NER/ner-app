@@ -4,6 +4,7 @@
       color="success"
       outlined
       x-large
+      v-if="item.active"
       :disabled="!show"
       @click="$emit('redeemItem', item)"
     >

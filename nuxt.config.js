@@ -64,7 +64,9 @@ export default {
 
   css: ["~assets/global.scss"],
 
-  plugins: [],
+  plugins: [
+    "~/plugins/pdfmake.js", // Add the plugin here
+  ],
 
   buildModules: ["@nuxtjs/vuetify", "@nuxtjs/moment", "@nuxtjs/pwa"],
 

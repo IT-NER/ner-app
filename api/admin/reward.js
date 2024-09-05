@@ -46,12 +46,14 @@ app.get("/reward/update/active/:id", async (req, res) => {
   let data = await updateActive(id);
   res.status(200).json(data);
 });
+
 // create
 app.post("/reward", async (req, res) => {
   let item = req.body.data;
   let data = await create(item);
   res.status(200).json(data);
 });
+
 // update
 app.put("/reward/:id", async (req, res) => {
   let { id } = req.params;
@@ -59,6 +61,7 @@ app.put("/reward/:id", async (req, res) => {
   let data = await update(id, item);
   res.status(200).json(data);
 });
+
 // deleteRewardImgById
 app.delete("/reward/delete/rewardImg/:id", async (req, res) => {
   let { id } = req.params;
@@ -196,6 +199,7 @@ async function update(id, item) {
       name: String(item.name),
       description: String(item.description),
       point: Number(item.point),
+      active: Boolean(item.active),
     },
   });
   return data;

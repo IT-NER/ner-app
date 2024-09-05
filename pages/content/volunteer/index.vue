@@ -140,12 +140,12 @@ export default {
           sortable: false,
           width: 200,
         },
-        {
-          text: "การเผยแพร่",
-          value: "timed",
-          align: "center",
-          sortable: false,
-        },
+        // {
+        //   text: "การเผยแพร่",
+        //   value: "timed",
+        //   align: "center",
+        //   sortable: false,
+        // },
         { text: "สถานะ", value: "status", align: "center", sortable: false },
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],

@@ -61,6 +61,10 @@ export default {
 
   methods: {
     async upload() {
+      await this.$axios.put("/api/admin/reward/" + this.$route.params.id, {
+        data: this.item,
+      });
+
       let formData = new FormData();
       formData.append("id", Number(this.item.id));
       this.files.forEach((e) => {

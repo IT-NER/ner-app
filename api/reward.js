@@ -38,6 +38,37 @@ async function findAll() {
   });
   return data;
 }
+// findAllNotActive
+app.get("/rewards-not-active", async (req, res) => {
+  let data = await findAllNotActive();
+  res.status(200).json(data);
+});
+async function findAllNotActive() {
+  let data = await prisma.reward.findMany({
+    where: {
+      active: Boolean(false),
+    },
+    include: {
+      User: {
+        include: {
+          Department: true,
+          Position: true,
+          Role: true,
+          Booking: true,
+          Content: true,
+          Reward: true,
+          PointReceived: true,
+          PointPay: true,
+
+          PointReceivedPay: true,
+        },
+      },
+      RewardImg: true,
+      PointPay: true,
+    },
+  });
+  return data;
+}
 // findOne
 app.get("/reward/:id", async (req, res) => {
   let { id } = req.params;

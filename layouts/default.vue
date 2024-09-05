@@ -43,7 +43,7 @@
           </v-avatar>
         </span>
         <span style="margin-top: 25px">
-          บริษัท นอร์ทอีส รับเบอร์ จำกัด มหาชน
+          บริษัท นอร์ทอีส รับเบอร์ จำกัด (มหาชน)
         </span>
       </v-toolbar-title>
 

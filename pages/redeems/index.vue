@@ -44,7 +44,15 @@
         >
           ไม่อนุมัติ
         </v-btn>
-
+        <v-btn
+          color="info"
+          outlined
+          :disabled="selected.length == 0"
+          @click="generatePDF"
+        >
+          <v-icon>mdi-download</v-icon>
+          ดาวน์โหลดไฟล์ PDF
+        </v-btn>
         <v-spacer></v-spacer>
         <v-btn color="success" outlined @click="addItem">
           <v-icon>mdi-plus</v-icon>
@@ -309,6 +317,34 @@ export default {
   },
 
   methods: {
+    generatePDF() {
+      const docDefinition = {
+        content: [
+          { text: "รายงานการแลกของรางวัล", style: "header" },
+          "This is normal text",
+          { text: "Another paragraph", style: "subheader" },
+        ],
+        styles: {
+          header: { fontSize: 22, bold: true },
+          subheader: { fontSize: 16, bold: true },
+        },
+      };
+
+      var fonts = {
+        yourFontName: {
+          normal: "https://example.com/fonts/fontFile.ttf",
+          bold: "https://example.com/fonts/fontFile2.ttf",
+          italics: "https://example.com/fonts/fontFile3.ttf",
+          bolditalics: "https://example.com/fonts/fontFile4.ttf",
+        },
+      };
+
+      pdfMake.addFonts(fonts);
+
+      // Access pdfMake via this.$pdfMake
+      this.$pdfMake.createPdf(docDefinition).download("example.pdf");
+    },
+
     async getItemsUserByReward() {
       if (!this.selectedReward2) {
         this.itemsUser2 = [];
@@ -472,6 +508,7 @@ export default {
     async getItems() {
       this.selected = [];
       // console.log("filter", this.filter);
+      // return;
 
       this.items = await this.$axios
         .post("/api/admin/point-pay/filter", {

@@ -230,9 +230,22 @@ export default {
 
     async getItemsPointPay() {
       // // console.log("itemsPointPay", this.item.User.PointPay);
-      this.itemsPointPay = this.item.User.PointPay.filter(
-        (e) => e.rewardId == this.item.id
-      );
+      this.itemsPointPay = await this.$axios
+        .post("/api/point-pay-reward-user", {
+          data: {
+            rewardId: this.item.id,
+            userId: this.user.id,
+          },
+        })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return [];
+        });
+      // this.itemsPointPay = await this.item.User.PointPay.filter(
+      //   (e) => e.rewardId == this.item.id
+      // );
     },
     async checkBtnPointPay() {
       this.show = false;

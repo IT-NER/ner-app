@@ -139,13 +139,20 @@ async function filter(item) {
       in: item.userId,
     };
   }
-  if (item.start) {
+  if (item.start && !item.end) {
     items.createdAt = {
       gte: new Date(dateStart),
     };
   }
-  if (item.end) {
+  if (item.end && !item.start) {
     items.createdAt = {
+      lte: new Date(dateEnd),
+    };
+  }
+
+  if (item.start && item.end) {
+    items.createdAt = {
+      gte: new Date(dateStart),
       lte: new Date(dateEnd),
     };
   }

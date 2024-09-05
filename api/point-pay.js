@@ -7,6 +7,43 @@ let app = express();
 
 app.use(express.json());
 
+// findByRewardIdUserId
+app.post("/point-pay-reward-user", async (req, res) => {
+  let item = req.body.data;
+  let data = await findByRewardIdUserId(item);
+  res.status(200).json(data);
+});
+async function findByRewardIdUserId(item) {
+  let data = await prisma.pointPay.findMany({
+    where: {
+      AND: [
+        {
+          rewardId: Number(item.rewardId),
+          userId: Number(item.userId),
+        },
+      ],
+    },
+    include: {
+      Reward: {
+        include: {
+          RewardImg: true,
+        },
+      },
+      PointPayStatus: true,
+      User: {
+        include: {
+          PointPay: true,
+          Position: true,
+          Department: true,
+          Role: true,
+        },
+      },
+    },
+  });
+
+  return data;
+}
+
 // pay
 app.post("/point-pay", async (req, res) => {
   let item = req.body.data;
