@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-title>
         <v-spacer></v-spacer>
-        ลิ้งค์ภายใน
+        Link
         <v-spacer></v-spacer>
       </v-card-title>
     </v-card>

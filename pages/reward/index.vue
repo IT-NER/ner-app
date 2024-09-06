@@ -4,19 +4,19 @@
       <v-card-title>
         ของรางวัล
         <v-spacer></v-spacer>
-        <v-btn outlined color="primary" @click="getItems">
-          <v-icon> mdi-refresh </v-icon>
-          รีเฟรช
-        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
-      <v-card-title>
+      <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn outlined color="success" @click="addItem">
           <v-icon> mdi-plus </v-icon>
           เพิ่ม
         </v-btn>
-      </v-card-title>
+        <v-btn outlined color="primary" @click="getItems">
+          <v-icon> mdi-refresh </v-icon>
+          รีเฟรช
+        </v-btn>
+      </v-card-actions>
       <v-divider></v-divider>
       <v-card-title>
         <v-text-field

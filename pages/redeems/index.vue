@@ -3,12 +3,7 @@
     <v-card flat>
       <v-card-title> แลกของรางวัล </v-card-title>
       <v-divider></v-divider>
-      <v-card-actions>
-        ค้นหา
-        <v-spacer></v-spacer>
-        <v-btn outlined color="primary" @click="refresh"> รีเฟรซ </v-btn>
-      </v-card-actions>
-      <v-divider></v-divider>
+
       <v-card-text>
         <card-filter-redeem
           :item.sync="filter"
@@ -58,6 +53,10 @@
           <v-icon>mdi-plus</v-icon>
           เพิ่มรายการ
         </v-btn>
+        <v-btn outlined color="primary" @click="refresh">
+          <v-icon>mdi-refresh</v-icon>
+          รีเฟรซ
+        </v-btn>
       </v-card-actions>
       <v-divider></v-divider>
       <v-card-actions>
@@ -92,11 +91,19 @@
           </v-chip>
         </template>
         <template v-slot:item.reward="{ item }">
-          <card-view-slide-reward-by-id :id="item.rewardId" />
-          <!-- {{ item.Reward.RewardImg[0] }} -->
-          <!-- <v-avatar size="50">
-            <img :src="item.Reward.RewardImg[0].url" />
-          </v-avatar> -->
+          <!-- <card-view-slide-reward-by-id :id="item.rewardId" /> -->
+          {{ item.Reward.name }}
+          <br />
+          <a @click="viewReward(item.rewardId)">
+            <v-icon small color="primary">mdi-eye</v-icon>
+            <small>เปิดดู</small>
+          </a>
+        </template>
+        <template v-slot:item.approveBy="{ item }">
+          <span v-if="item.approveBy">
+            <!-- {{ item.approveBy }} -->
+            <span-approve-by :id="item.approveBy" />
+          </span>
         </template>
         <template v-slot:item.approveDate="{ item }">
           <span v-if="item.approveDate">
@@ -201,6 +208,19 @@
         </v-card>
       </form>
     </v-dialog>
+
+    <v-dialog
+      v-model="dialogViewReward"
+      scrollable
+      max-width="500px"
+      transition="dialog-transition"
+    >
+      <v-card>
+        <v-card-text>
+          <card-view-reward-by-id :id="rewardId" />
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <br />
     <br />
     <br />
@@ -211,9 +231,16 @@
 
 <script>
 import CardFilterRedeem from "~/components/card/CardFilterRedeem.vue";
+import CardViewRewardById from "~/components/card/CardViewRewardById.vue";
 import CardViewSlideRewardById from "~/components/card/CardViewSlideRewardById.vue";
+import SpanApproveBy from "~/components/span/SpanApproveBy.vue";
 export default {
-  components: { CardFilterRedeem, CardViewSlideRewardById },
+  components: {
+    CardFilterRedeem,
+    CardViewSlideRewardById,
+    SpanApproveBy,
+    CardViewRewardById,
+  },
 
   data() {
     return {
@@ -258,10 +285,16 @@ export default {
         {
           text: "ของรางวัล",
           value: "reward",
-          align: "center",
+          align: "start",
           sortable: false,
         },
         { text: "สถานะ", value: "status", align: "center", sortable: false },
+        {
+          text: "ผู้มีอำนาจ อนุมัติ/ไม่อนุมัติ",
+          value: "approveBy",
+          align: "start",
+          sortable: false,
+        },
         {
           text: "วันที่ อนุมัติ/ไม่อนุมัติ",
           value: "approveDate",
@@ -306,6 +339,9 @@ export default {
       searchUser2: null,
       selectedUser2: [],
       selectedReward2: [],
+
+      dialogViewReward: false,
+      rewardId: null,
     };
   },
 
@@ -317,7 +353,7 @@ export default {
   },
 
   methods: {
-    generatePDF() {
+    async generatePDF() {
       const docDefinition = {
         content: [
           { text: "รายงานการแลกของรางวัล", style: "header" },
@@ -330,19 +366,12 @@ export default {
         },
       };
 
-      var fonts = {
-        yourFontName: {
-          normal: "https://example.com/fonts/fontFile.ttf",
-          bold: "https://example.com/fonts/fontFile2.ttf",
-          italics: "https://example.com/fonts/fontFile3.ttf",
-          bolditalics: "https://example.com/fonts/fontFile4.ttf",
-        },
-      };
-
-      pdfMake.addFonts(fonts);
-
-      // Access pdfMake via this.$pdfMake
       this.$pdfMake.createPdf(docDefinition).download("example.pdf");
+    },
+
+    async viewReward(rewardId) {
+      this.rewardId = await rewardId;
+      this.dialogViewReward = true;
     },
 
     async getItemsUserByReward() {

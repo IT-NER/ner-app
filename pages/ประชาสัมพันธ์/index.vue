@@ -19,6 +19,15 @@
               :aspect-ratio="16 / 9"
               width="100vw"
             >
+              <v-slot default>
+                <v-alert text prominent>
+                  <h1>
+                    {{ item.title }}
+                  </h1>
+                  <v-spacer></v-spacer>
+                  {{ $moment(item.createdAt).format("ll") }}
+                </v-alert>
+              </v-slot>
             </v-carousel-item>
           </v-carousel>
         </v-col>
@@ -29,6 +38,7 @@
 
 <script>
 export default {
+  auth: false,
   layout: "blankLayout",
   data() {
     return {

@@ -22,7 +22,24 @@
         <v-spacer></v-spacer>
       </v-card-actions>
       <v-divider></v-divider>
-      <v-data-table :headers="headers" :items="items" elevation-0>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" outlined @click="refresh">
+          <v-icon>mdi-refresh</v-icon>
+          รีเฟรช
+        </v-btn>
+      </v-card-actions>
+      <v-divider></v-divider>
+      <v-card-title>
+        <v-text-field
+          label="ค้นหา"
+          v-model="search"
+          hide-details
+        ></v-text-field>
+        <v-spacer></v-spacer>
+      </v-card-title>
+      <v-divider></v-divider>
+      <v-data-table :headers="headers" :items="items" :search="search">
         <template v-slot:item.no="{ index }">
           {{ index + 1 }}
         </template>
@@ -108,6 +125,7 @@ export default {
         contentTypeId: [1, 2, 3, 4],
         contentStatusId: [2],
       },
+      search: null,
     };
   },
 
@@ -118,6 +136,13 @@ export default {
   },
 
   methods: {
+    async refresh() {
+      this.filter.contentTypeId = [1, 2, 3, 4];
+      this.filter.contentStatusId = [2];
+      this.search = null;
+
+      await this.getItems();
+    },
     getColorStatus(item) {
       // console.log("item", item);
       let data = "grey";

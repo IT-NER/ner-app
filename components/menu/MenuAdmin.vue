@@ -132,7 +132,7 @@ export default {
             },
             {
               name: "ของรางวัล",
-              icon: "mdi-ribbon",
+              icon: "mdi-trophy",
               link: "/reward",
             },
             {
@@ -148,7 +148,7 @@ export default {
           ],
         },
         {
-          name: "ลิ้งภายใน",
+          name: "Link",
           icon: "mdi-link",
           link: "/link",
         },

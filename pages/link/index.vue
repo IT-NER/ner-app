@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> ลิ้งภายใน </v-card-title>
+      <v-card-title> Link </v-card-title>
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -70,15 +70,30 @@ export default {
     return {
       headers: [
         { text: "ลำดับ", value: "no", align: "center", sortable: false },
-        { text: "ชื่อปุ่ม", value: "name", align: "start", sortable: false },
-        { text: "ลิ้งค์", value: "link", align: "start", sortable: false },
+        {
+          text: "ชื่อปุ่ม",
+          value: "name",
+          align: "start",
+          sortable: false,
+        },
+        {
+          text: "ลิ้งค์",
+          value: "link",
+          align: "start",
+          sortable: false,
+        },
         {
           text: "สถานะการใช้งาน",
           value: "status",
           align: "center",
           sortable: false,
         },
-        { text: "หมายเหตุ", value: "remark", align: "start", sortable: false },
+        {
+          text: "หมายเหตุ",
+          value: "remark",
+          align: "start",
+          sortable: false,
+        },
         { text: "แก้ไข", value: "edit", align: "center", sortable: false },
       ],
       items: [],

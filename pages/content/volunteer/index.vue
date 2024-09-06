@@ -4,10 +4,6 @@
       <v-card-title>
         {{ title }}
         <v-spacer></v-spacer>
-        <v-btn outlined color="primary" @click="refresh">
-          <v-icon> mdi-refresh </v-icon>
-          รีเฟรช
-        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <!-- CardFilterContent -->
@@ -228,7 +224,6 @@ export default {
         })
         .then((res) => {
           // console.log("res", res.data);
-
           this.$router.push("/content/volunteer/" + res.data.id);
         })
         .catch((err) => {

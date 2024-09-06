@@ -37,14 +37,18 @@
       </v-app-bar-nav-icon>
 
       <v-toolbar-title>
-        <span class="mr-2">
-          <v-avatar size="45">
-            <img src="/logo/NER_Logo_Final2.jpg" />
-          </v-avatar>
-        </span>
-        <span style="margin-top: 25px">
-          บริษัท นอร์ทอีส รับเบอร์ จำกัด (มหาชน)
-        </span>
+        <v-spacer></v-spacer>
+        <v-list-item two-line>
+          <img src="/logo/NER_Logo_Final2.jpg" width="70" class="mr-2" />
+          <v-list-item-content>
+            <v-list-item-title>
+              บริษัท นอร์ทอีส รับเบอร์ จำกัด (มหาชน)
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              North East Rubber (NER)
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>

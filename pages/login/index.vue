@@ -4,10 +4,17 @@
       <form @submit.prevent="login">
         <v-card>
           <v-card-title>
-            <v-avatar size="50" class="mr-2">
-              <img src="logo/NER_Logo_Final2.jpg" />
-            </v-avatar>
-            บริษัท นอร์ทอีส รับเบอร์ จำกัด (มหาชน)
+            <v-list-item two-line>
+              <img src="/logo/NER_Logo_Final2.jpg" width="70" class="mr-2" />
+              <v-list-item-content>
+                <v-list-item-title>
+                  บริษัท นอร์ทอีส รับเบอร์ จำกัด (มหาชน)
+                </v-list-item-title>
+                <v-list-item-subtitle>
+                  North East Rubber (NER)
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
           </v-card-title>
           <v-divider></v-divider>
           <login-form :user.sync="user"></login-form>

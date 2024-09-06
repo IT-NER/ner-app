@@ -918,8 +918,10 @@ async function createNews(item) {
 async function createVolunteer(item) {
   let ticket = await generateTicket(4);
   let code = await generateOTP();
-  let start = moment().format("YYYY-MM-DD 00:00");
-  let end = moment().add(1, "day").format("YYYY-MM-DD 00:00");
+
+  let date = new Date();
+  let start = moment(date).format("YYYY-MM-DD 00:00");
+  let end = moment(date).add(1, "day").format("YYYY-MM-DD 00:00");
 
   let data = await prisma.content.create({
     data: {

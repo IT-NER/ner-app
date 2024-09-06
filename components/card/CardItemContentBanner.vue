@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card flat>
-      <v-alert color="success" dark tile> แบนเนอร์ </v-alert>
+      <v-alert color="success" dark tile> ไฮไลท์ </v-alert>
 
       <v-card-actions v-if="items.length > 0">
         <v-container fluid>
