@@ -39,7 +39,7 @@
         >
           ไม่อนุมัติ
         </v-btn>
-        <v-btn
+        <!-- <v-btn
           color="info"
           outlined
           :disabled="selected.length == 0"
@@ -47,7 +47,7 @@
         >
           <v-icon>mdi-download</v-icon>
           ดาวน์โหลดไฟล์ PDF
-        </v-btn>
+        </v-btn> -->
         <v-spacer></v-spacer>
         <v-btn color="success" outlined @click="addItem">
           <v-icon>mdi-plus</v-icon>
@@ -355,15 +355,7 @@ export default {
   methods: {
     async generatePDF() {
       const docDefinition = {
-        content: [
-          { text: "รายงานการแลกของรางวัล", style: "header" },
-          "This is normal text",
-          { text: "Another paragraph", style: "subheader" },
-        ],
-        styles: {
-          header: { fontSize: 22, bold: true },
-          subheader: { fontSize: 16, bold: true },
-        },
+        content: { text: "รายงานการแลกของรางวัล" },
       };
 
       this.$pdfMake.createPdf(docDefinition).download("example.pdf");
