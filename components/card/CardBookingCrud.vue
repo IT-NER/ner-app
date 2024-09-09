@@ -1,12 +1,17 @@
 <template>
   <div>
     <v-card flat style="margin-bottom: 75px">
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn outlined color="success" @click="$emit('addItem')">
+          <v-icon>mdi-calendar-plus</v-icon>
+          จองห้องประชุม
+        </v-btn>
+      </v-card-actions>
+      <v-divider></v-divider>
       <v-card-title>
         รายการจองห้องประชุม
         <v-spacer></v-spacer>
-        <v-btn outlined color="success" @click="$emit('addItem')">
-          จองห้องประชุม
-        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text v-if="items">

@@ -5,6 +5,7 @@
         ค้นหา
         <v-spacer></v-spacer>
         <v-btn outlined color="primary" @click="$emit('refresh')">
+          <v-icon>mdi-refresh</v-icon>
           รีเฟรซ
         </v-btn>
       </v-card-title>
@@ -238,6 +239,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn outlined color="primary" @click="$emit('getItems')">
+          <v-icon>mdi-magnify</v-icon>
           ค้นหา
         </v-btn>
         <v-spacer></v-spacer>

@@ -1,74 +1,74 @@
 <template>
   <div>
     <v-card flat>
-      <v-card-title> แลกของรางวัล </v-card-title>
-      <v-divider></v-divider>
+      <div class="show-print">
+        <v-card-title> รายงานการแลกของรางวัล </v-card-title>
+      </div>
+      <div class="hidden-print">
+        <v-card-title> แลกของรางวัล </v-card-title>
+        <v-divider></v-divider>
 
-      <v-card-text>
-        <card-filter-redeem
-          :item.sync="filter"
-          :itemsPointPayStatus.sync="itemsPointPayStatus"
-          :itemsReward.sync="itemsReward"
-          :itemsUser.sync="itemsUser"
-        />
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" outlined @click="getItems">
-          <v-icon>mdi-magnify</v-icon>
-          ค้นหา
-        </v-btn>
-        <v-spacer></v-spacer>
-      </v-card-actions>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-btn
-          color="success"
-          outlined
-          :disabled="selected.length == 0"
-          @click="approve"
-        >
-          อนุมัติ
-        </v-btn>
-        <v-btn
-          color="error"
-          outlined
-          :disabled="selected.length == 0"
-          @click="notApprove"
-        >
-          ไม่อนุมัติ
-        </v-btn>
-        <!-- <v-btn
-          color="info"
-          outlined
-          :disabled="selected.length == 0"
-          @click="generatePDF"
-        >
-          <v-icon>mdi-download</v-icon>
-          ดาวน์โหลดไฟล์ PDF
-        </v-btn> -->
-        <v-spacer></v-spacer>
-        <v-btn color="success" outlined @click="addItem">
-          <v-icon>mdi-plus</v-icon>
-          เพิ่มรายการ
-        </v-btn>
-        <v-btn outlined color="primary" @click="refresh">
-          <v-icon>mdi-refresh</v-icon>
-          รีเฟรซ
-        </v-btn>
-      </v-card-actions>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-text-field
-          label="ค้นหา"
-          hide-details
-          v-model="search"
-          clearable
-        ></v-text-field>
-        <v-spacer></v-spacer>
-      </v-card-actions>
-      <v-divider></v-divider>
+        <v-card-text>
+          <card-filter-redeem
+            :item.sync="filter"
+            :itemsPointPayStatus.sync="itemsPointPayStatus"
+            :itemsReward.sync="itemsReward"
+            :itemsUser.sync="itemsUser"
+          />
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" outlined @click="getItems">
+            <v-icon>mdi-magnify</v-icon>
+            ค้นหา
+          </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-actions>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-btn
+            color="success"
+            outlined
+            :disabled="selected.length == 0"
+            @click="approve"
+          >
+            อนุมัติ
+          </v-btn>
+          <v-btn
+            color="error"
+            outlined
+            :disabled="selected.length == 0"
+            @click="notApprove"
+          >
+            ไม่อนุมัติ
+          </v-btn>
+          <v-btn color="info" outlined @click="print">
+            <v-icon>mdi-printer</v-icon>
+            พิมพ์
+          </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn color="success" outlined @click="addItem">
+            <v-icon>mdi-plus</v-icon>
+            เพิ่มรายการ
+          </v-btn>
+          <v-btn outlined color="primary" @click="refresh">
+            <v-icon>mdi-refresh</v-icon>
+            รีเฟรซ
+          </v-btn>
+        </v-card-actions>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-text-field
+            label="ค้นหา"
+            hide-details
+            v-model="search"
+            clearable
+          ></v-text-field>
+          <v-spacer></v-spacer>
+        </v-card-actions>
+        <v-divider></v-divider>
+      </div>
       <v-data-table
         :items-per-page="-1"
         :headers="headers"
@@ -353,12 +353,8 @@ export default {
   },
 
   methods: {
-    async generatePDF() {
-      const docDefinition = {
-        content: { text: "รายงานการแลกของรางวัล" },
-      };
-
-      this.$pdfMake.createPdf(docDefinition).download("example.pdf");
+    async print() {
+      window.print();
     },
 
     async viewReward(rewardId) {
@@ -630,4 +626,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+  .show-print {
+    display: block !important;
+  }
+}
+</style>

@@ -5,6 +5,7 @@
         ข้อมูลโปรไฟล์
         <v-spacer></v-spacer>
         <v-btn color="warning" outlined @click="editPassword">
+          <v-icon>mdi-pencil-lock</v-icon>
           แก้ไขรหัสผ่าน
         </v-btn>
       </v-card-title>

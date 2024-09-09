@@ -67,6 +67,7 @@
           </template>
           <template v-slot:item.view="{ item }">
             <v-btn outlined color="primary" @click="$emit('viewItem', item)">
+              <v-icon>mdi-eye</v-icon>
               รายละเอียด
             </v-btn>
           </template>

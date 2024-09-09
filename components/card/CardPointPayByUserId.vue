@@ -26,9 +26,11 @@
       <template v-slot:item.cancel="{ item }">
         <v-btn
           :disabled="item.pointPayStatusId > 1"
-          color="grey"
+          color="error"
+          outlined
           @click="$emit('cancel', item)"
         >
+          <v-icon>mdi-cancel</v-icon>
           ยกเลิก
         </v-btn>
       </template>
