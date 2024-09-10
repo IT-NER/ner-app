@@ -19,7 +19,7 @@
                   :key="i"
                   :src="`/uploads/content/${item.ContentCoverImg.name}`"
                   target="_blank"
-                  :href="`/${item.id}`"
+                  :href="`/intranet/${item.id}`"
                   width="100vw"
                   :aspect-ratio="16 / 9"
                 >

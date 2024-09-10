@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "VIGO",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 1
+  },
+  {
+    "id": 2,
+    "name": "HILUX REVO",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 1
+  },
+  {
+    "id": 3,
+    "name": "FORTUNER  ",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 1
+  },
+  {
+    "id": 4,
+    "name": "VENTURY",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 1
+  },
+  {
+    "id": 5,
+    "name": "STARIA",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 2
+  },
+  {
+    "id": 6,
+    "name": "FC4JHLA",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 3
+  },
+  {
+    "id": 7,
+    "name": "FM1AN1D-SHT",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 3
+  },
+  {
+    "id": 8,
+    "name": "FXZ 360",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 4
+  },
+  {
+    "id": 9,
+    "name": "GXZ 360",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00",
+    "carBrandId": 4
+  }
+]

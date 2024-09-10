@@ -20,7 +20,7 @@
               outlined
               color="success"
               target="_blank"
-              :href="`/${item.id}`"
+              :href="`/intranet/${item.id}`"
             >
               <v-icon>mdi-eye</v-icon>
               รายละเอียด

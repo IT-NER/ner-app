@@ -21,7 +21,7 @@
                 v-for="(item, i) in props.items"
                 :key="i"
               >
-                <v-card :href="`/${item.id}`" target="_blank" tile>
+                <v-card :href="`/intranet/${item.id}`" target="_blank" tile>
                   <v-card-actions>
                     <v-carousel
                       hide-delimiter-background

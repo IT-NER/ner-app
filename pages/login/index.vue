@@ -62,7 +62,7 @@ export default {
         // // // console.log("result", result);
         if (result) {
           await this.setStorageAndCookie(result);
-          await this.$router.push("/");
+          await this.$router.push("/intranet");
         }
       } catch (err) {
         // // console.log("errs", err);

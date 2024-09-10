@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "TOYOTA",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 2,
+    "name": " HYUNDAI",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 3,
+    "name": "HINO",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 4,
+    "name": "ISUZU",
+    "active": "1",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  }
+]

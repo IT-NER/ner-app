@@ -1,0 +1,3782 @@
+[
+  {
+    "bookingId": 4,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 5,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 5,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 6,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 6,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 6,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 10,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 10,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 11,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 14,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 14,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 14,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 14,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 15,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 15,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 15,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 16,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 16,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 17,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 18,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 18,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 19,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 19,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 20,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 20,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 21,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 21,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 22,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 22,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 23,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 23,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 24,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 24,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 24,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 24,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 25,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 25,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 26,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 26,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 28,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 28,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 30,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 30,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 31,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 31,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 31,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 31,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 32,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 32,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 33,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 33,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 34,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 34,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 35,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 35,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 36,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 36,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 37,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 37,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 38,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 38,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 39,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 41,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 41,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 41,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 41,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 42,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 43,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 44,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 45,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 45,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 45,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 46,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 47,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 47,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 48,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 48,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 51,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 51,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 51,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 52,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 52,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 53,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 55,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 55,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 56,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 56,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 58,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 58,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 58,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 58,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 59,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 60,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 60,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 60,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 60,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 61,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 61,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 61,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 61,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 63,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 63,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 66,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 66,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 67,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 69,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 69,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 73,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 73,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 74,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 74,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 74,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 74,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 75,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 76,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 76,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 77,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 77,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 77,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 77,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 79,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 79,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 79,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 79,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 82,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 83,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 84,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 84,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 84,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 84,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 85,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 85,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 85,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 85,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 86,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 86,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 86,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 86,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 87,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 87,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 87,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 87,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 88,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 88,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 88,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 88,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 89,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 89,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 89,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 91,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 91,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 92,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 92,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 93,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 93,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 95,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 95,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 97,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 97,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 97,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 97,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 98,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 98,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 98,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 99,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 99,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 103,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 103,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 103,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 103,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 104,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 104,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 104,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 104,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 105,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 105,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 107,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 107,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 107,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 107,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 108,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 110,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 110,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 110,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 110,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 114,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 114,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 114,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 116,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 116,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 116,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 116,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 117,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 117,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 117,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 117,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 119,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 119,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 119,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 119,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 122,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 123,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 123,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 123,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 124,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 124,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 124,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 125,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 125,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 125,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 125,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 126,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 126,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 126,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 126,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 127,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 127,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 128,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 132,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 132,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 132,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 133,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 133,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 133,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 133,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 134,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 134,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 134,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 134,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 135,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 135,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 135,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 135,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 136,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 137,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 137,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 137,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 137,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 138,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 138,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 138,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 138,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 139,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 139,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 139,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 139,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 140,
+    "deviceId": 1,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 140,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 140,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 140,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 141,
+    "deviceId": 2,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 141,
+    "deviceId": 3,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 141,
+    "deviceId": 4,
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "bookingId": 142,
+    "deviceId": 4,
+    "createdAt": "27/7/2024 06:40:27.83",
+    "updatedAt": "27/7/2024 06:40:27.83"
+  },
+  {
+    "bookingId": 143,
+    "deviceId": 2,
+    "createdAt": "27/7/2024 09:42:26.586",
+    "updatedAt": "27/7/2024 09:42:26.586"
+  },
+  {
+    "bookingId": 143,
+    "deviceId": 4,
+    "createdAt": "27/7/2024 09:42:26.586",
+    "updatedAt": "27/7/2024 09:42:26.586"
+  },
+  {
+    "bookingId": 144,
+    "deviceId": 4,
+    "createdAt": "30/7/2024 07:01:39.153",
+    "updatedAt": "30/7/2024 07:01:39.153"
+  },
+  {
+    "bookingId": 145,
+    "deviceId": 1,
+    "createdAt": "30/7/2024 08:07:24.311",
+    "updatedAt": "30/7/2024 08:07:24.311"
+  },
+  {
+    "bookingId": 145,
+    "deviceId": 2,
+    "createdAt": "30/7/2024 08:07:24.311",
+    "updatedAt": "30/7/2024 08:07:24.311"
+  },
+  {
+    "bookingId": 145,
+    "deviceId": 3,
+    "createdAt": "30/7/2024 08:07:24.311",
+    "updatedAt": "30/7/2024 08:07:24.311"
+  },
+  {
+    "bookingId": 145,
+    "deviceId": 4,
+    "createdAt": "30/7/2024 08:07:24.311",
+    "updatedAt": "30/7/2024 08:07:24.311"
+  },
+  {
+    "bookingId": 146,
+    "deviceId": 3,
+    "createdAt": "30/7/2024 03:54:35.704",
+    "updatedAt": "30/7/2024 03:54:35.704"
+  },
+  {
+    "bookingId": 148,
+    "deviceId": 2,
+    "createdAt": "30/7/2024 08:29:42.857",
+    "updatedAt": "30/7/2024 08:29:42.857"
+  },
+  {
+    "bookingId": 148,
+    "deviceId": 4,
+    "createdAt": "30/7/2024 08:29:42.857",
+    "updatedAt": "30/7/2024 08:29:42.857"
+  },
+  {
+    "bookingId": 149,
+    "deviceId": 2,
+    "createdAt": "30/7/2024 08:31:47.775",
+    "updatedAt": "30/7/2024 08:31:47.775"
+  },
+  {
+    "bookingId": 149,
+    "deviceId": 4,
+    "createdAt": "30/7/2024 08:31:47.775",
+    "updatedAt": "30/7/2024 08:31:47.775"
+  },
+  {
+    "bookingId": 150,
+    "deviceId": 2,
+    "createdAt": "30/7/2024 09:42:56.135",
+    "updatedAt": "30/7/2024 09:42:56.135"
+  },
+  {
+    "bookingId": 150,
+    "deviceId": 3,
+    "createdAt": "30/7/2024 09:42:56.135",
+    "updatedAt": "30/7/2024 09:42:56.135"
+  },
+  {
+    "bookingId": 150,
+    "deviceId": 4,
+    "createdAt": "30/7/2024 09:42:56.135",
+    "updatedAt": "30/7/2024 09:42:56.135"
+  },
+  {
+    "bookingId": 151,
+    "deviceId": 2,
+    "createdAt": "31/7/2024 01:16:12.696",
+    "updatedAt": "31/7/2024 01:16:12.696"
+  },
+  {
+    "bookingId": 151,
+    "deviceId": 3,
+    "createdAt": "31/7/2024 01:16:12.696",
+    "updatedAt": "31/7/2024 01:16:12.696"
+  },
+  {
+    "bookingId": 151,
+    "deviceId": 4,
+    "createdAt": "31/7/2024 01:16:12.696",
+    "updatedAt": "31/7/2024 01:16:12.696"
+  },
+  {
+    "bookingId": 152,
+    "deviceId": 1,
+    "createdAt": "31/7/2024 01:22:46.028",
+    "updatedAt": "31/7/2024 01:22:46.028"
+  },
+  {
+    "bookingId": 152,
+    "deviceId": 2,
+    "createdAt": "31/7/2024 01:22:46.028",
+    "updatedAt": "31/7/2024 01:22:46.028"
+  },
+  {
+    "bookingId": 152,
+    "deviceId": 3,
+    "createdAt": "31/7/2024 01:22:46.028",
+    "updatedAt": "31/7/2024 01:22:46.028"
+  },
+  {
+    "bookingId": 152,
+    "deviceId": 4,
+    "createdAt": "31/7/2024 01:22:46.028",
+    "updatedAt": "31/7/2024 01:22:46.028"
+  },
+  {
+    "bookingId": 153,
+    "deviceId": 2,
+    "createdAt": "31/7/2024 03:19:36.601",
+    "updatedAt": "31/7/2024 03:19:36.601"
+  },
+  {
+    "bookingId": 153,
+    "deviceId": 3,
+    "createdAt": "31/7/2024 03:19:36.601",
+    "updatedAt": "31/7/2024 03:19:36.601"
+  },
+  {
+    "bookingId": 153,
+    "deviceId": 4,
+    "createdAt": "31/7/2024 03:19:36.601",
+    "updatedAt": "31/7/2024 03:19:36.601"
+  },
+  {
+    "bookingId": 157,
+    "deviceId": 1,
+    "createdAt": "2/8/2024 07:13:53.122",
+    "updatedAt": "2/8/2024 07:13:53.122"
+  },
+  {
+    "bookingId": 157,
+    "deviceId": 2,
+    "createdAt": "2/8/2024 07:13:53.122",
+    "updatedAt": "2/8/2024 07:13:53.122"
+  },
+  {
+    "bookingId": 157,
+    "deviceId": 4,
+    "createdAt": "2/8/2024 07:13:53.122",
+    "updatedAt": "2/8/2024 07:13:53.122"
+  },
+  {
+    "bookingId": 160,
+    "deviceId": 2,
+    "createdAt": "2/8/2024 01:24:53.573",
+    "updatedAt": "2/8/2024 01:24:53.573"
+  },
+  {
+    "bookingId": 160,
+    "deviceId": 4,
+    "createdAt": "2/8/2024 01:24:53.573",
+    "updatedAt": "2/8/2024 01:24:53.573"
+  },
+  {
+    "bookingId": 161,
+    "deviceId": 2,
+    "createdAt": "2/8/2024 01:58:39.333",
+    "updatedAt": "2/8/2024 01:58:39.333"
+  },
+  {
+    "bookingId": 161,
+    "deviceId": 3,
+    "createdAt": "2/8/2024 01:58:39.333",
+    "updatedAt": "2/8/2024 01:58:39.333"
+  },
+  {
+    "bookingId": 162,
+    "deviceId": 1,
+    "createdAt": "3/8/2024 03:20:10.433",
+    "updatedAt": "3/8/2024 03:20:10.433"
+  },
+  {
+    "bookingId": 162,
+    "deviceId": 2,
+    "createdAt": "3/8/2024 03:20:10.433",
+    "updatedAt": "3/8/2024 03:20:10.433"
+  },
+  {
+    "bookingId": 162,
+    "deviceId": 3,
+    "createdAt": "3/8/2024 03:20:10.433",
+    "updatedAt": "3/8/2024 03:20:10.433"
+  },
+  {
+    "bookingId": 162,
+    "deviceId": 4,
+    "createdAt": "3/8/2024 03:20:10.433",
+    "updatedAt": "3/8/2024 03:20:10.433"
+  },
+  {
+    "bookingId": 163,
+    "deviceId": 1,
+    "createdAt": "3/8/2024 01:22:28.647",
+    "updatedAt": "3/8/2024 01:22:28.647"
+  },
+  {
+    "bookingId": 163,
+    "deviceId": 2,
+    "createdAt": "3/8/2024 01:22:28.647",
+    "updatedAt": "3/8/2024 01:22:28.647"
+  },
+  {
+    "bookingId": 163,
+    "deviceId": 3,
+    "createdAt": "3/8/2024 01:22:28.647",
+    "updatedAt": "3/8/2024 01:22:28.647"
+  },
+  {
+    "bookingId": 163,
+    "deviceId": 4,
+    "createdAt": "3/8/2024 01:22:28.647",
+    "updatedAt": "3/8/2024 01:22:28.647"
+  },
+  {
+    "bookingId": 164,
+    "deviceId": 2,
+    "createdAt": "3/8/2024 01:53:11.931",
+    "updatedAt": "3/8/2024 01:53:11.931"
+  },
+  {
+    "bookingId": 164,
+    "deviceId": 4,
+    "createdAt": "3/8/2024 01:53:11.931",
+    "updatedAt": "3/8/2024 01:53:11.931"
+  },
+  {
+    "bookingId": 171,
+    "deviceId": 1,
+    "createdAt": "3/8/2024 02:28:35.301",
+    "updatedAt": "3/8/2024 02:28:35.301"
+  },
+  {
+    "bookingId": 171,
+    "deviceId": 2,
+    "createdAt": "3/8/2024 02:28:35.301",
+    "updatedAt": "3/8/2024 02:28:35.301"
+  },
+  {
+    "bookingId": 171,
+    "deviceId": 3,
+    "createdAt": "3/8/2024 02:28:35.301",
+    "updatedAt": "3/8/2024 02:28:35.301"
+  },
+  {
+    "bookingId": 171,
+    "deviceId": 4,
+    "createdAt": "3/8/2024 02:28:35.301",
+    "updatedAt": "3/8/2024 02:28:35.301"
+  },
+  {
+    "bookingId": 179,
+    "deviceId": 1,
+    "createdAt": "3/8/2024 03:29:31.737",
+    "updatedAt": "3/8/2024 03:29:31.737"
+  },
+  {
+    "bookingId": 179,
+    "deviceId": 2,
+    "createdAt": "3/8/2024 03:29:31.737",
+    "updatedAt": "3/8/2024 03:29:31.737"
+  },
+  {
+    "bookingId": 179,
+    "deviceId": 3,
+    "createdAt": "3/8/2024 03:29:31.737",
+    "updatedAt": "3/8/2024 03:29:31.737"
+  },
+  {
+    "bookingId": 179,
+    "deviceId": 4,
+    "createdAt": "3/8/2024 03:29:31.737",
+    "updatedAt": "3/8/2024 03:29:31.737"
+  },
+  {
+    "bookingId": 182,
+    "deviceId": 1,
+    "createdAt": "5/8/2024 03:33:50.204",
+    "updatedAt": "5/8/2024 03:33:50.204"
+  },
+  {
+    "bookingId": 182,
+    "deviceId": 2,
+    "createdAt": "5/8/2024 03:33:50.204",
+    "updatedAt": "5/8/2024 03:33:50.204"
+  },
+  {
+    "bookingId": 182,
+    "deviceId": 3,
+    "createdAt": "5/8/2024 03:33:50.204",
+    "updatedAt": "5/8/2024 03:33:50.204"
+  },
+  {
+    "bookingId": 182,
+    "deviceId": 4,
+    "createdAt": "5/8/2024 03:33:50.204",
+    "updatedAt": "5/8/2024 03:33:50.204"
+  },
+  {
+    "bookingId": 183,
+    "deviceId": 1,
+    "createdAt": "5/8/2024 06:48:09.353",
+    "updatedAt": "5/8/2024 06:48:09.353"
+  },
+  {
+    "bookingId": 183,
+    "deviceId": 2,
+    "createdAt": "5/8/2024 06:48:09.353",
+    "updatedAt": "5/8/2024 06:48:09.353"
+  },
+  {
+    "bookingId": 183,
+    "deviceId": 3,
+    "createdAt": "5/8/2024 06:48:09.353",
+    "updatedAt": "5/8/2024 06:48:09.353"
+  },
+  {
+    "bookingId": 183,
+    "deviceId": 4,
+    "createdAt": "5/8/2024 06:48:09.353",
+    "updatedAt": "5/8/2024 06:48:09.353"
+  },
+  {
+    "bookingId": 184,
+    "deviceId": 1,
+    "createdAt": "5/8/2024 07:42:51.037",
+    "updatedAt": "5/8/2024 07:42:51.037"
+  },
+  {
+    "bookingId": 184,
+    "deviceId": 2,
+    "createdAt": "5/8/2024 07:42:51.037",
+    "updatedAt": "5/8/2024 07:42:51.037"
+  },
+  {
+    "bookingId": 184,
+    "deviceId": 3,
+    "createdAt": "5/8/2024 07:42:51.037",
+    "updatedAt": "5/8/2024 07:42:51.037"
+  },
+  {
+    "bookingId": 184,
+    "deviceId": 4,
+    "createdAt": "5/8/2024 07:42:51.037",
+    "updatedAt": "5/8/2024 07:42:51.037"
+  },
+  {
+    "bookingId": 186,
+    "deviceId": 2,
+    "createdAt": "5/8/2024 08:23:19.635",
+    "updatedAt": "5/8/2024 08:23:19.635"
+  },
+  {
+    "bookingId": 186,
+    "deviceId": 4,
+    "createdAt": "5/8/2024 08:23:19.635",
+    "updatedAt": "5/8/2024 08:23:19.635"
+  },
+  {
+    "bookingId": 187,
+    "deviceId": 2,
+    "createdAt": "5/8/2024 09:29:02.704",
+    "updatedAt": "5/8/2024 09:29:02.704"
+  },
+  {
+    "bookingId": 187,
+    "deviceId": 3,
+    "createdAt": "5/8/2024 09:29:02.704",
+    "updatedAt": "5/8/2024 09:29:02.704"
+  },
+  {
+    "bookingId": 189,
+    "deviceId": 2,
+    "createdAt": "6/8/2024 01:32:44.238",
+    "updatedAt": "6/8/2024 01:32:44.238"
+  },
+  {
+    "bookingId": 192,
+    "deviceId": 2,
+    "createdAt": "6/8/2024 08:19:26.45",
+    "updatedAt": "6/8/2024 08:19:26.45"
+  },
+  {
+    "bookingId": 192,
+    "deviceId": 4,
+    "createdAt": "6/8/2024 08:19:26.45",
+    "updatedAt": "6/8/2024 08:19:26.45"
+  },
+  {
+    "bookingId": 193,
+    "deviceId": 1,
+    "createdAt": "6/8/2024 09:38:09.204",
+    "updatedAt": "6/8/2024 09:38:09.204"
+  },
+  {
+    "bookingId": 193,
+    "deviceId": 2,
+    "createdAt": "6/8/2024 09:38:09.204",
+    "updatedAt": "6/8/2024 09:38:09.204"
+  },
+  {
+    "bookingId": 193,
+    "deviceId": 3,
+    "createdAt": "6/8/2024 09:38:09.204",
+    "updatedAt": "6/8/2024 09:38:09.204"
+  },
+  {
+    "bookingId": 194,
+    "deviceId": 2,
+    "createdAt": "7/8/2024 02:59:05.025",
+    "updatedAt": "7/8/2024 02:59:05.025"
+  },
+  {
+    "bookingId": 194,
+    "deviceId": 3,
+    "createdAt": "7/8/2024 02:59:05.025",
+    "updatedAt": "7/8/2024 02:59:05.025"
+  },
+  {
+    "bookingId": 196,
+    "deviceId": 1,
+    "createdAt": "7/8/2024 02:44:40.733",
+    "updatedAt": "7/8/2024 02:44:40.733"
+  },
+  {
+    "bookingId": 196,
+    "deviceId": 2,
+    "createdAt": "7/8/2024 02:44:40.733",
+    "updatedAt": "7/8/2024 02:44:40.733"
+  },
+  {
+    "bookingId": 196,
+    "deviceId": 3,
+    "createdAt": "7/8/2024 02:44:40.733",
+    "updatedAt": "7/8/2024 02:44:40.733"
+  },
+  {
+    "bookingId": 196,
+    "deviceId": 4,
+    "createdAt": "7/8/2024 02:44:40.733",
+    "updatedAt": "7/8/2024 02:44:40.733"
+  },
+  {
+    "bookingId": 197,
+    "deviceId": 1,
+    "createdAt": "8/8/2024 01:42:49.376",
+    "updatedAt": "8/8/2024 01:42:49.376"
+  },
+  {
+    "bookingId": 197,
+    "deviceId": 2,
+    "createdAt": "8/8/2024 01:42:49.376",
+    "updatedAt": "8/8/2024 01:42:49.376"
+  },
+  {
+    "bookingId": 197,
+    "deviceId": 3,
+    "createdAt": "8/8/2024 01:42:49.376",
+    "updatedAt": "8/8/2024 01:42:49.376"
+  },
+  {
+    "bookingId": 197,
+    "deviceId": 4,
+    "createdAt": "8/8/2024 01:42:49.376",
+    "updatedAt": "8/8/2024 01:42:49.376"
+  },
+  {
+    "bookingId": 198,
+    "deviceId": 1,
+    "createdAt": "8/8/2024 02:15:36.515",
+    "updatedAt": "8/8/2024 02:15:36.515"
+  },
+  {
+    "bookingId": 198,
+    "deviceId": 2,
+    "createdAt": "8/8/2024 02:15:36.515",
+    "updatedAt": "8/8/2024 02:15:36.515"
+  },
+  {
+    "bookingId": 198,
+    "deviceId": 3,
+    "createdAt": "8/8/2024 02:15:36.515",
+    "updatedAt": "8/8/2024 02:15:36.515"
+  },
+  {
+    "bookingId": 199,
+    "deviceId": 2,
+    "createdAt": "8/8/2024 02:33:26.318",
+    "updatedAt": "8/8/2024 02:33:26.318"
+  },
+  {
+    "bookingId": 199,
+    "deviceId": 4,
+    "createdAt": "8/8/2024 02:33:26.318",
+    "updatedAt": "8/8/2024 02:33:26.318"
+  },
+  {
+    "bookingId": 200,
+    "deviceId": 4,
+    "createdAt": "8/8/2024 03:08:04.19",
+    "updatedAt": "8/8/2024 03:08:04.19"
+  },
+  {
+    "bookingId": 201,
+    "deviceId": 4,
+    "createdAt": "8/8/2024 08:41:33.232",
+    "updatedAt": "8/8/2024 08:41:33.232"
+  },
+  {
+    "bookingId": 1201,
+    "deviceId": 1,
+    "createdAt": "9/8/2024 01:57:49.63",
+    "updatedAt": "9/8/2024 01:57:49.63"
+  },
+  {
+    "bookingId": 1201,
+    "deviceId": 2,
+    "createdAt": "9/8/2024 01:57:49.63",
+    "updatedAt": "9/8/2024 01:57:49.63"
+  },
+  {
+    "bookingId": 1201,
+    "deviceId": 3,
+    "createdAt": "9/8/2024 01:57:49.63",
+    "updatedAt": "9/8/2024 01:57:49.63"
+  },
+  {
+    "bookingId": 1201,
+    "deviceId": 4,
+    "createdAt": "9/8/2024 01:57:49.63",
+    "updatedAt": "9/8/2024 01:57:49.63"
+  },
+  {
+    "bookingId": 1202,
+    "deviceId": 2,
+    "createdAt": "9/8/2024 02:01:58.022",
+    "updatedAt": "9/8/2024 02:01:58.022"
+  },
+  {
+    "bookingId": 1202,
+    "deviceId": 3,
+    "createdAt": "9/8/2024 02:01:58.022",
+    "updatedAt": "9/8/2024 02:01:58.022"
+  },
+  {
+    "bookingId": 1202,
+    "deviceId": 4,
+    "createdAt": "9/8/2024 02:01:58.022",
+    "updatedAt": "9/8/2024 02:01:58.022"
+  },
+  {
+    "bookingId": 1203,
+    "deviceId": 2,
+    "createdAt": "9/8/2024 02:24:50.36",
+    "updatedAt": "9/8/2024 02:24:50.36"
+  },
+  {
+    "bookingId": 1203,
+    "deviceId": 3,
+    "createdAt": "9/8/2024 02:24:50.36",
+    "updatedAt": "9/8/2024 02:24:50.36"
+  },
+  {
+    "bookingId": 1205,
+    "deviceId": 2,
+    "createdAt": "9/8/2024 06:30:13.222",
+    "updatedAt": "9/8/2024 06:30:13.222"
+  },
+  {
+    "bookingId": 1205,
+    "deviceId": 4,
+    "createdAt": "9/8/2024 06:30:13.222",
+    "updatedAt": "9/8/2024 06:30:13.222"
+  },
+  {
+    "bookingId": 1206,
+    "deviceId": 2,
+    "createdAt": "9/8/2024 07:29:19.868",
+    "updatedAt": "9/8/2024 07:29:19.868"
+  },
+  {
+    "bookingId": 1206,
+    "deviceId": 4,
+    "createdAt": "9/8/2024 07:29:19.868",
+    "updatedAt": "9/8/2024 07:29:19.868"
+  },
+  {
+    "bookingId": 1207,
+    "deviceId": 2,
+    "createdAt": "10/8/2024 04:13:10.917",
+    "updatedAt": "10/8/2024 04:13:10.917"
+  },
+  {
+    "bookingId": 1207,
+    "deviceId": 4,
+    "createdAt": "10/8/2024 04:13:10.917",
+    "updatedAt": "10/8/2024 04:13:10.917"
+  },
+  {
+    "bookingId": 1208,
+    "deviceId": 2,
+    "createdAt": "10/8/2024 10:09:08.302",
+    "updatedAt": "10/8/2024 10:09:08.302"
+  },
+  {
+    "bookingId": 1208,
+    "deviceId": 3,
+    "createdAt": "10/8/2024 10:09:08.302",
+    "updatedAt": "10/8/2024 10:09:08.302"
+  },
+  {
+    "bookingId": 1209,
+    "deviceId": 2,
+    "createdAt": "31/8/2024 01:18:16.59",
+    "updatedAt": "31/8/2024 01:18:16.59"
+  },
+  {
+    "bookingId": 1209,
+    "deviceId": 4,
+    "createdAt": "31/8/2024 01:18:16.59",
+    "updatedAt": "31/8/2024 01:18:16.59"
+  },
+  {
+    "bookingId": 1210,
+    "deviceId": 1,
+    "createdAt": "13/8/2024 03:07:14.02",
+    "updatedAt": "13/8/2024 03:07:14.02"
+  },
+  {
+    "bookingId": 1210,
+    "deviceId": 2,
+    "createdAt": "13/8/2024 03:07:14.02",
+    "updatedAt": "13/8/2024 03:07:14.02"
+  },
+  {
+    "bookingId": 1210,
+    "deviceId": 3,
+    "createdAt": "13/8/2024 03:07:14.02",
+    "updatedAt": "13/8/2024 03:07:14.02"
+  },
+  {
+    "bookingId": 1210,
+    "deviceId": 4,
+    "createdAt": "13/8/2024 03:07:14.02",
+    "updatedAt": "13/8/2024 03:07:14.02"
+  },
+  {
+    "bookingId": 1211,
+    "deviceId": 1,
+    "createdAt": "13/8/2024 06:55:03.252",
+    "updatedAt": "13/8/2024 06:55:03.252"
+  },
+  {
+    "bookingId": 1211,
+    "deviceId": 2,
+    "createdAt": "13/8/2024 06:55:03.252",
+    "updatedAt": "13/8/2024 06:55:03.252"
+  },
+  {
+    "bookingId": 1211,
+    "deviceId": 3,
+    "createdAt": "13/8/2024 06:55:03.252",
+    "updatedAt": "13/8/2024 06:55:03.252"
+  },
+  {
+    "bookingId": 1212,
+    "deviceId": 1,
+    "createdAt": "13/8/2024 08:51:14.024",
+    "updatedAt": "13/8/2024 08:51:14.024"
+  },
+  {
+    "bookingId": 1212,
+    "deviceId": 2,
+    "createdAt": "13/8/2024 08:51:14.024",
+    "updatedAt": "13/8/2024 08:51:14.024"
+  },
+  {
+    "bookingId": 1212,
+    "deviceId": 3,
+    "createdAt": "13/8/2024 08:51:14.024",
+    "updatedAt": "13/8/2024 08:51:14.024"
+  },
+  {
+    "bookingId": 1212,
+    "deviceId": 4,
+    "createdAt": "13/8/2024 08:51:14.024",
+    "updatedAt": "13/8/2024 08:51:14.024"
+  },
+  {
+    "bookingId": 1214,
+    "deviceId": 2,
+    "createdAt": "13/8/2024 09:44:37.209",
+    "updatedAt": "13/8/2024 09:44:37.209"
+  },
+  {
+    "bookingId": 1215,
+    "deviceId": 1,
+    "createdAt": "14/8/2024 02:30:55.725",
+    "updatedAt": "14/8/2024 02:30:55.725"
+  },
+  {
+    "bookingId": 1215,
+    "deviceId": 2,
+    "createdAt": "14/8/2024 02:30:55.725",
+    "updatedAt": "14/8/2024 02:30:55.725"
+  },
+  {
+    "bookingId": 1215,
+    "deviceId": 3,
+    "createdAt": "14/8/2024 02:30:55.725",
+    "updatedAt": "14/8/2024 02:30:55.725"
+  },
+  {
+    "bookingId": 1215,
+    "deviceId": 4,
+    "createdAt": "14/8/2024 02:30:55.725",
+    "updatedAt": "14/8/2024 02:30:55.725"
+  },
+  {
+    "bookingId": 1216,
+    "deviceId": 1,
+    "createdAt": "14/8/2024 03:44:37.728",
+    "updatedAt": "14/8/2024 03:44:37.728"
+  },
+  {
+    "bookingId": 1216,
+    "deviceId": 2,
+    "createdAt": "14/8/2024 03:44:37.728",
+    "updatedAt": "14/8/2024 03:44:37.728"
+  },
+  {
+    "bookingId": 1216,
+    "deviceId": 3,
+    "createdAt": "14/8/2024 03:44:37.728",
+    "updatedAt": "14/8/2024 03:44:37.728"
+  },
+  {
+    "bookingId": 1216,
+    "deviceId": 4,
+    "createdAt": "14/8/2024 03:44:37.728",
+    "updatedAt": "14/8/2024 03:44:37.728"
+  },
+  {
+    "bookingId": 1220,
+    "deviceId": 2,
+    "createdAt": "15/8/2024 01:28:36.749",
+    "updatedAt": "15/8/2024 01:28:36.749"
+  },
+  {
+    "bookingId": 1220,
+    "deviceId": 3,
+    "createdAt": "15/8/2024 01:28:36.749",
+    "updatedAt": "15/8/2024 01:28:36.749"
+  },
+  {
+    "bookingId": 1224,
+    "deviceId": 2,
+    "createdAt": "15/8/2024 10:23:46.717",
+    "updatedAt": "15/8/2024 10:23:46.717"
+  },
+  {
+    "bookingId": 1224,
+    "deviceId": 4,
+    "createdAt": "15/8/2024 10:23:46.717",
+    "updatedAt": "15/8/2024 10:23:46.717"
+  },
+  {
+    "bookingId": 1225,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 01:19:00.953",
+    "updatedAt": "16/8/2024 01:19:00.953"
+  },
+  {
+    "bookingId": 1225,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 01:19:00.953",
+    "updatedAt": "16/8/2024 01:19:00.953"
+  },
+  {
+    "bookingId": 1226,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 02:17:41.732",
+    "updatedAt": "16/8/2024 02:17:41.732"
+  },
+  {
+    "bookingId": 1226,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 02:17:41.732",
+    "updatedAt": "16/8/2024 02:17:41.732"
+  },
+  {
+    "bookingId": 1226,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 02:17:41.732",
+    "updatedAt": "16/8/2024 02:17:41.732"
+  },
+  {
+    "bookingId": 1227,
+    "deviceId": 1,
+    "createdAt": "16/8/2024 02:28:58.903",
+    "updatedAt": "16/8/2024 02:28:58.903"
+  },
+  {
+    "bookingId": 1227,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 02:28:58.903",
+    "updatedAt": "16/8/2024 02:28:58.903"
+  },
+  {
+    "bookingId": 1227,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 02:28:58.903",
+    "updatedAt": "16/8/2024 02:28:58.903"
+  },
+  {
+    "bookingId": 1227,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 02:28:58.903",
+    "updatedAt": "16/8/2024 02:28:58.903"
+  },
+  {
+    "bookingId": 1228,
+    "deviceId": 1,
+    "createdAt": "16/8/2024 02:31:06.364",
+    "updatedAt": "16/8/2024 02:31:06.364"
+  },
+  {
+    "bookingId": 1228,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 02:31:06.364",
+    "updatedAt": "16/8/2024 02:31:06.364"
+  },
+  {
+    "bookingId": 1228,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 02:31:06.364",
+    "updatedAt": "16/8/2024 02:31:06.364"
+  },
+  {
+    "bookingId": 1228,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 02:31:06.364",
+    "updatedAt": "16/8/2024 02:31:06.364"
+  },
+  {
+    "bookingId": 1229,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 04:36:16.188",
+    "updatedAt": "16/8/2024 04:36:16.188"
+  },
+  {
+    "bookingId": 1229,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 04:36:16.188",
+    "updatedAt": "16/8/2024 04:36:16.188"
+  },
+  {
+    "bookingId": 1230,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 10:03:50.826",
+    "updatedAt": "16/8/2024 10:03:50.826"
+  },
+  {
+    "bookingId": 1230,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 10:03:50.826",
+    "updatedAt": "16/8/2024 10:03:50.826"
+  },
+  {
+    "bookingId": 1231,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 06:43:08.245",
+    "updatedAt": "16/8/2024 06:43:08.245"
+  },
+  {
+    "bookingId": 1231,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 06:43:08.245",
+    "updatedAt": "16/8/2024 06:43:08.245"
+  },
+  {
+    "bookingId": 1231,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 06:43:08.245",
+    "updatedAt": "16/8/2024 06:43:08.245"
+  },
+  {
+    "bookingId": 1232,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 08:28:47.189",
+    "updatedAt": "16/8/2024 08:28:47.189"
+  },
+  {
+    "bookingId": 1232,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 08:28:47.189",
+    "updatedAt": "16/8/2024 08:28:47.189"
+  },
+  {
+    "bookingId": 1233,
+    "deviceId": 1,
+    "createdAt": "19/8/2024 06:15:53.676",
+    "updatedAt": "19/8/2024 06:15:53.676"
+  },
+  {
+    "bookingId": 1233,
+    "deviceId": 2,
+    "createdAt": "19/8/2024 06:15:53.676",
+    "updatedAt": "19/8/2024 06:15:53.676"
+  },
+  {
+    "bookingId": 1233,
+    "deviceId": 3,
+    "createdAt": "19/8/2024 06:15:53.676",
+    "updatedAt": "19/8/2024 06:15:53.676"
+  },
+  {
+    "bookingId": 1233,
+    "deviceId": 4,
+    "createdAt": "19/8/2024 06:15:53.676",
+    "updatedAt": "19/8/2024 06:15:53.676"
+  },
+  {
+    "bookingId": 1234,
+    "deviceId": 1,
+    "createdAt": "16/8/2024 09:32:43.714",
+    "updatedAt": "16/8/2024 09:32:43.714"
+  },
+  {
+    "bookingId": 1234,
+    "deviceId": 2,
+    "createdAt": "16/8/2024 09:32:43.714",
+    "updatedAt": "16/8/2024 09:32:43.714"
+  },
+  {
+    "bookingId": 1234,
+    "deviceId": 3,
+    "createdAt": "16/8/2024 09:32:43.714",
+    "updatedAt": "16/8/2024 09:32:43.714"
+  },
+  {
+    "bookingId": 1234,
+    "deviceId": 4,
+    "createdAt": "16/8/2024 09:32:43.714",
+    "updatedAt": "16/8/2024 09:32:43.714"
+  },
+  {
+    "bookingId": 1235,
+    "deviceId": 2,
+    "createdAt": "19/8/2024 06:26:37.67",
+    "updatedAt": "19/8/2024 06:26:37.67"
+  },
+  {
+    "bookingId": 1235,
+    "deviceId": 4,
+    "createdAt": "19/8/2024 06:26:37.67",
+    "updatedAt": "19/8/2024 06:26:37.67"
+  },
+  {
+    "bookingId": 1236,
+    "deviceId": 2,
+    "createdAt": "17/8/2024 04:21:48.816",
+    "updatedAt": "17/8/2024 04:21:48.816"
+  },
+  {
+    "bookingId": 1236,
+    "deviceId": 3,
+    "createdAt": "17/8/2024 04:21:48.816",
+    "updatedAt": "17/8/2024 04:21:48.816"
+  },
+  {
+    "bookingId": 1238,
+    "deviceId": 4,
+    "createdAt": "19/8/2024 01:10:30.439",
+    "updatedAt": "19/8/2024 01:10:30.439"
+  },
+  {
+    "bookingId": 1241,
+    "deviceId": 2,
+    "createdAt": "19/8/2024 10:26:51.241",
+    "updatedAt": "19/8/2024 10:26:51.241"
+  },
+  {
+    "bookingId": 1241,
+    "deviceId": 3,
+    "createdAt": "19/8/2024 10:26:51.241",
+    "updatedAt": "19/8/2024 10:26:51.241"
+  },
+  {
+    "bookingId": 1243,
+    "deviceId": 1,
+    "createdAt": "20/8/2024 01:32:09.972",
+    "updatedAt": "20/8/2024 01:32:09.972"
+  },
+  {
+    "bookingId": 1243,
+    "deviceId": 2,
+    "createdAt": "20/8/2024 01:32:09.972",
+    "updatedAt": "20/8/2024 01:32:09.972"
+  },
+  {
+    "bookingId": 1243,
+    "deviceId": 3,
+    "createdAt": "20/8/2024 01:32:09.972",
+    "updatedAt": "20/8/2024 01:32:09.972"
+  },
+  {
+    "bookingId": 1244,
+    "deviceId": 3,
+    "createdAt": "20/8/2024 08:26:59.256",
+    "updatedAt": "20/8/2024 08:26:59.256"
+  },
+  {
+    "bookingId": 1246,
+    "deviceId": 1,
+    "createdAt": "21/8/2024 01:27:50.044",
+    "updatedAt": "21/8/2024 01:27:50.044"
+  },
+  {
+    "bookingId": 1246,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 01:27:50.044",
+    "updatedAt": "21/8/2024 01:27:50.044"
+  },
+  {
+    "bookingId": 1246,
+    "deviceId": 3,
+    "createdAt": "21/8/2024 01:27:50.044",
+    "updatedAt": "21/8/2024 01:27:50.044"
+  },
+  {
+    "bookingId": 1246,
+    "deviceId": 4,
+    "createdAt": "21/8/2024 01:27:50.044",
+    "updatedAt": "21/8/2024 01:27:50.044"
+  },
+  {
+    "bookingId": 1247,
+    "deviceId": 1,
+    "createdAt": "21/8/2024 01:54:55.599",
+    "updatedAt": "21/8/2024 01:54:55.599"
+  },
+  {
+    "bookingId": 1247,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 01:54:55.599",
+    "updatedAt": "21/8/2024 01:54:55.599"
+  },
+  {
+    "bookingId": 1247,
+    "deviceId": 3,
+    "createdAt": "21/8/2024 01:54:55.599",
+    "updatedAt": "21/8/2024 01:54:55.599"
+  },
+  {
+    "bookingId": 1247,
+    "deviceId": 4,
+    "createdAt": "21/8/2024 01:54:55.599",
+    "updatedAt": "21/8/2024 01:54:55.599"
+  },
+  {
+    "bookingId": 1248,
+    "deviceId": 1,
+    "createdAt": "21/8/2024 02:22:30.187",
+    "updatedAt": "21/8/2024 02:22:30.187"
+  },
+  {
+    "bookingId": 1248,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 02:22:30.187",
+    "updatedAt": "21/8/2024 02:22:30.187"
+  },
+  {
+    "bookingId": 1248,
+    "deviceId": 3,
+    "createdAt": "21/8/2024 02:22:30.187",
+    "updatedAt": "21/8/2024 02:22:30.187"
+  },
+  {
+    "bookingId": 1249,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 02:58:30.448",
+    "updatedAt": "21/8/2024 02:58:30.448"
+  },
+  {
+    "bookingId": 1249,
+    "deviceId": 4,
+    "createdAt": "21/8/2024 02:58:30.448",
+    "updatedAt": "21/8/2024 02:58:30.448"
+  },
+  {
+    "bookingId": 1251,
+    "deviceId": 1,
+    "createdAt": "21/8/2024 05:05:49.137",
+    "updatedAt": "21/8/2024 05:05:49.137"
+  },
+  {
+    "bookingId": 1251,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 05:05:49.137",
+    "updatedAt": "21/8/2024 05:05:49.137"
+  },
+  {
+    "bookingId": 1251,
+    "deviceId": 3,
+    "createdAt": "21/8/2024 05:05:49.137",
+    "updatedAt": "21/8/2024 05:05:49.137"
+  },
+  {
+    "bookingId": 1251,
+    "deviceId": 4,
+    "createdAt": "21/8/2024 05:05:49.137",
+    "updatedAt": "21/8/2024 05:05:49.137"
+  },
+  {
+    "bookingId": 1252,
+    "deviceId": 1,
+    "createdAt": "21/8/2024 07:18:05.55",
+    "updatedAt": "21/8/2024 07:18:05.55"
+  },
+  {
+    "bookingId": 1252,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 07:18:05.55",
+    "updatedAt": "21/8/2024 07:18:05.55"
+  },
+  {
+    "bookingId": 1252,
+    "deviceId": 3,
+    "createdAt": "21/8/2024 07:18:05.55",
+    "updatedAt": "21/8/2024 07:18:05.55"
+  },
+  {
+    "bookingId": 1252,
+    "deviceId": 4,
+    "createdAt": "21/8/2024 07:18:05.55",
+    "updatedAt": "21/8/2024 07:18:05.55"
+  },
+  {
+    "bookingId": 1253,
+    "deviceId": 2,
+    "createdAt": "21/8/2024 07:53:38.51",
+    "updatedAt": "21/8/2024 07:53:38.51"
+  },
+  {
+    "bookingId": 1253,
+    "deviceId": 3,
+    "createdAt": "21/8/2024 07:53:38.51",
+    "updatedAt": "21/8/2024 07:53:38.51"
+  },
+  {
+    "bookingId": 1253,
+    "deviceId": 4,
+    "createdAt": "21/8/2024 07:53:38.51",
+    "updatedAt": "21/8/2024 07:53:38.51"
+  },
+  {
+    "bookingId": 1254,
+    "deviceId": 3,
+    "createdAt": "22/8/2024 02:21:55.806",
+    "updatedAt": "22/8/2024 02:21:55.806"
+  },
+  {
+    "bookingId": 1254,
+    "deviceId": 4,
+    "createdAt": "22/8/2024 02:21:55.806",
+    "updatedAt": "22/8/2024 02:21:55.806"
+  },
+  {
+    "bookingId": 1255,
+    "deviceId": 2,
+    "createdAt": "22/8/2024 11:20:52.145",
+    "updatedAt": "22/8/2024 11:20:52.145"
+  },
+  {
+    "bookingId": 1255,
+    "deviceId": 4,
+    "createdAt": "22/8/2024 11:20:52.145",
+    "updatedAt": "22/8/2024 11:20:52.145"
+  },
+  {
+    "bookingId": 1256,
+    "deviceId": 2,
+    "createdAt": "23/8/2024 01:16:03.435",
+    "updatedAt": "23/8/2024 01:16:03.435"
+  },
+  {
+    "bookingId": 1256,
+    "deviceId": 4,
+    "createdAt": "23/8/2024 01:16:03.435",
+    "updatedAt": "23/8/2024 01:16:03.435"
+  },
+  {
+    "bookingId": 1258,
+    "deviceId": 1,
+    "createdAt": "23/8/2024 02:30:54.05",
+    "updatedAt": "23/8/2024 02:30:54.05"
+  },
+  {
+    "bookingId": 1258,
+    "deviceId": 2,
+    "createdAt": "23/8/2024 02:30:54.05",
+    "updatedAt": "23/8/2024 02:30:54.05"
+  },
+  {
+    "bookingId": 1258,
+    "deviceId": 3,
+    "createdAt": "23/8/2024 02:30:54.05",
+    "updatedAt": "23/8/2024 02:30:54.05"
+  },
+  {
+    "bookingId": 1258,
+    "deviceId": 4,
+    "createdAt": "23/8/2024 02:30:54.05",
+    "updatedAt": "23/8/2024 02:30:54.05"
+  },
+  {
+    "bookingId": 1259,
+    "deviceId": 1,
+    "createdAt": "23/8/2024 02:33:30.613",
+    "updatedAt": "23/8/2024 02:33:30.613"
+  },
+  {
+    "bookingId": 1259,
+    "deviceId": 2,
+    "createdAt": "23/8/2024 02:33:30.613",
+    "updatedAt": "23/8/2024 02:33:30.613"
+  },
+  {
+    "bookingId": 1259,
+    "deviceId": 3,
+    "createdAt": "23/8/2024 02:33:30.613",
+    "updatedAt": "23/8/2024 02:33:30.613"
+  },
+  {
+    "bookingId": 1259,
+    "deviceId": 4,
+    "createdAt": "23/8/2024 02:33:30.613",
+    "updatedAt": "23/8/2024 02:33:30.613"
+  },
+  {
+    "bookingId": 1260,
+    "deviceId": 1,
+    "createdAt": "23/8/2024 07:12:01.14",
+    "updatedAt": "23/8/2024 07:12:01.14"
+  },
+  {
+    "bookingId": 1260,
+    "deviceId": 2,
+    "createdAt": "23/8/2024 07:12:01.14",
+    "updatedAt": "23/8/2024 07:12:01.14"
+  },
+  {
+    "bookingId": 1260,
+    "deviceId": 3,
+    "createdAt": "23/8/2024 07:12:01.14",
+    "updatedAt": "23/8/2024 07:12:01.14"
+  },
+  {
+    "bookingId": 1260,
+    "deviceId": 4,
+    "createdAt": "23/8/2024 07:12:01.14",
+    "updatedAt": "23/8/2024 07:12:01.14"
+  },
+  {
+    "bookingId": 1261,
+    "deviceId": 2,
+    "createdAt": "23/8/2024 09:02:13.401",
+    "updatedAt": "23/8/2024 09:02:13.401"
+  },
+  {
+    "bookingId": 1261,
+    "deviceId": 4,
+    "createdAt": "23/8/2024 09:02:13.401",
+    "updatedAt": "23/8/2024 09:02:13.401"
+  },
+  {
+    "bookingId": 1264,
+    "deviceId": 2,
+    "createdAt": "24/8/2024 01:24:50.044",
+    "updatedAt": "24/8/2024 01:24:50.044"
+  },
+  {
+    "bookingId": 1264,
+    "deviceId": 3,
+    "createdAt": "24/8/2024 01:24:50.044",
+    "updatedAt": "24/8/2024 01:24:50.044"
+  },
+  {
+    "bookingId": 1266,
+    "deviceId": 2,
+    "createdAt": "24/8/2024 08:20:24.255",
+    "updatedAt": "24/8/2024 08:20:24.255"
+  },
+  {
+    "bookingId": 1266,
+    "deviceId": 3,
+    "createdAt": "24/8/2024 08:20:24.255",
+    "updatedAt": "24/8/2024 08:20:24.255"
+  },
+  {
+    "bookingId": 1267,
+    "deviceId": 2,
+    "createdAt": "24/8/2024 08:23:36.095",
+    "updatedAt": "24/8/2024 08:23:36.095"
+  },
+  {
+    "bookingId": 1267,
+    "deviceId": 3,
+    "createdAt": "24/8/2024 08:23:36.095",
+    "updatedAt": "24/8/2024 08:23:36.095"
+  },
+  {
+    "bookingId": 1268,
+    "deviceId": 2,
+    "createdAt": "24/8/2024 08:26:08.886",
+    "updatedAt": "24/8/2024 08:26:08.886"
+  },
+  {
+    "bookingId": 1268,
+    "deviceId": 3,
+    "createdAt": "24/8/2024 08:26:08.886",
+    "updatedAt": "24/8/2024 08:26:08.886"
+  },
+  {
+    "bookingId": 1269,
+    "deviceId": 2,
+    "createdAt": "26/8/2024 01:04:48.967",
+    "updatedAt": "26/8/2024 01:04:48.967"
+  },
+  {
+    "bookingId": 1269,
+    "deviceId": 4,
+    "createdAt": "26/8/2024 01:04:48.967",
+    "updatedAt": "26/8/2024 01:04:48.967"
+  },
+  {
+    "bookingId": 1270,
+    "deviceId": 1,
+    "createdAt": "26/8/2024 02:24:35.957",
+    "updatedAt": "26/8/2024 02:24:35.957"
+  },
+  {
+    "bookingId": 1270,
+    "deviceId": 2,
+    "createdAt": "26/8/2024 02:24:35.957",
+    "updatedAt": "26/8/2024 02:24:35.957"
+  },
+  {
+    "bookingId": 1270,
+    "deviceId": 3,
+    "createdAt": "26/8/2024 02:24:35.957",
+    "updatedAt": "26/8/2024 02:24:35.957"
+  },
+  {
+    "bookingId": 1270,
+    "deviceId": 4,
+    "createdAt": "26/8/2024 02:24:35.957",
+    "updatedAt": "26/8/2024 02:24:35.957"
+  },
+  {
+    "bookingId": 1271,
+    "deviceId": 1,
+    "createdAt": "26/8/2024 03:17:09.229",
+    "updatedAt": "26/8/2024 03:17:09.229"
+  },
+  {
+    "bookingId": 1271,
+    "deviceId": 2,
+    "createdAt": "26/8/2024 03:17:09.229",
+    "updatedAt": "26/8/2024 03:17:09.229"
+  },
+  {
+    "bookingId": 1271,
+    "deviceId": 3,
+    "createdAt": "26/8/2024 03:17:09.229",
+    "updatedAt": "26/8/2024 03:17:09.229"
+  },
+  {
+    "bookingId": 1271,
+    "deviceId": 4,
+    "createdAt": "26/8/2024 03:17:09.229",
+    "updatedAt": "26/8/2024 03:17:09.229"
+  },
+  {
+    "bookingId": 1272,
+    "deviceId": 1,
+    "createdAt": "26/8/2024 04:42:07.414",
+    "updatedAt": "26/8/2024 04:42:07.414"
+  },
+  {
+    "bookingId": 1272,
+    "deviceId": 2,
+    "createdAt": "26/8/2024 04:42:07.414",
+    "updatedAt": "26/8/2024 04:42:07.414"
+  },
+  {
+    "bookingId": 1272,
+    "deviceId": 3,
+    "createdAt": "26/8/2024 04:42:07.414",
+    "updatedAt": "26/8/2024 04:42:07.414"
+  },
+  {
+    "bookingId": 1272,
+    "deviceId": 4,
+    "createdAt": "26/8/2024 04:42:07.414",
+    "updatedAt": "26/8/2024 04:42:07.414"
+  },
+  {
+    "bookingId": 1273,
+    "deviceId": 1,
+    "createdAt": "26/8/2024 06:17:31.481",
+    "updatedAt": "26/8/2024 06:17:31.481"
+  },
+  {
+    "bookingId": 1273,
+    "deviceId": 2,
+    "createdAt": "26/8/2024 06:17:31.481",
+    "updatedAt": "26/8/2024 06:17:31.481"
+  },
+  {
+    "bookingId": 1273,
+    "deviceId": 3,
+    "createdAt": "26/8/2024 06:17:31.481",
+    "updatedAt": "26/8/2024 06:17:31.481"
+  },
+  {
+    "bookingId": 1273,
+    "deviceId": 4,
+    "createdAt": "26/8/2024 06:17:31.481",
+    "updatedAt": "26/8/2024 06:17:31.481"
+  },
+  {
+    "bookingId": 1275,
+    "deviceId": 2,
+    "createdAt": "27/8/2024 01:04:06.564",
+    "updatedAt": "27/8/2024 01:04:06.564"
+  },
+  {
+    "bookingId": 1275,
+    "deviceId": 3,
+    "createdAt": "27/8/2024 01:04:06.564",
+    "updatedAt": "27/8/2024 01:04:06.564"
+  },
+  {
+    "bookingId": 1275,
+    "deviceId": 4,
+    "createdAt": "27/8/2024 01:04:06.564",
+    "updatedAt": "27/8/2024 01:04:06.564"
+  },
+  {
+    "bookingId": 1276,
+    "deviceId": 2,
+    "createdAt": "27/8/2024 01:42:51.631",
+    "updatedAt": "27/8/2024 01:42:51.631"
+  },
+  {
+    "bookingId": 1276,
+    "deviceId": 4,
+    "createdAt": "27/8/2024 01:42:51.631",
+    "updatedAt": "27/8/2024 01:42:51.631"
+  },
+  {
+    "bookingId": 1281,
+    "deviceId": 2,
+    "createdAt": "27/8/2024 06:11:15.662",
+    "updatedAt": "27/8/2024 06:11:15.662"
+  },
+  {
+    "bookingId": 1281,
+    "deviceId": 4,
+    "createdAt": "27/8/2024 06:11:15.662",
+    "updatedAt": "27/8/2024 06:11:15.662"
+  },
+  {
+    "bookingId": 1282,
+    "deviceId": 1,
+    "createdAt": "27/8/2024 07:19:33.337",
+    "updatedAt": "27/8/2024 07:19:33.337"
+  },
+  {
+    "bookingId": 1282,
+    "deviceId": 3,
+    "createdAt": "27/8/2024 07:19:33.337",
+    "updatedAt": "27/8/2024 07:19:33.337"
+  },
+  {
+    "bookingId": 1282,
+    "deviceId": 4,
+    "createdAt": "27/8/2024 07:19:33.337",
+    "updatedAt": "27/8/2024 07:19:33.337"
+  },
+  {
+    "bookingId": 1283,
+    "deviceId": 4,
+    "createdAt": "27/8/2024 08:03:43.149",
+    "updatedAt": "27/8/2024 08:03:43.149"
+  },
+  {
+    "bookingId": 1284,
+    "deviceId": 2,
+    "createdAt": "28/8/2024 02:29:07.599",
+    "updatedAt": "28/8/2024 02:29:07.599"
+  },
+  {
+    "bookingId": 1284,
+    "deviceId": 3,
+    "createdAt": "28/8/2024 02:29:07.599",
+    "updatedAt": "28/8/2024 02:29:07.599"
+  },
+  {
+    "bookingId": 1287,
+    "deviceId": 1,
+    "createdAt": "29/8/2024 02:12:45.267",
+    "updatedAt": "29/8/2024 02:12:45.267"
+  },
+  {
+    "bookingId": 1287,
+    "deviceId": 2,
+    "createdAt": "29/8/2024 02:12:45.267",
+    "updatedAt": "29/8/2024 02:12:45.267"
+  },
+  {
+    "bookingId": 1287,
+    "deviceId": 3,
+    "createdAt": "29/8/2024 02:12:45.267",
+    "updatedAt": "29/8/2024 02:12:45.267"
+  },
+  {
+    "bookingId": 1287,
+    "deviceId": 4,
+    "createdAt": "29/8/2024 02:12:45.267",
+    "updatedAt": "29/8/2024 02:12:45.267"
+  },
+  {
+    "bookingId": 1288,
+    "deviceId": 2,
+    "createdAt": "10/9/2024 03:24:13.626",
+    "updatedAt": "10/9/2024 03:24:13.626"
+  },
+  {
+    "bookingId": 1288,
+    "deviceId": 3,
+    "createdAt": "10/9/2024 03:24:13.626",
+    "updatedAt": "10/9/2024 03:24:13.626"
+  },
+  {
+    "bookingId": 1288,
+    "deviceId": 4,
+    "createdAt": "10/9/2024 03:24:13.626",
+    "updatedAt": "10/9/2024 03:24:13.626"
+  },
+  {
+    "bookingId": 1290,
+    "deviceId": 1,
+    "createdAt": "28/8/2024 06:43:54.115",
+    "updatedAt": "28/8/2024 06:43:54.115"
+  },
+  {
+    "bookingId": 1290,
+    "deviceId": 2,
+    "createdAt": "28/8/2024 06:43:54.115",
+    "updatedAt": "28/8/2024 06:43:54.115"
+  },
+  {
+    "bookingId": 1290,
+    "deviceId": 4,
+    "createdAt": "28/8/2024 06:43:54.115",
+    "updatedAt": "28/8/2024 06:43:54.115"
+  },
+  {
+    "bookingId": 1292,
+    "deviceId": 2,
+    "createdAt": "28/8/2024 09:11:33.812",
+    "updatedAt": "28/8/2024 09:11:33.812"
+  },
+  {
+    "bookingId": 1292,
+    "deviceId": 3,
+    "createdAt": "28/8/2024 09:11:33.812",
+    "updatedAt": "28/8/2024 09:11:33.812"
+  },
+  {
+    "bookingId": 1292,
+    "deviceId": 4,
+    "createdAt": "28/8/2024 09:11:33.812",
+    "updatedAt": "28/8/2024 09:11:33.812"
+  },
+  {
+    "bookingId": 1295,
+    "deviceId": 1,
+    "createdAt": "29/8/2024 02:12:18.625",
+    "updatedAt": "29/8/2024 02:12:18.625"
+  },
+  {
+    "bookingId": 1295,
+    "deviceId": 2,
+    "createdAt": "29/8/2024 02:12:18.625",
+    "updatedAt": "29/8/2024 02:12:18.625"
+  },
+  {
+    "bookingId": 1295,
+    "deviceId": 3,
+    "createdAt": "29/8/2024 02:12:18.625",
+    "updatedAt": "29/8/2024 02:12:18.625"
+  },
+  {
+    "bookingId": 1295,
+    "deviceId": 4,
+    "createdAt": "29/8/2024 02:12:18.625",
+    "updatedAt": "29/8/2024 02:12:18.625"
+  },
+  {
+    "bookingId": 1297,
+    "deviceId": 2,
+    "createdAt": "4/9/2024 04:15:29.194",
+    "updatedAt": "4/9/2024 04:15:29.194"
+  },
+  {
+    "bookingId": 1297,
+    "deviceId": 3,
+    "createdAt": "4/9/2024 04:15:29.194",
+    "updatedAt": "4/9/2024 04:15:29.194"
+  },
+  {
+    "bookingId": 1298,
+    "deviceId": 2,
+    "createdAt": "29/8/2024 09:24:18.918",
+    "updatedAt": "29/8/2024 09:24:18.918"
+  },
+  {
+    "bookingId": 1298,
+    "deviceId": 4,
+    "createdAt": "29/8/2024 09:24:18.918",
+    "updatedAt": "29/8/2024 09:24:18.918"
+  },
+  {
+    "bookingId": 1302,
+    "deviceId": 2,
+    "createdAt": "30/8/2024 10:02:07.731",
+    "updatedAt": "30/8/2024 10:02:07.731"
+  },
+  {
+    "bookingId": 1302,
+    "deviceId": 3,
+    "createdAt": "30/8/2024 10:02:07.731",
+    "updatedAt": "30/8/2024 10:02:07.731"
+  },
+  {
+    "bookingId": 1303,
+    "deviceId": 1,
+    "createdAt": "31/8/2024 01:22:05.252",
+    "updatedAt": "31/8/2024 01:22:05.252"
+  },
+  {
+    "bookingId": 1303,
+    "deviceId": 2,
+    "createdAt": "31/8/2024 01:22:05.252",
+    "updatedAt": "31/8/2024 01:22:05.252"
+  },
+  {
+    "bookingId": 1303,
+    "deviceId": 3,
+    "createdAt": "31/8/2024 01:22:05.252",
+    "updatedAt": "31/8/2024 01:22:05.252"
+  },
+  {
+    "bookingId": 1303,
+    "deviceId": 4,
+    "createdAt": "31/8/2024 01:22:05.252",
+    "updatedAt": "31/8/2024 01:22:05.252"
+  },
+  {
+    "bookingId": 1304,
+    "deviceId": 1,
+    "createdAt": "31/8/2024 02:07:37.776",
+    "updatedAt": "31/8/2024 02:07:37.776"
+  },
+  {
+    "bookingId": 1304,
+    "deviceId": 2,
+    "createdAt": "31/8/2024 02:07:37.776",
+    "updatedAt": "31/8/2024 02:07:37.776"
+  },
+  {
+    "bookingId": 1304,
+    "deviceId": 3,
+    "createdAt": "31/8/2024 02:07:37.776",
+    "updatedAt": "31/8/2024 02:07:37.776"
+  },
+  {
+    "bookingId": 1304,
+    "deviceId": 4,
+    "createdAt": "31/8/2024 02:07:37.776",
+    "updatedAt": "31/8/2024 02:07:37.776"
+  },
+  {
+    "bookingId": 1305,
+    "deviceId": 2,
+    "createdAt": "2/9/2024 00:55:51.906",
+    "updatedAt": "2/9/2024 00:55:51.906"
+  },
+  {
+    "bookingId": 1305,
+    "deviceId": 4,
+    "createdAt": "2/9/2024 00:55:51.906",
+    "updatedAt": "2/9/2024 00:55:51.906"
+  },
+  {
+    "bookingId": 1306,
+    "deviceId": 1,
+    "createdAt": "2/9/2024 01:57:17.989",
+    "updatedAt": "2/9/2024 01:57:17.989"
+  },
+  {
+    "bookingId": 1306,
+    "deviceId": 2,
+    "createdAt": "2/9/2024 01:57:17.989",
+    "updatedAt": "2/9/2024 01:57:17.989"
+  },
+  {
+    "bookingId": 1306,
+    "deviceId": 3,
+    "createdAt": "2/9/2024 01:57:17.989",
+    "updatedAt": "2/9/2024 01:57:17.989"
+  },
+  {
+    "bookingId": 1306,
+    "deviceId": 4,
+    "createdAt": "2/9/2024 01:57:17.989",
+    "updatedAt": "2/9/2024 01:57:17.989"
+  },
+  {
+    "bookingId": 1307,
+    "deviceId": 1,
+    "createdAt": "2/9/2024 06:36:20.069",
+    "updatedAt": "2/9/2024 06:36:20.069"
+  },
+  {
+    "bookingId": 1307,
+    "deviceId": 2,
+    "createdAt": "2/9/2024 06:36:20.069",
+    "updatedAt": "2/9/2024 06:36:20.069"
+  },
+  {
+    "bookingId": 1307,
+    "deviceId": 3,
+    "createdAt": "2/9/2024 06:36:20.069",
+    "updatedAt": "2/9/2024 06:36:20.069"
+  },
+  {
+    "bookingId": 1307,
+    "deviceId": 4,
+    "createdAt": "2/9/2024 06:36:20.069",
+    "updatedAt": "2/9/2024 06:36:20.069"
+  },
+  {
+    "bookingId": 1312,
+    "deviceId": 1,
+    "createdAt": "3/9/2024 01:20:18.062",
+    "updatedAt": "3/9/2024 01:20:18.062"
+  },
+  {
+    "bookingId": 1312,
+    "deviceId": 2,
+    "createdAt": "3/9/2024 01:20:18.062",
+    "updatedAt": "3/9/2024 01:20:18.062"
+  },
+  {
+    "bookingId": 1312,
+    "deviceId": 3,
+    "createdAt": "3/9/2024 01:20:18.062",
+    "updatedAt": "3/9/2024 01:20:18.062"
+  },
+  {
+    "bookingId": 1312,
+    "deviceId": 4,
+    "createdAt": "3/9/2024 01:20:18.062",
+    "updatedAt": "3/9/2024 01:20:18.062"
+  },
+  {
+    "bookingId": 1313,
+    "deviceId": 2,
+    "createdAt": "3/9/2024 01:21:34.94",
+    "updatedAt": "3/9/2024 01:21:34.94"
+  },
+  {
+    "bookingId": 1313,
+    "deviceId": 4,
+    "createdAt": "3/9/2024 01:21:34.94",
+    "updatedAt": "3/9/2024 01:21:34.94"
+  },
+  {
+    "bookingId": 1315,
+    "deviceId": 1,
+    "createdAt": "3/9/2024 02:58:19.523",
+    "updatedAt": "3/9/2024 02:58:19.523"
+  },
+  {
+    "bookingId": 1315,
+    "deviceId": 2,
+    "createdAt": "3/9/2024 02:58:19.523",
+    "updatedAt": "3/9/2024 02:58:19.523"
+  },
+  {
+    "bookingId": 1315,
+    "deviceId": 3,
+    "createdAt": "3/9/2024 02:58:19.523",
+    "updatedAt": "3/9/2024 02:58:19.523"
+  },
+  {
+    "bookingId": 1318,
+    "deviceId": 2,
+    "createdAt": "4/9/2024 04:05:14.065",
+    "updatedAt": "4/9/2024 04:05:14.065"
+  },
+  {
+    "bookingId": 1318,
+    "deviceId": 4,
+    "createdAt": "4/9/2024 04:05:14.065",
+    "updatedAt": "4/9/2024 04:05:14.065"
+  },
+  {
+    "bookingId": 1320,
+    "deviceId": 1,
+    "createdAt": "4/9/2024 04:49:55.678",
+    "updatedAt": "4/9/2024 04:49:55.678"
+  },
+  {
+    "bookingId": 1320,
+    "deviceId": 2,
+    "createdAt": "4/9/2024 04:49:55.678",
+    "updatedAt": "4/9/2024 04:49:55.678"
+  },
+  {
+    "bookingId": 1320,
+    "deviceId": 3,
+    "createdAt": "4/9/2024 04:49:55.678",
+    "updatedAt": "4/9/2024 04:49:55.678"
+  },
+  {
+    "bookingId": 1320,
+    "deviceId": 4,
+    "createdAt": "4/9/2024 04:49:55.678",
+    "updatedAt": "4/9/2024 04:49:55.678"
+  },
+  {
+    "bookingId": 1321,
+    "deviceId": 2,
+    "createdAt": "4/9/2024 06:04:43.696",
+    "updatedAt": "4/9/2024 06:04:43.696"
+  },
+  {
+    "bookingId": 1321,
+    "deviceId": 4,
+    "createdAt": "4/9/2024 06:04:43.696",
+    "updatedAt": "4/9/2024 06:04:43.696"
+  },
+  {
+    "bookingId": 1322,
+    "deviceId": 1,
+    "createdAt": "4/9/2024 07:20:29.181",
+    "updatedAt": "4/9/2024 07:20:29.181"
+  },
+  {
+    "bookingId": 1322,
+    "deviceId": 2,
+    "createdAt": "4/9/2024 07:20:29.181",
+    "updatedAt": "4/9/2024 07:20:29.181"
+  },
+  {
+    "bookingId": 1322,
+    "deviceId": 3,
+    "createdAt": "4/9/2024 07:20:29.181",
+    "updatedAt": "4/9/2024 07:20:29.181"
+  },
+  {
+    "bookingId": 1324,
+    "deviceId": 2,
+    "createdAt": "4/9/2024 09:49:17.95",
+    "updatedAt": "4/9/2024 09:49:17.95"
+  },
+  {
+    "bookingId": 1324,
+    "deviceId": 4,
+    "createdAt": "4/9/2024 09:49:17.95",
+    "updatedAt": "4/9/2024 09:49:17.95"
+  },
+  {
+    "bookingId": 1325,
+    "deviceId": 1,
+    "createdAt": "5/9/2024 01:36:08.749",
+    "updatedAt": "5/9/2024 01:36:08.749"
+  },
+  {
+    "bookingId": 1325,
+    "deviceId": 2,
+    "createdAt": "5/9/2024 01:36:08.749",
+    "updatedAt": "5/9/2024 01:36:08.749"
+  },
+  {
+    "bookingId": 1325,
+    "deviceId": 3,
+    "createdAt": "5/9/2024 01:36:08.749",
+    "updatedAt": "5/9/2024 01:36:08.749"
+  },
+  {
+    "bookingId": 1325,
+    "deviceId": 4,
+    "createdAt": "5/9/2024 01:36:08.749",
+    "updatedAt": "5/9/2024 01:36:08.749"
+  },
+  {
+    "bookingId": 1326,
+    "deviceId": 2,
+    "createdAt": "5/9/2024 02:07:49.18",
+    "updatedAt": "5/9/2024 02:07:49.18"
+  },
+  {
+    "bookingId": 1326,
+    "deviceId": 4,
+    "createdAt": "5/9/2024 02:07:49.18",
+    "updatedAt": "5/9/2024 02:07:49.18"
+  },
+  {
+    "bookingId": 1327,
+    "deviceId": 2,
+    "createdAt": "5/9/2024 03:57:10.771",
+    "updatedAt": "5/9/2024 03:57:10.771"
+  },
+  {
+    "bookingId": 1327,
+    "deviceId": 4,
+    "createdAt": "5/9/2024 03:57:10.771",
+    "updatedAt": "5/9/2024 03:57:10.771"
+  },
+  {
+    "bookingId": 1328,
+    "deviceId": 2,
+    "createdAt": "5/9/2024 03:57:58.345",
+    "updatedAt": "5/9/2024 03:57:58.345"
+  },
+  {
+    "bookingId": 1328,
+    "deviceId": 4,
+    "createdAt": "5/9/2024 03:57:58.345",
+    "updatedAt": "5/9/2024 03:57:58.345"
+  },
+  {
+    "bookingId": 1329,
+    "deviceId": 2,
+    "createdAt": "5/9/2024 03:59:40.213",
+    "updatedAt": "5/9/2024 03:59:40.213"
+  },
+  {
+    "bookingId": 1329,
+    "deviceId": 4,
+    "createdAt": "5/9/2024 03:59:40.213",
+    "updatedAt": "5/9/2024 03:59:40.213"
+  },
+  {
+    "bookingId": 1330,
+    "deviceId": 2,
+    "createdAt": "5/9/2024 10:43:17.207",
+    "updatedAt": "5/9/2024 10:43:17.207"
+  },
+  {
+    "bookingId": 1330,
+    "deviceId": 3,
+    "createdAt": "5/9/2024 10:43:17.207",
+    "updatedAt": "5/9/2024 10:43:17.207"
+  },
+  {
+    "bookingId": 1331,
+    "deviceId": 1,
+    "createdAt": "6/9/2024 01:06:07.15",
+    "updatedAt": "6/9/2024 01:06:07.15"
+  },
+  {
+    "bookingId": 1331,
+    "deviceId": 2,
+    "createdAt": "6/9/2024 01:06:07.15",
+    "updatedAt": "6/9/2024 01:06:07.15"
+  },
+  {
+    "bookingId": 1331,
+    "deviceId": 3,
+    "createdAt": "6/9/2024 01:06:07.15",
+    "updatedAt": "6/9/2024 01:06:07.15"
+  },
+  {
+    "bookingId": 1331,
+    "deviceId": 4,
+    "createdAt": "6/9/2024 01:06:07.15",
+    "updatedAt": "6/9/2024 01:06:07.15"
+  },
+  {
+    "bookingId": 1334,
+    "deviceId": 1,
+    "createdAt": "6/9/2024 06:14:26.549",
+    "updatedAt": "6/9/2024 06:14:26.549"
+  },
+  {
+    "bookingId": 1334,
+    "deviceId": 2,
+    "createdAt": "6/9/2024 06:14:26.549",
+    "updatedAt": "6/9/2024 06:14:26.549"
+  },
+  {
+    "bookingId": 1334,
+    "deviceId": 3,
+    "createdAt": "6/9/2024 06:14:26.549",
+    "updatedAt": "6/9/2024 06:14:26.549"
+  },
+  {
+    "bookingId": 1335,
+    "deviceId": 2,
+    "createdAt": "6/9/2024 07:07:40.78",
+    "updatedAt": "6/9/2024 07:07:40.78"
+  },
+  {
+    "bookingId": 1335,
+    "deviceId": 3,
+    "createdAt": "6/9/2024 07:07:40.78",
+    "updatedAt": "6/9/2024 07:07:40.78"
+  },
+  {
+    "bookingId": 1336,
+    "deviceId": 2,
+    "createdAt": "7/9/2024 02:37:30.806",
+    "updatedAt": "7/9/2024 02:37:30.806"
+  },
+  {
+    "bookingId": 1336,
+    "deviceId": 4,
+    "createdAt": "7/9/2024 02:37:30.806",
+    "updatedAt": "7/9/2024 02:37:30.806"
+  },
+  {
+    "bookingId": 1337,
+    "deviceId": 1,
+    "createdAt": "7/9/2024 08:34:31.868",
+    "updatedAt": "7/9/2024 08:34:31.868"
+  },
+  {
+    "bookingId": 1337,
+    "deviceId": 2,
+    "createdAt": "7/9/2024 08:34:31.868",
+    "updatedAt": "7/9/2024 08:34:31.868"
+  },
+  {
+    "bookingId": 1337,
+    "deviceId": 3,
+    "createdAt": "7/9/2024 08:34:31.868",
+    "updatedAt": "7/9/2024 08:34:31.868"
+  },
+  {
+    "bookingId": 1337,
+    "deviceId": 4,
+    "createdAt": "7/9/2024 08:34:31.868",
+    "updatedAt": "7/9/2024 08:34:31.868"
+  },
+  {
+    "bookingId": 1338,
+    "deviceId": 2,
+    "createdAt": "7/9/2024 09:28:48.463",
+    "updatedAt": "7/9/2024 09:28:48.463"
+  },
+  {
+    "bookingId": 1338,
+    "deviceId": 4,
+    "createdAt": "7/9/2024 09:28:48.463",
+    "updatedAt": "7/9/2024 09:28:48.463"
+  },
+  {
+    "bookingId": 1339,
+    "deviceId": 1,
+    "createdAt": "8/9/2024 09:27:24.4",
+    "updatedAt": "8/9/2024 09:27:24.4"
+  },
+  {
+    "bookingId": 1339,
+    "deviceId": 2,
+    "createdAt": "8/9/2024 09:27:24.4",
+    "updatedAt": "8/9/2024 09:27:24.4"
+  },
+  {
+    "bookingId": 1339,
+    "deviceId": 3,
+    "createdAt": "8/9/2024 09:27:24.4",
+    "updatedAt": "8/9/2024 09:27:24.4"
+  },
+  {
+    "bookingId": 1339,
+    "deviceId": 4,
+    "createdAt": "8/9/2024 09:27:24.4",
+    "updatedAt": "8/9/2024 09:27:24.4"
+  },
+  {
+    "bookingId": 1342,
+    "deviceId": 2,
+    "createdAt": "9/9/2024 08:03:46.796",
+    "updatedAt": "9/9/2024 08:03:46.796"
+  },
+  {
+    "bookingId": 1342,
+    "deviceId": 4,
+    "createdAt": "9/9/2024 08:03:46.796",
+    "updatedAt": "9/9/2024 08:03:46.796"
+  },
+  {
+    "bookingId": 1344,
+    "deviceId": 1,
+    "createdAt": "10/9/2024 00:59:35.624",
+    "updatedAt": "10/9/2024 00:59:35.624"
+  },
+  {
+    "bookingId": 1344,
+    "deviceId": 2,
+    "createdAt": "10/9/2024 00:59:35.624",
+    "updatedAt": "10/9/2024 00:59:35.624"
+  },
+  {
+    "bookingId": 1344,
+    "deviceId": 3,
+    "createdAt": "10/9/2024 00:59:35.624",
+    "updatedAt": "10/9/2024 00:59:35.624"
+  },
+  {
+    "bookingId": 1344,
+    "deviceId": 4,
+    "createdAt": "10/9/2024 00:59:35.624",
+    "updatedAt": "10/9/2024 00:59:35.624"
+  },
+  {
+    "bookingId": 1345,
+    "deviceId": 1,
+    "createdAt": "10/9/2024 01:11:05.364",
+    "updatedAt": "10/9/2024 01:11:05.364"
+  },
+  {
+    "bookingId": 1345,
+    "deviceId": 2,
+    "createdAt": "10/9/2024 01:11:05.364",
+    "updatedAt": "10/9/2024 01:11:05.364"
+  },
+  {
+    "bookingId": 1345,
+    "deviceId": 3,
+    "createdAt": "10/9/2024 01:11:05.364",
+    "updatedAt": "10/9/2024 01:11:05.364"
+  },
+  {
+    "bookingId": 1345,
+    "deviceId": 4,
+    "createdAt": "10/9/2024 01:11:05.364",
+    "updatedAt": "10/9/2024 01:11:05.364"
+  },
+  {
+    "bookingId": 1346,
+    "deviceId": 1,
+    "createdAt": "10/9/2024 02:43:55.002",
+    "updatedAt": "10/9/2024 02:43:55.002"
+  },
+  {
+    "bookingId": 1346,
+    "deviceId": 2,
+    "createdAt": "10/9/2024 02:43:55.002",
+    "updatedAt": "10/9/2024 02:43:55.002"
+  },
+  {
+    "bookingId": 1346,
+    "deviceId": 3,
+    "createdAt": "10/9/2024 02:43:55.002",
+    "updatedAt": "10/9/2024 02:43:55.002"
+  },
+  {
+    "bookingId": 1346,
+    "deviceId": 4,
+    "createdAt": "10/9/2024 02:43:55.002",
+    "updatedAt": "10/9/2024 02:43:55.002"
+  },
+  {
+    "bookingId": 1347,
+    "deviceId": 1,
+    "createdAt": "10/9/2024 02:45:24.596",
+    "updatedAt": "10/9/2024 02:45:24.596"
+  },
+  {
+    "bookingId": 1347,
+    "deviceId": 2,
+    "createdAt": "10/9/2024 02:45:24.596",
+    "updatedAt": "10/9/2024 02:45:24.596"
+  },
+  {
+    "bookingId": 1347,
+    "deviceId": 3,
+    "createdAt": "10/9/2024 02:45:24.596",
+    "updatedAt": "10/9/2024 02:45:24.596"
+  },
+  {
+    "bookingId": 1347,
+    "deviceId": 4,
+    "createdAt": "10/9/2024 02:45:24.596",
+    "updatedAt": "10/9/2024 02:45:24.596"
+  },
+  {
+    "bookingId": 1348,
+    "deviceId": 1,
+    "createdAt": "10/9/2024 06:02:58.029",
+    "updatedAt": "10/9/2024 06:02:58.029"
+  },
+  {
+    "bookingId": 1348,
+    "deviceId": 2,
+    "createdAt": "10/9/2024 06:02:58.029",
+    "updatedAt": "10/9/2024 06:02:58.029"
+  },
+  {
+    "bookingId": 1348,
+    "deviceId": 3,
+    "createdAt": "10/9/2024 06:02:58.029",
+    "updatedAt": "10/9/2024 06:02:58.029"
+  },
+  {
+    "bookingId": 1348,
+    "deviceId": 4,
+    "createdAt": "10/9/2024 06:02:58.029",
+    "updatedAt": "10/9/2024 06:02:58.029"
+  }
+]

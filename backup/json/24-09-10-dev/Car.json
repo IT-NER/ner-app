@@ -1,0 +1,53 @@
+[
+  {
+    "id": 8,
+    "name": "บย-2178-บึงกาฬ",
+    "mileage": 12312313,
+    "active": "1",
+    "remark": "testasdasdasdasdasdasdasdasdasdasd",
+    "img": "/uploads/car/1725011831837.jpg",
+    "createdAt": "30/8/2024 09:02:14.589",
+    "updatedAt": "30/8/2024 10:28:25.212",
+    "carTypeId": 2,
+    "carBrandId": 2,
+    "carModelId": 5,
+    "provinceId": 77,
+    "carColorId": 4,
+    "qty": 4,
+    "reg": "บย-2178"
+  },
+  {
+    "id": 9,
+    "name": "นข-5237-พัทลุง",
+    "mileage": 165432185,
+    "active": "1",
+    "remark": "test2",
+    "img": "/uploads/car/1725009414510.jpg",
+    "createdAt": "30/8/2024 09:16:54.486",
+    "updatedAt": "30/8/2024 10:28:48.451",
+    "carTypeId": 4,
+    "carBrandId": 3,
+    "carModelId": 7,
+    "provinceId": 73,
+    "carColorId": 14,
+    "qty": 10,
+    "reg": "นข-5237"
+  },
+  {
+    "id": 10,
+    "name": "aa-1234-ร้อยเอ็ด",
+    "mileage": 1150,
+    "active": "1",
+    "remark": "lambo",
+    "img": "/uploads/car/1725244732745.jpg",
+    "createdAt": "30/8/2024 10:06:26.654",
+    "updatedAt": "2/9/2024 02:38:52.751",
+    "carTypeId": 9,
+    "carBrandId": 4,
+    "carModelId": 9,
+    "provinceId": 33,
+    "carColorId": 19,
+    "qty": 2,
+    "reg": "aa-1234"
+  }
+]

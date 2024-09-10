@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "url": "https://www.facebook.com",
+    "remark": "test",
+    "active": "1",
+    "createdAt": "29/8/2024 09:38:14.739",
+    "updatedAt": "30/8/2024 04:12:02.413",
+    "name": "facebook"
+  },
+  {
+    "id": 2,
+    "url": "https://www.google.com/",
+    "remark": "test",
+    "active": "1",
+    "createdAt": "29/8/2024 09:52:43.484",
+    "updatedAt": "30/8/2024 04:11:58.403",
+    "name": "google"
+  },
+  {
+    "id": 3,
+    "url": "http://192.168.3.4/LoginERS/Login.aspx",
+    "remark": "ลาออนไลน์",
+    "active": "1",
+    "createdAt": "2/9/2024 02:51:03.412",
+    "updatedAt": "2/9/2024 02:51:03.412",
+    "name": "E-Business Plus"
+  },
+  {
+    "id": 4,
+    "url": "https://www.google.com/",
+    "remark": "test",
+    "active": "1",
+    "createdAt": "5/9/2024 08:30:06.634",
+    "updatedAt": "6/9/2024 03:23:30.084",
+    "name": "test"
+  }
+]

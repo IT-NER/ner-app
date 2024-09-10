@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Zoom",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft Team",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 3,
+    "name": "Webex",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 4,
+    "name": "Stream Yard",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  },
+  {
+    "id": 5,
+    "name": "อื่นๆ",
+    "createdAt": "1/1/1900 00:00:00",
+    "updatedAt": "1/1/1900 00:00:00"
+  }
+]
