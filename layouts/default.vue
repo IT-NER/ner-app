@@ -23,7 +23,7 @@
       v-model="drawerRigth"
       app
       right
-      v-if="$nuxt.$route.name == 'index'"
+      v-if="$nuxt.$route.name == 'intranet'"
       width="300"
     >
       <card-button-link />
@@ -55,7 +55,7 @@
 
       <v-app-bar-nav-icon
         @click="drawerRigth = !drawerRigth"
-        v-if="$nuxt.$route.name == 'index'"
+        v-if="$nuxt.$route.name == 'intranet'"
       >
         <!-- <v-icon v-if="drawerRigth"> mdi-list-box-outline </v-icon>
         <v-icon v-else> mdi-list-box-outline </v-icon> -->
