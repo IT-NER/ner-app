@@ -25,6 +25,94 @@ CREATE TABLE [dbo].[User] (
 );
 
 -- CreateTable
+CREATE TABLE [dbo].[Car] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000) NOT NULL,
+    [reg] NVARCHAR(1000),
+    [qty] INT,
+    [mileage] INT,
+    [active] BIT CONSTRAINT [Car_active_df] DEFAULT 1,
+    [remark] NVARCHAR(1000),
+    [img] NVARCHAR(1000),
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [Car_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    [carTypeId] INT,
+    [carBrandId] INT,
+    [carModelId] INT,
+    [provinceId] INT,
+    [carColorId] INT,
+    CONSTRAINT [Car_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [Car_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[CarType] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000) NOT NULL,
+    [active] BIT CONSTRAINT [CarType_active_df] DEFAULT 1,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [CarType_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [CarType_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [CarType_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[CarImg] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000),
+    [url] NVARCHAR(1000),
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [CarImg_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    [carId] INT,
+    CONSTRAINT [CarImg_pkey] PRIMARY KEY CLUSTERED ([id])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[CarColor] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000) NOT NULL,
+    [active] BIT CONSTRAINT [CarColor_active_df] DEFAULT 1,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [CarColor_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [CarColor_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [CarColor_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[CarBrand] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000) NOT NULL,
+    [active] BIT CONSTRAINT [CarBrand_active_df] DEFAULT 1,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [CarBrand_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [CarBrand_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [CarBrand_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[CarModel] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000) NOT NULL,
+    [active] BIT CONSTRAINT [CarModel_active_df] DEFAULT 1,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [CarModel_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    [carBrandId] INT,
+    CONSTRAINT [CarModel_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [CarModel_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[Province] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000) NOT NULL,
+    [active] BIT CONSTRAINT [Province_active_df] DEFAULT 1,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [Province_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [Province_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [Province_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
 CREATE TABLE [dbo].[Content] (
     [id] INT NOT NULL IDENTITY(1,1),
     [start] DATETIME2,
@@ -40,6 +128,7 @@ CREATE TABLE [dbo].[Content] (
     [contentStatusId] INT,
     [contentTypeId] INT,
     [userId] INT,
+    [contentCoverImgId] INT,
     [active] BIT CONSTRAINT [Content_active_df] DEFAULT 1,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [Content_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
@@ -66,6 +155,17 @@ CREATE TABLE [dbo].[ContentType] (
     [updatedAt] DATETIME2 NOT NULL,
     CONSTRAINT [ContentType_pkey] PRIMARY KEY CLUSTERED ([id]),
     CONSTRAINT [ContentType_name_key] UNIQUE NONCLUSTERED ([name])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[ContentCoverImg] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(1000),
+    [url] NVARCHAR(1000),
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [ContentCoverImg_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [ContentCoverImg_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [ContentCoverImg_name_key] UNIQUE NONCLUSTERED ([name])
 );
 
 -- CreateTable
@@ -98,25 +198,21 @@ CREATE TABLE [dbo].[PointPay] (
     [point] INT,
     [userId] INT,
     [rewardId] INT,
-    [pointPayRequestId] INT,
+    [approveDate] DATETIME2,
+    [approveBy] INT,
+    [pointPayStatusId] INT,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [PointPay_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
     CONSTRAINT [PointPay_pkey] PRIMARY KEY CLUSTERED ([id])
 );
 
 -- CreateTable
-CREATE TABLE [dbo].[PointPayRequest] (
+CREATE TABLE [dbo].[PointPayStatus] (
     [id] INT NOT NULL IDENTITY(1,1),
-    [ticket] NVARCHAR(1000) NOT NULL,
-    [approve] BIT CONSTRAINT [PointPayRequest_approve_df] DEFAULT 0,
-    [userId] INT,
-    [rewardId] INT,
-    [approveId] INT,
-    [active] BIT CONSTRAINT [PointPayRequest_active_df] DEFAULT 1,
-    [createdAt] DATETIME2 NOT NULL CONSTRAINT [PointPayRequest_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [name] NVARCHAR(1000),
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [PointPayStatus_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
-    CONSTRAINT [PointPayRequest_pkey] PRIMARY KEY CLUSTERED ([id]),
-    CONSTRAINT [PointPayRequest_ticket_key] UNIQUE NONCLUSTERED ([ticket])
+    CONSTRAINT [PointPayStatus_pkey] PRIMARY KEY CLUSTERED ([id])
 );
 
 -- CreateTable
@@ -139,7 +235,7 @@ CREATE TABLE [dbo].[Reward] (
     [ticket] NVARCHAR(1000) NOT NULL,
     [code] NVARCHAR(1000),
     [name] NVARCHAR(1000),
-    [description] NVARCHAR(1000),
+    [description] VARCHAR(8000),
     [point] INT CONSTRAINT [Reward_point_df] DEFAULT 0,
     [userId] INT,
     [active] BIT CONSTRAINT [Reward_active_df] DEFAULT 1,
@@ -166,15 +262,14 @@ CREATE TABLE [dbo].[RewardImg] (
 -- CreateTable
 CREATE TABLE [dbo].[ButtonLink] (
     [id] INT NOT NULL IDENTITY(1,1),
-    [ticket] NVARCHAR(1000) NOT NULL,
-    [url] NVARCHAR(1000) NOT NULL,
+    [name] NVARCHAR(1000) NOT NULL,
+    [url] NVARCHAR(1000),
     [remark] NVARCHAR(1000),
     [active] BIT CONSTRAINT [ButtonLink_active_df] DEFAULT 1,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [ButtonLink_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [updatedAt] DATETIME2 NOT NULL,
     CONSTRAINT [ButtonLink_pkey] PRIMARY KEY CLUSTERED ([id]),
-    CONSTRAINT [ButtonLink_ticket_key] UNIQUE NONCLUSTERED ([ticket]),
-    CONSTRAINT [ButtonLink_url_key] UNIQUE NONCLUSTERED ([url])
+    CONSTRAINT [ButtonLink_name_key] UNIQUE NONCLUSTERED ([name])
 );
 
 -- CreateTable
@@ -318,9 +413,6 @@ CREATE TABLE [dbo].[Drink] (
 );
 
 -- AddForeignKey
-ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_buttonLinkId_fkey] FOREIGN KEY ([buttonLinkId]) REFERENCES [dbo].[ButtonLink]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_departmentId_fkey] FOREIGN KEY ([departmentId]) REFERENCES [dbo].[Department]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
@@ -328,6 +420,27 @@ ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_positionId_fkey] FOREIGN KEY ([pos
 
 -- AddForeignKey
 ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_roleId_fkey] FOREIGN KEY ([roleId]) REFERENCES [dbo].[Role]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Car] ADD CONSTRAINT [Car_carTypeId_fkey] FOREIGN KEY ([carTypeId]) REFERENCES [dbo].[CarType]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Car] ADD CONSTRAINT [Car_carBrandId_fkey] FOREIGN KEY ([carBrandId]) REFERENCES [dbo].[CarBrand]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Car] ADD CONSTRAINT [Car_carModelId_fkey] FOREIGN KEY ([carModelId]) REFERENCES [dbo].[CarModel]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Car] ADD CONSTRAINT [Car_provinceId_fkey] FOREIGN KEY ([provinceId]) REFERENCES [dbo].[Province]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Car] ADD CONSTRAINT [Car_carColorId_fkey] FOREIGN KEY ([carColorId]) REFERENCES [dbo].[CarColor]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[CarImg] ADD CONSTRAINT [CarImg_carId_fkey] FOREIGN KEY ([carId]) REFERENCES [dbo].[Car]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[CarModel] ADD CONSTRAINT [CarModel_carBrandId_fkey] FOREIGN KEY ([carBrandId]) REFERENCES [dbo].[CarBrand]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentStatusId_fkey] FOREIGN KEY ([contentStatusId]) REFERENCES [dbo].[ContentStatus]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
@@ -339,6 +452,9 @@ ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentTypeId_fkey] FOREIGN 
 ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE [dbo].[Content] ADD CONSTRAINT [Content_contentCoverImgId_fkey] FOREIGN KEY ([contentCoverImgId]) REFERENCES [dbo].[ContentCoverImg]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE [dbo].[ContentImg] ADD CONSTRAINT [ContentImg_contentId_fkey] FOREIGN KEY ([contentId]) REFERENCES [dbo].[Content]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
@@ -348,19 +464,13 @@ ALTER TABLE [dbo].[PointReceived] ADD CONSTRAINT [PointReceived_userId_fkey] FOR
 ALTER TABLE [dbo].[PointReceived] ADD CONSTRAINT [PointReceived_contentId_fkey] FOREIGN KEY ([contentId]) REFERENCES [dbo].[Content]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_rewardId_fkey] FOREIGN KEY ([rewardId]) REFERENCES [dbo].[Reward]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_pointPayRequestId_fkey] FOREIGN KEY ([pointPayRequestId]) REFERENCES [dbo].[PointPayRequest]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE [dbo].[PointPayRequest] ADD CONSTRAINT [PointPayRequest_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- AddForeignKey
-ALTER TABLE [dbo].[PointPayRequest] ADD CONSTRAINT [PointPayRequest_rewardId_fkey] FOREIGN KEY ([rewardId]) REFERENCES [dbo].[Reward]([id]) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE [dbo].[PointPay] ADD CONSTRAINT [PointPay_pointPayStatusId_fkey] FOREIGN KEY ([pointPayStatusId]) REFERENCES [dbo].[PointPayStatus]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
 ALTER TABLE [dbo].[PointReceivedPay] ADD CONSTRAINT [PointReceivedPay_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION;

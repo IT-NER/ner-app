@@ -88,3 +88,4 @@ sw.*
 .env
 .env
 .env
+*.xls
