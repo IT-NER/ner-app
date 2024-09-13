@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import { PrismaClient } from "@prisma/client";
 
 let prisma = new PrismaClient();
@@ -15,25 +15,85 @@ app.post("/room/disable", async (req, res) => {
 async function getItemsRoomDisable(item) {
   let booking = await prisma.booking.findMany({
     where: {
-      AND: [
+      // AND: [
+      //   {
+      OR: [
         {
           start: {
             gte: new Date(item.start),
           },
           end: {
+            gte: new Date(item.start),
             lte: new Date(item.end),
           },
-          statusId: {
-            lt: 3,
+        },
+        {
+          end: {
+            gte: new Date(item.start),
+          },
+          start: {
+            lte: new Date(item.end),
+          },
+        },
+        {
+          start: {
+            lte: new Date(item.start),
+          },
+          end: {
+            gte: new Date(item.end),
           },
         },
       ],
-    },
-    orderBy: [
-      {
-        roomId: "asc",
+
+      statusId: {
+        in: [2],
       },
-    ],
+      //   },
+      // ],
+    },
+    // where: {
+    //   OR: [
+    //     {
+    //       AND: [
+    //         {
+    //           start: {
+    //             gte: new Date(item.start),
+    //             lte: new Date(item.end),
+    //           },
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       AND: [
+    //         {
+    //           end: {
+    //             lte: new Date(item.start),
+    //             gte: new Date(item.end),
+    //           },
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       AND: [
+    //         {
+    //           start: {
+    //             gt: new Date(item.start),
+    //           },
+    //           end: {
+    //             lt: new Date(item.end),
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   ],
+
+    //   // orderBy: [
+    //   //   {
+    //   //     roomId: "asc",
+    //   //   },
+    //   // ],
+    // },
+
     include: {
       MeetingType: true,
       Program: true,
@@ -103,41 +163,59 @@ async function getItemsRoomEnable(item) {
     where: {
       AND: [
         {
-          start: {
-            gte: new Date(item.start),
-          },
-          end: {
-            lte: new Date(item.end),
-          },
+          OR: [
+            {
+              start: {
+                gte: new Date(item.start),
+              },
+              end: {
+                gte: new Date(item.start),
+                lte: new Date(item.end),
+              },
+            },
+            {
+              end: {
+                gte: new Date(item.start),
+              },
+              start: {
+                lte: new Date(item.end),
+              },
+            },
+            {
+              start: {
+                lte: new Date(item.start),
+              },
+              end: {
+                gte: new Date(item.end),
+              },
+            },
+          ],
+
           statusId: {
-            lt: 3,
+            in: [1, 2],
           },
         },
       ],
     },
+
     orderBy: [
       {
         roomId: "asc",
       },
     ],
+
     include: {
-      MeetingType: true,
-      Program: true,
       Room: true,
       Status: true,
-      User: true,
-      BookingDevice: true,
-      BookingDrink: true,
-      BookingFood: true,
     },
   });
 
-  let ids = [];
+  let roomDisableIds = [];
   booking.forEach((e) => {
-    ids.push(e.roomId);
+    roomDisableIds.push(e.Room.id);
   });
-
-  let roomIds = [...new Set(ids)];
+  let roomIds = [...new Set(roomDisableIds)];
+  console.log("roomIds", roomIds);
 
   let room = await prisma.room.findMany({
     where: {
@@ -147,7 +225,6 @@ async function getItemsRoomEnable(item) {
     },
   });
 
-  // console.log("item", item.id);
   if (item.id > 0) {
     let items = await formatItemsRoom(room, item);
     return items;

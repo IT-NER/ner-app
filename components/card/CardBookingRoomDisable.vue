@@ -1,7 +1,11 @@
 <template>
   <div>
     <v-expansion-panels flat>
-      <v-expansion-panel v-for="(item, i) in items" :key="i">
+      <v-expansion-panel
+        v-for="(item, i) in items"
+        :key="i"
+        v-show="showItem(item)"
+      >
         <v-divider></v-divider>
         <v-expansion-panel-header>
           {{ item.name }}
@@ -42,6 +46,17 @@
 <script>
 export default {
   props: ["items", "item"],
+
+  methods: {
+    showItem(item) {
+      console.log("item", item);
+      let count = 0;
+      if (item.Booking.length > 0) {
+        count = item.Booking.length;
+      }
+      return count;
+    },
+  },
 };
 </script>
 
