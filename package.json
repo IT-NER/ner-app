@@ -33,5 +33,8 @@
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.3",
     "@types/pdfmake": "^0.2.9"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
