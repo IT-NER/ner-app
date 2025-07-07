@@ -3356,7 +3356,8 @@ async function main() {
         ],
     });
 
-    console.log({ role, department, position, user });
+
+    // console.log({ role, department, position, user });
 }
 main()
     .then(async () => {
